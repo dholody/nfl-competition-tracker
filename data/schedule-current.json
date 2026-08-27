@@ -19,7 +19,9 @@
       "awayFpi": -2.96,
       "homeFpi": -5.191,
       "predictedMargin": -0.2,
-      "predictionError": -2.8
+      "predictionError": -2.8,
+      "homeWinProbability": 0.493,
+      "awayWinProbability": 0.507
     },
     {
       "gameId": "401873272",
@@ -38,7 +40,9 @@
       "awayFpi": 2.501,
       "homeFpi": 1.627,
       "predictedMargin": 1.1,
-      "predictionError": 0.9
+      "predictionError": 0.9,
+      "homeWinProbability": 0.539,
+      "awayWinProbability": 0.461
     },
     {
       "gameId": "401873275",
@@ -57,7 +61,9 @@
       "awayFpi": 2.787,
       "homeFpi": -0.871,
       "predictedMargin": -1.7,
-      "predictionError": 20.7
+      "predictionError": 20.7,
+      "homeWinProbability": 0.44,
+      "awayWinProbability": 0.56
     },
     {
       "gameId": "401873273",
@@ -76,7 +82,9 @@
       "awayFpi": -0.633,
       "homeFpi": 1.4,
       "predictedMargin": 4,
-      "predictionError": -4
+      "predictionError": -4,
+      "homeWinProbability": 0.639,
+      "awayWinProbability": 0.361
     },
     {
       "gameId": "401873640",
@@ -95,7 +103,9 @@
       "awayFpi": -5.191,
       "homeFpi": -4.634,
       "predictedMargin": 2.6,
-      "predictionError": -15.6
+      "predictionError": -15.6,
+      "homeWinProbability": 0.592,
+      "awayWinProbability": 0.408
     },
     {
       "gameId": "401873274",
@@ -114,7 +124,9 @@
       "awayFpi": 2.606,
       "homeFpi": 1.446,
       "predictedMargin": 0.8,
-      "predictionError": -20.8
+      "predictionError": -20.8,
+      "homeWinProbability": 0.529,
+      "awayWinProbability": 0.471
     },
     {
       "gameId": "401874392",
@@ -133,7 +145,9 @@
       "awayFpi": -3.9,
       "homeFpi": 3.306,
       "predictedMargin": 9.2,
-      "predictionError": -15.2
+      "predictionError": -15.2,
+      "homeWinProbability": 0.788,
+      "awayWinProbability": 0.212
     },
     {
       "gameId": "401873278",
@@ -152,7 +166,9 @@
       "awayFpi": 1.289,
       "homeFpi": -1.496,
       "predictedMargin": -0.8,
-      "predictionError": -19.2
+      "predictionError": -19.2,
+      "homeWinProbability": 0.471,
+      "awayWinProbability": 0.529
     },
     {
       "gameId": "401873276",
@@ -171,7 +187,9 @@
       "awayFpi": 0.089,
       "homeFpi": -5.541,
       "predictedMargin": -3.6,
-      "predictionError": -4.4
+      "predictionError": -4.4,
+      "homeWinProbability": 0.374,
+      "awayWinProbability": 0.626
     },
     {
       "gameId": "401873277",
@@ -190,7 +208,9 @@
       "awayFpi": -5.805,
       "homeFpi": -0.828,
       "predictedMargin": 7,
-      "predictionError": 6
+      "predictionError": 6,
+      "homeWinProbability": 0.731,
+      "awayWinProbability": 0.269
     },
     {
       "gameId": "401873282",
@@ -209,7 +229,9 @@
       "awayFpi": -2.96,
       "homeFpi": 3.951,
       "predictedMargin": 8.9,
-      "predictionError": 6.1
+      "predictionError": 6.1,
+      "homeWinProbability": 0.781,
+      "awayWinProbability": 0.219
     },
     {
       "gameId": "401874393",
@@ -228,7 +250,9 @@
       "awayFpi": -5.471,
       "homeFpi": 1.203,
       "predictedMargin": 8.7,
-      "predictionError": 15.3
+      "predictionError": 15.3,
+      "homeWinProbability": 0.776,
+      "awayWinProbability": 0.224
     },
     {
       "gameId": "401873280",
@@ -247,7 +271,9 @@
       "awayFpi": -0.435,
       "homeFpi": -1.159,
       "predictedMargin": 1.3,
-      "predictionError": -4.3
+      "predictionError": -4.3,
+      "homeWinProbability": 0.546,
+      "awayWinProbability": 0.454
     },
     {
       "gameId": "401873283",
@@ -266,7 +292,9 @@
       "awayFpi": 5.574,
       "homeFpi": 2.386,
       "predictedMargin": -1.2,
-      "predictionError": -6.8
+      "predictionError": -6.8,
+      "homeWinProbability": 0.457,
+      "awayWinProbability": 0.543
     },
     {
       "gameId": "401873281",
@@ -285,7 +313,9 @@
       "awayFpi": 1.006,
       "homeFpi": -2.696,
       "predictedMargin": -1.7,
-      "predictionError": -2.3
+      "predictionError": -2.3,
+      "homeWinProbability": 0.44,
+      "awayWinProbability": 0.56
     },
     {
       "gameId": "401873284",
@@ -304,7 +334,9 @@
       "awayFpi": 1.992,
       "homeFpi": 3.705,
       "predictedMargin": 3.7,
-      "predictionError": 13.3
+      "predictionError": 13.3,
+      "homeWinProbability": 0.629,
+      "awayWinProbability": 0.371
     },
     {
       "gameId": "401873279",
@@ -323,7 +355,9 @@
       "awayFpi": 1.764,
       "homeFpi": 3.634,
       "predictedMargin": 3.9,
-      "predictionError": -13.9
+      "predictionError": -13.9,
+      "homeWinProbability": 0.636,
+      "awayWinProbability": 0.364
     },
     {
       "gameId": "401873286",
@@ -342,7 +376,9 @@
       "awayFpi": -4.634,
       "homeFpi": 1.446,
       "predictedMargin": 8.1,
-      "predictionError": -10.1
+      "predictionError": -10.1,
+      "homeWinProbability": 0.761,
+      "awayWinProbability": 0.239
     },
     {
       "gameId": "401873285",
@@ -361,7 +397,9 @@
       "awayFpi": 3.306,
       "homeFpi": 2.606,
       "predictedMargin": 1.3,
-      "predictionError": -25.3
+      "predictionError": -25.3,
+      "homeWinProbability": 0.546,
+      "awayWinProbability": 0.454
     },
     {
       "gameId": "401873288",
@@ -380,7 +418,9 @@
       "awayFpi": -5.541,
       "homeFpi": -0.871,
       "predictedMargin": 6.7,
-      "predictionError": -23.7
+      "predictionError": -23.7,
+      "homeWinProbability": 0.723,
+      "awayWinProbability": 0.277
     },
     {
       "gameId": "401873287",
@@ -399,7 +439,9 @@
       "awayFpi": -2.96,
       "homeFpi": 1.006,
       "predictedMargin": 6,
-      "predictionError": -23
+      "predictionError": -23,
+      "homeWinProbability": 0.702,
+      "awayWinProbability": 0.298
     },
     {
       "gameId": "401873613",
@@ -418,7 +460,9 @@
       "awayFpi": 2.787,
       "homeFpi": 1.289,
       "predictedMargin": 0.5,
-      "predictionError": -20.5
+      "predictionError": -20.5,
+      "homeWinProbability": 0.518,
+      "awayWinProbability": 0.482
     },
     {
       "gameId": "401873601",
@@ -437,7 +481,9 @@
       "awayFpi": -0.828,
       "homeFpi": 2.501,
       "predictedMargin": 5.3,
-      "predictionError": -1.3
+      "predictionError": -1.3,
+      "homeWinProbability": 0.681,
+      "awayWinProbability": 0.319
     },
     {
       "gameId": "401873294",
@@ -456,7 +502,9 @@
       "awayFpi": 3.951,
       "homeFpi": -5.471,
       "predictedMargin": -7.4,
-      "predictionError": -16.6
+      "predictionError": -16.6,
+      "homeWinProbability": 0.258,
+      "awayWinProbability": 0.742
     },
     {
       "gameId": "401873295",
@@ -475,7 +523,9 @@
       "awayFpi": -1.496,
       "homeFpi": -0.633,
       "predictedMargin": 2.9,
-      "predictionError": -30.9
+      "predictionError": -30.9,
+      "homeWinProbability": 0.602,
+      "awayWinProbability": 0.398
     },
     {
       "gameId": "401873291",
@@ -494,7 +544,9 @@
       "awayFpi": 3.705,
       "homeFpi": -0.435,
       "predictedMargin": -2.1,
-      "predictionError": -7.9
+      "predictionError": -7.9,
+      "homeWinProbability": 0.426,
+      "awayWinProbability": 0.574
     },
     {
       "gameId": "401873290",
@@ -513,7 +565,9 @@
       "awayFpi": -2.696,
       "homeFpi": 5.574,
       "predictedMargin": 10.3,
-      "predictionError": 23.7
+      "predictionError": 23.7,
+      "homeWinProbability": 0.813,
+      "awayWinProbability": 0.187
     },
     {
       "gameId": "401873292",
@@ -532,7 +586,9 @@
       "awayFpi": -1.159,
       "homeFpi": -5.805,
       "predictedMargin": -2.6,
-      "predictionError": -20.4
+      "predictionError": -20.4,
+      "homeWinProbability": 0.408,
+      "awayWinProbability": 0.592
     },
     {
       "gameId": "401873289",
@@ -551,7 +607,9 @@
       "awayFpi": 1.203,
       "homeFpi": 1.627,
       "predictedMargin": 2.4,
-      "predictionError": 15.6
+      "predictionError": 15.6,
+      "homeWinProbability": 0.585,
+      "awayWinProbability": 0.415
     },
     {
       "gameId": "401873293",
@@ -570,7 +628,9 @@
       "awayFpi": 1.992,
       "homeFpi": 1.4,
       "predictedMargin": 1.4,
-      "predictionError": 1.6
+      "predictionError": 1.6,
+      "homeWinProbability": 0.55,
+      "awayWinProbability": 0.45
     },
     {
       "gameId": "401873296",
@@ -589,7 +649,9 @@
       "awayFpi": 2.386,
       "homeFpi": 0.089,
       "predictedMargin": -0.3,
-      "predictionError": 1.3
+      "predictionError": 1.3,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401874101",
@@ -608,7 +670,9 @@
       "awayFpi": 1.764,
       "homeFpi": -5.191,
       "predictedMargin": -5,
-      "predictionError": -16
+      "predictionError": -16,
+      "homeWinProbability": 0.329,
+      "awayWinProbability": 0.671
     },
     {
       "gameId": "401873297",
@@ -627,7 +691,9 @@
       "awayFpi": 3.634,
       "homeFpi": -3.9,
       "predictedMargin": -5.5,
-      "predictionError": 8.5
+      "predictionError": 8.5,
+      "homeWinProbability": 0.313,
+      "awayWinProbability": 0.687
     },
     {
       "gameId": "401873298",
@@ -646,7 +712,9 @@
       "awayFpi": -0.871,
       "homeFpi": 3.951,
       "predictedMargin": 6.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.725,
+      "awayWinProbability": 0.275
     },
     {
       "gameId": "401873299",
@@ -665,7 +733,9 @@
       "awayFpi": 1.4,
       "homeFpi": -5.471,
       "predictedMargin": -4.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.332,
+      "awayWinProbability": 0.668
     },
     {
       "gameId": "401873641",
@@ -684,7 +754,9 @@
       "awayFpi": 3.306,
       "homeFpi": -4.634,
       "predictedMargin": -5.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.301,
+      "awayWinProbability": 0.699
     },
     {
       "gameId": "401873300",
@@ -703,7 +775,9 @@
       "awayFpi": 5.574,
       "homeFpi": 2.606,
       "predictedMargin": -1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.464,
+      "awayWinProbability": 0.536
     },
     {
       "gameId": "401873302",
@@ -722,7 +796,9 @@
       "awayFpi": -0.828,
       "homeFpi": 3.705,
       "predictedMargin": 6.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.717,
+      "awayWinProbability": 0.283
     },
     {
       "gameId": "401873304",
@@ -741,7 +817,9 @@
       "awayFpi": -1.496,
       "homeFpi": -5.805,
       "predictedMargin": -2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.419,
+      "awayWinProbability": 0.581
     },
     {
       "gameId": "401873307",
@@ -760,7 +838,9 @@
       "awayFpi": 1.446,
       "homeFpi": -2.96,
       "predictedMargin": -2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.415,
+      "awayWinProbability": 0.585
     },
     {
       "gameId": "401873303",
@@ -779,7 +859,9 @@
       "awayFpi": -1.159,
       "homeFpi": -5.541,
       "predictedMargin": -2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.415,
+      "awayWinProbability": 0.585
     },
     {
       "gameId": "401873306",
@@ -798,7 +880,9 @@
       "awayFpi": 0.089,
       "homeFpi": 1.006,
       "predictedMargin": 2.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.602,
+      "awayWinProbability": 0.398
     },
     {
       "gameId": "401874048",
@@ -817,7 +901,9 @@
       "awayFpi": -2.696,
       "homeFpi": 1.764,
       "predictedMargin": 6.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.717,
+      "awayWinProbability": 0.283
     },
     {
       "gameId": "401874102",
@@ -836,7 +922,9 @@
       "awayFpi": -5.191,
       "homeFpi": 2.787,
       "predictedMargin": 10,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.807,
+      "awayWinProbability": 0.193
     },
     {
       "gameId": "401873305",
@@ -855,7 +943,9 @@
       "awayFpi": 3.634,
       "homeFpi": 2.386,
       "predictedMargin": 0.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.529,
+      "awayWinProbability": 0.471
     },
     {
       "gameId": "401873301",
@@ -874,7 +964,9 @@
       "awayFpi": 1.627,
       "homeFpi": 1.992,
       "predictedMargin": 2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.585,
+      "awayWinProbability": 0.415
     },
     {
       "gameId": "401873614",
@@ -893,7 +985,9 @@
       "awayFpi": -0.435,
       "homeFpi": 1.289,
       "predictedMargin": 3.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.629,
+      "awayWinProbability": 0.371
     },
     {
       "gameId": "401873308",
@@ -912,7 +1006,9 @@
       "awayFpi": 2.501,
       "homeFpi": -0.633,
       "predictedMargin": -1.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.461,
+      "awayWinProbability": 0.539
     },
     {
       "gameId": "401874394",
@@ -931,7 +1027,9 @@
       "awayFpi": 1.203,
       "homeFpi": -3.9,
       "predictedMargin": -3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.391,
+      "awayWinProbability": 0.609
     },
     {
       "gameId": "401872656",
@@ -950,7 +1048,9 @@
       "awayFpi": 1.4,
       "homeFpi": 3.634,
       "predictedMargin": 4.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.646,
+      "awayWinProbability": 0.354
     },
     {
       "gameId": "401872657",
@@ -969,7 +1069,9 @@
       "awayFpi": 3.306,
       "homeFpi": 5.574,
       "predictedMargin": 4.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.649,
+      "awayWinProbability": 0.351
     },
     {
       "gameId": "401872925",
@@ -988,7 +1090,9 @@
       "awayFpi": 0.089,
       "homeFpi": 1.627,
       "predictedMargin": 3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.622,
+      "awayWinProbability": 0.378
     },
     {
       "gameId": "401872923",
@@ -1007,7 +1111,9 @@
       "awayFpi": -2.696,
       "homeFpi": 2.501,
       "predictedMargin": 7.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.737,
+      "awayWinProbability": 0.263
     },
     {
       "gameId": "401872924",
@@ -1026,7 +1132,9 @@
       "awayFpi": -5.541,
       "homeFpi": -3.9,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401872659",
@@ -1045,7 +1153,9 @@
       "awayFpi": 3.705,
       "homeFpi": -0.633,
       "predictedMargin": -2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.419,
+      "awayWinProbability": 0.581
     },
     {
       "gameId": "401872658",
@@ -1064,7 +1174,9 @@
       "awayFpi": -1.496,
       "homeFpi": -0.871,
       "predictedMargin": 2.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.592,
+      "awayWinProbability": 0.408
     },
     {
       "gameId": "401872661",
@@ -1083,7 +1195,9 @@
       "awayFpi": 1.203,
       "homeFpi": -2.96,
       "predictedMargin": -2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.422,
+      "awayWinProbability": 0.578
     },
     {
       "gameId": "401872922",
@@ -1102,7 +1216,9 @@
       "awayFpi": -5.471,
       "homeFpi": 1.006,
       "predictedMargin": 8.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.771,
+      "awayWinProbability": 0.229
     },
     {
       "gameId": "401872660",
@@ -1121,7 +1237,9 @@
       "awayFpi": 3.951,
       "homeFpi": 1.446,
       "predictedMargin": -0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.482,
+      "awayWinProbability": 0.518
     },
     {
       "gameId": "401872928",
@@ -1140,7 +1258,9 @@
       "awayFpi": -5.805,
       "homeFpi": -4.634,
       "predictedMargin": 3.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.612,
+      "awayWinProbability": 0.388
     },
     {
       "gameId": "401872927",
@@ -1159,7 +1279,9 @@
       "awayFpi": 2.787,
       "homeFpi": -0.435,
       "predictedMargin": -1.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.457,
+      "awayWinProbability": 0.543
     },
     {
       "gameId": "401872929",
@@ -1178,7 +1300,9 @@
       "awayFpi": -0.828,
       "homeFpi": 1.992,
       "predictedMargin": 4.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.665,
+      "awayWinProbability": 0.335
     },
     {
       "gameId": "401872926",
@@ -1197,7 +1321,9 @@
       "awayFpi": -5.191,
       "homeFpi": 2.606,
       "predictedMargin": 9.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.802,
+      "awayWinProbability": 0.198
     },
     {
       "gameId": "401872930",
@@ -1216,7 +1342,9 @@
       "awayFpi": 1.764,
       "homeFpi": -1.159,
       "predictedMargin": -0.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.468,
+      "awayWinProbability": 0.532
     },
     {
       "gameId": "401872931",
@@ -1235,7 +1363,9 @@
       "awayFpi": 1.289,
       "homeFpi": 2.386,
       "predictedMargin": 3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.609,
+      "awayWinProbability": 0.391
     },
     {
       "gameId": "401872932",
@@ -1254,7 +1384,9 @@
       "awayFpi": 2.501,
       "homeFpi": 3.951,
       "predictedMargin": 3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.622,
+      "awayWinProbability": 0.378
     },
     {
       "gameId": "401872933",
@@ -1273,7 +1405,9 @@
       "awayFpi": -2.96,
       "homeFpi": -1.496,
       "predictedMargin": 3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.622,
+      "awayWinProbability": 0.378
     },
     {
       "gameId": "401872937",
@@ -1292,7 +1426,9 @@
       "awayFpi": -0.435,
       "homeFpi": 1.203,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401872939",
@@ -1311,7 +1447,9 @@
       "awayFpi": 1.992,
       "homeFpi": -3.9,
       "predictedMargin": -3.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.364,
+      "awayWinProbability": 0.636
     },
     {
       "gameId": "401872946",
@@ -1330,7 +1468,9 @@
       "awayFpi": -0.871,
       "homeFpi": 1.4,
       "predictedMargin": 4.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.649,
+      "awayWinProbability": 0.351
     },
     {
       "gameId": "401872936",
@@ -1349,7 +1489,9 @@
       "awayFpi": 2.787,
       "homeFpi": -5.541,
       "predictedMargin": -6.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.289,
+      "awayWinProbability": 0.711
     },
     {
       "gameId": "401872935",
@@ -1368,7 +1510,9 @@
       "awayFpi": -5.471,
       "homeFpi": 0.089,
       "predictedMargin": 7.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.748,
+      "awayWinProbability": 0.252
     },
     {
       "gameId": "401872938",
@@ -1387,7 +1531,9 @@
       "awayFpi": -2.696,
       "homeFpi": 3.705,
       "predictedMargin": 8.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.769,
+      "awayWinProbability": 0.231
     },
     {
       "gameId": "401872934",
@@ -1406,7 +1552,9 @@
       "awayFpi": 1.627,
       "homeFpi": 1.446,
       "predictedMargin": 1.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.436
     },
     {
       "gameId": "401872940",
@@ -1425,7 +1573,9 @@
       "awayFpi": 1.006,
       "homeFpi": 1.289,
       "predictedMargin": 2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.581,
+      "awayWinProbability": 0.419
     },
     {
       "gameId": "401872941",
@@ -1444,7 +1594,9 @@
       "awayFpi": -4.634,
       "homeFpi": 2.606,
       "predictedMargin": 9.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.788,
+      "awayWinProbability": 0.212
     },
     {
       "gameId": "401872944",
@@ -1463,7 +1615,9 @@
       "awayFpi": -0.828,
       "homeFpi": 1.764,
       "predictedMargin": 4.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.659,
+      "awayWinProbability": 0.341
     },
     {
       "gameId": "401872943",
@@ -1482,7 +1636,9 @@
       "awayFpi": 3.634,
       "homeFpi": -5.191,
       "predictedMargin": -6.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.275,
+      "awayWinProbability": 0.725
     },
     {
       "gameId": "401872942",
@@ -1501,7 +1657,9 @@
       "awayFpi": -5.805,
       "homeFpi": 3.306,
       "predictedMargin": 11.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.83,
+      "awayWinProbability": 0.17
     },
     {
       "gameId": "401872945",
@@ -1520,7 +1678,9 @@
       "awayFpi": -0.633,
       "homeFpi": 2.386,
       "predictedMargin": 5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.671,
+      "awayWinProbability": 0.329
     },
     {
       "gameId": "401872947",
@@ -1539,7 +1699,9 @@
       "awayFpi": -1.159,
       "homeFpi": 5.574,
       "predictedMargin": 8.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.776,
+      "awayWinProbability": 0.224
     },
     {
       "gameId": "401872948",
@@ -1558,7 +1720,9 @@
       "awayFpi": -1.496,
       "homeFpi": 2.787,
       "predictedMargin": 6.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.711,
+      "awayWinProbability": 0.289
     },
     {
       "gameId": "401872953",
@@ -1577,7 +1741,9 @@
       "awayFpi": 2.606,
       "homeFpi": 3.951,
       "predictedMargin": 3.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.616,
+      "awayWinProbability": 0.384
     },
     {
       "gameId": "401872949",
@@ -1596,7 +1762,9 @@
       "awayFpi": -2.96,
       "homeFpi": -5.471,
       "predictedMargin": -0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.482,
+      "awayWinProbability": 0.518
     },
     {
       "gameId": "401872954",
@@ -1615,7 +1783,9 @@
       "awayFpi": -5.541,
       "homeFpi": 2.501,
       "predictedMargin": 10,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.807,
+      "awayWinProbability": 0.193
     },
     {
       "gameId": "401872951",
@@ -1634,7 +1804,9 @@
       "awayFpi": 1.446,
       "homeFpi": -0.633,
       "predictedMargin": -0.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.496,
+      "awayWinProbability": 0.504
     },
     {
       "gameId": "401872952",
@@ -1653,7 +1825,9 @@
       "awayFpi": 2.386,
       "homeFpi": -5.805,
       "predictedMargin": -6.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.292,
+      "awayWinProbability": 0.708
     },
     {
       "gameId": "401872956",
@@ -1672,7 +1846,9 @@
       "awayFpi": -3.9,
       "homeFpi": -1.159,
       "predictedMargin": 4.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.662,
+      "awayWinProbability": 0.338
     },
     {
       "gameId": "401872950",
@@ -1691,7 +1867,9 @@
       "awayFpi": 1.627,
       "homeFpi": -0.871,
       "predictedMargin": -0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.482,
+      "awayWinProbability": 0.518
     },
     {
       "gameId": "401872955",
@@ -1710,7 +1888,9 @@
       "awayFpi": 3.634,
       "homeFpi": -0.828,
       "predictedMargin": -2.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.412,
+      "awayWinProbability": 0.588
     },
     {
       "gameId": "401872957",
@@ -1729,7 +1909,9 @@
       "awayFpi": 1.4,
       "homeFpi": 1.006,
       "predictedMargin": 1.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.557,
+      "awayWinProbability": 0.443
     },
     {
       "gameId": "401872958",
@@ -1748,7 +1930,9 @@
       "awayFpi": -5.191,
       "homeFpi": 3.306,
       "predictedMargin": 10.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.818,
+      "awayWinProbability": 0.182
     },
     {
       "gameId": "401872959",
@@ -1767,7 +1951,9 @@
       "awayFpi": -0.435,
       "homeFpi": 0.089,
       "predictedMargin": 2.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.588,
+      "awayWinProbability": 0.412
     },
     {
       "gameId": "401872960",
@@ -1786,7 +1972,9 @@
       "awayFpi": 3.705,
       "homeFpi": 1.764,
       "predictedMargin": 0.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.504,
+      "awayWinProbability": 0.496
     },
     {
       "gameId": "401872961",
@@ -1805,7 +1993,9 @@
       "awayFpi": -4.634,
       "homeFpi": -2.696,
       "predictedMargin": 3.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.636,
+      "awayWinProbability": 0.364
     },
     {
       "gameId": "401872962",
@@ -1824,7 +2014,9 @@
       "awayFpi": 5.574,
       "homeFpi": 1.289,
       "predictedMargin": -2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.419,
+      "awayWinProbability": 0.581
     },
     {
       "gameId": "401872963",
@@ -1843,7 +2035,9 @@
       "awayFpi": 1.992,
       "homeFpi": 1.203,
       "predictedMargin": 1.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.543,
+      "awayWinProbability": 0.457
     },
     {
       "gameId": "401872964",
@@ -1862,7 +2056,9 @@
       "awayFpi": -0.871,
       "homeFpi": -5.471,
       "predictedMargin": -2.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.408,
+      "awayWinProbability": 0.592
     },
     {
       "gameId": "401872965",
@@ -1881,7 +2077,9 @@
       "awayFpi": -0.633,
       "homeFpi": -0.828,
       "predictedMargin": 1.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.436
     },
     {
       "gameId": "401872971",
@@ -1900,7 +2098,9 @@
       "awayFpi": 1.4,
       "homeFpi": 3.951,
       "predictedMargin": 4.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.659,
+      "awayWinProbability": 0.341
     },
     {
       "gameId": "401872972",
@@ -1919,7 +2119,9 @@
       "awayFpi": -5.541,
       "homeFpi": 1.203,
       "predictedMargin": 8.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.776,
+      "awayWinProbability": 0.224
     },
     {
       "gameId": "401872969",
@@ -1938,7 +2140,9 @@
       "awayFpi": 1.006,
       "homeFpi": 1.627,
       "predictedMargin": 2.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.592,
+      "awayWinProbability": 0.408
     },
     {
       "gameId": "401872966",
@@ -1957,7 +2161,9 @@
       "awayFpi": -5.191,
       "homeFpi": -1.159,
       "predictedMargin": 6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.702,
+      "awayWinProbability": 0.298
     },
     {
       "gameId": "401872970",
@@ -1976,7 +2182,9 @@
       "awayFpi": 5.574,
       "homeFpi": 1.992,
       "predictedMargin": -1.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.443,
+      "awayWinProbability": 0.557
     },
     {
       "gameId": "401872968",
@@ -1995,7 +2203,9 @@
       "awayFpi": 2.787,
       "homeFpi": 0.089,
       "predictedMargin": -0.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.475,
+      "awayWinProbability": 0.525
     },
     {
       "gameId": "401872973",
@@ -2014,7 +2224,9 @@
       "awayFpi": -3.9,
       "homeFpi": 3.705,
       "predictedMargin": 9.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.798,
+      "awayWinProbability": 0.202
     },
     {
       "gameId": "401872967",
@@ -2033,7 +2245,9 @@
       "awayFpi": 1.764,
       "homeFpi": 1.446,
       "predictedMargin": 1.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.44
     },
     {
       "gameId": "401872974",
@@ -2052,7 +2266,9 @@
       "awayFpi": -5.805,
       "homeFpi": -0.435,
       "predictedMargin": 7.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.742,
+      "awayWinProbability": 0.258
     },
     {
       "gameId": "401872976",
@@ -2071,7 +2287,9 @@
       "awayFpi": 2.386,
       "homeFpi": -4.634,
       "predictedMargin": -5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.329,
+      "awayWinProbability": 0.671
     },
     {
       "gameId": "401872975",
@@ -2090,7 +2308,9 @@
       "awayFpi": 1.289,
       "homeFpi": 3.306,
       "predictedMargin": 4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.639,
+      "awayWinProbability": 0.361
     },
     {
       "gameId": "401872977",
@@ -2109,7 +2329,9 @@
       "awayFpi": 2.606,
       "homeFpi": 3.634,
       "predictedMargin": 3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.606,
+      "awayWinProbability": 0.394
     },
     {
       "gameId": "401872978",
@@ -2128,7 +2350,9 @@
       "awayFpi": 2.501,
       "homeFpi": -2.96,
       "predictedMargin": -3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.378,
+      "awayWinProbability": 0.622
     },
     {
       "gameId": "401872979",
@@ -2147,7 +2371,9 @@
       "awayFpi": -1.496,
       "homeFpi": -2.696,
       "predictedMargin": 0.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.529,
+      "awayWinProbability": 0.471
     },
     {
       "gameId": "401872980",
@@ -2166,7 +2392,9 @@
       "awayFpi": 0.089,
       "homeFpi": 1.764,
       "predictedMargin": 3.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.629,
+      "awayWinProbability": 0.371
     },
     {
       "gameId": "401872981",
@@ -2185,7 +2413,9 @@
       "awayFpi": 1.992,
       "homeFpi": 1.006,
       "predictedMargin": 1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.536,
+      "awayWinProbability": 0.464
     },
     {
       "gameId": "401872984",
@@ -2204,7 +2434,9 @@
       "awayFpi": 1.446,
       "homeFpi": -3.9,
       "predictedMargin": -3.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.384,
+      "awayWinProbability": 0.616
     },
     {
       "gameId": "401872982",
@@ -2223,7 +2455,9 @@
       "awayFpi": 1.627,
       "homeFpi": -5.805,
       "predictedMargin": -5.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.316,
+      "awayWinProbability": 0.684
     },
     {
       "gameId": "401872986",
@@ -2242,7 +2476,9 @@
       "awayFpi": -4.634,
       "homeFpi": 1.4,
       "predictedMargin": 8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.758,
+      "awayWinProbability": 0.242
     },
     {
       "gameId": "401872987",
@@ -2261,7 +2497,9 @@
       "awayFpi": -0.435,
       "homeFpi": -2.696,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401872983",
@@ -2280,7 +2518,9 @@
       "awayFpi": -5.471,
       "homeFpi": -5.541,
       "predictedMargin": 1.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.567,
+      "awayWinProbability": 0.433
     },
     {
       "gameId": "401872985",
@@ -2299,7 +2539,9 @@
       "awayFpi": -0.633,
       "homeFpi": -0.871,
       "predictedMargin": 1.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.436
     },
     {
       "gameId": "401872988",
@@ -2318,7 +2560,9 @@
       "awayFpi": -1.159,
       "homeFpi": -0.828,
       "predictedMargin": 2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.581,
+      "awayWinProbability": 0.419
     },
     {
       "gameId": "401872989",
@@ -2337,7 +2581,9 @@
       "awayFpi": 1.289,
       "homeFpi": 2.606,
       "predictedMargin": 3.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.616,
+      "awayWinProbability": 0.384
     },
     {
       "gameId": "401872990",
@@ -2356,7 +2602,9 @@
       "awayFpi": 1.203,
       "homeFpi": 2.787,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401872991",
@@ -2375,7 +2623,9 @@
       "awayFpi": 2.501,
       "homeFpi": -5.191,
       "predictedMargin": -5.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.307,
+      "awayWinProbability": 0.693
     },
     {
       "gameId": "401872992",
@@ -2394,7 +2644,9 @@
       "awayFpi": 3.306,
       "homeFpi": 3.634,
       "predictedMargin": 2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.581,
+      "awayWinProbability": 0.419
     },
     {
       "gameId": "401872993",
@@ -2413,7 +2665,9 @@
       "awayFpi": 3.705,
       "homeFpi": -1.496,
       "predictedMargin": -3.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.388,
+      "awayWinProbability": 0.612
     },
     {
       "gameId": "401872994",
@@ -2432,7 +2686,9 @@
       "awayFpi": 3.951,
       "homeFpi": 5.574,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401872995",
@@ -2451,7 +2707,9 @@
       "awayFpi": 3.634,
       "homeFpi": 1.289,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401872996",
@@ -2470,7 +2728,9 @@
       "awayFpi": 1.446,
       "homeFpi": 1.006,
       "predictedMargin": 1.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.557,
+      "awayWinProbability": 0.443
     },
     {
       "gameId": "401872999",
@@ -2489,7 +2749,9 @@
       "awayFpi": 1.203,
       "homeFpi": -1.496,
       "predictedMargin": -0.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.475,
+      "awayWinProbability": 0.525
     },
     {
       "gameId": "401872997",
@@ -2508,7 +2770,9 @@
       "awayFpi": 3.705,
       "homeFpi": -5.471,
       "predictedMargin": -7.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.263,
+      "awayWinProbability": 0.737
     },
     {
       "gameId": "401873003",
@@ -2527,7 +2791,9 @@
       "awayFpi": -3.9,
       "homeFpi": -0.633,
       "predictedMargin": 5.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.681,
+      "awayWinProbability": 0.319
     },
     {
       "gameId": "401873001",
@@ -2546,7 +2812,9 @@
       "awayFpi": -5.541,
       "homeFpi": 1.4,
       "predictedMargin": 8.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.781,
+      "awayWinProbability": 0.219
     },
     {
       "gameId": "401873000",
@@ -2565,7 +2833,9 @@
       "awayFpi": -2.696,
       "homeFpi": -1.159,
       "predictedMargin": 3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.622,
+      "awayWinProbability": 0.378
     },
     {
       "gameId": "401872998",
@@ -2584,7 +2854,9 @@
       "awayFpi": -2.96,
       "homeFpi": 1.992,
       "predictedMargin": 7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.731,
+      "awayWinProbability": 0.269
     },
     {
       "gameId": "401873002",
@@ -2603,7 +2875,9 @@
       "awayFpi": -0.871,
       "homeFpi": 0.089,
       "predictedMargin": 3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.606,
+      "awayWinProbability": 0.394
     },
     {
       "gameId": "401873004",
@@ -2622,7 +2896,9 @@
       "awayFpi": -5.191,
       "homeFpi": 5.574,
       "predictedMargin": 12.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.862,
+      "awayWinProbability": 0.138
     },
     {
       "gameId": "401873006",
@@ -2641,7 +2917,9 @@
       "awayFpi": 2.606,
       "homeFpi": 2.386,
       "predictedMargin": 1.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.436
     },
     {
       "gameId": "401873005",
@@ -2660,7 +2938,9 @@
       "awayFpi": 3.951,
       "homeFpi": -4.634,
       "predictedMargin": -6.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.28,
+      "awayWinProbability": 0.72
     },
     {
       "gameId": "401873007",
@@ -2679,7 +2959,9 @@
       "awayFpi": 1.764,
       "homeFpi": 2.787,
       "predictedMargin": 3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.606,
+      "awayWinProbability": 0.394
     },
     {
       "gameId": "401873008",
@@ -2698,7 +2980,9 @@
       "awayFpi": -0.828,
       "homeFpi": 3.306,
       "predictedMargin": 6.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.705,
+      "awayWinProbability": 0.295
     },
     {
       "gameId": "401873010",
@@ -2717,7 +3001,9 @@
       "awayFpi": 1.4,
       "homeFpi": 1.203,
       "predictedMargin": 1.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.436
     },
     {
       "gameId": "401873011",
@@ -2736,7 +3022,9 @@
       "awayFpi": -0.871,
       "homeFpi": -2.696,
       "predictedMargin": 0.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.507,
+      "awayWinProbability": 0.493
     },
     {
       "gameId": "401873017",
@@ -2755,7 +3043,9 @@
       "awayFpi": 3.306,
       "homeFpi": -1.496,
       "predictedMargin": -2.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.401,
+      "awayWinProbability": 0.599
     },
     {
       "gameId": "401873013",
@@ -2774,7 +3064,9 @@
       "awayFpi": -5.471,
       "homeFpi": -3.9,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401873014",
@@ -2793,7 +3085,9 @@
       "awayFpi": -0.633,
       "homeFpi": -0.435,
       "predictedMargin": 2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.578,
+      "awayWinProbability": 0.422
     },
     {
       "gameId": "401873015",
@@ -2812,7 +3106,9 @@
       "awayFpi": -5.805,
       "homeFpi": -5.541,
       "predictedMargin": 2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.581,
+      "awayWinProbability": 0.419
     },
     {
       "gameId": "401873018",
@@ -2831,7 +3127,9 @@
       "awayFpi": 0.089,
       "homeFpi": -2.96,
       "predictedMargin": -1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.464,
+      "awayWinProbability": 0.536
     },
     {
       "gameId": "401873012",
@@ -2850,7 +3148,9 @@
       "awayFpi": 1.627,
       "homeFpi": 3.705,
       "predictedMargin": 4.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.642,
+      "awayWinProbability": 0.358
     },
     {
       "gameId": "401873016",
@@ -2869,7 +3169,9 @@
       "awayFpi": -1.159,
       "homeFpi": 1.446,
       "predictedMargin": 4.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.659,
+      "awayWinProbability": 0.341
     },
     {
       "gameId": "401873019",
@@ -2888,7 +3190,9 @@
       "awayFpi": 1.289,
       "homeFpi": -5.191,
       "predictedMargin": -4.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.345,
+      "awayWinProbability": 0.655
     },
     {
       "gameId": "401873020",
@@ -2907,7 +3211,9 @@
       "awayFpi": 2.787,
       "homeFpi": 2.501,
       "predictedMargin": 1.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.44
     },
     {
       "gameId": "401873021",
@@ -2926,7 +3232,9 @@
       "awayFpi": 5.574,
       "homeFpi": -4.634,
       "predictedMargin": -8.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.237,
+      "awayWinProbability": 0.763
     },
     {
       "gameId": "401873022",
@@ -2945,7 +3253,9 @@
       "awayFpi": 2.386,
       "homeFpi": 3.634,
       "predictedMargin": 3.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.612,
+      "awayWinProbability": 0.388
     },
     {
       "gameId": "401873009",
@@ -2964,7 +3274,9 @@
       "awayFpi": 1.764,
       "homeFpi": 1.992,
       "predictedMargin": 2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.578,
+      "awayWinProbability": 0.422
     },
     {
       "gameId": "401873023",
@@ -2983,7 +3295,9 @@
       "awayFpi": -2.96,
       "homeFpi": 2.787,
       "predictedMargin": 7.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.75,
+      "awayWinProbability": 0.25
     },
     {
       "gameId": "401873026",
@@ -3002,7 +3316,9 @@
       "awayFpi": 3.705,
       "homeFpi": 3.951,
       "predictedMargin": 2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.578,
+      "awayWinProbability": 0.422
     },
     {
       "gameId": "401873031",
@@ -3021,7 +3337,9 @@
       "awayFpi": -3.9,
       "homeFpi": 1.627,
       "predictedMargin": 7.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.745,
+      "awayWinProbability": 0.255
     },
     {
       "gameId": "401873024",
@@ -3040,7 +3358,9 @@
       "awayFpi": -5.191,
       "homeFpi": 1.764,
       "predictedMargin": 9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.783,
+      "awayWinProbability": 0.217
     },
     {
       "gameId": "401873030",
@@ -3059,7 +3379,9 @@
       "awayFpi": -0.435,
       "homeFpi": 2.501,
       "predictedMargin": 4.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.668,
+      "awayWinProbability": 0.332
     },
     {
       "gameId": "401873029",
@@ -3078,7 +3400,9 @@
       "awayFpi": -4.634,
       "homeFpi": -5.541,
       "predictedMargin": 1.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.539,
+      "awayWinProbability": 0.461
     },
     {
       "gameId": "401873027",
@@ -3097,7 +3421,9 @@
       "awayFpi": -5.471,
       "homeFpi": -0.871,
       "predictedMargin": 6.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.72,
+      "awayWinProbability": 0.28
     },
     {
       "gameId": "401873025",
@@ -3116,7 +3442,9 @@
       "awayFpi": -1.496,
       "homeFpi": 0.089,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401873028",
@@ -3135,7 +3463,9 @@
       "awayFpi": -0.633,
       "homeFpi": 1.006,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401873032",
@@ -3154,7 +3484,9 @@
       "awayFpi": 2.606,
       "homeFpi": 5.574,
       "predictedMargin": 5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.671,
+      "awayWinProbability": 0.329
     },
     {
       "gameId": "401873033",
@@ -3173,7 +3505,9 @@
       "awayFpi": 2.386,
       "homeFpi": 1.289,
       "predictedMargin": 0.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.532,
+      "awayWinProbability": 0.468
     },
     {
       "gameId": "401873034",
@@ -3192,7 +3526,9 @@
       "awayFpi": 1.4,
       "homeFpi": -5.805,
       "predictedMargin": -5.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.322,
+      "awayWinProbability": 0.678
     },
     {
       "gameId": "401873035",
@@ -3211,7 +3547,9 @@
       "awayFpi": 1.992,
       "homeFpi": -0.828,
       "predictedMargin": -0.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.471,
+      "awayWinProbability": 0.529
     },
     {
       "gameId": "401873036",
@@ -3230,7 +3568,9 @@
       "awayFpi": 1.203,
       "homeFpi": 3.634,
       "predictedMargin": 4.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.652,
+      "awayWinProbability": 0.348
     },
     {
       "gameId": "401873037",
@@ -3249,7 +3589,9 @@
       "awayFpi": 1.006,
       "homeFpi": 3.705,
       "predictedMargin": 4.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.662,
+      "awayWinProbability": 0.338
     },
     {
       "gameId": "401873038",
@@ -3268,7 +3610,9 @@
       "awayFpi": 1.627,
       "homeFpi": -1.496,
       "predictedMargin": -1.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.461,
+      "awayWinProbability": 0.539
     },
     {
       "gameId": "401873040",
@@ -3287,7 +3631,9 @@
       "awayFpi": 1.764,
       "homeFpi": -0.633,
       "predictedMargin": -0.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.486,
+      "awayWinProbability": 0.514
     },
     {
       "gameId": "401873045",
@@ -3306,7 +3652,9 @@
       "awayFpi": -5.541,
       "homeFpi": 2.386,
       "predictedMargin": 9.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.804,
+      "awayWinProbability": 0.196
     },
     {
       "gameId": "401873042",
@@ -3325,7 +3673,9 @@
       "awayFpi": 2.501,
       "homeFpi": -5.805,
       "predictedMargin": -6.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.289,
+      "awayWinProbability": 0.711
     },
     {
       "gameId": "401873039",
@@ -3344,7 +3694,9 @@
       "awayFpi": -5.471,
       "homeFpi": -2.696,
       "predictedMargin": 4.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.665,
+      "awayWinProbability": 0.335
     },
     {
       "gameId": "401873044",
@@ -3363,7 +3715,9 @@
       "awayFpi": -1.159,
       "homeFpi": 1.992,
       "predictedMargin": 5.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.678,
+      "awayWinProbability": 0.322
     },
     {
       "gameId": "401873043",
@@ -3382,7 +3736,9 @@
       "awayFpi": 5.574,
       "homeFpi": -0.828,
       "predictedMargin": -4.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.348,
+      "awayWinProbability": 0.652
     },
     {
       "gameId": "401873041",
@@ -3401,7 +3757,9 @@
       "awayFpi": 1.289,
       "homeFpi": -2.96,
       "predictedMargin": -2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.422,
+      "awayWinProbability": 0.578
     },
     {
       "gameId": "401873046",
@@ -3420,7 +3778,9 @@
       "awayFpi": 1.446,
       "homeFpi": 2.606,
       "predictedMargin": 3.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.612,
+      "awayWinProbability": 0.388
     },
     {
       "gameId": "401873047",
@@ -3439,7 +3799,9 @@
       "awayFpi": -4.634,
       "homeFpi": 3.306,
       "predictedMargin": 9.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.804,
+      "awayWinProbability": 0.196
     },
     {
       "gameId": "401873049",
@@ -3458,7 +3820,9 @@
       "awayFpi": 2.787,
       "homeFpi": 1.4,
       "predictedMargin": 0.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.521,
+      "awayWinProbability": 0.479
     },
     {
       "gameId": "401873048",
@@ -3477,7 +3841,9 @@
       "awayFpi": -5.191,
       "homeFpi": 3.634,
       "predictedMargin": 10.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.824,
+      "awayWinProbability": 0.176
     },
     {
       "gameId": "401873050",
@@ -3496,7 +3862,9 @@
       "awayFpi": 0.089,
       "homeFpi": 1.203,
       "predictedMargin": 3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.609,
+      "awayWinProbability": 0.391
     },
     {
       "gameId": "401873051",
@@ -3515,7 +3883,9 @@
       "awayFpi": 3.951,
       "homeFpi": -0.435,
       "predictedMargin": -2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.415,
+      "awayWinProbability": 0.585
     },
     {
       "gameId": "401873052",
@@ -3534,7 +3904,9 @@
       "awayFpi": -0.828,
       "homeFpi": -1.159,
       "predictedMargin": 1.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.44
     },
     {
       "gameId": "401873053",
@@ -3553,7 +3925,9 @@
       "awayFpi": 1.4,
       "homeFpi": 2.501,
       "predictedMargin": 3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.609,
+      "awayWinProbability": 0.391
     },
     {
       "gameId": "401873058",
@@ -3572,7 +3946,9 @@
       "awayFpi": 2.386,
       "homeFpi": -1.496,
       "predictedMargin": -1.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.433,
+      "awayWinProbability": 0.567
     },
     {
       "gameId": "401873056",
@@ -3591,7 +3967,9 @@
       "awayFpi": 1.446,
       "homeFpi": -5.471,
       "predictedMargin": -4.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.332,
+      "awayWinProbability": 0.668
     },
     {
       "gameId": "401873060",
@@ -3610,7 +3988,9 @@
       "awayFpi": -0.435,
       "homeFpi": 2.787,
       "predictedMargin": 5.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.678,
+      "awayWinProbability": 0.322
     },
     {
       "gameId": "401873057",
@@ -3629,7 +4009,9 @@
       "awayFpi": 1.006,
       "homeFpi": -3.9,
       "predictedMargin": -2.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.398,
+      "awayWinProbability": 0.602
     },
     {
       "gameId": "401873059",
@@ -3648,7 +4030,9 @@
       "awayFpi": -5.805,
       "homeFpi": -0.633,
       "predictedMargin": 7.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.737,
+      "awayWinProbability": 0.263
     },
     {
       "gameId": "401873055",
@@ -3667,7 +4051,9 @@
       "awayFpi": -2.96,
       "homeFpi": -2.696,
       "predictedMargin": 2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.581,
+      "awayWinProbability": 0.419
     },
     {
       "gameId": "401873054",
@@ -3686,7 +4072,9 @@
       "awayFpi": 3.951,
       "homeFpi": -5.541,
       "predictedMargin": -7.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.255,
+      "awayWinProbability": 0.745
     },
     {
       "gameId": "401873062",
@@ -3705,7 +4093,9 @@
       "awayFpi": 3.634,
       "homeFpi": -4.634,
       "predictedMargin": -6.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.289,
+      "awayWinProbability": 0.711
     },
     {
       "gameId": "401873061",
@@ -3724,7 +4114,9 @@
       "awayFpi": 5.574,
       "homeFpi": -5.191,
       "predictedMargin": -8.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.221,
+      "awayWinProbability": 0.779
     },
     {
       "gameId": "401873063",
@@ -3743,7 +4135,9 @@
       "awayFpi": 3.306,
       "homeFpi": 1.764,
       "predictedMargin": 0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.518,
+      "awayWinProbability": 0.482
     },
     {
       "gameId": "401873064",
@@ -3762,7 +4156,9 @@
       "awayFpi": -0.871,
       "homeFpi": 1.627,
       "predictedMargin": 4.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.655,
+      "awayWinProbability": 0.345
     },
     {
       "gameId": "401873065",
@@ -3781,7 +4177,9 @@
       "awayFpi": 2.606,
       "homeFpi": 3.705,
       "predictedMargin": 3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.609,
+      "awayWinProbability": 0.391
     },
     {
       "gameId": "401873066",
@@ -3800,7 +4198,9 @@
       "awayFpi": -0.633,
       "homeFpi": 1.446,
       "predictedMargin": 4.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.642,
+      "awayWinProbability": 0.358
     },
     {
       "gameId": "401873070",
@@ -3819,7 +4219,9 @@
       "awayFpi": -5.805,
       "homeFpi": 3.951,
       "predictedMargin": 11.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.844,
+      "awayWinProbability": 0.156
     },
     {
       "gameId": "401873071",
@@ -3838,7 +4240,9 @@
       "awayFpi": -2.696,
       "homeFpi": 1.203,
       "predictedMargin": 5.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.699,
+      "awayWinProbability": 0.301
     },
     {
       "gameId": "401873073",
@@ -3857,7 +4261,9 @@
       "awayFpi": -3.9,
       "homeFpi": 1.764,
       "predictedMargin": 7.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.75,
+      "awayWinProbability": 0.25
     },
     {
       "gameId": "401873072",
@@ -3876,7 +4282,9 @@
       "awayFpi": 0.089,
       "homeFpi": 2.501,
       "predictedMargin": 4.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.652,
+      "awayWinProbability": 0.348
     },
     {
       "gameId": "401873067",
@@ -3895,7 +4303,9 @@
       "awayFpi": -5.191,
       "homeFpi": 2.386,
       "predictedMargin": 9.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.798,
+      "awayWinProbability": 0.202
     },
     {
       "gameId": "401873069",
@@ -3914,7 +4324,9 @@
       "awayFpi": 1.006,
       "homeFpi": -1.159,
       "predictedMargin": -0.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.493,
+      "awayWinProbability": 0.507
     },
     {
       "gameId": "401873068",
@@ -3933,7 +4345,9 @@
       "awayFpi": 3.705,
       "homeFpi": -2.96,
       "predictedMargin": -4.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.338,
+      "awayWinProbability": 0.662
     },
     {
       "gameId": "401873074",
@@ -3952,7 +4366,9 @@
       "awayFpi": -5.541,
       "homeFpi": 2.606,
       "predictedMargin": 10.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.809,
+      "awayWinProbability": 0.191
     },
     {
       "gameId": "401873075",
@@ -3971,7 +4387,9 @@
       "awayFpi": -4.634,
       "homeFpi": 1.289,
       "predictedMargin": 7.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.756,
+      "awayWinProbability": 0.244
     },
     {
       "gameId": "401873076",
@@ -3990,7 +4408,9 @@
       "awayFpi": -0.871,
       "homeFpi": 1.992,
       "predictedMargin": 4.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.668,
+      "awayWinProbability": 0.332
     },
     {
       "gameId": "401873077",
@@ -4009,7 +4429,9 @@
       "awayFpi": -0.435,
       "homeFpi": 3.306,
       "predictedMargin": 5.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.693,
+      "awayWinProbability": 0.307
     },
     {
       "gameId": "401873078",
@@ -4028,7 +4450,9 @@
       "awayFpi": 1.627,
       "homeFpi": -0.828,
       "predictedMargin": -0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.482,
+      "awayWinProbability": 0.518
     },
     {
       "gameId": "401873079",
@@ -4047,7 +4471,9 @@
       "awayFpi": 2.787,
       "homeFpi": 5.574,
       "predictedMargin": 4.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.665,
+      "awayWinProbability": 0.335
     },
     {
       "gameId": "401873081",
@@ -4066,7 +4492,9 @@
       "awayFpi": 1.203,
       "homeFpi": 2.501,
       "predictedMargin": 3.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.616,
+      "awayWinProbability": 0.384
     },
     {
       "gameId": "401873080",
@@ -4085,7 +4513,9 @@
       "awayFpi": 1.992,
       "homeFpi": 1.764,
       "predictedMargin": 1.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.436
     },
     {
       "gameId": "401873082",
@@ -4104,7 +4534,9 @@
       "awayFpi": 2.386,
       "homeFpi": 3.951,
       "predictedMargin": 3.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.626,
+      "awayWinProbability": 0.374
     },
     {
       "gameId": "401873083",
@@ -4123,7 +4555,9 @@
       "awayFpi": 1.289,
       "homeFpi": -0.871,
       "predictedMargin": -0.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.493,
+      "awayWinProbability": 0.507
     },
     {
       "gameId": "401873087",
@@ -4142,7 +4576,9 @@
       "awayFpi": -2.696,
       "homeFpi": 1.627,
       "predictedMargin": 6.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.711,
+      "awayWinProbability": 0.289
     },
     {
       "gameId": "401873086",
@@ -4161,7 +4597,9 @@
       "awayFpi": -4.634,
       "homeFpi": -5.471,
       "predictedMargin": 1.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.543,
+      "awayWinProbability": 0.457
     },
     {
       "gameId": "401873088",
@@ -4180,7 +4618,9 @@
       "awayFpi": -1.159,
       "homeFpi": -0.633,
       "predictedMargin": 2.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.588,
+      "awayWinProbability": 0.412
     },
     {
       "gameId": "401873089",
@@ -4199,7 +4639,9 @@
       "awayFpi": -5.541,
       "homeFpi": -5.805,
       "predictedMargin": 1.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.44
     },
     {
       "gameId": "401873084",
@@ -4218,7 +4660,9 @@
       "awayFpi": -1.496,
       "homeFpi": -0.435,
       "predictedMargin": 3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.609,
+      "awayWinProbability": 0.391
     },
     {
       "gameId": "401873085",
@@ -4237,7 +4681,9 @@
       "awayFpi": 3.705,
       "homeFpi": 1.446,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401873090",
@@ -4256,7 +4702,9 @@
       "awayFpi": -3.9,
       "homeFpi": 1.006,
       "predictedMargin": 6.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.728,
+      "awayWinProbability": 0.272
     },
     {
       "gameId": "401873092",
@@ -4275,7 +4723,9 @@
       "awayFpi": -0.828,
       "homeFpi": -5.191,
       "predictedMargin": -2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.415,
+      "awayWinProbability": 0.585
     },
     {
       "gameId": "401873091",
@@ -4294,7 +4744,9 @@
       "awayFpi": 3.634,
       "homeFpi": 3.306,
       "predictedMargin": 1.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.44
     },
     {
       "gameId": "401873093",
@@ -4313,7 +4765,9 @@
       "awayFpi": 1.4,
       "homeFpi": 2.606,
       "predictedMargin": 3.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.612,
+      "awayWinProbability": 0.388
     },
     {
       "gameId": "401873094",
@@ -4332,7 +4786,9 @@
       "awayFpi": -2.96,
       "homeFpi": 0.089,
       "predictedMargin": 5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.671,
+      "awayWinProbability": 0.329
     },
     {
       "gameId": "401873096",
@@ -4351,7 +4807,9 @@
       "awayFpi": 2.386,
       "homeFpi": 5.574,
       "predictedMargin": 5.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.678,
+      "awayWinProbability": 0.322
     },
     {
       "gameId": "401873098",
@@ -4370,7 +4828,9 @@
       "awayFpi": 2.501,
       "homeFpi": -1.496,
       "predictedMargin": -2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.429,
+      "awayWinProbability": 0.571
     },
     {
       "gameId": "401873100",
@@ -4389,7 +4849,9 @@
       "awayFpi": 1.006,
       "homeFpi": 1.203,
       "predictedMargin": 2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.578,
+      "awayWinProbability": 0.422
     },
     {
       "gameId": "401873097",
@@ -4408,7 +4870,9 @@
       "awayFpi": 1.627,
       "homeFpi": -5.471,
       "predictedMargin": -5.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.326,
+      "awayWinProbability": 0.674
     },
     {
       "gameId": "401873102",
@@ -4427,7 +4891,9 @@
       "awayFpi": -0.828,
       "homeFpi": -3.9,
       "predictedMargin": -1.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.461,
+      "awayWinProbability": 0.539
     },
     {
       "gameId": "401873099",
@@ -4446,7 +4912,9 @@
       "awayFpi": 2.787,
       "homeFpi": -2.696,
       "predictedMargin": -3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.378,
+      "awayWinProbability": 0.622
     },
     {
       "gameId": "401873095",
@@ -4465,7 +4933,9 @@
       "awayFpi": 3.306,
       "homeFpi": -1.159,
       "predictedMargin": -2.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.412,
+      "awayWinProbability": 0.588
     },
     {
       "gameId": "401873101",
@@ -4484,7 +4954,9 @@
       "awayFpi": 2.606,
       "homeFpi": 0.089,
       "predictedMargin": -0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.482,
+      "awayWinProbability": 0.518
     },
     {
       "gameId": "401873103",
@@ -4503,7 +4975,9 @@
       "awayFpi": -5.805,
       "homeFpi": 1.289,
       "predictedMargin": 9.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.786,
+      "awayWinProbability": 0.214
     },
     {
       "gameId": "401873104",
@@ -4522,7 +4996,9 @@
       "awayFpi": 1.992,
       "homeFpi": -5.191,
       "predictedMargin": -5.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.322,
+      "awayWinProbability": 0.678
     },
     {
       "gameId": "401873106",
@@ -4541,7 +5017,9 @@
       "awayFpi": -2.96,
       "homeFpi": -0.435,
       "predictedMargin": 4.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.655,
+      "awayWinProbability": 0.345
     },
     {
       "gameId": "401873105",
@@ -4560,7 +5038,9 @@
       "awayFpi": 3.951,
       "homeFpi": 1.4,
       "predictedMargin": -0.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.479,
+      "awayWinProbability": 0.521
     },
     {
       "gameId": "401873107",
@@ -4579,7 +5059,9 @@
       "awayFpi": 1.446,
       "homeFpi": -0.871,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401873108",
@@ -4598,7 +5080,9 @@
       "awayFpi": 1.764,
       "homeFpi": 3.634,
       "predictedMargin": 3.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.636,
+      "awayWinProbability": 0.364
     },
     {
       "gameId": "401873109",
@@ -4617,7 +5101,9 @@
       "awayFpi": -0.435,
       "homeFpi": 1.4,
       "predictedMargin": 3.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.632,
+      "awayWinProbability": 0.368
     },
     {
       "gameId": "401873110",
@@ -4636,7 +5122,9 @@
       "awayFpi": -1.496,
       "homeFpi": -5.471,
       "predictedMargin": -2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.429,
+      "awayWinProbability": 0.571
     },
     {
       "gameId": "401873117",
@@ -4655,7 +5143,9 @@
       "awayFpi": -3.9,
       "homeFpi": 2.501,
       "predictedMargin": 8.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.769,
+      "awayWinProbability": 0.231
     },
     {
       "gameId": "401873111",
@@ -4674,7 +5164,9 @@
       "awayFpi": 1.203,
       "homeFpi": -5.805,
       "predictedMargin": -5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.329,
+      "awayWinProbability": 0.671
     },
     {
       "gameId": "401873112",
@@ -4693,7 +5185,9 @@
       "awayFpi": 1.289,
       "homeFpi": -5.541,
       "predictedMargin": -4.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.335,
+      "awayWinProbability": 0.665
     },
     {
       "gameId": "401873114",
@@ -4712,7 +5206,9 @@
       "awayFpi": -0.633,
       "homeFpi": 1.992,
       "predictedMargin": 4.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.659,
+      "awayWinProbability": 0.341
     },
     {
       "gameId": "401873113",
@@ -4731,7 +5227,9 @@
       "awayFpi": 1.446,
       "homeFpi": -0.828,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401873115",
@@ -4750,7 +5248,9 @@
       "awayFpi": -2.696,
       "homeFpi": -2.96,
       "predictedMargin": 1.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.44
     },
     {
       "gameId": "401873116",
@@ -4769,7 +5269,9 @@
       "awayFpi": 0.089,
       "homeFpi": 3.705,
       "predictedMargin": 5.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.69,
+      "awayWinProbability": 0.31
     },
     {
       "gameId": "401873118",
@@ -4788,7 +5290,9 @@
       "awayFpi": 2.606,
       "homeFpi": -4.634,
       "predictedMargin": -5.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.322,
+      "awayWinProbability": 0.678
     },
     {
       "gameId": "401873119",
@@ -4807,7 +5311,9 @@
       "awayFpi": 2.386,
       "homeFpi": 1.627,
       "predictedMargin": 1.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.543,
+      "awayWinProbability": 0.457
     },
     {
       "gameId": "401873120",
@@ -4826,7 +5332,9 @@
       "awayFpi": 5.574,
       "homeFpi": 3.306,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401873121",
@@ -4845,7 +5353,9 @@
       "awayFpi": -1.159,
       "homeFpi": 3.634,
       "predictedMargin": 6.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.725,
+      "awayWinProbability": 0.275
     },
     {
       "gameId": "401873122",
@@ -4864,7 +5374,9 @@
       "awayFpi": 3.951,
       "homeFpi": 2.787,
       "predictedMargin": 0.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.529,
+      "awayWinProbability": 0.471
     },
     {
       "gameId": "401873123",
@@ -4883,7 +5395,9 @@
       "awayFpi": -0.871,
       "homeFpi": 1.006,
       "predictedMargin": 3.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.636,
+      "awayWinProbability": 0.364
     },
     {
       "gameId": "401873124",
@@ -4902,7 +5416,9 @@
       "awayFpi": 3.306,
       "homeFpi": 2.606,
       "predictedMargin": 1.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.546,
+      "awayWinProbability": 0.454
     },
     {
       "gameId": "401873125",
@@ -4921,7 +5437,9 @@
       "awayFpi": 3.634,
       "homeFpi": 1.992,
       "predictedMargin": 0.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.514,
+      "awayWinProbability": 0.486
     },
     {
       "gameId": "401873126",
@@ -4940,7 +5458,9 @@
       "awayFpi": 1.203,
       "homeFpi": 3.951,
       "predictedMargin": 4.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.662,
+      "awayWinProbability": 0.338
     },
     {
       "gameId": "401873133",
@@ -4959,7 +5479,9 @@
       "awayFpi": -5.805,
       "homeFpi": 2.787,
       "predictedMargin": 10.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.82,
+      "awayWinProbability": 0.18
     },
     {
       "gameId": "401873131",
@@ -4978,7 +5500,9 @@
       "awayFpi": -0.633,
       "homeFpi": -3.9,
       "predictedMargin": -1.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.454,
+      "awayWinProbability": 0.546
     },
     {
       "gameId": "401873130",
@@ -4997,7 +5521,9 @@
       "awayFpi": -5.471,
       "homeFpi": -1.159,
       "predictedMargin": 6.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.711,
+      "awayWinProbability": 0.289
     },
     {
       "gameId": "401873128",
@@ -5016,7 +5542,9 @@
       "awayFpi": 3.705,
       "homeFpi": -0.871,
       "predictedMargin": -2.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.408,
+      "awayWinProbability": 0.592
     },
     {
       "gameId": "401873134",
@@ -5035,7 +5563,9 @@
       "awayFpi": -2.696,
       "homeFpi": 0.089,
       "predictedMargin": 4.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.665,
+      "awayWinProbability": 0.335
     },
     {
       "gameId": "401873127",
@@ -5054,7 +5584,9 @@
       "awayFpi": -1.496,
       "homeFpi": -0.828,
       "predictedMargin": 2.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.595,
+      "awayWinProbability": 0.405
     },
     {
       "gameId": "401873129",
@@ -5073,7 +5605,9 @@
       "awayFpi": 1.627,
       "homeFpi": -2.96,
       "predictedMargin": -2.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.408,
+      "awayWinProbability": 0.592
     },
     {
       "gameId": "401873132",
@@ -5092,7 +5626,9 @@
       "awayFpi": 1.006,
       "homeFpi": 1.446,
       "predictedMargin": 2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.585,
+      "awayWinProbability": 0.415
     },
     {
       "gameId": "401873135",
@@ -5111,7 +5647,9 @@
       "awayFpi": -5.541,
       "homeFpi": -5.191,
       "predictedMargin": 2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.585,
+      "awayWinProbability": 0.415
     },
     {
       "gameId": "401873137",
@@ -5130,7 +5668,9 @@
       "awayFpi": 1.289,
       "homeFpi": -4.634,
       "predictedMargin": -3.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.364,
+      "awayWinProbability": 0.636
     },
     {
       "gameId": "401873136",
@@ -5149,7 +5689,9 @@
       "awayFpi": 1.764,
       "homeFpi": 5.574,
       "predictedMargin": 5.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.696,
+      "awayWinProbability": 0.304
     },
     {
       "gameId": "401873138",
@@ -5168,7 +5710,9 @@
       "awayFpi": 2.501,
       "homeFpi": -0.435,
       "predictedMargin": -0.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.468,
+      "awayWinProbability": 0.532
     },
     {
       "gameId": "401873139",
@@ -5187,7 +5731,9 @@
       "awayFpi": 1.4,
       "homeFpi": 2.386,
       "predictedMargin": 3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.606,
+      "awayWinProbability": 0.394
     },
     {
       "gameId": "401873140",
@@ -5206,7 +5752,9 @@
       "awayFpi": 1.446,
       "homeFpi": 1.992,
       "predictedMargin": 2.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.588,
+      "awayWinProbability": 0.412
     },
     {
       "gameId": "401873141",
@@ -5225,7 +5773,9 @@
       "awayFpi": 2.787,
       "homeFpi": 1.203,
       "predictedMargin": 0.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.514,
+      "awayWinProbability": 0.486
     },
     {
       "gameId": "401873142",
@@ -5244,7 +5794,9 @@
       "awayFpi": 3.951,
       "homeFpi": 1.289,
       "predictedMargin": -0.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.475,
+      "awayWinProbability": 0.525
     },
     {
       "gameId": "401873143",
@@ -5263,7 +5815,9 @@
       "awayFpi": 5.574,
       "homeFpi": 3.634,
       "predictedMargin": 0.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.504,
+      "awayWinProbability": 0.496
     },
     {
       "gameId": "401873146",
@@ -5282,7 +5836,9 @@
       "awayFpi": 0.089,
       "homeFpi": -1.496,
       "predictedMargin": 0.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.514,
+      "awayWinProbability": 0.486
     },
     {
       "gameId": "401873145",
@@ -5301,7 +5857,9 @@
       "awayFpi": 1.627,
       "homeFpi": -0.633,
       "predictedMargin": -0.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.489,
+      "awayWinProbability": 0.511
     },
     {
       "gameId": "401873147",
@@ -5320,7 +5878,9 @@
       "awayFpi": -0.828,
       "homeFpi": -0.435,
       "predictedMargin": 2.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.585,
+      "awayWinProbability": 0.415
     },
     {
       "gameId": "401873144",
@@ -5339,7 +5899,9 @@
       "awayFpi": -2.96,
       "homeFpi": -0.871,
       "predictedMargin": 4.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.642,
+      "awayWinProbability": 0.358
     },
     {
       "gameId": "401873150",
@@ -5358,7 +5920,9 @@
       "awayFpi": 2.606,
       "homeFpi": -5.805,
       "predictedMargin": -6.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.286,
+      "awayWinProbability": 0.714
     },
     {
       "gameId": "401873148",
@@ -5377,7 +5941,9 @@
       "awayFpi": -5.191,
       "homeFpi": -2.696,
       "predictedMargin": 4.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.655,
+      "awayWinProbability": 0.345
     },
     {
       "gameId": "401873151",
@@ -5396,7 +5962,9 @@
       "awayFpi": 1.4,
       "homeFpi": -5.541,
       "predictedMargin": -4.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.332,
+      "awayWinProbability": 0.668
     },
     {
       "gameId": "401873149",
@@ -5415,7 +5983,9 @@
       "awayFpi": -5.471,
       "homeFpi": 3.705,
       "predictedMargin": 11.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.832,
+      "awayWinProbability": 0.168
     },
     {
       "gameId": "401873152",
@@ -5434,7 +6004,9 @@
       "awayFpi": -3.9,
       "homeFpi": -4.634,
       "predictedMargin": 1.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.546,
+      "awayWinProbability": 0.454
     },
     {
       "gameId": "401873153",
@@ -5453,7 +6025,9 @@
       "awayFpi": 3.306,
       "homeFpi": 2.386,
       "predictedMargin": 1.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.539,
+      "awayWinProbability": 0.461
     },
     {
       "gameId": "401873154",
@@ -5472,7 +6046,9 @@
       "awayFpi": 1.006,
       "homeFpi": 1.764,
       "predictedMargin": 2.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.599,
+      "awayWinProbability": 0.401
     },
     {
       "gameId": "401873155",
@@ -5491,7 +6067,9 @@
       "awayFpi": -1.159,
       "homeFpi": 2.501,
       "predictedMargin": 5.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.693,
+      "awayWinProbability": 0.307
     },
     {
       "gameId": "401873156",
@@ -5510,7 +6088,9 @@
       "awayFpi": 3.705,
       "homeFpi": 1.627,
       "predictedMargin": -0.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.496,
+      "awayWinProbability": 0.504
     },
     {
       "gameId": "401873157",
@@ -5529,7 +6109,9 @@
       "awayFpi": 1.289,
       "homeFpi": 1.4,
       "predictedMargin": 2.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.574,
+      "awayWinProbability": 0.426
     },
     {
       "gameId": "401873158",
@@ -5548,7 +6130,9 @@
       "awayFpi": 2.386,
       "homeFpi": 2.606,
       "predictedMargin": 2.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.578,
+      "awayWinProbability": 0.422
     },
     {
       "gameId": "401873159",
@@ -5567,7 +6151,9 @@
       "awayFpi": 5.574,
       "homeFpi": 0.089,
       "predictedMargin": -3.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.378,
+      "awayWinProbability": 0.622
     },
     {
       "gameId": "401873160",
@@ -5586,7 +6172,9 @@
       "awayFpi": -0.828,
       "homeFpi": 1.006,
       "predictedMargin": 3.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.632,
+      "awayWinProbability": 0.368
     },
     {
       "gameId": "401873164",
@@ -5605,7 +6193,9 @@
       "awayFpi": -2.696,
       "homeFpi": -1.496,
       "predictedMargin": 3.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.612,
+      "awayWinProbability": 0.388
     },
     {
       "gameId": "401873162",
@@ -5624,7 +6214,9 @@
       "awayFpi": -0.633,
       "homeFpi": -5.471,
       "predictedMargin": -2.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.401,
+      "awayWinProbability": 0.599
     },
     {
       "gameId": "401873165",
@@ -5643,7 +6235,9 @@
       "awayFpi": -1.159,
       "homeFpi": 1.764,
       "predictedMargin": 4.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.668,
+      "awayWinProbability": 0.332
     },
     {
       "gameId": "401873166",
@@ -5662,7 +6256,9 @@
       "awayFpi": -0.871,
       "homeFpi": -3.9,
       "predictedMargin": -1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.464,
+      "awayWinProbability": 0.536
     },
     {
       "gameId": "401873161",
@@ -5681,7 +6277,9 @@
       "awayFpi": 3.951,
       "homeFpi": -5.805,
       "predictedMargin": -7.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.247,
+      "awayWinProbability": 0.753
     },
     {
       "gameId": "401873163",
@@ -5700,7 +6298,9 @@
       "awayFpi": -0.435,
       "homeFpi": -5.541,
       "predictedMargin": -3.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.391,
+      "awayWinProbability": 0.609
     },
     {
       "gameId": "401873167",
@@ -5719,7 +6319,9 @@
       "awayFpi": 3.634,
       "homeFpi": -2.96,
       "predictedMargin": -4.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.341,
+      "awayWinProbability": 0.659
     },
     {
       "gameId": "401873168",
@@ -5738,7 +6340,9 @@
       "awayFpi": -4.634,
       "homeFpi": -5.191,
       "predictedMargin": 1.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.55,
+      "awayWinProbability": 0.45
     },
     {
       "gameId": "401873169",
@@ -5757,7 +6361,9 @@
       "awayFpi": 2.501,
       "homeFpi": 1.203,
       "predictedMargin": 0.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.525,
+      "awayWinProbability": 0.475
     },
     {
       "gameId": "401873170",
@@ -5776,7 +6382,9 @@
       "awayFpi": 1.992,
       "homeFpi": 3.306,
       "predictedMargin": 3.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.616,
+      "awayWinProbability": 0.384
     },
     {
       "gameId": "401873171",
@@ -5795,7 +6403,9 @@
       "awayFpi": 1.446,
       "homeFpi": 2.787,
       "predictedMargin": 3.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.616,
+      "awayWinProbability": 0.384
     },
     {
       "gameId": "401873181",
@@ -5814,7 +6424,9 @@
       "awayFpi": -5.541,
       "homeFpi": 3.951,
       "predictedMargin": 11.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.838,
+      "awayWinProbability": 0.162
     },
     {
       "gameId": "401873174",
@@ -5833,7 +6445,9 @@
       "awayFpi": -5.471,
       "homeFpi": 1.627,
       "predictedMargin": 9.1,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.786,
+      "awayWinProbability": 0.214
     },
     {
       "gameId": "401873179",
@@ -5852,7 +6466,9 @@
       "awayFpi": 2.606,
       "homeFpi": 1.289,
       "predictedMargin": 0.7,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.525,
+      "awayWinProbability": 0.475
     },
     {
       "gameId": "401873176",
@@ -5871,7 +6487,9 @@
       "awayFpi": 2.501,
       "homeFpi": 2.787,
       "predictedMargin": 2.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.581,
+      "awayWinProbability": 0.419
     },
     {
       "gameId": "401873177",
@@ -5890,7 +6508,9 @@
       "awayFpi": 1.006,
       "homeFpi": -0.633,
       "predictedMargin": 0.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.514,
+      "awayWinProbability": 0.486
     },
     {
       "gameId": "401873178",
@@ -5909,7 +6529,9 @@
       "awayFpi": -4.634,
       "homeFpi": 2.386,
       "predictedMargin": 9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.783,
+      "awayWinProbability": 0.217
     },
     {
       "gameId": "401873185",
@@ -5928,7 +6550,9 @@
       "awayFpi": 3.634,
       "homeFpi": 5.574,
       "predictedMargin": 3.9,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.636,
+      "awayWinProbability": 0.364
     },
     {
       "gameId": "401873173",
@@ -5947,7 +6571,9 @@
       "awayFpi": 1.203,
       "homeFpi": -0.435,
       "predictedMargin": 0.4,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.514,
+      "awayWinProbability": 0.486
     },
     {
       "gameId": "401873180",
@@ -5966,7 +6592,9 @@
       "awayFpi": -5.805,
       "homeFpi": 1.4,
       "predictedMargin": 9.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.788,
+      "awayWinProbability": 0.212
     },
     {
       "gameId": "401873186",
@@ -5985,7 +6613,9 @@
       "awayFpi": 0.089,
       "homeFpi": -2.696,
       "predictedMargin": -0.8,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.471,
+      "awayWinProbability": 0.529
     },
     {
       "gameId": "401873182",
@@ -6004,7 +6634,9 @@
       "awayFpi": 1.992,
       "homeFpi": -1.159,
       "predictedMargin": -1.2,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.457,
+      "awayWinProbability": 0.543
     },
     {
       "gameId": "401873184",
@@ -6023,7 +6655,9 @@
       "awayFpi": 3.306,
       "homeFpi": -5.191,
       "predictedMargin": -6.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.283,
+      "awayWinProbability": 0.717
     },
     {
       "gameId": "401873175",
@@ -6042,7 +6676,9 @@
       "awayFpi": 1.764,
       "homeFpi": -0.828,
       "predictedMargin": -0.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.479,
+      "awayWinProbability": 0.521
     },
     {
       "gameId": "401873172",
@@ -6061,7 +6697,9 @@
       "awayFpi": -1.496,
       "homeFpi": -2.96,
       "predictedMargin": 0.5,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.518,
+      "awayWinProbability": 0.482
     },
     {
       "gameId": "401873183",
@@ -6080,7 +6718,9 @@
       "awayFpi": -0.871,
       "homeFpi": 3.705,
       "predictedMargin": 6.6,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.72,
+      "awayWinProbability": 0.28
     },
     {
       "gameId": "401873187",
@@ -6099,7 +6739,9 @@
       "awayFpi": -3.9,
       "homeFpi": 1.446,
       "predictedMargin": 7.3,
-      "predictionError": null
+      "predictionError": null,
+      "homeWinProbability": 0.739,
+      "awayWinProbability": 0.261
     }
   ]
 }
