@@ -23,9 +23,6 @@ jobs:
  
       - name: Run FPI update script
         run: node scripts/update-fpi.mjs
-
-      - name: Debug field names
-        run: node scripts/debug-fields.mjs
  
       - name: Commit and push data
         uses: stefanzweifel/git-auto-commit-action@v5
