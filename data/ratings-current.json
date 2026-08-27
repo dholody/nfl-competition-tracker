@@ -1,5 +1,294 @@
 {
   "date": "2026-08-27",
   "season": 2026,
-  "teams": []
+  "teams": [
+    {
+      "teamId": "22",
+      "team": "ARI",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "1",
+      "team": "ATL",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "33",
+      "team": "BAL",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "2",
+      "team": "BUF",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "29",
+      "team": "CAR",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "3",
+      "team": "CHI",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "4",
+      "team": "CIN",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "5",
+      "team": "CLE",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "6",
+      "team": "DAL",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "7",
+      "team": "DEN",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "8",
+      "team": "DET",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "9",
+      "team": "GB",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "34",
+      "team": "HOU",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "11",
+      "team": "IND",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "30",
+      "team": "JAX",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "12",
+      "team": "KC",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "13",
+      "team": "LV",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "24",
+      "team": "LAC",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "14",
+      "team": "LAR",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "15",
+      "team": "MIA",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "16",
+      "team": "MIN",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "17",
+      "team": "NE",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "18",
+      "team": "NO",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "19",
+      "team": "NYG",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "20",
+      "team": "NYJ",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "21",
+      "team": "PHI",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "23",
+      "team": "PIT",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "25",
+      "team": "SF",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "26",
+      "team": "SEA",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "27",
+      "team": "TB",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "10",
+      "team": "TEN",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    },
+    {
+      "teamId": "28",
+      "team": "WSH",
+      "fpi": null,
+      "rank": null,
+      "offense": null,
+      "defense": null,
+      "specialTeams": null
+    }
+  ]
 }

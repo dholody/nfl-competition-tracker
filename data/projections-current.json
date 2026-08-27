@@ -1,5 +1,326 @@
 {
   "date": "2026-08-27",
   "season": 2026,
-  "teams": []
+  "teams": [
+    {
+      "teamId": "22",
+      "team": "ARI",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "1",
+      "team": "ATL",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "33",
+      "team": "BAL",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "2",
+      "team": "BUF",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "29",
+      "team": "CAR",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "3",
+      "team": "CHI",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "4",
+      "team": "CIN",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "5",
+      "team": "CLE",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "6",
+      "team": "DAL",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "7",
+      "team": "DEN",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "8",
+      "team": "DET",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "9",
+      "team": "GB",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "34",
+      "team": "HOU",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "11",
+      "team": "IND",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "30",
+      "team": "JAX",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "12",
+      "team": "KC",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "13",
+      "team": "LV",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "24",
+      "team": "LAC",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "14",
+      "team": "LAR",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "15",
+      "team": "MIA",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "16",
+      "team": "MIN",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "17",
+      "team": "NE",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "18",
+      "team": "NO",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "19",
+      "team": "NYG",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "20",
+      "team": "NYJ",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "21",
+      "team": "PHI",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "23",
+      "team": "PIT",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "25",
+      "team": "SF",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "26",
+      "team": "SEA",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "27",
+      "team": "TB",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "10",
+      "team": "TEN",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    },
+    {
+      "teamId": "28",
+      "team": "WSH",
+      "projectedWins": null,
+      "projectedLosses": null,
+      "playoffOdds": null,
+      "divisionOdds": null,
+      "conferenceOdds": null,
+      "superBowlOdds": null
+    }
+  ]
 }
