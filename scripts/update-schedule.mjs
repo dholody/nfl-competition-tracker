@@ -15,21 +15,10 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
+import { HOME_FIELD_ADV, marginToHomeWinProbability } from './lib/win-probability.mjs';
 
 const DATA_DIR = path.resolve('data');
 const RATINGS_CURRENT_PATH = path.join(DATA_DIR, 'ratings-current.json');
-
-const HOME_FIELD_ADV = 2.0;
-
-// Converts a predicted point margin into a win probability via a logistic
-// curve: P(favorite wins) = 1 / (1 + e^(-margin / WIN_PROB_SCALE)).
-// WIN_PROB_SCALE = 7 approximates the commonly-cited NFL rule of thumb that
-// each point of spread is worth roughly 3-4% of win probability near a
-// pick'em game (slope at margin=0 is 1/(4*scale) = 3.6%/pt here), and lines
-// up reasonably well with published spread-to-win% tables (e.g. -3 ~60%,
-// -7 ~72%, -10 ~79%, -14 ~87%). It's a simplification, not a fitted model —
-// nudge it if you want a steeper or flatter curve.
-const WIN_PROB_SCALE = 7;
 
 // Preseason (seasontype 1) weeks 1-4, regular season (seasontype 2) weeks 1-18.
 // Add {type: 3, week: 1..5} here later if you want postseason included.
@@ -131,12 +120,6 @@ async function loadFpiMap() {
     if (t.teamId != null && t.fpi != null) map.set(String(t.teamId), t.fpi);
   }
   return map;
-}
-
-// margin is from the home team's perspective (positive = home favored).
-// Returns the home team's win probability as a 0-1 fraction.
-function marginToHomeWinProbability(margin) {
-  return 1 / (1 + Math.exp(-margin / WIN_PROB_SCALE));
 }
 
 function buildRecord(game, fpiMap) {

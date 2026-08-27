@@ -1,0 +1,42 @@
+name: Update Competition Standings
+
+on:
+  workflow_run:
+    workflows: ["Update NFL Schedule Data"]
+    types: [completed]
+  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab,
+                          # independent of the FPI -> Schedule chain
+
+permissions:
+  contents: write
+
+jobs:
+  update-standings:
+    runs-on: ubuntu-latest
+    # Only proceed automatically off a successful upstream run (so the
+    # simulation isn't computed against stale/missing schedule data) — but
+    # still allow direct workflow_dispatch runs through.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Check out the commit the schedule workflow just pushed, not a
+          # stale ref from when this workflow_run event was queued.
+          ref: main
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run competition simulation
+        run: node scripts/simulate-season.mjs
+
+      - name: Commit and push standings
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Weekly competition standings update"
+          file_pattern: "data/standings-current.json data/standings-archive.json"
