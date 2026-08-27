@@ -1,0 +1,31 @@
+name: Update NFL FPI Data
+ 
+on:
+  schedule:
+    # 15:00 UTC ≈ 7-8am Pacific depending on DST. Adjust once you've confirmed timing.
+    - cron: '0 15 * * 2'
+  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab
+ 
+permissions:
+  contents: write
+ 
+jobs:
+  update-fpi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+ 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+ 
+      - name: Run FPI update script
+        run: node scripts/update-fpi.mjs
+ 
+      - name: Commit and push data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Weekly FPI data update"
+          file_pattern: "data/*.json"
