@@ -29,16 +29,15 @@ async function main() {
   console.log('--- Powerindex top-level response shape ---');
   console.log(JSON.stringify(powerIndexJson, null, 2).slice(0, 2000));
 
-  // If the top-level response contains $ref links per team, fetch the first
-  // one fully so you can see the real field names before writing candidate
-  // arrays in update-fpi.mjs.
-  const firstRef = powerIndexJson?.items?.[0]?.$ref;
-  if (firstRef) {
-    const firstTeamRes = await fetch(firstRef);
-    const firstTeamJson = await firstTeamRes.json();
-    console.log('--- First team full payload ---');
-    console.log(JSON.stringify(firstTeamJson, null, 2));
-  }
+  // Fetch one team's full payload directly so you can see the real field
+  // names before trusting the candidate arrays in update-fpi.mjs.
+  const sampleTeamId = 1; // Atlanta Falcons, per ESPN's team ID scheme
+  const teamUrl = `https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${YEAR}/powerindex/${sampleTeamId}`;
+  const firstTeamRes = await fetch(teamUrl);
+  console.log(`--- Fetching ${teamUrl} (status ${firstTeamRes.status}) ---`);
+  const firstTeamJson = await firstTeamRes.json();
+  console.log('--- Full payload for one team ---');
+  console.log(JSON.stringify(firstTeamJson, null, 2));
 }
 
 main().catch((err) => {
