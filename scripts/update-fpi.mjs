@@ -57,6 +57,31 @@ function findStat(statsArray, candidateNames) {
   return null;
 }
 
+// Searches top-level keys first, then falls back to searching one/two levels
+// of nested objects for a primitive value under any of the candidate names.
+// This is deliberately loose: ESPN's exact nesting for this endpoint hasn't
+// been confirmed live, so this trades some precision for resilience.
+function deepFind(obj, candidateNames, depth = 2) {
+  if (!obj || typeof obj !== 'object' || depth < 0) return null;
+
+  for (const key of candidateNames) {
+    const val = obj[key];
+    if (val !== undefined && val !== null && typeof val !== 'object') {
+      return val;
+    }
+  }
+
+  if (depth === 0) return null;
+
+  for (const value of Object.values(obj)) {
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      const found = deepFind(value, candidateNames, depth - 1);
+      if (found !== null) return found;
+    }
+  }
+  return null;
+}
+
 async function fetchJson(url) {
   const res = await fetch(url);
   if (!res.ok) {
@@ -78,7 +103,7 @@ async function fetchTeamList() {
 }
 
 async function fetchTeamPowerIndex(season, teamId) {
-  const url = `https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${season}/types/2/teams/${teamId}/powerindex`;
+  const url = `https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/${season}/powerindex/${teamId}`;
   return fetchJson(url);
 }
 
@@ -87,11 +112,11 @@ function extractRating(teamMeta, raw) {
   return {
     teamId: teamMeta.id,
     team: teamMeta.abbreviation,
-    fpi: firstMatch(raw, RATING_FIELD_CANDIDATES.fpi) ?? findStat(stats, RATING_FIELD_CANDIDATES.fpi),
-    rank: firstMatch(raw, RATING_FIELD_CANDIDATES.rank),
-    offense: findStat(stats, RATING_FIELD_CANDIDATES.offense),
-    defense: findStat(stats, RATING_FIELD_CANDIDATES.defense),
-    specialTeams: findStat(stats, RATING_FIELD_CANDIDATES.specialTeams),
+    fpi: deepFind(raw, RATING_FIELD_CANDIDATES.fpi) ?? findStat(stats, RATING_FIELD_CANDIDATES.fpi),
+    rank: deepFind(raw, RATING_FIELD_CANDIDATES.rank),
+    offense: deepFind(raw, RATING_FIELD_CANDIDATES.offense) ?? findStat(stats, RATING_FIELD_CANDIDATES.offense),
+    defense: deepFind(raw, RATING_FIELD_CANDIDATES.defense) ?? findStat(stats, RATING_FIELD_CANDIDATES.defense),
+    specialTeams: deepFind(raw, RATING_FIELD_CANDIDATES.specialTeams) ?? findStat(stats, RATING_FIELD_CANDIDATES.specialTeams),
   };
 }
 
@@ -100,12 +125,12 @@ function extractProjection(teamMeta, raw) {
   return {
     teamId: teamMeta.id,
     team: teamMeta.abbreviation,
-    projectedWins: findStat(stats, PROJECTION_FIELD_CANDIDATES.projectedWins),
-    projectedLosses: findStat(stats, PROJECTION_FIELD_CANDIDATES.projectedLosses),
-    playoffOdds: findStat(stats, PROJECTION_FIELD_CANDIDATES.playoffOdds),
-    divisionOdds: findStat(stats, PROJECTION_FIELD_CANDIDATES.divisionOdds),
-    conferenceOdds: findStat(stats, PROJECTION_FIELD_CANDIDATES.conferenceOdds),
-    superBowlOdds: findStat(stats, PROJECTION_FIELD_CANDIDATES.superBowlOdds),
+    projectedWins: deepFind(raw, PROJECTION_FIELD_CANDIDATES.projectedWins) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.projectedWins),
+    projectedLosses: deepFind(raw, PROJECTION_FIELD_CANDIDATES.projectedLosses) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.projectedLosses),
+    playoffOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.playoffOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.playoffOdds),
+    divisionOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.divisionOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.divisionOdds),
+    conferenceOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.conferenceOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.conferenceOdds),
+    superBowlOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.superBowlOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.superBowlOdds),
   };
 }
 
