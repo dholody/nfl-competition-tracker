@@ -1,0 +1,42 @@
+name: Update NFL Schedule Data
+
+on:
+  workflow_run:
+    workflows: ["Update NFL FPI Data"]
+    types: [completed]
+  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab,
+                          # independent of the FPI workflow
+
+permissions:
+  contents: write
+
+jobs:
+  update-schedule:
+    runs-on: ubuntu-latest
+    # Only proceed automatically if the FPI run that triggered this actually
+    # succeeded (so we don't compute predicted margins off stale/missing
+    # ratings) — but still allow direct workflow_dispatch runs through.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Ensure we check out the commit the FPI workflow just pushed,
+          # not a stale ref from when this workflow_run event was queued.
+          ref: main
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run schedule update script
+        run: node scripts/update-schedule.mjs
+
+      - name: Commit and push data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Weekly schedule data update"
+          file_pattern: "data/*.json"
