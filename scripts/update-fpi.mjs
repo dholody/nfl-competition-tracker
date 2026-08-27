@@ -2,11 +2,12 @@
 // append-only archive JSON files into /data. Run by the weekly GitHub
 // Actions workflow (or manually with: node scripts/update-fpi.mjs).
 //
-// IMPORTANT: the candidate field-name arrays below are best-guess discovery
-// lists, same pattern as the old Apps Script version (first match wins, so
-// upstream renames don't break the whole run). Run scripts/debug-fields.mjs
-// once against the live API and adjust these candidate lists if ESPN's real
-// field names differ.
+// Field names below are confirmed against ESPN's live response (predictives
+// array, one entry per stat, keyed by `name`). If ESPN renames a field in
+// the future, add the new name to the front of that field's candidate array
+// below (first match wins) rather than replacing it outright — that keeps
+// this resilient to upstream changes the same way the original Apps Script
+// version was.
 
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -14,20 +15,21 @@ import path from 'path';
 const DATA_DIR = path.resolve('data');
 
 const RATING_FIELD_CANDIDATES = {
-  fpi: ['fpi', 'rating', 'value'],
-  rank: ['rank', 'fpiRank'],
-  offense: ['offensiveEfficiency', 'off', 'offense'],
-  defense: ['defensiveEfficiency', 'def', 'defense'],
-  specialTeams: ['specialTeamsEfficiency', 'st', 'specialTeams'],
+  fpi: ['fpi'],
+  rank: ['fpirank'],
+  offense: ['epaoffense'],
+  defense: ['epadefense'],
+  specialTeams: ['epaspecialteams'],
+  trend: ['rankchange7days'],
 };
 
 const PROJECTION_FIELD_CANDIDATES = {
-  projectedWins: ['projectedWins', 'winsProjection', 'wins'],
-  projectedLosses: ['projectedLosses', 'lossesProjection', 'losses'],
-  playoffOdds: ['playoffOdds', 'makePlayoffs'],
-  divisionOdds: ['winDivision', 'divisionOdds'],
-  conferenceOdds: ['winConference', 'conferenceOdds'],
-  superBowlOdds: ['winSuperBowl', 'superBowlOdds'],
+  projectedWins: ['projectedw'],
+  projectedLosses: ['projectedl'],
+  playoffOdds: ['probmakeplayoffs'],
+  divisionOdds: ['probwindiv'],
+  conferenceOdds: ['probmakeconfchamp'],
+  superBowlOdds: ['probwintitle'],
 };
 
 function detectSeason(date = new Date()) {
@@ -36,48 +38,21 @@ function detectSeason(date = new Date()) {
   return month >= 8 ? year : year - 1;
 }
 
-function firstMatch(source, candidates) {
-  if (!source) return null;
-  for (const key of candidates) {
-    if (source[key] !== undefined && source[key] !== null) {
-      return source[key];
-    }
+// ESPN returns per-team data as a flat array under `predictives`, each entry
+// shaped like { name, value, displayValue, ... }. This indexes that array by
+// name so extraction is a simple lookup instead of guesswork.
+function statsMap(raw) {
+  const list = raw?.predictives ?? [];
+  const map = {};
+  for (const entry of list) {
+    if (entry?.name) map[entry.name] = entry.value ?? null;
   }
-  return null;
+  return map;
 }
 
-function findStat(statsArray, candidateNames) {
-  if (!Array.isArray(statsArray)) return null;
+function fromStatsMap(map, candidateNames) {
   for (const name of candidateNames) {
-    const found = statsArray.find(
-      (s) => s?.name === name || s?.abbreviation === name || s?.shortDisplayName === name
-    );
-    if (found) return found.value ?? found.displayValue ?? null;
-  }
-  return null;
-}
-
-// Searches top-level keys first, then falls back to searching one/two levels
-// of nested objects for a primitive value under any of the candidate names.
-// This is deliberately loose: ESPN's exact nesting for this endpoint hasn't
-// been confirmed live, so this trades some precision for resilience.
-function deepFind(obj, candidateNames, depth = 2) {
-  if (!obj || typeof obj !== 'object' || depth < 0) return null;
-
-  for (const key of candidateNames) {
-    const val = obj[key];
-    if (val !== undefined && val !== null && typeof val !== 'object') {
-      return val;
-    }
-  }
-
-  if (depth === 0) return null;
-
-  for (const value of Object.values(obj)) {
-    if (value && typeof value === 'object' && !Array.isArray(value)) {
-      const found = deepFind(value, candidateNames, depth - 1);
-      if (found !== null) return found;
-    }
+    if (map[name] !== undefined && map[name] !== null) return map[name];
   }
   return null;
 }
@@ -108,29 +83,30 @@ async function fetchTeamPowerIndex(season, teamId) {
 }
 
 function extractRating(teamMeta, raw) {
-  const stats = raw?.categories?.[0]?.values ?? raw?.stats ?? [];
+  const map = statsMap(raw);
   return {
     teamId: teamMeta.id,
     team: teamMeta.abbreviation,
-    fpi: deepFind(raw, RATING_FIELD_CANDIDATES.fpi) ?? findStat(stats, RATING_FIELD_CANDIDATES.fpi),
-    rank: deepFind(raw, RATING_FIELD_CANDIDATES.rank),
-    offense: deepFind(raw, RATING_FIELD_CANDIDATES.offense) ?? findStat(stats, RATING_FIELD_CANDIDATES.offense),
-    defense: deepFind(raw, RATING_FIELD_CANDIDATES.defense) ?? findStat(stats, RATING_FIELD_CANDIDATES.defense),
-    specialTeams: deepFind(raw, RATING_FIELD_CANDIDATES.specialTeams) ?? findStat(stats, RATING_FIELD_CANDIDATES.specialTeams),
+    fpi: fromStatsMap(map, RATING_FIELD_CANDIDATES.fpi),
+    rank: fromStatsMap(map, RATING_FIELD_CANDIDATES.rank),
+    offense: fromStatsMap(map, RATING_FIELD_CANDIDATES.offense),
+    defense: fromStatsMap(map, RATING_FIELD_CANDIDATES.defense),
+    specialTeams: fromStatsMap(map, RATING_FIELD_CANDIDATES.specialTeams),
+    trend: fromStatsMap(map, RATING_FIELD_CANDIDATES.trend),
   };
 }
 
 function extractProjection(teamMeta, raw) {
-  const stats = raw?.categories?.[0]?.values ?? raw?.stats ?? [];
+  const map = statsMap(raw);
   return {
     teamId: teamMeta.id,
     team: teamMeta.abbreviation,
-    projectedWins: deepFind(raw, PROJECTION_FIELD_CANDIDATES.projectedWins) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.projectedWins),
-    projectedLosses: deepFind(raw, PROJECTION_FIELD_CANDIDATES.projectedLosses) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.projectedLosses),
-    playoffOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.playoffOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.playoffOdds),
-    divisionOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.divisionOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.divisionOdds),
-    conferenceOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.conferenceOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.conferenceOdds),
-    superBowlOdds: deepFind(raw, PROJECTION_FIELD_CANDIDATES.superBowlOdds) ?? findStat(stats, PROJECTION_FIELD_CANDIDATES.superBowlOdds),
+    projectedWins: fromStatsMap(map, PROJECTION_FIELD_CANDIDATES.projectedWins),
+    projectedLosses: fromStatsMap(map, PROJECTION_FIELD_CANDIDATES.projectedLosses),
+    playoffOdds: fromStatsMap(map, PROJECTION_FIELD_CANDIDATES.playoffOdds),
+    divisionOdds: fromStatsMap(map, PROJECTION_FIELD_CANDIDATES.divisionOdds),
+    conferenceOdds: fromStatsMap(map, PROJECTION_FIELD_CANDIDATES.conferenceOdds),
+    superBowlOdds: fromStatsMap(map, PROJECTION_FIELD_CANDIDATES.superBowlOdds),
   };
 }
 
