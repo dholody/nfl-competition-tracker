@@ -7,7 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function(){
+    if (typeof Chart === 'undefined') {
+      var banner = document.createElement('div');
+      banner.style.cssText = 'background:#c0392b;color:#fff;padding:10px 16px;font-family:sans-serif;font-size:13px;text-align:center;';
+      banner.textContent = 'Chart.js failed to load from the CDN — charts on this page will be blank. This is usually a network/ad-blocker issue; try disabling content blockers for this page or reloading.';
+      document.body.prepend(banner);
+    }
+  });
+</script>
 <style>
 
 :root{
@@ -216,6 +226,32 @@ select{
 .div-team-row .bar-fill{height:100%;}
 .div-team-row .pct{font-family:'Space Mono'; font-size:11px; text-align:right;}
 
+/* ---------- stacked division bars ---------- */
+.stack-bar-card{margin-bottom:12px;}
+.stack-bar-card .dtitle{
+  padding:7px 2px 8px; font-family:'Barlow Condensed'; font-weight:600;
+  font-size:14px; color:var(--navy); text-transform:uppercase; letter-spacing:.3px;
+}
+.stack-bar{
+  display:flex; width:100%; height:56px; border-radius:8px; overflow:hidden;
+  border:1px solid var(--line); background:#eef1f5;
+}
+.stack-seg{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:2px; min-width:26px; position:relative;
+  border-right:2px solid rgba(255,255,255,.55);
+  transition:flex-grow .2s;
+}
+.stack-seg:last-child{border-right:none;}
+.stack-seg img{width:20px;height:20px;object-fit:contain; filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));}
+.stack-seg-label{
+  font-family:'Space Mono'; font-size:10px; color:#fff; font-weight:700;
+  text-shadow:0 1px 2px rgba(0,0,0,.35); white-space:nowrap;
+}
+.stack-legend{display:flex; gap:14px; flex-wrap:wrap; padding:8px 2px 2px; font-size:11px; color:var(--muted);}
+.stack-legend span{display:inline-flex; align-items:center; gap:5px;}
+.stack-legend .sw{width:9px;height:9px;border-radius:50%; display:inline-block;}
+
 @media (max-width:640px){
   .app-header{padding:14px 14px 0;}
   .tab-panel{padding:16px 14px 40px;}
@@ -320,6 +356,9 @@ select{
 
   <!-- ============ TAB 3: DIVISION ODDS ============ -->
   <section class="tab-panel" id="tab-divisions">
+    <div class="section-title">Division Odds — Current Standing <small>Each bar is one division; segment width = division-title odds, colored by owner</small></div>
+    <div class="grid grid-2" id="divisionStackedBars"></div>
+
     <div class="section-title">Division Odds by Week <small>Division-title probability trend, snapshot each Tuesday</small></div>
     <div class="grid grid-2" id="conferenceCols"></div>
   </section>
@@ -597,9 +636,9 @@ function renderTeamPointsList(){
 }
 
 function renderResultsTab(){
-  renderStandingsTable();
-  renderPointsTrend();
-  renderTeamPointsList();
+  safeRender('standingsTable', renderStandingsTable);
+  safeRender('pointsTrend', renderPointsTrend);
+  safeRender('teamPointsList', renderTeamPointsList);
 }
 
 /* ---------------- TAB 2: FPI PROJECTIONS ---------------- */
@@ -755,17 +794,68 @@ function renderPlayoffOddsList(){
 
 function renderProjectionsTab(){
   const agg = ownerProjAggregates();
-  renderOwnerStatBars('ownerWinsBars', agg, 'wins');
-  renderOwnerStatBars('ownerPlayoffBars', agg, 'playoffTeams');
-  renderFpiRankList();
-  renderProjWinsList();
-  renderDivisionProjection();
-  renderPlayoffTrend();
-  renderPlayoffOddsList();
+  safeRender('ownerWinsBars', ()=>renderOwnerStatBars('ownerWinsBars', agg, 'wins'));
+  safeRender('ownerPlayoffBars', ()=>renderOwnerStatBars('ownerPlayoffBars', agg, 'playoffTeams'));
+  safeRender('fpiRankList', renderFpiRankList);
+  safeRender('projWinsList', renderProjWinsList);
+  safeRender('divisionProjection', renderDivisionProjection);
+  safeRender('playoffTrend', renderPlayoffTrend);
+  safeRender('playoffOddsList', renderPlayoffOddsList);
+}
+
+/* ---------------- TAB 3: DIVISION ODDS — STACKED BAR (current) ---------------- */
+function renderDivisionStackedBars(){
+  const confs = ['AFC','NFC'];
+  const divNames = ['East','North','South','West'];
+
+  const html = confs.map(conf=>{
+    const cards = divNames.map(div=>{
+      const abbrs = Object.keys(TEAM_INFO).filter(a=>teamConf(a)===conf && teamDiv(a)===div);
+      const items = abbrs
+        .map(a=>({ a, odds: (projTeam(a)||{divisionOdds:0}).divisionOdds || 0 }))
+        .sort((x,y)=> y.odds - x.odds);
+      const leftover = Math.max(0, 100 - sum(items, i=>i.odds));
+
+      const segs = items.map(it=>{
+        const grow = Math.max(it.odds, 1.5); // keep a sliver visible even near 0%
+        const color = ownerColor(ownerOf(it.a));
+        const showLabel = it.odds >= 7;
+        return `<div class="stack-seg" style="flex-grow:${grow};background:${color}"
+                     title="${escapeHtml(teamName(it.a))} — ${escapeHtml(ownerOf(it.a))} — ${pct1(it.odds)} to win ${conf} ${div}">
+          <img src="${teamLogo(it.a)}" alt="${it.a}" onerror="this.style.visibility='hidden'">
+          ${showLabel ? `<span class="stack-seg-label">${pct0(it.odds)}</span>` : ''}
+        </div>`;
+      }).join('');
+      const undecided = leftover > 1
+        ? `<div class="stack-seg" style="flex-grow:${leftover};background:#dde2e9;" title="Undecided — ${pct1(leftover)}"></div>`
+        : '';
+
+      return `<div class="stack-bar-card">
+        <div class="dtitle">${conf} ${div}</div>
+        <div class="stack-bar">${segs}${undecided}</div>
+      </div>`;
+    }).join('');
+    return `<div>${cards}</div>`;
+  }).join('');
+
+  document.getElementById('divisionStackedBars').innerHTML = html;
+
+  // one shared legend under both columns (reuse if already inserted)
+  const legendHtml = ownerList().map(o=>`<span><span class="sw" style="background:${ownerColor(o)}"></span>${escapeHtml(o)}</span>`).join('');
+  const container = document.getElementById('divisionStackedBars');
+  let legend = document.getElementById('divisionStackedLegend');
+  if(!legend){
+    legend = document.createElement('div');
+    legend.id = 'divisionStackedLegend';
+    legend.className = 'stack-legend';
+    container.after(legend);
+  }
+  legend.innerHTML = legendHtml;
 }
 
 /* ---------------- TAB 3: DIVISION ODDS BY WEEK ---------------- */
 function renderDivisionOddsTab(){
+  safeRender('divisionStackedBars', renderDivisionStackedBars);
   const confs = ['AFC','NFC'];
   const divNames = ['East','North','South','West'];
   const archive = DATA.projectionsArchive;
@@ -1029,24 +1119,42 @@ function renderMinWinsTable(dist){
 
 function renderTeamTab(){
   const abbr = selectedTeam;
-  renderTeamHeader(abbr);
-  renderTeamProjTable(abbr);
-  renderTeamTrendChart(abbr);
-  renderTeamScheduleTable(abbr);
-  renderGameResultsChart(abbr);
-  const dist = renderWinDistribution(abbr);
-  renderMinWinsTable(dist);
+  safeRender('teamHeader', ()=>renderTeamHeader(abbr));
+  safeRender('teamProjTable', ()=>renderTeamProjTable(abbr));
+  safeRender('teamTrendChart', ()=>renderTeamTrendChart(abbr));
+  safeRender('teamScheduleTable', ()=>renderTeamScheduleTable(abbr));
+  safeRender('gameResultsChart', ()=>renderGameResultsChart(abbr));
+  let dist = null;
+  try{ dist = renderWinDistribution(abbr); }
+  catch(e){ console.error('[dashboard] render failed: winDistribution', e); }
+  if(dist) safeRender('minWinsTable', ()=>renderMinWinsTable(dist));
 }
 
 /* ---------------- orchestration ---------------- */
+function safeRender(label, fn){
+  try{ fn(); }
+  catch(e){ console.error('[dashboard] render failed: ' + label, e); }
+}
+
 function renderAll(){
-  renderHeader();
-  renderOwnerLegend();
-  renderResultsTab();
-  renderProjectionsTab();
-  renderDivisionOddsTab();
-  if(!selectedTeam) populateTeamSelect();
-  renderTeamTab();
+  safeRender('header', renderHeader);
+  safeRender('ownerLegend', renderOwnerLegend);
+  safeRender('resultsTab', renderResultsTab);
+  safeRender('projectionsTab', renderProjectionsTab);
+  safeRender('divisionOddsTab', renderDivisionOddsTab);
+  if(!selectedTeam) safeRender('populateTeamSelect', populateTeamSelect);
+  safeRender('teamTab', renderTeamTab);
+  resizeAllCharts();
+}
+
+function resizeAllCharts(){
+  // Charts created while their tab was hidden get sized 0x0; re-measure them
+  // a couple of times after layout settles (covers browsers that don't flush
+  // the display:none -> block transition before the first animation frame).
+  const kick = ()=> Object.values(charts).forEach(c=> c && c.resize && c.resize());
+  requestAnimationFrame(kick);
+  setTimeout(kick, 60);
+  setTimeout(kick, 300);
 }
 
 function initTabs(){
@@ -1055,7 +1163,7 @@ function initTabs(){
       const name = btn.dataset.tab;
       document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b===btn));
       document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active', p.id==='tab-'+name));
-      requestAnimationFrame(()=>{ Object.values(charts).forEach(c=> c && c.resize && c.resize()); });
+      resizeAllCharts();
     });
   });
 }
