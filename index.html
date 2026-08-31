@@ -320,7 +320,7 @@ select{
 
     <div class="section-title">FPI Projections <small>Current-week model output from ESPN's Football Power Index</small></div>
 
-    <div class="grid grid-2">
+    <div class="grid grid-3">
       <div class="card">
         <div class="card-head">Projected Wins by Owner</div>
         <div class="card-body" id="ownerWinsBars"></div>
@@ -328,6 +328,10 @@ select{
       <div class="card">
         <div class="card-head">Projected Playoff Teams by Owner <span class="hint">&sum; playoff odds across roster</span></div>
         <div class="card-body" id="ownerPlayoffBars"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">Projected Super Bowl Wins by Owner <span class="hint">&sum; SB odds across roster</span></div>
+        <div class="card-body" id="ownerSbBars"></div>
       </div>
     </div>
 
@@ -355,9 +359,14 @@ select{
         <div class="card-body"><div class="chart-wrap" style="height:260px;"><canvas id="chartPlayoffTrend"></canvas></div></div>
       </div>
       <div class="card">
-        <div class="card-head">Playoff Odds <span class="hint">All 32 teams, AFC / NFC</span></div>
-        <div class="card-body pad-0" style="max-height:320px; overflow-y:auto;" id="playoffOddsList"></div>
+        <div class="card-head">Expected Super Bowl Wins by Week <span class="hint">Owner totals, snapshot each Tuesday</span></div>
+        <div class="card-body"><div class="chart-wrap" style="height:260px;"><canvas id="chartSbTrend"></canvas></div></div>
       </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Playoff Odds <span class="hint">All 32 teams, sorted by playoff odds</span></div>
+      <div class="card-body"><div class="chart-wrap" id="playoffOddsChartWrap"><canvas id="chartPlayoffOdds"></canvas></div></div>
     </div>
   </section>
 
@@ -398,24 +407,23 @@ select{
       </div>
     </div>
 
-    <div class="section-title">FPI Schedule &amp; Win Projection</div>
-    <div class="card">
-      <div class="card-head">Regular Season Schedule <span class="hint">Bar split by pregame FPI win % — team color vs opponent color</span></div>
-      <div class="card-body pad-0" style="max-height:640px; overflow-y:auto;">
-        <table id="teamScheduleTable"><thead></thead><tbody></tbody></table>
-      </div>
-    </div>
-
+    <div class="section-title">Win Projection <small>Poisson-binomial model from 17 game win probabilities</small></div>
     <div class="grid grid-2">
       <div class="card">
-        <div class="card-head">Projected Win Distribution <span class="hint">Poisson-binomial model from 17 game win probabilities</span></div>
+        <div class="card-head">Projected Win Distribution <span class="hint">P(final wins = N)</span></div>
         <div class="card-body"><div class="chart-wrap" style="height:240px;"><canvas id="chartWinDist"></canvas></div></div>
       </div>
       <div class="card">
         <div class="card-head">Minimum Wins &mdash; Cumulative Odds <span class="hint">P(final wins &ge; N)</span></div>
-        <div class="card-body pad-0" style="overflow-x:auto;">
-          <table id="minWinsTable"><thead></thead><tbody></tbody></table>
-        </div>
+        <div class="card-body"><div class="chart-wrap" style="height:240px;"><canvas id="chartMinWins"></canvas></div></div>
+      </div>
+    </div>
+
+    <div class="section-title">FPI Schedule</div>
+    <div class="card">
+      <div class="card-head">Regular Season Schedule <span class="hint">Bar split by pregame FPI win % — team color vs opponent color</span></div>
+      <div class="card-body pad-0" style="max-height:640px; overflow-y:auto;">
+        <table id="teamScheduleTable"><thead></thead><tbody></tbody></table>
       </div>
     </div>
   </section>
@@ -736,6 +744,7 @@ function ownerProjAggregates(){
       owner,
       wins: sum(projs, t=>t.projectedWins),
       playoffTeams: sum(projs, t=>t.playoffOdds/100),
+      sbWins: sum(projs, t=>t.superBowlOdds/100),
       isNeutral: owner===neutral
     };
   }).sort((a,b)=> (a.isNeutral-b.isNeutral) || (b.wins-a.wins));
@@ -847,8 +856,8 @@ function renderDivisionProjection(){
   document.getElementById('divisionProjection').innerHTML = html;
 }
 
-function renderPlayoffTrend(){
-  const ctx = document.getElementById('chartPlayoffTrend');
+function renderOwnerOddsTrend(canvasId, chartKey, oddsField, yLabel){
+  const ctx = document.getElementById(canvasId);
   const archive = DATA.projectionsArchive;
   const owners = ownerList().filter(o=>o!==(DATA.rosters.neutralLabel||'Unpicked'));
   const labels = archive.map(e=>fmtDate(e.date));
@@ -859,7 +868,7 @@ function renderPlayoffTrend(){
       data: archive.map(e=>{
         const totals = abbrs.map(a=>{
           const t = e.teams.find(x=>x.team===a);
-          return t ? t.playoffOdds/100 : 0;
+          return t ? t[oddsField]/100 : 0;
         });
         return sum(totals, x=>x);
       }),
@@ -870,14 +879,14 @@ function renderPlayoffTrend(){
       tension: 0.25
     };
   });
-  if(charts.playoffTrend) charts.playoffTrend.destroy();
-  charts.playoffTrend = new Chart(ctx, {
+  if(charts[chartKey]) charts[chartKey].destroy();
+  charts[chartKey] = new Chart(ctx, {
     type:'line',
     data:{ labels, datasets },
     options:{
       responsive:true, maintainAspectRatio:false,
       plugins:{ legend:{ position:'bottom', labels:{boxWidth:10, font:{family:'Inter', size:11.5}} } },
-      scales:{ y:{ title:{display:true,text:'Expected playoff teams'}, grid:{color:'#eef1f5'} }, x:{grid:{display:false}} }
+      scales:{ y:{ title:{display:true,text:yLabel}, grid:{color:'#eef1f5'} }, x:{grid:{display:false}} }
     }
   });
   const wrap = ctx.closest('.card-body');
@@ -888,37 +897,52 @@ function renderPlayoffTrend(){
     : `${archive.length} weekly snapshots archived.`;
 }
 
-function renderPlayoffOddsList(){
-  const confs = ['AFC','NFC'];
-  const html = confs.map(conf=>{
-    const teams = DATA.projections.teams
-      .filter(t=>teamConf(t.team)===conf)
-      .sort((a,b)=>b.playoffOdds-a.playoffOdds);
-    const rows = teams.map((t,i)=>`<div class="rank-row">
-      <span class="rank-num">${i+1}</span><span></span>
-      <span class="rank-bar-track">
-        <span class="rank-bar-fill" style="width:${Math.max(3,t.playoffOdds)}%;background:${ownerColor(ownerOf(t.team))}"></span>
-        <span class="rank-bar-label"><img src="${teamLogo(t.team)}" onerror="this.style.visibility='hidden'">${t.team}</span>
-      </span>
-      <span class="rank-val">${pct1(t.playoffOdds)}</span>
-    </div>`).join('');
-    return `<div>
-      <div style="padding:8px 14px; font-family:'Barlow Condensed'; font-weight:700; font-size:14px; color:var(--navy); background:#f7f9fb; border-bottom:1px solid var(--line);">${conf}</div>
-      <div style="padding:6px 14px 14px;">${rows}</div>
-    </div>`;
-  }).join('<div style="border-top:1px solid var(--line)"></div>');
-  document.getElementById('playoffOddsList').innerHTML = html;
+function renderPlayoffOddsChart(){
+  const teams = [...DATA.projections.teams].sort((a,b)=> b.playoffOdds - a.playoffOdds);
+  const wrap = document.getElementById('playoffOddsChartWrap');
+  wrap.style.height = (teams.length * 22 + 20) + 'px';
+
+  const ctx = document.getElementById('chartPlayoffOdds');
+  const labels = teams.map(t=> t.team);
+  const values = teams.map(t=> t.playoffOdds);
+  const colors = teams.map(t=> ownerColor(ownerOf(t.team)));
+  const abbrs = teams.map(t=> t.team);
+
+  if(charts.playoffOdds) charts.playoffOdds.destroy();
+  charts.playoffOdds = new Chart(ctx, {
+    type:'bar',
+    data:{ labels, datasets:[{ data: values, backgroundColor: colors, borderRadius:3, barPercentage:.72, categoryPercentage:.9 }] },
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      layout:{ padding:{ right:26 } },
+      plugins:{
+        legend:{display:false},
+        barLogos:{ abbrs, size:16 },
+        tooltip:{ callbacks:{
+          title:(items)=>{ const t = teams[items[0].dataIndex]; return teamName(t.team); },
+          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${ownerOf(t.team)}`, `Playoff odds: ${pct1(t.playoffOdds)}`]; }
+        } }
+      },
+      scales:{
+        x:{ min:0, max:100, title:{display:true, text:'Playoff odds %'}, grid:{color:'#eef1f5'} },
+        y:{ ticks:{ font:{family:'Space Mono', size:10.5} }, grid:{display:false} }
+      }
+    }
+  });
 }
 
 function renderProjectionsTab(){
   const agg = ownerProjAggregates();
   safeRender('ownerWinsBars', ()=>renderOwnerStatBars('ownerWinsBars', agg, 'wins'));
   safeRender('ownerPlayoffBars', ()=>renderOwnerStatBars('ownerPlayoffBars', agg, 'playoffTeams'));
+  safeRender('ownerSbBars', ()=>renderOwnerStatBars('ownerSbBars', agg, 'sbWins'));
   safeRender('projWinsChart', renderProjWinsChart);
   safeRender('fpiRankChart', renderFpiRankChart);
   safeRender('divisionProjection', renderDivisionProjection);
-  safeRender('playoffTrend', renderPlayoffTrend);
-  safeRender('playoffOddsList', renderPlayoffOddsList);
+  safeRender('playoffTrend', ()=>renderOwnerOddsTrend('chartPlayoffTrend','playoffTrend','playoffOdds','Expected playoff teams'));
+  safeRender('sbTrend', ()=>renderOwnerOddsTrend('chartSbTrend','sbTrend','superBowlOdds','Expected Super Bowl wins'));
+  safeRender('playoffOddsChart', renderPlayoffOddsChart);
 }
 
 /* ---------------- TAB 3: DIVISION ODDS — STACKED BAR (current) ---------------- */
@@ -1201,14 +1225,30 @@ function renderWinDistribution(abbr){
   return dist;
 }
 
-function renderMinWinsTable(dist){
+function renderMinWinsChart(dist, abbr){
   const n = dist.length - 1;
   let cum = 0;
   const cumArr = new Array(dist.length);
   for(let k=n;k>=0;k--){ cum += dist[k]; cumArr[k] = cum; }
-  const thead = '<thead><tr>' + Array.from({length:n+1},(_,k)=>`<th class="num">${k}</th>`).join('') + '</tr></thead>';
-  const tbody = '<tbody><tr>' + cumArr.map(v=>`<td class="num">${pct0(v*100)}</td>`).join('') + '</tr></tbody>';
-  document.getElementById('minWinsTable').innerHTML = thead + tbody;
+  const labels = cumArr.map((_,k)=>k);
+
+  const ctx = document.getElementById('chartMinWins');
+  if(charts.minWins) charts.minWins.destroy();
+  charts.minWins = new Chart(ctx, {
+    type:'bar',
+    data:{ labels, datasets:[{ data: cumArr.map(v=>v*100), backgroundColor: teamColor(abbr), borderRadius:3 }] },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{ callbacks:{ label:(c)=> c.raw.toFixed(1)+'% chance of '+c.label+'+ wins' } }
+      },
+      scales:{
+        x:{ title:{display:true, text:'Minimum final wins (N)'} },
+        y:{ min:0, max:100, title:{display:true, text:'P(wins ≥ N) %'} }
+      }
+    }
+  });
 }
 
 function renderTeamTab(){
@@ -1220,7 +1260,7 @@ function renderTeamTab(){
   let dist = null;
   try{ dist = renderWinDistribution(abbr); }
   catch(e){ console.error('[dashboard] render failed: winDistribution', e); }
-  if(dist) safeRender('minWinsTable', ()=>renderMinWinsTable(dist));
+  if(dist) safeRender('minWinsChart', ()=>renderMinWinsChart(dist, abbr));
 }
 
 /* ---------------- orchestration ---------------- */
