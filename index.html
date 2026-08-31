@@ -336,7 +336,7 @@ select{
     </div>
 
     <div class="card">
-      <div class="card-head">Projected Wins by Team <span class="hint">Sorted by projected wins, bar length = wins</span></div>
+      <div class="card-head">Projected Total Points by Team <span class="hint">Sorted by projected points, bar length = points</span></div>
       <div class="card-body"><div class="chart-wrap" id="projWinsChartWrap"><canvas id="chartProjWins"></canvas></div></div>
     </div>
 
@@ -763,14 +763,14 @@ function renderOwnerStatBars(containerId, agg, key, maxOverride){
 }
 
 function renderProjWinsChart(){
-  const teams = [...DATA.projections.teams].sort((a,b)=> b.projectedWins - a.projectedWins);
+  const teams = [...DATA.standings.teams].sort((a,b)=> b.expectedPoints - a.expectedPoints);
   const wrap = document.getElementById('projWinsChartWrap');
   wrap.style.height = (teams.length * 22 + 20) + 'px';
 
   const ctx = document.getElementById('chartProjWins');
   const labels = teams.map(t=> t.team);
-  const values = teams.map(t=> t.projectedWins);
-  const colors = teams.map(t=> ownerColor(ownerOf(t.team)));
+  const values = teams.map(t=> t.expectedPoints);
+  const colors = teams.map(t=> ownerColor(t.owner));
   const abbrs = teams.map(t=> t.team);
 
   if(charts.projWins) charts.projWins.destroy();
@@ -786,11 +786,11 @@ function renderProjWinsChart(){
         barLogos:{ abbrs, size:16 },
         tooltip:{ callbacks:{
           title:(items)=>{ const t = teams[items[0].dataIndex]; return teamName(t.team); },
-          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${ownerOf(t.team)}`, `Projected wins: ${fmt1(t.projectedWins)}`]; }
+          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${t.owner}`, `Projected points: ${fmt1(t.expectedPoints)}`]; }
         } }
       },
       scales:{
-        x:{ title:{display:true, text:'Projected wins'}, grid:{color:'#eef1f5'} },
+        x:{ title:{display:true, text:'Projected points'}, grid:{color:'#eef1f5'} },
         y:{ ticks:{ font:{family:'Space Mono', size:10.5} }, grid:{display:false} }
       }
     }
