@@ -182,6 +182,14 @@ td.num, th.num{text-align:right; font-family:'Space Mono'; font-size:12.5px;}
 .fpi-bar-mid{ position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(255,255,255,.55); z-index:1; }
 .fpi-bar-pct{ font-family:'Space Mono'; font-size:12px; font-weight:700; color:var(--ink); width:38px; }
 
+/* ---------- compact schedule table (fits all 17 rows without scrolling) ---------- */
+.compact-schedule th{ padding:6px 10px; font-size:11px; }
+.compact-schedule td{ padding:3px 10px; font-size:12.5px; }
+.compact-schedule .fpi-bar-track{ width:100px; height:15px; }
+.compact-schedule .fpi-bar-cell{ gap:6px; }
+.compact-schedule .fpi-bar-pct{ font-size:11px; width:32px; }
+.compact-schedule .pill{ padding:1px 6px; font-size:10px; }
+
 .owner-stat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .owner-stat-row:last-child{margin-bottom:0;}
 .owner-stat-name{width:52px; font-family:'Barlow Condensed'; font-weight:700; font-size:15px; text-align:right;}
@@ -596,8 +604,8 @@ select{
     <div class="section-title">FPI Schedule</div>
     <div class="card">
       <div class="card-head">Regular Season Schedule <span class="hint">Bar split by pregame FPI win % — team color vs opponent color</span></div>
-      <div class="card-body pad-0" style="max-height:640px; overflow-y:auto;">
-        <table id="teamScheduleTable"><thead></thead><tbody></tbody></table>
+      <div class="card-body pad-0">
+        <table id="teamScheduleTable" class="compact-schedule"><thead></thead><tbody></tbody></table>
       </div>
     </div>
   </section>
@@ -1980,7 +1988,7 @@ function renderTeamScheduleTable(abbr){
     return `<tr>
       <td>${g.week}</td>
       <td class="small muted">${fmtDate(g.date)}</td>
-      <td style="width:26px; padding-right:0;"><img src="${teamLogo(opp)}" alt="${opp}" onerror="this.style.visibility='hidden'" style="width:22px;height:22px;object-fit:contain;display:block;"></td>
+      <td style="width:20px; padding-right:0;"><img src="${teamLogo(opp)}" alt="${opp}" onerror="this.style.visibility='hidden'" style="width:16px;height:16px;object-fit:contain;display:block;"></td>
       <td style="padding-left:6px;">${teamName(opp)}</td>
       <td class="small">${home?'Home':'Road'}</td>
       <td>
