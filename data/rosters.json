@@ -8,6 +8,10 @@
   ],
   "neutralLabel": "Unpicked",
   "teams": {
+    "BAL": {
+      "owner": "Gin",
+      "pick": 3
+    },
     "BUF": {
       "owner": "Guy",
       "pick": 2
