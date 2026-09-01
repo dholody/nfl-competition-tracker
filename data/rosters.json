@@ -8,6 +8,10 @@
   ],
   "neutralLabel": "Unpicked",
   "teams": {
+    "ATL": {
+      "owner": "Guy",
+      "pick": 23
+    },
     "BAL": {
       "owner": "Gin",
       "pick": 3
