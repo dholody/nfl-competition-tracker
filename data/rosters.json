@@ -51,6 +51,10 @@
     "SEA": {
       "owner": "Guy",
       "pick": 5
+    },
+    "TB": {
+      "owner": "Man",
+      "pick": 12
     }
   }
 }
