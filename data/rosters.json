@@ -23,6 +23,10 @@
     "LAR": {
       "owner": "Man",
       "pick": 1
+    },
+    "SEA": {
+      "owner": "Guy",
+      "pick": 5
     }
   }
 }
