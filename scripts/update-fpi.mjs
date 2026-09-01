@@ -1,6 +1,14 @@
 // Fetches ESPN's FPI ratings + projections API, writes current-state and
-// append-only archive JSON files into /data. Run by the weekly GitHub
-// Actions workflow (or manually with: node scripts/update-fpi.mjs).
+// weekly-frozen archive JSON files into /data. Now run DAILY by the GitHub
+// Actions workflow (or manually with: node scripts/update-fpi.mjs) so
+// *-current.json always reflects the latest FPI as games get played.
+//
+// Archive behavior changed from "one entry per calendar day" to "one entry
+// per NFL week, frozen at the last update before that week's first
+// kickoff" — see lib/archive-window.mjs for why and how. This means the
+// *-current.json files update every day, but *-archive.json only gains a
+// new (or refreshed) entry on days before that week's games have started;
+// once the week is underway, later daily runs leave the archive alone.
 //
 // Field names below are confirmed against ESPN's live response (predictives
 // array, one entry per stat, keyed by `name`). If ESPN renames a field in
@@ -11,8 +19,10 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
+import { currentWeekKey, hasWeekStarted, upsertWeeklyArchive } from './lib/archive-window.mjs';
 
 const DATA_DIR = path.resolve('data');
+const SCHEDULE_CURRENT_PATH = path.join(DATA_DIR, 'schedule-current.json');
 
 const RATING_FIELD_CANDIDATES = {
   fpi: ['fpi'],
@@ -128,17 +138,6 @@ function todayIso() {
   return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 }
 
-async function appendArchive(filePath, todayEntry) {
-  const archive = await readJsonIfExists(filePath, []);
-  const already = archive.some((entry) => entry.date === todayEntry.date);
-  if (already) {
-    console.log(`Archive ${filePath} already has an entry for ${todayEntry.date}, skipping append.`);
-    return archive;
-  }
-  archive.push(todayEntry);
-  return archive;
-}
-
 async function main() {
   const season = detectSeason();
   console.log(`Running FPI update for season ${season}...`);
@@ -164,19 +163,33 @@ async function main() {
 
   const date = todayIso();
 
-  // Current snapshots (overwritten each run)
+  // Current snapshots (overwritten every run — this is what should update
+  // daily so live/actual results and current FPI show up promptly).
   await writeJson(path.join(DATA_DIR, 'ratings-current.json'), { date, season, teams: ratings });
   await writeJson(path.join(DATA_DIR, 'projections-current.json'), { date, season, teams: projections });
 
-  // Append-only archives, guarded against duplicate same-day runs
+  // Determine whether this NFL week's games have already started. Uses
+  // yesterday's schedule-current.json (this script runs before
+  // update-schedule.mjs refreshes it for today) — fine for this purpose
+  // since kickoff *times* are static and don't change day to day.
+  const schedule = await readJsonIfExists(SCHEDULE_CURRENT_PATH, null);
+  const weekKey = currentWeekKey();
+  const weekStarted = hasWeekStarted(schedule?.games, weekKey);
+
   const ratingsArchivePath = path.join(DATA_DIR, 'ratings-archive.json');
   const projectionsArchivePath = path.join(DATA_DIR, 'projections-archive.json');
 
-  const ratingsArchive = await appendArchive(ratingsArchivePath, { date, season, teams: ratings });
-  const projectionsArchive = await appendArchive(projectionsArchivePath, { date, season, teams: projections });
+  const ratingsArchive = await readJsonIfExists(ratingsArchivePath, []);
+  const projectionsArchive = await readJsonIfExists(projectionsArchivePath, []);
 
-  await writeJson(ratingsArchivePath, ratingsArchive);
-  await writeJson(projectionsArchivePath, projectionsArchive);
+  const ratingsResult = upsertWeeklyArchive(ratingsArchive, weekKey, { date, season, teams: ratings }, weekStarted);
+  const projectionsResult = upsertWeeklyArchive(projectionsArchive, weekKey, { date, season, teams: projections }, weekStarted);
+
+  console.log(`[ratings-archive] ${ratingsResult.reason}`);
+  console.log(`[projections-archive] ${projectionsResult.reason}`);
+
+  if (ratingsResult.changed) await writeJson(ratingsArchivePath, ratingsResult.archive);
+  if (projectionsResult.changed) await writeJson(projectionsArchivePath, projectionsResult.archive);
 
   console.log('Done.');
 }

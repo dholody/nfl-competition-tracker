@@ -1,21 +1,26 @@
 // Fetches ESPN's scoreboard API for every preseason + regular season week,
 // joins each game against data/ratings-current.json (by teamId, the same
 // numeric ID scheme used throughout this repo) to compute a predicted
-// margin, and writes current-state + append-only archive JSON into /data.
-// Run by the weekly GitHub Actions workflow (or manually with:
-// node scripts/update-schedule.mjs).
+// margin, and writes current-state + weekly-frozen archive JSON into /data.
+// Now run DAILY (via the update-fpi workflow's workflow_run chain, or
+// manually with: node scripts/update-schedule.mjs) so schedule-current.json
+// picks up actual scores/status promptly as games are played.
 //
 // predictedMargin = (homeFpi - awayFpi) + HOME_FIELD_ADV, positive = home
 // favored. actualMargin uses the same sign convention (homeScore -
 // awayScore) so predictionError = actualMargin - predictedMargin is
 // directly comparable.
 //
-// Mirrors update-fpi.mjs's structure (fetchJson/writeJson/appendArchive
-// helpers, detectSeason threshold, archive dedup-by-date) for consistency.
+// Archive behavior changed from "one entry per calendar day" to "one entry
+// per NFL week, frozen at the last update before that week's first
+// kickoff" — see lib/archive-window.mjs. Since this script fetches the
+// live schedule itself, it determines "has this week started" directly
+// from the data it just pulled, rather than a locally-cached copy.
 
 import { promises as fs } from 'fs';
 import path from 'path';
 import { HOME_FIELD_ADV, marginToHomeWinProbability } from './lib/win-probability.mjs';
+import { currentWeekKey, hasWeekStarted, upsertWeeklyArchive } from './lib/archive-window.mjs';
 
 const DATA_DIR = path.resolve('data');
 const RATINGS_CURRENT_PATH = path.join(DATA_DIR, 'ratings-current.json');
@@ -178,17 +183,6 @@ function todayIso() {
   return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 }
 
-async function appendArchive(filePath, todayEntry) {
-  const archive = await readJsonIfExists(filePath, []);
-  const already = archive.some((entry) => entry.date === todayEntry.date);
-  if (already) {
-    console.log(`Archive ${filePath} already has an entry for ${todayEntry.date}, skipping append.`);
-    return archive;
-  }
-  archive.push(todayEntry);
-  return archive;
-}
-
 async function main() {
   const season = detectSeason();
   console.log(`Running schedule update for season ${season}...`);
@@ -202,13 +196,20 @@ async function main() {
 
   const date = todayIso();
 
-  // Current snapshot (overwritten each run)
+  // Current snapshot (overwritten every run — this is what should update
+  // daily so actual scores/status show up promptly as games are played).
   await writeJson(path.join(DATA_DIR, 'schedule-current.json'), { date, season, games: records });
 
-  // Append-only archive, guarded against duplicate same-day runs
+  // Weekly-frozen archive: determine "has this week started" directly from
+  // the fresh data we just fetched, then upsert/lock accordingly.
+  const weekKey = currentWeekKey();
+  const weekStarted = hasWeekStarted(records, weekKey);
+
   const archivePath = path.join(DATA_DIR, 'schedule-archive.json');
-  const archive = await appendArchive(archivePath, { date, season, games: records });
-  await writeJson(archivePath, archive);
+  const archive = await readJsonIfExists(archivePath, []);
+  const result = upsertWeeklyArchive(archive, weekKey, { date, season, games: records }, weekStarted);
+  console.log(`[schedule-archive] ${result.reason}`);
+  if (result.changed) await writeJson(archivePath, result.archive);
 
   console.log('Done.');
 }

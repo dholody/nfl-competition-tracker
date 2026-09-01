@@ -23,6 +23,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { HOME_FIELD_ADV, marginToHomeWinProbability } from './lib/win-probability.mjs';
+import { currentWeekKey, hasWeekStarted, upsertWeeklyArchive } from './lib/archive-window.mjs';
 
 const DATA_DIR = path.resolve('data');
 const ROSTERS_PATH = path.join(DATA_DIR, 'rosters.json');
@@ -304,13 +305,17 @@ async function main() {
   await fs.writeFile(STANDINGS_CURRENT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
   console.log(`Wrote ${STANDINGS_CURRENT_PATH}`);
 
+  // Weekly-frozen archive: this script consumes the same schedule data it
+  // loaded above, so "has this week started" is checked against that same
+  // snapshot rather than re-fetching anything.
+  const weekKey = currentWeekKey();
+  const weekStarted = hasWeekStarted(schedule.games, weekKey);
+
   const archive = await readJsonIfExists(STANDINGS_ARCHIVE_PATH, []);
-  if (archive.some((snap) => snap.date === date)) {
-    console.log(`Archive snapshot for ${date} already exists — skipping duplicate append.`);
-  } else {
-    archive.push(output);
-    await fs.writeFile(STANDINGS_ARCHIVE_PATH, JSON.stringify(archive, null, 2) + '\n', 'utf8');
-    console.log(`Appended snapshot for ${date} to ${STANDINGS_ARCHIVE_PATH} (${archive.length} total snapshots).`);
+  const result = upsertWeeklyArchive(archive, weekKey, output, weekStarted);
+  console.log(`[standings-archive] ${result.reason}`);
+  if (result.changed) {
+    await fs.writeFile(STANDINGS_ARCHIVE_PATH, JSON.stringify(result.archive, null, 2) + '\n', 'utf8');
   }
 
   console.log('Owner standings:', ownerResults);
