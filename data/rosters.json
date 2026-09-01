@@ -7,10 +7,5 @@
     "Guy"
   ],
   "neutralLabel": "Unpicked",
-  "teams": {
-    "LAR": {
-      "owner": "Man",
-      "pick": 1
-    }
-  }
+  "teams": {}
 }
