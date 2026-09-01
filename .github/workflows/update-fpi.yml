@@ -1,31 +1,41 @@
 name: Update NFL FPI Data
- 
+
 on:
   schedule:
-    # 15:00 UTC ≈ 7-8am Pacific depending on DST. Adjust once you've confirmed timing.
-    - cron: '0 15 * * 2'
+    # Runs daily now (was weekly, Tuesdays only) so *-current.json picks up
+    # actual scores and updated FPI promptly as games are played. The
+    # *-archive.json files do NOT get a new entry every day, though — see
+    # scripts/lib/archive-window.mjs: each script only writes to an
+    # archive while that NFL week hasn't kicked off yet, so the archive
+    # still ends up with one frozen pre-kickoff snapshot per week.
+    #
+    # 13:00 UTC ≈ 8-9am Eastern depending on DST — after the previous
+    # night's late games have finished, comfortably before that day's own
+    # games. Adjust if you want tighter same-day freshness around
+    # Sun/Mon night games (e.g. add a second cron entry a few hours later).
+    - cron: '0 13 * * *'
   workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab
- 
+
 permissions:
   contents: write
- 
+
 jobs:
   update-fpi:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
- 
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
- 
+
       - name: Run FPI update script
         run: node scripts/update-fpi.mjs
- 
+
       - name: Commit and push data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Weekly FPI data update"
+          commit_message: "Daily FPI data update"
           file_pattern: "data/*.json"
