@@ -295,7 +295,7 @@ select{
 .diverge-track{position:relative; flex:1; height:22px; background:#eef1f5; border-radius:6px; overflow:hidden;}
 .diverge-mid{position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(15,36,54,.25); z-index:1;}
 .diverge-fill{position:absolute; top:0; bottom:0; border-radius:3px;}
-.diverge-val{width:60px; flex-shrink:0; text-align:right; font-family:'Space Mono'; font-size:12.5px; font-weight:700;}
+.diverge-val{width:82px; flex-shrink:0; text-align:right; font-family:'Space Mono'; font-size:12.5px; font-weight:700;}
 .unique-opp-row{display:flex; align-items:center; gap:10px; padding:9px 14px; border-bottom:1px solid var(--line);}
 .unique-opp-row:last-child{border-bottom:none;}
 .unique-opp-team{width:120px; flex-shrink:0; display:flex; align-items:center; gap:7px; font-family:'Barlow Condensed'; font-weight:700; font-size:14.5px;}
@@ -546,7 +546,7 @@ select{
 
     <div class="section-title">Scheduling Advantage <small>Division rivals share most opponents — this isolates the games that differ</small></div>
     <div class="card">
-      <div class="card-head">Schedule Advantage vs. Division Average <span class="hint">League-average team's win % vs. each team's unique opponents — isolates opponent strength only</span></div>
+      <div class="card-head">Schedule Advantage vs. Division Average <span class="hint">Wins above average a league-average team would expect from each team's unique opponents</span></div>
       <div class="card-body" id="divisionDiveScheduleAdvantage"></div>
     </div>
     <div class="card">
@@ -557,7 +557,7 @@ select{
       "Unique" opponents are identified empirically from the schedule data — any opponent not played by all four division teams — rather than from the NFL's scheduling formula directly, so this reflects this year's actual assignments including any 17th-game or standings-based games.
     </div>
     <div class="small muted" style="padding:2px 4px 0;">
-      Unique Opponents by Team above uses each team's own actual win probability (their FPI vs. the opponent's). The Schedule Advantage chart uses a different, opponent-only metric: a league-average team's (FPI = 0) modeled win probability against each opponent's current FPI, isolating how hard the opponent is independent of how good the team facing them happens to be. That modeled probability comes from treating FPI as a normal distribution over score margin (σ ≈ 13.5 points), a standard NFL approximation, not an ESPN-reported figure.
+      Unique Opponents by Team above uses each team's own actual win probability (their FPI vs. the opponent's). The Schedule Advantage chart uses a different, opponent-only metric: it sums a hypothetical league-average team's (FPI = 0) modeled win probability across each team's unique games to get an expected win total from just those games, then compares that to the division average — isolating how hard the opponents are, independent of how good the team facing them happens to be. The modeled win probability comes from treating FPI as a normal distribution over score margin (σ ≈ 13.5 points), a standard NFL approximation, not an ESPN-reported figure.
     </div>
   </section>
 
@@ -1695,12 +1695,14 @@ function scheduleAdvantageForDivision(conf, div){
   const results = teams.map(t=>{
     const games = uniqueByTeam[t];
     const probs = games.map(x=> avgTeamWinProbVsOpponent(ratingTeam(x.opp)?.fpi)).filter(p=>p!=null);
-    const avgWinProb = probs.length ? sum(probs, p=>p) / probs.length * 100 : null;
-    return { team:t, games, avgWinProb };
+    // Expected wins a league-average team would net from just this team's unique
+    // games — sum, not average, so it reads as "wins" rather than a win rate.
+    const expectedWins = probs.length ? sum(probs, p=>p) : null;
+    return { team:t, games, expectedWins };
   });
-  const withData = results.filter(r=>r.avgWinProb!=null);
-  const divisionAvg = withData.length ? sum(withData, r=>r.avgWinProb) / withData.length : null;
-  results.forEach(r=>{ r.delta = (r.avgWinProb!=null && divisionAvg!=null) ? r.avgWinProb - divisionAvg : null; });
+  const withData = results.filter(r=>r.expectedWins!=null);
+  const divisionAvg = withData.length ? sum(withData, r=>r.expectedWins) / withData.length : null;
+  results.forEach(r=>{ r.delta = (r.expectedWins!=null && divisionAvg!=null) ? r.expectedWins - divisionAvg : null; });
   results.sort((a,b)=> (b.delta ?? -999) - (a.delta ?? -999));
   return { results, divisionAvg };
 }
@@ -1805,7 +1807,7 @@ function renderDivisionDiveScheduleAdvantage(conf, div){
         <div class="diverge-mid"></div>
         <div class="diverge-fill" style="${side} width:${widthPct}%; background:${color};"></div>
       </div>
-      <div class="diverge-val" style="color:${color};">${delta==null?'—':(delta>=0?'+':'')+delta.toFixed(1)+'%'}</div>
+      <div class="diverge-val" style="color:${color};">${delta==null?'—':(delta>=0?'+':'')+delta.toFixed(2)+' wins'}</div>
     </div>`;
   }).join('');
   document.getElementById('divisionDiveScheduleAdvantage').innerHTML = html;
