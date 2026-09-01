@@ -791,17 +791,21 @@ function renderOwnerLegend(){
 /* ---------------- owner aggregates ---------------- */
 function computeOwnerAggregates(standingsObj){
   const neutral = DATA.rosters.neutralLabel || 'Unpicked';
-  return standingsObj.owners.map(o=>{
-    const teams = standingsObj.teams.filter(t=>t.owner===o.owner);
+  return ownerList().map(owner=>{
+    // Group by the CURRENT roster (live rosters.json), not the `owner` field
+    // baked into standings-current.json at whatever time simulate-season.mjs
+    // last ran — that field goes stale the instant a pick happens on the
+    // draft board and won't catch up until the pipeline's next daily run.
+    const teams = standingsObj.teams.filter(t=> ownerOf(t.team)===owner);
     return {
-      owner: o.owner,
-      points: o.expectedPoints,
+      owner,
+      points: sum(teams, t=>t.expectedPoints),
       wins: sum(teams, t=>t.expectedFinalWins),
       playoffTeams: sum(teams, t=>t.probabilities.playoffs),
       divTitles: sum(teams, t=>t.probabilities.divisionTitle),
       confChamps: sum(teams, t=>t.probabilities.conferenceChampionship),
       sbWins: sum(teams, t=>t.probabilities.superBowlWin),
-      isNeutral: o.owner===neutral
+      isNeutral: owner===neutral
     };
   }).sort((a,b)=> (a.isNeutral - b.isNeutral) || (b.points - a.points));
 }
@@ -834,22 +838,32 @@ function renderStandingsTable(){
 function renderPointsTrend(){
   const ctx = document.getElementById('chartPointsTrend');
   const archive = DATA.standingsArchive;
-  const owners = DATA.standings.owners.map(o=>o.owner).filter(o=>o!==(DATA.rosters.neutralLabel||'Unpicked'));
+  const owners = ownerList().filter(o=>o!==(DATA.rosters.neutralLabel||'Unpicked'));
   const labels = archive.map(e=>fmtDate(e.date));
-  const datasets = owners.map(owner=>({
-    label: owner,
-    data: archive.map(e=>{
-      const rec = e.owners.find(o=>o.owner===owner);
-      return rec ? rec.expectedPoints : null;
-    }),
-    borderColor: ownerColor(owner),
-    backgroundColor: ownerColor(owner),
-    pointRadius: archive.length<3 ? 5 : 3,
-    pointHoverRadius: 6,
-    borderWidth: 2.5,
-    tension: 0.25,
-    spanGaps: true
-  }));
+  const datasets = owners.map(owner=>{
+    const abbrs = Object.keys(DATA.rosters.teams).filter(a=>DATA.rosters.teams[a].owner===owner);
+    return {
+      label: owner,
+      data: archive.map(e=>{
+        // Team-level lookup rolled up via the CURRENT roster map, not the
+        // archive snapshot's own baked-in owner assignment — a team drafted
+        // today should show under its new owner across the whole trend
+        // line, not just from today's snapshot onward.
+        const totals = abbrs.map(a=>{
+          const t = e.teams.find(x=>x.team===a);
+          return t ? t.expectedPoints : 0;
+        });
+        return sum(totals, x=>x);
+      }),
+      borderColor: ownerColor(owner),
+      backgroundColor: ownerColor(owner),
+      pointRadius: archive.length<3 ? 5 : 3,
+      pointHoverRadius: 6,
+      borderWidth: 2.5,
+      tension: 0.25,
+      spanGaps: true
+    };
+  });
   if(charts.pointsTrend) charts.pointsTrend.destroy();
   charts.pointsTrend = new Chart(ctx, {
     type:'line',
@@ -872,14 +886,14 @@ function renderPointsTrend(){
 }
 
 function renderTeamPointsChart(){
-  const teams = [...DATA.standings.teams].sort((a,b)=> a.pick - b.pick);
+  const teams = [...DATA.standings.teams].sort((a,b)=> (pickOf(a.team)||99) - (pickOf(b.team)||99));
   const wrap = document.getElementById('teamPointsChartWrap');
   wrap.style.height = (teams.length * 22 + 20) + 'px';
 
   const ctx = document.getElementById('chartTeamPoints');
-  const labels = teams.map(t=> `#${t.pick}  ${t.team}`);
+  const labels = teams.map(t=> `#${pickOf(t.team)}  ${t.team}`);
   const values = teams.map(t=> t.expectedPoints);
-  const colors = teams.map(t=> ownerColor(t.owner));
+  const colors = teams.map(t=> ownerColor(ownerOf(t.team)));
   const abbrs = teams.map(t=> t.team);
 
   if(charts.teamPoints) charts.teamPoints.destroy();
@@ -894,8 +908,8 @@ function renderTeamPointsChart(){
         legend:{display:false},
         barLogos:{ abbrs, size:16 },
         tooltip:{ callbacks:{
-          title:(items)=>{ const t = teams[items[0].dataIndex]; return `${teamName(t.team)} (pick #${t.pick})`; },
-          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${t.owner}`, `Expected points: ${fmt1(t.expectedPoints)}`]; }
+          title:(items)=>{ const t = teams[items[0].dataIndex]; return `${teamName(t.team)} (pick #${pickOf(t.team)})`; },
+          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${ownerOf(t.team)}`, `Expected points: ${fmt1(t.expectedPoints)}`]; }
         } }
       },
       scales:{
@@ -952,7 +966,7 @@ function renderProjWinsChart(){
   const ctx = document.getElementById('chartProjWins');
   const labels = teams.map(t=> t.team);
   const values = teams.map(t=> t.expectedPoints);
-  const colors = teams.map(t=> ownerColor(t.owner));
+  const colors = teams.map(t=> ownerColor(ownerOf(t.team)));
   const abbrs = teams.map(t=> t.team);
 
   if(charts.projWins) charts.projWins.destroy();
@@ -968,7 +982,7 @@ function renderProjWinsChart(){
         barLogos:{ abbrs, size:16 },
         tooltip:{ callbacks:{
           title:(items)=>{ const t = teams[items[0].dataIndex]; return teamName(t.team); },
-          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${t.owner}`, `Projected points: ${fmt1(t.expectedPoints)}`]; }
+          label:(item)=>{ const t = teams[item.dataIndex]; return [`Owner: ${ownerOf(t.team)}`, `Projected points: ${fmt1(t.expectedPoints)}`]; }
         } }
       },
       scales:{
