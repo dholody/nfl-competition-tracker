@@ -536,6 +536,11 @@ select{
       </div>
     </div>
 
+    <div class="card">
+      <div class="card-head">Expected Wins Distribution <span class="hint">Poisson-binomial model per team, full 17-game schedule</span></div>
+      <div class="card-body"><div class="chart-wrap" style="height:280px;"><canvas id="chartDivisionWinDist"></canvas></div></div>
+    </div>
+
     <div class="section-title">Highest-Leverage Games <small>Remaining games ranked by how much they could swing the division race</small></div>
     <div class="card">
       <div class="card-head">Leverage Ranking <span class="hint">Est. from game closeness &times; involved teams' division odds — not ESPN's simulation output</span></div>
@@ -728,6 +733,19 @@ function poissonBinomial(probs){
     dist = next;
   }
   return dist;
+}
+
+/** Poisson-binomial distribution of a team's final win count across its full
+    17-game schedule — already-played games are locked to their actual
+    outcome (1/0), games still to come use gameWinProbForTeam's resolved
+    probability. Returns an array where index k = P(exactly k wins). */
+function teamWinDistribution(abbr){
+  const games = teamSchedule(abbr);
+  const probs = games.map(g=>{
+    const outcome = gameOutcomeForTeam(g, abbr);
+    return outcome===null ? gameWinProbForTeam(g, abbr) : outcome;
+  });
+  return poissonBinomial(probs);
 }
 
 function ownerBadgeHtml(owner){
@@ -1773,6 +1791,45 @@ function renderDivisionDiveRankTable(conf, div){
   document.getElementById('divisionDiveRankTable').innerHTML = thead + `<tbody>${rows}</tbody>`;
 }
 
+function renderDivisionDiveWinDistribution(conf, div){
+  const teams = divisionTeams(conf, div);
+  const ctx = document.getElementById('chartDivisionWinDist');
+
+  const datasets = teams.map(a=>{
+    const dist = teamWinDistribution(a);
+    return {
+      label: a,
+      data: dist.map(p=>p*100),
+      borderColor: teamColor(a),
+      backgroundColor: teamColor(a),
+      borderWidth: 2.5,
+      pointRadius: 0,
+      pointHoverRadius: 4,
+      tension: 0.4, // smoothed curve rather than straight segments between win counts
+      fill: false,
+    };
+  });
+  const maxWins = Math.max(0, ...teams.map(a=> teamWinDistribution(a).length - 1));
+  const labels = Array.from({length: maxWins+1}, (_,k)=>k);
+
+  if(charts.divisionWinDist) charts.divisionWinDist.destroy();
+  charts.divisionWinDist = new Chart(ctx, {
+    type:'line',
+    data:{ labels, datasets },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{ position:'bottom', labels:{ boxWidth:10, font:{family:'Inter', size:11.5} } },
+        tooltip:{ callbacks:{ label:(c)=> c.dataset.label + ': ' + c.raw.toFixed(1) + '% chance of ' + c.label + ' wins' } }
+      },
+      scales:{
+        x:{ title:{display:true, text:'Final regular-season wins'}, grid:{display:false} },
+        y:{ title:{display:true, text:'Probability %'}, grid:{color:'#eef1f5'} }
+      }
+    }
+  });
+}
+
 function renderDivisionDiveLeverageTable(conf, div){
   const games = computeDivisionLeverageGames(conf, div);
   const maxLev = Math.max(1, ...games.map(g=>g.leverage));
@@ -1863,6 +1920,7 @@ function renderDivisionDiveTab(){
   const [conf, div] = selectedDivisionDive.split(' ');
   document.getElementById('divisionDiveTitle').textContent = selectedDivisionDive;
   safeRender('divisionDiveRankTable', ()=>renderDivisionDiveRankTable(conf, div));
+  safeRender('divisionDiveWinDistribution', ()=>renderDivisionDiveWinDistribution(conf, div));
   safeRender('divisionDiveLeverageTable', ()=>renderDivisionDiveLeverageTable(conf, div));
   safeRender('divisionDiveScheduleAdvantage', ()=>renderDivisionDiveScheduleAdvantage(conf, div));
   safeRender('divisionDiveUniqueOpponents', ()=>renderDivisionDiveUniqueOpponents(conf, div));
@@ -2024,13 +2082,8 @@ function renderTeamScheduleTable(abbr){
 }
 
 function renderWinDistribution(abbr){
-  const games = teamSchedule(abbr);
-  const probs = games.map(g=>{
-    const outcome = gameOutcomeForTeam(g, abbr);
-    return outcome===null ? gameWinProbForTeam(g, abbr) : outcome;
-  });
-  const dist = poissonBinomial(probs);
-  const n = probs.length;
+  const dist = teamWinDistribution(abbr);
+  const n = teamSchedule(abbr).length;
   const labels = dist.map((_,k)=>k);
   const expected = dist.reduce((acc,p,k)=> acc + p*k, 0);
 
