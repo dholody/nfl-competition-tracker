@@ -270,14 +270,27 @@ select{
 .stack-legend .sw{width:9px;height:9px;border-radius:50%; display:inline-block;}
 
 /* ---------- weekly matchups tab ---------- */
-.matchup-owner-row{display:flex; align-items:flex-start; gap:10px; padding:10px 14px; border-bottom:1px solid var(--line);}
+.matchup-owner-row{display:flex; align-items:flex-start; gap:10px; padding:7px 14px; border-bottom:1px solid var(--line);}
 .matchup-owner-row:last-child{border-bottom:none;}
-.matchup-owner-label{width:50px; flex-shrink:0; font-family:'Barlow Condensed'; font-weight:700; font-size:14.5px; padding-top:3px;}
+.matchup-owner-label{width:50px; flex-shrink:0; font-family:'Barlow Condensed'; font-weight:700; font-size:14px; padding-top:5px;}
 .matchup-split{display:flex; align-items:flex-start; flex:1; min-width:0;}
-.matchup-badges{display:flex; flex-wrap:wrap; gap:6px; flex:1; min-width:0;}
+.matchup-badges{display:flex; flex-wrap:wrap; gap:5px; flex:1; min-width:0;}
 .matchup-losses{justify-content:flex-end;}
 .matchup-wins{justify-content:flex-start;}
-.matchup-divider{width:2px; align-self:stretch; background:var(--line); margin:0 12px; flex-shrink:0;}
+.matchup-divider{width:2px; align-self:stretch; background:var(--line); margin:0 14px; flex-shrink:0;}
+
+/* two-team paired chip: own team + opponent, one solid opponent-owner color */
+.matchup-pair{
+  display:inline-flex; align-items:center; border-radius:7px; overflow:hidden;
+  box-shadow:var(--shadow); font-family:'Barlow Condensed'; font-weight:700; font-size:12px; color:#fff;
+  padding:4px 8px;
+}
+.matchup-pair-side{display:flex; align-items:center; gap:4px;}
+.matchup-pair-side img{width:14px; height:14px; object-fit:contain; filter:drop-shadow(0 1px 1px rgba(0,0,0,.3));}
+.matchup-pair-vs{
+  display:flex; align-items:center; justify-content:center; padding:0 6px;
+  color:rgba(255,255,255,.75); font-family:'Space Mono'; font-size:9px; font-weight:700;
+}
 .matchup-badge{
   display:inline-flex; align-items:center; gap:4px; padding:3px 8px 3px 5px; border-radius:6px;
   font-family:'Barlow Condensed'; font-weight:700; font-size:12.5px; color:#fff;
@@ -438,14 +451,20 @@ select{
       <span class="small muted" id="weekDateRange"></span>
     </div>
 
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="card-head">Projected Win Total <span class="hint">This week only, by owner</span></div>
-        <div class="card-body" id="weeklyWinTotalBars"></div>
+    <div class="grid" style="grid-template-columns: 1fr 1.4fr; align-items:stretch;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="card">
+          <div class="card-head">Projected Win Total <span class="hint">This week only, by owner</span></div>
+          <div class="card-body" id="weeklyWinTotalBars"></div>
+        </div>
+        <div class="card" style="flex:1; display:flex; flex-direction:column; margin-bottom:0;">
+          <div class="card-head">Expected Points by Opponent <span class="hint">Sum of expected wins this week, by opponent owner</span></div>
+          <div class="card-body pad-0" id="expectedPointsByOpponent" style="flex:1;"></div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-head">Matchups by Opponent <span class="hint">Projected losses left, wins right</span></div>
-        <div class="card-body pad-0">
+      <div class="card" style="display:flex; flex-direction:column; margin-bottom:0;">
+        <div class="card-head">Matchups by Opponent <span class="hint">Your team vs. their team — losses left, wins right</span></div>
+        <div class="card-body pad-0" style="flex:1; display:flex; flex-direction:column;">
           <div class="matchup-owner-row" style="padding:8px 14px 6px; border-bottom:1px solid var(--line);">
             <div class="matchup-owner-label"></div>
             <div class="matchup-split">
@@ -454,12 +473,8 @@ select{
               <div class="matchup-badges matchup-wins"><span class="small muted" style="font-weight:700;">PROJECTED WIN</span></div>
             </div>
           </div>
-          <div id="matchupsByOpponent"></div>
+          <div id="matchupsByOpponent" style="flex:1;"></div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-head">Expected Points by Opponent <span class="hint">Sum of expected wins this week, by opponent owner</span></div>
-        <div class="card-body pad-0" id="expectedPointsByOpponent"></div>
       </div>
     </div>
 
@@ -1373,10 +1388,17 @@ function renderMatchupsByOpponent(){
       const opp = g.home===a ? g.away : g.home;
       const oppOwner = ownerOf(opp);
       const wp = gameWinProbForTeam(g, a);
-      const badge = `<span class="matchup-badge" style="background:${ownerColor(oppOwner)}" title="${escapeHtml(teamName(a))} vs ${escapeHtml(teamName(opp))} (${escapeHtml(oppOwner)}) — ${pct0(wp*100)} projected">
-        <img src="${teamLogo(opp)}" onerror="this.style.visibility='hidden'">${opp}
+      const home = g.home===a;
+      const chip = `<span class="matchup-pair" style="background:${ownerColor(oppOwner)}" title="${escapeHtml(teamName(a))} ${home?'vs':'@'} ${escapeHtml(teamName(opp))} (${escapeHtml(oppOwner)}) — ${pct0(wp*100)} projected">
+        <span class="matchup-pair-side">
+          <img src="${teamLogo(a)}" onerror="this.style.visibility='hidden'">${a}
+        </span>
+        <span class="matchup-pair-vs">${home?'VS':'@'}</span>
+        <span class="matchup-pair-side">
+          <img src="${teamLogo(opp)}" onerror="this.style.visibility='hidden'">${opp}
+        </span>
       </span>`;
-      (wp >= 0.5 ? wins : losses).push(badge);
+      (wp >= 0.5 ? wins : losses).push(chip);
     });
     const hasGames = losses.length || wins.length;
     return `<div class="matchup-owner-row">
