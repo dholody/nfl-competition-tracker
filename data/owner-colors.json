@@ -1,19 +1,19 @@
 {
   "_comment": "Shared owner colors for charts/dashboards. Light/dark pairs so visuals adapt to either mode without recalculating. 'Unpicked' = neutral teams, not owned by any player.",
   "Man": {
-    "light": "#25579E",
-    "dark": "#3B72BE"
+    "light": "#4A93E0",
+    "dark": "#66A8ED"
   },
   "Gin": {
-    "light": "#C1552E",
-    "dark": "#DA6B41"
+    "light": "#F0813E",
+    "dark": "#F89654"
   },
   "Guy": {
-    "light": "#1E7A54",
-    "dark": "#2B9A6C"
+    "light": "#24AD82",
+    "dark": "#35C494"
   },
   "Unpicked": {
-    "light": "#8A8578",
-    "dark": "#8A8578"
+    "light": "#9C978C",
+    "dark": "#9C978C"
   }
 }
