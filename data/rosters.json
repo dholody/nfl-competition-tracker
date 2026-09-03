@@ -8,6 +8,10 @@
   ],
   "neutralLabel": "Unpicked",
   "teams": {
+    "ARI": {
+      "owner": "Unpicked",
+      "pick": 31
+    },
     "ATL": {
       "owner": "Guy",
       "pick": 23
@@ -79,6 +83,10 @@
     "LV": {
       "owner": "Gin",
       "pick": 28
+    },
+    "MIA": {
+      "owner": "Unpicked",
+      "pick": 32
     },
     "MIN": {
       "owner": "Gin",
