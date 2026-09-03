@@ -10,6 +10,18 @@
 // banked (since real completed games are identical in every run) plus a
 // probability-weighted average of everything still undecided.
 //
+// NEW: alongside the season-long standings output, this now also computes
+// each remaining game's TRUE conditional impact on each participant's
+// playoff odds — P(team makes playoffs | team wins this specific game) vs
+// P(team makes playoffs | team loses this specific game) — by tallying,
+// within the SAME 10,000 trials already being run, which trials had that
+// team winning vs losing that particular game, and what fraction of each
+// subset resulted in a playoff berth. This is a real conditional
+// probability estimated by Monte Carlo, not a client-side approximation —
+// see data/playoff-leverage-current.json. No extra simulation passes are
+// needed; it's bookkeeping added to the trial loop that was already
+// running for the standings numbers.
+//
 // SCOPE NOTE: this models the *hypothetical* path from wherever the season
 // currently stands. It doesn't yet special-case a real, already-underway
 // playoff bracket (i.e. once actual postseason games start appearing in
@@ -31,6 +43,8 @@ const RATINGS_PATH = path.join(DATA_DIR, 'ratings-current.json');
 const SCHEDULE_PATH = path.join(DATA_DIR, 'schedule-current.json');
 const STANDINGS_CURRENT_PATH = path.join(DATA_DIR, 'standings-current.json');
 const STANDINGS_ARCHIVE_PATH = path.join(DATA_DIR, 'standings-archive.json');
+const LEVERAGE_CURRENT_PATH = path.join(DATA_DIR, 'playoff-leverage-current.json');
+const LEVERAGE_ARCHIVE_PATH = path.join(DATA_DIR, 'playoff-leverage-archive.json');
 
 const SIMULATIONS = 10000;
 
@@ -194,13 +208,37 @@ async function main() {
     allTeams.map((a) => [a, { playoffs: 0, divisionTitle: 0, divisionalRound: 0, conferenceChampionship: 0, superBowlAppearance: 0, superBowlWin: 0 }])
   );
 
+  // NEW: per-game, per-side conditional accumulators. For each remaining
+  // game, tracks — across trials where the home team won vs. trials where
+  // the home team lost — how many of each subset resulted in a playoff
+  // berth for the home team, and separately for the away team. This is
+  // exactly what "P(playoffs | win this game)" and "P(playoffs | lose this
+  // game)" mean, estimated by counting within the same Monte Carlo trials
+  // already being run for the standings numbers.
+  const leverageAcc = Object.fromEntries(
+    remainingGames.map((g) => [
+      g.gameId,
+      {
+        home: { winTrials: 0, winPlayoffs: 0, lossTrials: 0, lossPlayoffs: 0 },
+        away: { winTrials: 0, winPlayoffs: 0, lossTrials: 0, lossPlayoffs: 0 },
+      },
+    ])
+  );
+
   for (let i = 0; i < SIMULATIONS; i++) {
     const wins = { ...actualWins };
     const losses = { ...actualLosses };
 
+    // NEW: which side won each remaining game in THIS trial, recorded
+    // alongside the existing win/loss tallying so it can be correlated
+    // against this trial's playoff outcome further down.
+    const homeWonThisTrial = {}; // gameId -> boolean
+
     for (const g of remainingGames) {
       const homeProb = g.homeWinProbability ?? 0.5;
-      if (Math.random() < homeProb) {
+      const homeWon = Math.random() < homeProb;
+      homeWonThisTrial[g.gameId] = homeWon;
+      if (homeWon) {
         wins[g.homeTeam] += 1;
         losses[g.awayTeam] += 1;
       } else {
@@ -258,6 +296,28 @@ async function main() {
 
       pointSum[abbr] += points;
     }
+
+    // NEW: now that this trial's playoff outcomes are known, correlate
+    // each remaining game's actual outcome (recorded above) against
+    // whether each participant made the playoffs in this same trial.
+    for (const g of remainingGames) {
+      const acc = leverageAcc[g.gameId];
+      const homeWon = homeWonThisTrial[g.gameId];
+      const homeMadePlayoffs = playoffTeamsThisRun.has(g.homeTeam);
+      const awayMadePlayoffs = playoffTeamsThisRun.has(g.awayTeam);
+
+      if (homeWon) {
+        acc.home.winTrials += 1;
+        if (homeMadePlayoffs) acc.home.winPlayoffs += 1;
+        acc.away.lossTrials += 1;
+        if (awayMadePlayoffs) acc.away.lossPlayoffs += 1;
+      } else {
+        acc.home.lossTrials += 1;
+        if (homeMadePlayoffs) acc.home.lossPlayoffs += 1;
+        acc.away.winTrials += 1;
+        if (awayMadePlayoffs) acc.away.winPlayoffs += 1;
+      }
+    }
   }
 
   const teamResults = allTeams.map((abbr) => {
@@ -305,17 +365,57 @@ async function main() {
   await fs.writeFile(STANDINGS_CURRENT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
   console.log(`Wrote ${STANDINGS_CURRENT_PATH}`);
 
+  // NEW: finalize the conditional playoff-odds percentages and write them
+  // to their own file, separate from standings — this is a distinct kind
+  // of output (per-game, not per-team-per-season) and keeping it separate
+  // avoids bloating/complicating the standings file's existing consumers.
+  // `null` for a side's ifWin/ifLoss means that outcome never happened
+  // across all 10,000 trials for that game (extremely lopsided game),
+  // not a bug — the dashboard should treat that as "no data" and fall
+  // back to its own estimate for that one edge case.
+  const pctOrNull = (num, den) => (den > 0 ? Math.round((num / den) * 1000) / 10 : null);
+  const leverageGames = remainingGames.map((g) => {
+    const acc = leverageAcc[g.gameId];
+    return {
+      gameId: g.gameId,
+      week: g.week,
+      date: g.date,
+      home: g.homeTeam,
+      away: g.awayTeam,
+      homePlayoffOddsIfWin: pctOrNull(acc.home.winPlayoffs, acc.home.winTrials),
+      homePlayoffOddsIfLoss: pctOrNull(acc.home.lossPlayoffs, acc.home.lossTrials),
+      awayPlayoffOddsIfWin: pctOrNull(acc.away.winPlayoffs, acc.away.winTrials),
+      awayPlayoffOddsIfLoss: pctOrNull(acc.away.lossPlayoffs, acc.away.lossTrials),
+    };
+  });
+  const leverageOutput = {
+    date,
+    season: rosters.season,
+    simulations: SIMULATIONS,
+    games: leverageGames,
+  };
+  await fs.writeFile(LEVERAGE_CURRENT_PATH, JSON.stringify(leverageOutput, null, 2) + '\n', 'utf8');
+  console.log(`Wrote ${LEVERAGE_CURRENT_PATH} (${leverageGames.length} games)`);
+
   // Weekly-frozen archive: this script consumes the same schedule data it
   // loaded above, so "has this week started" is checked against that same
-  // snapshot rather than re-fetching anything.
+  // snapshot rather than re-fetching anything. Both standings and the new
+  // leverage file follow the same freeze rule, using the same weekKey.
   const weekKey = currentWeekKey();
   const weekStarted = hasWeekStarted(schedule.games, weekKey);
 
-  const archive = await readJsonIfExists(STANDINGS_ARCHIVE_PATH, []);
-  const result = upsertWeeklyArchive(archive, weekKey, output, weekStarted);
-  console.log(`[standings-archive] ${result.reason}`);
-  if (result.changed) {
-    await fs.writeFile(STANDINGS_ARCHIVE_PATH, JSON.stringify(result.archive, null, 2) + '\n', 'utf8');
+  const standingsArchive = await readJsonIfExists(STANDINGS_ARCHIVE_PATH, []);
+  const standingsResult = upsertWeeklyArchive(standingsArchive, weekKey, output, weekStarted);
+  console.log(`[standings-archive] ${standingsResult.reason}`);
+  if (standingsResult.changed) {
+    await fs.writeFile(STANDINGS_ARCHIVE_PATH, JSON.stringify(standingsResult.archive, null, 2) + '\n', 'utf8');
+  }
+
+  const leverageArchive = await readJsonIfExists(LEVERAGE_ARCHIVE_PATH, []);
+  const leverageResult = upsertWeeklyArchive(leverageArchive, weekKey, leverageOutput, weekStarted);
+  console.log(`[playoff-leverage-archive] ${leverageResult.reason}`);
+  if (leverageResult.changed) {
+    await fs.writeFile(LEVERAGE_ARCHIVE_PATH, JSON.stringify(leverageResult.archive, null, 2) + '\n', 'utf8');
   }
 
   console.log('Owner standings:', ownerResults);
