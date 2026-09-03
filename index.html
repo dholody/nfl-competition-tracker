@@ -149,6 +149,7 @@ td{padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:middle;
 tr:last-child td{border-bottom:none;}
 tbody tr:hover{background:#f7f9fc;}
 td.num, th.num{text-align:right; font-family:'Space Mono'; font-size:12.5px;}
+#standingsTable td.num, #standingsTable th.num{text-align:center;}
 
 .team-cell{display:flex; align-items:center; gap:8px;}
 .team-cell img{width:22px;height:22px;object-fit:contain;}
@@ -178,7 +179,8 @@ td.num, th.num{text-align:right; font-family:'Space Mono'; font-size:12.5px;}
   position:relative; display:flex; width:130px; height:22px;
   background:#eef1f5; border-radius:6px; overflow:hidden; flex-shrink:0;
 }
-.fpi-bar-fill{ height:100%; flex:0 0 auto; transition:width .2s; }
+.fpi-bar-fill{ height:100%; flex:0 0 auto; transition:width .2s; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.fpi-bar-fill-label{ font-family:'Space Mono'; font-weight:700; font-size:10.5px; white-space:nowrap; padding:0 3px; }
 .fpi-bar-mid{ position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(255,255,255,.55); z-index:1; }
 .fpi-bar-pct{ font-family:'Space Mono'; font-size:12px; font-weight:700; color:var(--ink); width:38px; }
 
@@ -296,6 +298,20 @@ select{
   font-family:'Barlow Condensed'; font-weight:700; font-size:12.5px; color:#fff;
 }
 .matchup-badge img{width:14px;height:14px;object-fit:contain;}
+
+/* playoff-odds win/loss range: dot at loss-odds, dot at win-odds, connecting
+   segment in team color, delta label above */
+.po-range{ position:relative; width:100px; height:34px; margin:0 auto; }
+.po-range-track{ position:absolute; left:2px; right:2px; top:20px; height:2px; background:#eef1f5; border-radius:2px; }
+.po-range-connector{ position:absolute; top:20px; height:2px; border-radius:2px; }
+.po-range-dot{ position:absolute; top:20px; width:8px; height:8px; border-radius:50%; transform:translate(-50%,-50%); box-shadow:0 0 0 2px #fff; }
+.po-range-dot.loss{ background:#c7cdd6; }
+.po-range-label{
+  position:absolute; top:0; transform:translateX(-50%); white-space:nowrap;
+  font-family:'Space Mono'; font-size:10px; font-weight:700;
+}
+.po-range-pct{ position:absolute; top:24px; font-family:'Space Mono'; font-size:9px; color:var(--muted2); }
+.po-range-pct.loss{ left:0; } .po-range-pct.win{ right:0; }
 .epo-table th, .epo-table td{ text-align:center; }
 .epo-table th:first-child, .epo-table td:first-child{ text-align:left; }
 .epo-table .grand-total{ font-weight:700; }
@@ -484,13 +500,13 @@ select{
     </div>
 
     <div class="card">
-      <div class="card-head">Matchups <span class="hint" id="oddsStatusHint">Vegas lines ("Jerry") not yet connected — see note below</span></div>
+      <div class="card-head">Matchups <span class="hint">Total Leverage colored grey&rarr;green relative to this week's most impactful game</span></div>
       <div class="card-body pad-0" style="max-height:720px; overflow-y:auto;">
         <table id="weeklyMatchupsTable"><thead></thead><tbody></tbody></table>
       </div>
     </div>
     <div class="small muted" style="padding:2px 4px 0;">
-      "Jerry" columns (Line, O/U, FPI vs Moneyline, Projected Score) populate automatically once <span class="mono">data/odds-current.json</span> exists in the repo — see the scraper script provided alongside this dashboard.
+      Playoff &plusmn; is an estimate, not a true what-if resimulation: it removes this game's own probability from each team's expected win total, then reads playoff odds for the win/loss win-total off the real 32-team wins-to-playoff-odds relationship from this week's simulation.
     </div>
     <div class="small muted" style="padding:2px 4px 0;">
       Win probabilities for already-played weeks are pulled from the archived FPI snapshot taken right before that week's kickoffs, not recalculated with today's ratings; upcoming weeks always use the current live FPI.
@@ -566,11 +582,17 @@ select{
       <div class="card-body" id="divisionDiveOddsTrendWrap"><div class="chart-wrap" style="height:280px;"><canvas id="chartDivisionDiveOddsTrend"></canvas></div></div>
     </div>
 
-    <div class="section-title">Highest-Leverage Games <small>Remaining games ranked by how much they could swing the division race</small></div>
+    <div class="section-title">Highest-Leverage Games <small>Top 5 remaining games ranked by how much they could swing the division race</small></div>
     <div class="card">
-      <div class="card-head">Leverage Ranking <span class="hint">Est. from game closeness &times; involved teams' division odds — not ESPN's simulation output</span></div>
-      <div class="card-body pad-0" style="max-height:520px; overflow-y:auto;">
-        <table id="divisionDiveLeverageTable"><thead></thead><tbody></tbody></table>
+      <div class="card-head">Top 5 Division Games <span class="hint">Playoff-odds swing summed across both teams</span></div>
+      <div class="card-body pad-0" style="overflow-x:auto;">
+        <table id="divisionDiveLeverageTableDivision"><thead></thead><tbody></tbody></table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">Top 5 Non-Division Games <span class="hint">Playoff-odds swing for THIS division's team only</span></div>
+      <div class="card-body pad-0" style="overflow-x:auto;">
+        <table id="divisionDiveLeverageTableNonDivision"><thead></thead><tbody></tbody></table>
       </div>
     </div>
 
@@ -657,12 +679,33 @@ const RAW_BASE = 'https://raw.githubusercontent.com/dholody/nfl-competition-trac
 
 const TEAM_INFO = {"BUF":["Buffalo Bills","AFC","East"],"MIA":["Miami Dolphins","AFC","East"],"NE":["New England Patriots","AFC","East"],"NYJ":["New York Jets","AFC","East"],"BAL":["Baltimore Ravens","AFC","North"],"CIN":["Cincinnati Bengals","AFC","North"],"CLE":["Cleveland Browns","AFC","North"],"PIT":["Pittsburgh Steelers","AFC","North"],"HOU":["Houston Texans","AFC","South"],"IND":["Indianapolis Colts","AFC","South"],"JAX":["Jacksonville Jaguars","AFC","South"],"TEN":["Tennessee Titans","AFC","South"],"DEN":["Denver Broncos","AFC","West"],"KC":["Kansas City Chiefs","AFC","West"],"LAC":["Los Angeles Chargers","AFC","West"],"LV":["Las Vegas Raiders","AFC","West"],"DAL":["Dallas Cowboys","NFC","East"],"NYG":["New York Giants","NFC","East"],"PHI":["Philadelphia Eagles","NFC","East"],"WSH":["Washington Commanders","NFC","East"],"CHI":["Chicago Bears","NFC","North"],"DET":["Detroit Lions","NFC","North"],"GB":["Green Bay Packers","NFC","North"],"MIN":["Minnesota Vikings","NFC","North"],"ATL":["Atlanta Falcons","NFC","South"],"CAR":["Carolina Panthers","NFC","South"],"NO":["New Orleans Saints","NFC","South"],"TB":["Tampa Bay Buccaneers","NFC","South"],"ARI":["Arizona Cardinals","NFC","West"],"LAR":["Los Angeles Rams","NFC","West"],"SF":["San Francisco 49ers","NFC","West"],"SEA":["Seattle Seahawks","NFC","West"]};
 
-const TEAM_COLORS = {"ARI":{"primary":"#97233F","secondary":"#000000"},"ATL":{"primary":"#A71930","secondary":"#000000"},"BAL":{"primary":"#241773","secondary":"#9E7C0C"},"BUF":{"primary":"#00338D","secondary":"#C60C30"},"CAR":{"primary":"#0085CA","secondary":"#101820"},"CHI":{"primary":"#C83803","secondary":"#0B162A"},"CIN":{"primary":"#FB4F14","secondary":"#000000"},"CLE":{"primary":"#311D00","secondary":"#FF3C00"},"DAL":{"primary":"#041E42","secondary":"#869397"},"DEN":{"primary":"#FB4F14","secondary":"#002244"},"DET":{"primary":"#0076B6","secondary":"#B0B7BC"},"GB":{"primary":"#FFB612","secondary":"#203731"},"HOU":{"primary":"#03202F","secondary":"#A71930"},"IND":{"primary":"#002C5F","secondary":"#A2AAAD"},"JAX":{"primary":"#006778","secondary":"#D7A22A"},"KC":{"primary":"#E31837","secondary":"#FFB81C"},"LAC":{"primary":"#0080C6","secondary":"#FFC20E"},"LAR":{"primary":"#003594","secondary":"#FFA300"},"LV":{"primary":"#000000","secondary":"#A5ACAF"},"MIA":{"primary":"#008E97","secondary":"#FC4C02"},"MIN":{"primary":"#4F2683","secondary":"#FFC62F"},"NE":{"primary":"#002244","secondary":"#C60C30"},"NO":{"primary":"#101820","secondary":"#D3BC8D"},"NYG":{"primary":"#0B2265","secondary":"#A71930"},"NYJ":{"primary":"#125740","secondary":"#000000"},"PHI":{"primary":"#004C54","secondary":"#A5ACAF"},"PIT":{"primary":"#101820","secondary":"#FFB612"},"SF":{"primary":"#AA0000","secondary":"#B3995D"},"SEA":{"primary":"#69BE28","secondary":"#002244"},"TB":{"primary":"#D50A0A","secondary":"#34302B"},"TEN":{"primary":"#4B92DB","secondary":"#0C2340"},"WSH":{"primary":"#5A1414","secondary":"#FFB612"}};
+const TEAM_COLORS = {"ARI":{"primary":"#97233F","secondary":"#000000"},"ATL":{"primary":"#A71930","secondary":"#000000"},"BAL":{"primary":"#241773","secondary":"#9E7C0C"},"BUF":{"primary":"#00338D","secondary":"#C60C30"},"CAR":{"primary":"#0085CA","secondary":"#101820"},"CHI":{"primary":"#C83803","secondary":"#0B162A"},"CIN":{"primary":"#FB4F14","secondary":"#000000"},"CLE":{"primary":"#311D00","secondary":"#FF3C00"},"DAL":{"primary":"#041E42","secondary":"#869397"},"DEN":{"primary":"#FB4F14","secondary":"#002244"},"DET":{"primary":"#0076B6","secondary":"#B0B7BC"},"GB":{"primary":"#203731","secondary":"#FFB612"},"HOU":{"primary":"#03202F","secondary":"#A71930"},"IND":{"primary":"#002C5F","secondary":"#A2AAAD"},"JAX":{"primary":"#006778","secondary":"#D7A22A"},"KC":{"primary":"#E31837","secondary":"#FFB81C"},"LAC":{"primary":"#0080C6","secondary":"#FFC20E"},"LAR":{"primary":"#003594","secondary":"#FFA300"},"LV":{"primary":"#000000","secondary":"#A5ACAF"},"MIA":{"primary":"#008E97","secondary":"#FC4C02"},"MIN":{"primary":"#4F2683","secondary":"#FFC62F"},"NE":{"primary":"#002244","secondary":"#C60C30"},"NO":{"primary":"#101820","secondary":"#D3BC8D"},"NYG":{"primary":"#0B2265","secondary":"#A71930"},"NYJ":{"primary":"#125740","secondary":"#000000"},"PHI":{"primary":"#004C54","secondary":"#A5ACAF"},"PIT":{"primary":"#101820","secondary":"#FFB612"},"SF":{"primary":"#AA0000","secondary":"#B3995D"},"SEA":{"primary":"#69BE28","secondary":"#002244"},"TB":{"primary":"#D50A0A","secondary":"#34302B"},"TEN":{"primary":"#4B92DB","secondary":"#0C2340"},"WSH":{"primary":"#5A1414","secondary":"#FFB612"}};
 function teamColor(abbr){ const t = TEAM_COLORS[abbr]; return t ? t.primary : '#666'; }
 function teamSecondaryColor(abbr){ const t = TEAM_COLORS[abbr]; return t ? t.secondary : '#999'; }
 function hexToRgb(hex){
   const h = hex.replace('#','');
   return [parseInt(h.substr(0,2),16), parseInt(h.substr(2,2),16), parseInt(h.substr(4,2),16)];
+}
+/** Picks white or black text for best readability against a given
+    background color, using the standard WCAG relative-luminance formula
+    (accounts for the eye's differing sensitivity to red/green/blue,
+    rather than just averaging the RGB channels). */
+function readableTextColor(bgHex){
+  const [r,g,b] = hexToRgb(bgHex).map(c=>{
+    const s = c/255;
+    return s <= 0.03928 ? s/12.92 : Math.pow((s+0.055)/1.055, 2.4);
+  });
+  const luminance = 0.2126*r + 0.7152*g + 0.0722*b;
+  return luminance > 0.42 ? '#152232' : '#ffffff';
+}
+/** Linearly interpolates between two hex colors; t=0 -> colorA, t=1 -> colorB. */
+function interpolateColor(colorA, colorB, t){
+  t = Math.max(0, Math.min(1, t));
+  const [r1,g1,b1] = hexToRgb(colorA), [r2,g2,b2] = hexToRgb(colorB);
+  const r = Math.round(r1 + (r2-r1)*t);
+  const g = Math.round(g1 + (g2-g1)*t);
+  const b = Math.round(b1 + (b2-b1)*t);
+  return `rgb(${r},${g},${b})`;
 }
 function colorDistance(hexA, hexB){
   const [r1,g1,b1] = hexToRgb(hexA), [r2,g2,b2] = hexToRgb(hexB);
@@ -1133,6 +1176,51 @@ function renderResultsTab(){
 function projTeam(abbr){ return DATA.projections.teams.find(t=>t.team===abbr); }
 function ratingTeam(abbr){ return DATA.ratings.teams.find(t=>t.team===abbr); }
 
+/** Empirical relationship between expected final wins and playoff odds,
+    built directly from the real 32-team simulation output rather than an
+    assumed curve shape — captures whatever the model's actual conference/
+    schedule-strength effects are. Sorted ascending by wins for lookup. */
+function buildPlayoffOddsCurve(){
+  return DATA.standings.teams
+    .map(t=>({ w: t.expectedFinalWins, p: t.probabilities.playoffs*100 }))
+    .sort((a,b)=> a.w-b.w);
+}
+let _playoffOddsCurveCache = null;
+function playoffOddsForWinTotal(w){
+  if(!_playoffOddsCurveCache) _playoffOddsCurveCache = buildPlayoffOddsCurve();
+  const curve = _playoffOddsCurveCache;
+  if(!curve.length) return null;
+  if(w <= curve[0].w) return curve[0].p;
+  if(w >= curve[curve.length-1].w) return curve[curve.length-1].p;
+  for(let i=0;i<curve.length-1;i++){
+    if(w >= curve[i].w && w <= curve[i+1].w){
+      const span = curve[i+1].w - curve[i].w;
+      const t = span ? (w-curve[i].w)/span : 0;
+      return curve[i].p + t*(curve[i+1].p - curve[i].p);
+    }
+  }
+  return curve[curve.length-1].p;
+}
+
+/** Estimated playoff odds if a team wins vs. loses this specific game.
+    Not a true what-if resimulation (that would require re-running the
+    Monte Carlo model conditioned on each outcome, which isn't something
+    this client-side data supports) — instead, this removes the game's own
+    probabilistic contribution from the team's expected final win total
+    (expectedFinalWins already has E[this game] = gameWinProb baked in),
+    then adds back exactly 1 win or 0 wins for the two hypothetical
+    outcomes, and reads playoff odds off the real empirical wins-to-odds
+    relationship across all 32 teams. */
+function playoffOddsIfOutcome(g, abbr){
+  const t = DATA.standings.teams.find(x=>x.team===abbr);
+  if(!t) return null;
+  const gameWP = gameWinProbForTeam(g, abbr);
+  const baseWins = t.expectedFinalWins - gameWP;
+  const ifWin = playoffOddsForWinTotal(baseWins + 1);
+  const ifLoss = playoffOddsForWinTotal(baseWins + 0);
+  return { ifWin, ifLoss, diff: ifWin - ifLoss };
+}
+
 function ownerProjAggregates(){
   const neutral = DATA.rosters.neutralLabel || 'Unpicked';
   const owners = ownerList();
@@ -1463,8 +1551,8 @@ function renderDivisionOddsTab(){
           data:{ labels, datasets },
           options:{
             responsive:true, maintainAspectRatio:false,
-            plugins:{ legend:{ position:'bottom', labels:{boxWidth:8, font:{size:10.5}} } },
-            scales:{ y:{ min:0, max:100, title:{display:true, text:'Division odds %'} }, x:{title:{display:true, text:'NFL Week'}, grid:{display:false}} }
+            plugins:{ legend:{ display:false } },
+            scales:{ y:{ min:0, title:{display:true, text:'Division odds %'} }, x:{title:{display:true, text:'NFL Week'}, grid:{display:false}} }
           }
         });
       });
@@ -1631,46 +1719,56 @@ function renderExpectedPointsByOpponent(){
     `<table class="epo-table">${thead}<tbody>${rows}</tbody></table>`;
 }
 
+/** Renders the win/loss playoff-odds dumbbell for one team's game: a dot
+    at their playoff odds if they lose, a dot at their odds if they win,
+    connected by a segment in the team's color, with the point-difference
+    labeled above. */
+function playoffOddsRangeHtml(g, abbr){
+  const res = playoffOddsIfOutcome(g, abbr);
+  if(!res || res.ifWin==null || res.ifLoss==null){
+    return `<div class="po-range"><span class="small muted" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">—</span></div>`;
+  }
+  const lossPct = Math.max(0, Math.min(100, res.ifLoss));
+  const winPct = Math.max(0, Math.min(100, res.ifWin));
+  const left = Math.min(lossPct, winPct);
+  const right = Math.max(lossPct, winPct);
+  const mid = (lossPct + winPct) / 2;
+  const diff = res.diff;
+  const color = teamColor(abbr);
+  return `<div class="po-range" title="${escapeHtml(teamName(abbr))} playoff odds — if loss: ${pct1(res.ifLoss)}, if win: ${pct1(res.ifWin)}">
+    <span class="po-range-track"></span>
+    <span class="po-range-connector" style="left:${left}%; width:${Math.max(1,right-left)}%; background:${color};"></span>
+    <span class="po-range-dot loss" style="left:${lossPct}%;"></span>
+    <span class="po-range-dot" style="left:${winPct}%; background:${color};"></span>
+    <span class="po-range-label" style="left:${mid}%; color:${color};">${diff>=0?'+':''}${Math.round(diff)}pp</span>
+    <span class="po-range-pct loss">${pct0(res.ifLoss)}</span>
+    <span class="po-range-pct win">${pct0(res.ifWin)}</span>
+  </div>`;
+}
+
 function renderWeeklyMatchupsTable(){
   const games = weekGames(selectedWeek);
-  const hasOdds = !!oddsData;
-  document.getElementById('oddsStatusHint').textContent = hasOdds
-    ? 'Vegas lines ("Jerry") from data/odds-current.json'
-    : 'Vegas lines ("Jerry") not yet connected — see note below';
 
   const thead = `<thead><tr>
     <th>Date</th><th>Time</th><th></th><th>Home</th><th></th><th>Away</th>
-    <th>Win % (FPI)</th><th>Line</th><th>O/U</th><th>FPI vs Jerry's ML</th><th>Proj. Score (Jerry)</th>
+    <th>Win % (FPI)</th><th>Home Playoff &plusmn;</th><th>Away Playoff &plusmn;</th><th>Total Leverage</th>
   </tr></thead>`;
 
-  const rows = games.map(g=>{
+  const scored = games.map(g=>{
+    const homeRes = playoffOddsIfOutcome(g, g.home);
+    const awayRes = playoffOddsIfOutcome(g, g.away);
+    const totalLeverage = (homeRes ? homeRes.diff : 0) + (awayRes ? awayRes.diff : 0);
+    return { g, homeRes, awayRes, totalLeverage };
+  });
+  const maxLeverage = Math.max(1, ...scored.map(s=>s.totalLeverage));
+
+  const rows = scored.map(({g, totalLeverage})=>{
     const homeOwner = ownerOf(g.home), awayOwner = ownerOf(g.away);
-    const odds = oddsForGame(g.week, g.home, g.away);
-
-    let lineCell = '<span class="muted">—</span>';
-    let ouCell = '<span class="muted">—</span>';
-    let mlDiffCell = '<span class="muted">—</span>';
-    let projScoreCell = '<span class="muted">—</span>';
-
-    if(odds){
-      const favTeam = odds.spreadHome<0 ? g.home : g.away;
-      const favSpread = Math.min(odds.spreadHome, odds.spreadAway);
-      lineCell = `${favTeam} ${favSpread}`;
-      ouCell = odds.total!=null ? odds.total.toFixed(1) : '—';
-      if(odds.mlHome!=null && odds.mlAway!=null){
-        const rawHome = moneylineToProb(odds.mlHome), rawAway = moneylineToProb(odds.mlAway);
-        const vig = rawHome + rawAway;
-        const fairHomeProb = (rawHome/vig) * 100;
-        const diff = g.hwp*100 - fairHomeProb;
-        mlDiffCell = `<span style="color:${diff>=0?'#0a7d1f':'#c0392b'}">${diff>=0?'+':''}${diff.toFixed(1)}%</span>`;
-      }
-      if(odds.total!=null && odds.spreadHome!=null){
-        const hs = vegasScore(odds.total, odds.spreadHome);
-        const as = vegasScore(odds.total, odds.spreadAway);
-        projScoreCell = `${g.home} ${hs.toFixed(1)} – ${as.toFixed(1)} ${g.away}`;
-      }
-    }
-
+    const intensity = Math.max(0, Math.min(1, totalLeverage / maxLeverage));
+    // No fill — just text color, grey (low leverage) ramping to green (high
+    // leverage) so the most impactful games in the week pop out at a
+    // glance without needing to read every number.
+    const textColor = interpolateColor('#9aa1ab', '#0a7d1f', intensity);
     return `<tr>
       <td class="small muted">${fmtDate(g.date)}</td>
       <td class="small muted">${fmtTime(g.date)}</td>
@@ -1680,18 +1778,20 @@ function renderWeeklyMatchupsTable(){
       <td>${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
       <td>
         <div class="fpi-bar-cell">
-          <span class="fpi-bar-track">
-            <span class="fpi-bar-fill" style="width:${g.hwp*100}%;background:${teamColor(g.home)}"></span>
-            <span class="fpi-bar-fill" style="width:${g.awp*100}%;background:${distinctTeamColor(g.away, g.home)}"></span>
+          <span class="fpi-bar-track" style="width:170px;" title="${g.home} ${pct0(g.hwp*100)} — ${g.away} ${pct0(g.awp*100)}">
+            <span class="fpi-bar-fill" style="width:${g.hwp*100}%;background:${teamColor(g.home)}">
+              ${g.hwp*100>=13 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(teamColor(g.home))}">${pct0(g.hwp*100)}</span>` : ''}
+            </span>
+            <span class="fpi-bar-fill" style="width:${g.awp*100}%;background:${distinctTeamColor(g.away, g.home)}">
+              ${g.awp*100>=13 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(distinctTeamColor(g.away, g.home))}">${pct0(g.awp*100)}</span>` : ''}
+            </span>
             <span class="fpi-bar-mid"></span>
           </span>
-          <span class="fpi-bar-pct">${pct0(g.hwp*100)}</span>
         </div>
       </td>
-      <td class="num">${lineCell}</td>
-      <td class="num">${ouCell}</td>
-      <td class="num">${mlDiffCell}</td>
-      <td class="num">${projScoreCell}</td>
+      <td>${playoffOddsRangeHtml(g, g.home)}</td>
+      <td>${playoffOddsRangeHtml(g, g.away)}</td>
+      <td style="font-weight:700; text-align:center; color:${textColor};" title="${pct0(intensity*100)} of this week's highest-leverage game">${Math.round(totalLeverage)}pp</td>
     </tr>`;
   }).join('');
 
@@ -1946,6 +2046,14 @@ function scheduleAdvantageForDivision(conf, div){
   return { results, divisionAvg };
 }
 
+/** Leverage for THIS division specifically: only counts the playoff-odds
+    swing for participant(s) who are actually in the selected division —
+    an intra-division game counts both teams' diffs (both matter to the
+    division race), a cross-division game counts only the division
+    member's diff, not the outside opponent's own unrelated playoff race.
+    Same underlying playoffOddsIfOutcome model as the Weekly Matchups
+    table's Total Leverage column, just scoped to this division's stake
+    in the game rather than the game's full combined stakes. */
 function computeDivisionLeverageGames(conf, div){
   const teams = divisionTeams(conf, div);
   const teamSet = new Set(teams);
@@ -1953,15 +2061,16 @@ function computeDivisionLeverageGames(conf, div){
   const scored = games.map(g=>{
     const homeInDiv = teamSet.has(g.home), awayInDiv = teamSet.has(g.away);
     const intraDivision = homeInDiv && awayInDiv;
-    const divOddsHome = homeInDiv ? (projTeam(g.home)||{divisionOdds:0}).divisionOdds : 0;
-    const divOddsAway = awayInDiv ? (projTeam(g.away)||{divisionOdds:0}).divisionOdds : 0;
-    const maxDivOdds = Math.max(divOddsHome, divOddsAway);
-    const closeness = 1 - Math.abs(g.hwp - 0.5) * 2; // 0 (lopsided) .. 1 (toss-up)
-    const leverage = closeness * (maxDivOdds/100) * (intraDivision ? 1.5 : 1.0) * 100;
-    return { ...g, intraDivision, leverage };
+    const homeRes = playoffOddsIfOutcome(g, g.home);
+    const awayRes = playoffOddsIfOutcome(g, g.away);
+    let leverage = 0;
+    if(homeInDiv) leverage += homeRes ? homeRes.diff : 0;
+    if(awayInDiv) leverage += awayRes ? awayRes.diff : 0;
+    return { ...g, intraDivision, leverage, homeRes, awayRes };
   });
-  scored.sort((a,b)=> b.leverage - a.leverage);
-  return scored.slice(0, 12);
+  const divisionGames = scored.filter(g=>g.intraDivision).sort((a,b)=> b.leverage-a.leverage).slice(0,5);
+  const nonDivisionGames = scored.filter(g=>!g.intraDivision).sort((a,b)=> b.leverage-a.leverage).slice(0,5);
+  return { divisionGames, nonDivisionGames };
 }
 
 function populateDivisionDiveSelect(){
@@ -1976,13 +2085,13 @@ function renderDivisionDiveRankTable(conf, div){
   const teams = divisionTeams(conf, div)
     .map(a=>({ a, proj: projTeam(a), rating: ratingTeam(a) }))
     .sort((x,y)=> (y.proj?.divisionOdds||0) - (x.proj?.divisionOdds||0));
-  const thead = `<thead><tr><th>Team</th><th>Owner</th><th class="num">FPI Rank</th><th class="num">Proj. Wins</th><th>Division Odds</th><th class="num">Playoff Odds</th></tr></thead>`;
+  const thead = `<thead><tr><th>Team</th><th>Owner</th><th style="text-align:center;">FPI Rank</th><th class="num">Proj. Wins</th><th>Division Odds</th><th style="text-align:center;">Playoff Odds</th></tr></thead>`;
   const rows = teams.map(t=>{
     const divOdds = t.proj?.divisionOdds || 0;
     return `<tr>
       <td>${teamCellHtml(t.a, true)}</td>
       <td>${ownerBadgeHtml(ownerOf(t.a))}</td>
-      <td class="num">#${t.rating?.rank ?? '—'}</td>
+      <td style="text-align:center;">#${t.rating?.rank ?? '—'}</td>
       <td class="num">${t.proj ? fmt1(t.proj.projectedWins) : '—'}</td>
       <td>
         <div class="fpi-bar-cell">
@@ -1992,7 +2101,7 @@ function renderDivisionDiveRankTable(conf, div){
           <span class="fpi-bar-pct">${pct1(divOdds)}</span>
         </div>
       </td>
-      <td class="num">${t.proj ? pct1(t.proj.playoffOdds) : '—'}</td>
+      <td style="text-align:center;">${t.proj ? pct1(t.proj.playoffOdds) : '—'}</td>
     </tr>`;
   }).join('');
   document.getElementById('divisionDiveRankTable').innerHTML = thead + `<tbody>${rows}</tbody>`;
@@ -2077,44 +2186,59 @@ function renderDivisionDiveOddsTrend(conf, div){
     data:{ labels, datasets },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ position:'bottom', labels:{boxWidth:10, font:{family:'Inter', size:11.5}} } },
-      scales:{ y:{ min:0, max:100, title:{display:true, text:'Division odds %'} }, x:{title:{display:true, text:'NFL Week'}, grid:{display:false}} }
+      plugins:{ legend:{ display:false } },
+      scales:{ y:{ min:0, title:{display:true, text:'Division odds %'} }, x:{title:{display:true, text:'NFL Week'}, grid:{display:false}} }
     }
   });
 }
 
+function leverageTableRowHtml(g, teamSet, maxLev, showType){
+  const homeMuted = !teamSet.has(g.home);
+  const awayMuted = !teamSet.has(g.away);
+  return `<tr>
+    <td>${g.week}</td>
+    <td class="small muted">${fmtDate(g.date)}</td>
+    <td style="width:44px; white-space:nowrap;">
+      <img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;">
+      <img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;margin-left:-4px;">
+    </td>
+    <td>${g.home} vs ${g.away}</td>
+    <td>
+      <div class="fpi-bar-cell">
+        <span class="fpi-bar-track" style="width:100px;">
+          <span class="fpi-bar-fill" style="width:${g.hwp*100}%;background:${teamColor(g.home)}"></span>
+          <span class="fpi-bar-fill" style="width:${g.awp*100}%;background:${distinctTeamColor(g.away,g.home)}"></span>
+          <span class="fpi-bar-mid"></span>
+        </span>
+        <span class="fpi-bar-pct">${pct0(g.hwp*100)}</span>
+      </div>
+    </td>
+    ${showType ? `<td><span class="leverage-pill ${g.intraDivision?'intra':'cross'}">${g.intraDivision?'Division':'Cross-Div'}</span></td>` : ''}
+    <td${homeMuted?' style="opacity:.35;" title="Not in this division — doesn\'t count toward leverage"':''}>${playoffOddsRangeHtml(g, g.home)}</td>
+    <td${awayMuted?' style="opacity:.35;" title="Not in this division — doesn\'t count toward leverage"':''}>${playoffOddsRangeHtml(g, g.away)}</td>
+    <td style="text-align:center;">
+      <span class="rank-bar-track" style="display:inline-block; width:90px; vertical-align:middle; margin-right:6px;">
+        <span class="rank-bar-fill" style="width:${(g.leverage/maxLev)*100}%;background:var(--gold)"></span>
+      </span>${Math.round(g.leverage)}pp
+    </td>
+  </tr>`;
+}
+
 function renderDivisionDiveLeverageTable(conf, div){
-  const games = computeDivisionLeverageGames(conf, div);
-  const maxLev = Math.max(1, ...games.map(g=>g.leverage));
-  const thead = `<thead><tr><th>Wk</th><th>Date</th><th></th><th>Matchup</th><th>Win %</th><th>Type</th><th>Leverage</th></tr></thead>`;
-  const rows = games.map(g=>{
-    return `<tr>
-      <td>${g.week}</td>
-      <td class="small muted">${fmtDate(g.date)}</td>
-      <td style="width:44px; white-space:nowrap;">
-        <img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;">
-        <img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;margin-left:-4px;">
-      </td>
-      <td>${g.home} vs ${g.away}</td>
-      <td>
-        <div class="fpi-bar-cell">
-          <span class="fpi-bar-track" style="width:100px;">
-            <span class="fpi-bar-fill" style="width:${g.hwp*100}%;background:${teamColor(g.home)}"></span>
-            <span class="fpi-bar-fill" style="width:${g.awp*100}%;background:${distinctTeamColor(g.away,g.home)}"></span>
-            <span class="fpi-bar-mid"></span>
-          </span>
-          <span class="fpi-bar-pct">${pct0(g.hwp*100)}</span>
-        </div>
-      </td>
-      <td><span class="leverage-pill ${g.intraDivision?'intra':'cross'}">${g.intraDivision?'Division':'Cross-Div'}</span></td>
-      <td>
-        <span class="rank-bar-track" style="display:inline-block; width:90px; vertical-align:middle; margin-right:6px;">
-          <span class="rank-bar-fill" style="width:${(g.leverage/maxLev)*100}%;background:var(--gold)"></span>
-        </span>${g.leverage.toFixed(1)}
-      </td>
-    </tr>`;
-  }).join('');
-  document.getElementById('divisionDiveLeverageTable').innerHTML = thead + `<tbody>${rows || '<tr><td colspan="7" class="muted small" style="padding:14px;">No games remaining involving this division.</td></tr>'}</tbody>`;
+  const { divisionGames, nonDivisionGames } = computeDivisionLeverageGames(conf, div);
+  const teamSet = new Set(divisionTeams(conf, div));
+  const maxLev = Math.max(1, ...divisionGames.map(g=>g.leverage), ...nonDivisionGames.map(g=>g.leverage));
+
+  const colHead = `<th>Wk</th><th>Date</th><th></th><th>Matchup</th><th>Win %</th><th>Home Playoff &plusmn;</th><th>Away Playoff &plusmn;</th><th>Total Leverage</th>`;
+
+  const divRows = divisionGames.map(g=>leverageTableRowHtml(g, teamSet, maxLev, false)).join('');
+  const crossRows = nonDivisionGames.map(g=>leverageTableRowHtml(g, teamSet, maxLev, false)).join('');
+  const emptyRow = `<tr><td colspan="8" class="muted small" style="padding:14px;">No games remaining.</td></tr>`;
+
+  document.getElementById('divisionDiveLeverageTableDivision').innerHTML =
+    `<thead><tr>${colHead}</tr></thead><tbody>${divRows || emptyRow}</tbody>`;
+  document.getElementById('divisionDiveLeverageTableNonDivision').innerHTML =
+    `<thead><tr>${colHead}</tr></thead><tbody>${crossRows || emptyRow}</tbody>`;
 }
 
 function renderDivisionDiveScheduleAdvantage(conf, div){
@@ -2298,7 +2422,7 @@ function renderTeamScheduleTable(abbr){
   const games = teamSchedule(abbr);
   const thead = `<thead><tr>
     <th>Wk</th><th>Date</th><th></th><th>Opponent</th><th>Site</th>
-    <th>Pregame FPI Win%</th><th>Result</th>
+    <th>Pregame FPI Win%</th><th>Playoff &plusmn;</th><th>Result</th>
   </tr></thead>`;
   const rows = games.map(g=>{
     const home = g.home===abbr;
@@ -2329,6 +2453,7 @@ function renderTeamScheduleTable(abbr){
           <span class="fpi-bar-pct">${pct0(wp)}</span>
         </div>
       </td>
+      <td>${playoffOddsRangeHtml(g, abbr)}</td>
       <td>${resultCell}</td>
     </tr>`;
   }).join('');
