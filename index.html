@@ -759,8 +759,13 @@ function mostRecentTuesday_(d){
 
 /** Labels an archive snapshot by NFL week number relative to the regular
     season's Week 1, matching ESPN's own FPI trend convention: Week 1 = "1",
-    the week before kickoff = "0", two weeks before = "-1", etc. Falls back
-    to a plain date if Week 1 can't be located in the schedule. */
+    the week before kickoff = "0", two weeks before = "-1", etc. Once the
+    regular season ends (week 19+), labels switch to the postseason round
+    that snapshot week corresponds to — WC/DIV/CONF/SB — approximating the
+    real playoff calendar (exact week offsets can shift by one year to
+    year depending on the Super Bowl bye week; everything from week 22
+    onward is treated as SB). Falls back to a plain date if Week 1 can't
+    be located in the schedule. */
 function seasonWeekLabel(dateStr){
   const week1Games = DATA.schedule.filter(g=>g.week===1);
   if(!week1Games.length) return fmtDate(dateStr);
@@ -769,7 +774,33 @@ function seasonWeekLabel(dateStr){
   const snapshotTuesday = mostRecentTuesday_(new Date(dateStr));
   const diffDays = Math.round((snapshotTuesday.getTime() - week1Tuesday.getTime()) / (24*3600*1000));
   const weekNum = 1 + Math.round(diffDays / 7);
+  if(weekNum >= 22) return 'SB';
+  if(weekNum === 21) return 'CONF';
+  if(weekNum === 20) return 'DIV';
+  if(weekNum === 19) return 'WC';
   return String(weekNum);
+}
+
+/** The full fixed x-axis for every weekly trend chart: preseason week -1
+    through the regular season, then the postseason rounds. Charts use
+    this instead of just mapping over whatever's currently archived, so
+    the axis stays the same shape all season instead of growing/shifting
+    week to week as new snapshots accumulate. */
+function fullSeasonLabels(){
+  const labels = ['-1'];
+  for(let w=0; w<=18; w++) labels.push(String(w));
+  labels.push('WC','DIV','CONF','SB');
+  return labels;
+}
+
+/** Aligns an archive array to fullSeasonLabels(): for each fixed-axis
+    label, finds the archive entry (if any) whose snapshot falls in that
+    week and applies `valueFn` to it; weeks with no snapshot yet get null
+    (Chart.js just leaves a gap rather than plotting a false value). */
+function alignArchiveToFullSeason(archive, valueFn){
+  const byLabel = {};
+  archive.forEach(e=>{ byLabel[seasonWeekLabel(e.date)] = e; });
+  return fullSeasonLabels().map(lbl=> byLabel[lbl] !== undefined ? valueFn(byLabel[lbl]) : null);
 }
 
 function poissonBinomial(probs){
@@ -907,16 +938,16 @@ function renderPointsTrend(){
   const ctx = document.getElementById('chartPointsTrend');
   const archive = DATA.standingsArchive;
   const owners = ownerList().filter(o=>o!==(DATA.rosters.neutralLabel||'Unpicked'));
-  const labels = archive.map(e=>seasonWeekLabel(e.date));
+  const labels = fullSeasonLabels();
   const datasets = owners.map(owner=>{
     const abbrs = Object.keys(DATA.rosters.teams).filter(a=>DATA.rosters.teams[a].owner===owner);
     return {
       label: owner,
-      data: archive.map(e=>{
-        // Team-level lookup rolled up via the CURRENT roster map, not the
-        // archive snapshot's own baked-in owner assignment — a team drafted
-        // today should show under its new owner across the whole trend
-        // line, not just from today's snapshot onward.
+      // Team-level lookup rolled up via the CURRENT roster map, not the
+      // archive snapshot's own baked-in owner assignment — a team drafted
+      // today should show under its new owner across the whole trend
+      // line, not just from today's snapshot onward.
+      data: alignArchiveToFullSeason(archive, e=>{
         const totals = abbrs.map(a=>{
           const t = e.teams.find(x=>x.team===a);
           return t ? t.expectedPoints : 0;
@@ -1228,12 +1259,12 @@ function renderOwnerOddsTrend(canvasId, chartKey, oddsField, yLabel){
   const ctx = document.getElementById(canvasId);
   const archive = DATA.projectionsArchive;
   const owners = ownerList().filter(o=>o!==(DATA.rosters.neutralLabel||'Unpicked'));
-  const labels = archive.map(e=>seasonWeekLabel(e.date));
+  const labels = fullSeasonLabels();
   const datasets = owners.map(owner=>{
     const abbrs = Object.keys(DATA.rosters.teams).filter(a=>DATA.rosters.teams[a].owner===owner);
     return {
       label: owner,
-      data: archive.map(e=>{
+      data: alignArchiveToFullSeason(archive, e=>{
         const totals = abbrs.map(a=>{
           const t = e.teams.find(x=>x.team===a);
           return t ? t[oddsField]/100 : 0;
@@ -1402,7 +1433,7 @@ function renderDivisionOddsTab(){
   }).join('');
 
   if(enoughHistory){
-    const labels = archive.map(e=>seasonWeekLabel(e.date));
+    const labels = fullSeasonLabels();
     confs.forEach(conf=>{
       divNames.forEach(div=>{
         const abbrs = Object.keys(TEAM_INFO).filter(a=>teamConf(a)===conf && teamDiv(a)===div);
@@ -1410,8 +1441,9 @@ function renderDivisionOddsTab(){
         const ctx = document.getElementById(canvasId);
         if(!ctx) return;
         const datasets = abbrs.map(a=>{
-          const data = archive.map(e=>{ const t = e.teams.find(x=>x.team===a); return t ? t.divisionOdds : null; });
-          const lastIdx = data.length - 1;
+          const data = alignArchiveToFullSeason(archive, e=>{ const t = e.teams.find(x=>x.team===a); return t ? t.divisionOdds : null; });
+          let lastIdx = data.length - 1;
+          while(lastIdx > 0 && data[lastIdx]==null) lastIdx--;
           const logoImg = logoImages[a];
           return {
             label: a,
@@ -2019,11 +2051,12 @@ function renderDivisionDiveOddsTrend(conf, div){
   }
   const ctx = document.getElementById('chartDivisionDiveOddsTrend');
   const abbrs = divisionTeams(conf, div);
-  const labels = archive.map(e=>seasonWeekLabel(e.date));
+  const labels = fullSeasonLabels();
 
   const datasets = abbrs.map(a=>{
-    const data = archive.map(e=>{ const t = e.teams.find(x=>x.team===a); return t ? t.divisionOdds : null; });
-    const lastIdx = data.length - 1;
+    const data = alignArchiveToFullSeason(archive, e=>{ const t = e.teams.find(x=>x.team===a); return t ? t.divisionOdds : null; });
+    let lastIdx = data.length - 1;
+    while(lastIdx > 0 && data[lastIdx]==null) lastIdx--;
     const logoImg = logoImages[a];
     return {
       label: a,
@@ -2230,7 +2263,7 @@ function renderTeamProjTable(abbr){
 function renderTeamTrendChart(abbr){
   const ctx = document.getElementById('chartTeamTrend');
   const archive = DATA.projectionsArchive;
-  const labels = archive.map(e=>seasonWeekLabel(e.date));
+  const labels = fullSeasonLabels();
   const fields = [
     ['playoffOdds','Playoffs','#2a78d6'],
     ['divisionOdds','Win Division','#0a7d1f'],
@@ -2239,7 +2272,7 @@ function renderTeamTrendChart(abbr){
   ];
   const datasets = fields.map(([key,label,color])=>({
     label,
-    data: archive.map(e=>{ const t = e.teams.find(x=>x.team===abbr); return t ? t[key] : null; }),
+    data: alignArchiveToFullSeason(archive, e=>{ const t = e.teams.find(x=>x.team===abbr); return t ? t[key] : null; }),
     borderColor: color, backgroundColor: color,
     borderWidth: 2.5, pointRadius: archive.length<3?5:3, tension:.25
   }));
