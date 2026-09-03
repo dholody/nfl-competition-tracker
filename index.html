@@ -1772,9 +1772,9 @@ function renderWeeklyMatchupsTable(){
       <td class="small muted">${fmtDate(g.date)}</td>
       <td class="small muted">${fmtTime(g.date)}</td>
       <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
-      <td>${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
+      <td style="text-align:left;">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
       <td style="width:22px;"><img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
-      <td>${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
+      <td style="text-align:left;">${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
       <td>
         <div class="fpi-bar-cell">
           <span class="fpi-bar-track" style="width:170px;" title="${g.home} ${pct0(g.hwp*100)} — ${g.away} ${pct0(g.awp*100)}">
@@ -1957,9 +1957,9 @@ function renderResultsMatchupsTable(){
       <td class="small muted">${fmtDate(g.date)}</td>
       <td class="small muted">${fmtTime(g.date)}</td>
       <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
-      <td>${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
+      <td style="text-align:left;">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
       <td style="width:22px;"><img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
-      <td>${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
+      <td style="text-align:left;">${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
       <td>${finalScoreCellHtml(g)}</td>
     </tr>`;
   }).join('');
