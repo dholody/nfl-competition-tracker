@@ -141,15 +141,14 @@ body{
 /* ---------- Tables ---------- */
 table{width:100%; border-collapse:collapse; font-size:13px;}
 th{
-  text-align:left; font-family:'Barlow Condensed'; font-weight:600; font-size:12.5px;
+  text-align:center; font-family:'Barlow Condensed'; font-weight:600; font-size:12.5px;
   text-transform:uppercase; letter-spacing:.4px; color:var(--muted);
   padding:8px 12px; border-bottom:2px solid var(--line); background:#f7f9fb;
 }
-td{padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:middle;}
+td{padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:middle; text-align:center;}
 tr:last-child td{border-bottom:none;}
 tbody tr:hover{background:#f7f9fc;}
-td.num, th.num{text-align:right; font-family:'Space Mono'; font-size:12.5px;}
-#standingsTable td.num, #standingsTable th.num{text-align:center;}
+td.num, th.num{font-family:'Space Mono'; font-size:12.5px;}
 
 .team-cell{display:flex; align-items:center; gap:8px;}
 .team-cell img{width:22px;height:22px;object-fit:contain;}
