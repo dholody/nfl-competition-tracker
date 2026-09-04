@@ -635,7 +635,7 @@ select{
         </div>
       </div>
       <div class="card">
-        <div class="card-head">Season Trend <span class="hint">Snapshot each Tuesday</span></div>
+        <div class="card-head">Season Trend <span class="hint">Stacked segments sum to playoff odds — darker = further advancement</span></div>
         <div class="card-body"><div class="chart-wrap" style="height:230px;"><canvas id="chartTeamTrend"></canvas></div></div>
       </div>
     </div>
@@ -2408,30 +2408,90 @@ function renderTeamProjTable(abbr){
   document.getElementById('teamProjTable').innerHTML = `<tbody>${html}</tbody>`;
 }
 
+/** Stacked bar version of Season Trend: uses the simulation's own nested
+    playoff-advancement probabilities (data/standings-current.json's
+    probabilities object) rather than ESPN's four independently-modeled
+    projection fields — those aren't guaranteed to nest (win-division and
+    win-conference aren't subsets of each other), so they can't telescope
+    to a clean total. The simulation's tiers ARE genuinely nested by
+    construction: every trial that reaches the divisional round necessarily
+    already made the playoffs in that same trial, and so on up the chain.
+    That means (playoffs - divisionalRound) + (divisionalRound -
+    conferenceChampionship) + (conferenceChampionship - superBowlAppearance)
+    + (superBowlAppearance - superBowlWin) + superBowlWin telescopes to
+    exactly `playoffs` — each stacked segment is "odds of getting exactly
+    this far and no further." */
 function renderTeamTrendChart(abbr){
   const ctx = document.getElementById('chartTeamTrend');
-  const archive = DATA.projectionsArchive;
+  const archive = DATA.standingsArchive;
   const labels = fullSeasonLabels();
-  const fields = [
-    ['playoffOdds','Playoffs','#2a78d6'],
-    ['divisionOdds','Win Division','#0a7d1f'],
-    ['conferenceOdds','Win Conference','#d9611f'],
-    ['superBowlOdds','Win Super Bowl','#c99a3c']
+
+  const getProbs = (e)=>{ const t = e.teams.find(x=>x.team===abbr); return t ? t.probabilities : null; };
+  const clamp0 = (v)=> v==null ? null : Math.max(0, v);
+
+  const tiers = [
+    { label:'Won Super Bowl',            alpha:1.00, calc:(p)=> p && clamp0(p.superBowlWin*100) },
+    { label:'Reached Super Bowl',        alpha:0.84, calc:(p)=> p && clamp0((p.superBowlAppearance - p.superBowlWin)*100) },
+    { label:'Reached conf. championship',alpha:0.66, calc:(p)=> p && clamp0((p.conferenceChampionship - p.superBowlAppearance)*100) },
+    { label:'Reached divisional round',  alpha:0.48, calc:(p)=> p && clamp0((p.divisionalRound - p.conferenceChampionship)*100) },
+    { label:'Made playoffs, no further', alpha:0.30, calc:(p)=> p && clamp0((p.playoffs - p.divisionalRound)*100) },
   ];
-  const datasets = fields.map(([key,label,color])=>({
-    label,
-    data: alignArchiveToFullSeason(archive, e=>{ const t = e.teams.find(x=>x.team===abbr); return t ? t[key] : null; }),
-    borderColor: color, backgroundColor: color,
-    borderWidth: 2.5, pointRadius: archive.length<3?5:3, tension:.25
+
+  const baseColor = teamColor(abbr);
+  const [br,bg,bb] = hexToRgb(baseColor);
+  const datasets = tiers.map(tier=>({
+    label: tier.label,
+    data: alignArchiveToFullSeason(archive, e=>{ const p = getProbs(e); return p ? tier.calc(p) : null; }),
+    backgroundColor: `rgba(${br},${bg},${bb},${tier.alpha})`,
+    borderColor: '#fff', borderWidth: 1,
   }));
+
+  // Draws each bar's stacked total (= playoff odds for that week) just
+  // above the top of the stack. Scoped to this chart instance only, not
+  // registered globally, so it doesn't affect any other bar chart.
+  const stackTotalLabelPlugin = {
+    id: 'stackTotalLabel',
+    afterDatasetsDraw(chart){
+      const { ctx, data, scales } = chart;
+      const xScale = scales.x, yScale = scales.y;
+      data.labels.forEach((_, i)=>{
+        let total = 0, hasData = false;
+        data.datasets.forEach(ds=>{
+          const v = ds.data[i];
+          if(v!=null){ total += v; hasData = true; }
+        });
+        if(!hasData || total<=0) return;
+        const xPos = xScale.getPixelForValue(i);
+        const yPos = yScale.getPixelForValue(total);
+        ctx.save();
+        ctx.font = "700 10px 'Space Mono', monospace";
+        ctx.fillStyle = '#152232';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(total.toFixed(1)+'%', xPos, yPos - 3);
+        ctx.restore();
+      });
+    }
+  };
+
   if(charts.teamTrend) charts.teamTrend.destroy();
   charts.teamTrend = new Chart(ctx, {
-    type:'line',
+    type:'bar',
     data:{ labels, datasets },
+    plugins:[stackTotalLabelPlugin],
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ position:'bottom', labels:{boxWidth:10, font:{size:11}} } },
-      scales:{ y:{ min:0, max:100, title:{display:true, text:'Probability %'} }, x:{title:{display:true, text:'NFL Week'}, grid:{display:false}} }
+      layout:{ padding:{ top:18 } },
+      plugins:{
+        legend:{ position:'bottom', labels:{boxWidth:10, font:{size:10.5}} },
+        tooltip:{ callbacks:{
+          footer:(items)=> 'Total (= playoff odds): ' + items.reduce((s,i)=>s+i.parsed.y,0).toFixed(1) + '%'
+        } }
+      },
+      scales:{
+        y:{ stacked:true, min:0, max:100, title:{display:true, text:'Playoff odds %'} },
+        x:{ stacked:true, title:{display:true, text:'NFL Week'}, grid:{display:false} }
+      }
     }
   });
   const wrap = ctx.closest('.card-body');
