@@ -2430,11 +2430,11 @@ function renderTeamTrendChart(abbr){
   const clamp0 = (v)=> v==null ? null : Math.max(0, v);
 
   const tiers = [
-    { label:'Won Super Bowl',            alpha:1.00, calc:(p)=> p && clamp0(p.superBowlWin*100) },
-    { label:'Reached Super Bowl',        alpha:0.84, calc:(p)=> p && clamp0((p.superBowlAppearance - p.superBowlWin)*100) },
-    { label:'Reached conf. championship',alpha:0.66, calc:(p)=> p && clamp0((p.conferenceChampionship - p.superBowlAppearance)*100) },
-    { label:'Reached divisional round',  alpha:0.48, calc:(p)=> p && clamp0((p.divisionalRound - p.conferenceChampionship)*100) },
-    { label:'Made playoffs, no further', alpha:0.30, calc:(p)=> p && clamp0((p.playoffs - p.divisionalRound)*100) },
+    { label:'Win Super Bowl',            alpha:1.00, calc:(p)=> p && clamp0(p.superBowlWin*100) },
+    { label:'Super Bowl',                alpha:0.84, calc:(p)=> p && clamp0((p.superBowlAppearance - p.superBowlWin)*100) },
+    { label:'Conf Championship Game',    alpha:0.66, calc:(p)=> p && clamp0((p.conferenceChampionship - p.superBowlAppearance)*100) },
+    { label:'Divisional Round',          alpha:0.48, calc:(p)=> p && clamp0((p.divisionalRound - p.conferenceChampionship)*100) },
+    { label:'Wild Card Round',           alpha:0.30, calc:(p)=> p && clamp0((p.playoffs - p.divisionalRound)*100) },
   ];
 
   const baseColor = teamColor(abbr);
@@ -2468,7 +2468,7 @@ function renderTeamTrendChart(abbr){
         ctx.fillStyle = '#152232';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'bottom';
-        ctx.fillText(total.toFixed(1)+'%', xPos, yPos - 3);
+        ctx.fillText(Math.round(total)+'%', xPos, yPos - 3);
         ctx.restore();
       });
     }
