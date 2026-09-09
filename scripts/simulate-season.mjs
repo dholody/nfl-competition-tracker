@@ -177,6 +177,24 @@ async function main() {
   if (missingFpi.length) {
     console.warn(`WARNING: no FPI rating found for ${missingFpi.join(', ')} — treating as 0 (league average).`);
   }
+  // This "treat as 0" fallback above is meant for a handful of edge cases
+  // (a newly-added team, a one-off missing field), NOT for masking a
+  // wholesale upstream failure. If FPI is missing for most/all of the
+  // league, every team looks artificially identical and the simulation's
+  // output — expected wins clustered right around .500, playoff odds
+  // clustered right around the league-average rate for everyone — would
+  // silently overwrite a previously-good standings-current.json with
+  // something that LOOKS like a valid forecast but isn't one. Refuse
+  // instead: this is exactly the failure mode that happened once already
+  // (see the "broken forecast" incident from update-fpi.mjs going quiet
+  // on ESPN blocking its per-team requests).
+  if (missingFpi.length > 4) {
+    throw new Error(
+      `FPI is missing for ${missingFpi.length}/${allTeams.length} teams — refusing to run the simulation. ` +
+      `Check that data/ratings-current.json actually has real, current data (this file only has ` +
+      `${(ratings.teams ?? []).length} team entries) before re-running.`
+    );
+  }
 
   // Actual record from completed regular-season games so far.
   const actualWins = Object.fromEntries(allTeams.map((a) => [a, 0]));

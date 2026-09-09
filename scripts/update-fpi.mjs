@@ -138,6 +138,14 @@ function todayIso() {
   return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 }
 
+// Below this many successfully-fetched teams, something is wrong upstream
+// (ESPN blocking/rate-limiting, an endpoint change, etc.) — better to fail
+// the whole run loudly than silently overwrite good data with empty/
+// garbage data that everything downstream (schedule predictions, the
+// season simulation, the dashboard) will treat as real. A handful of
+// individual team failures is tolerable; wholesale failure is not.
+const MIN_TEAMS_REQUIRED = 28;
+
 async function main() {
   const season = detectSeason();
   console.log(`Running FPI update for season ${season}...`);
@@ -160,6 +168,19 @@ async function main() {
     ratings.push(extractRating(teamMeta, raw));
     projections.push(extractProjection(teamMeta, raw));
   });
+
+  const failedCount = teams.length - ratings.length;
+  if (failedCount > 0) {
+    console.warn(`${failedCount} of ${teams.length} teams failed to fetch this run.`);
+  }
+  if (ratings.length < MIN_TEAMS_REQUIRED) {
+    throw new Error(
+      `Only ${ratings.length}/${teams.length} teams fetched successfully (need at least ${MIN_TEAMS_REQUIRED}). ` +
+      `Refusing to overwrite ratings-current.json/projections-current.json with incomplete data — ` +
+      `this usually means ESPN is blocking or rate-limiting the per-team powerindex requests. ` +
+      `Check the "Failed to fetch team" lines above for the actual HTTP status/error.`
+    );
+  }
 
   const date = todayIso();
 

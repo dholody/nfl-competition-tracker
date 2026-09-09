@@ -124,6 +124,18 @@ async function loadFpiMap() {
   for (const t of ratings.teams ?? []) {
     if (t.teamId != null && t.fpi != null) map.set(String(t.teamId), t.fpi);
   }
+  // Defense in depth: update-fpi.mjs itself now refuses to write a
+  // near-empty ratings file, so this shouldn't normally trigger — but if
+  // it somehow does (a manually edited file, a future bug elsewhere),
+  // better to fail loudly here too than silently predict every game as a
+  // 50/50 coin flip.
+  if (map.size < 28) {
+    throw new Error(
+      `ratings-current.json only has usable FPI for ${map.size}/32 teams — refusing to proceed. ` +
+      `Predicted margins/win probabilities for most games would default to a 50/50 coin flip, ` +
+      `which would silently corrupt schedule-current.json for everything downstream.`
+    );
+  }
   return map;
 }
 
