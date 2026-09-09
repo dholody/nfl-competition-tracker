@@ -2,19 +2,23 @@ name: Update NFL FPI Data
 
 on:
   schedule:
-    # Runs daily now (was weekly, Tuesdays only) so *-current.json picks up
-    # actual scores and updated FPI promptly as games are played. The
-    # *-archive.json files do NOT get a new entry every day, though — see
-    # scripts/lib/archive-window.mjs: each script only writes to an
-    # archive while that NFL week hasn't kicked off yet, so the archive
-    # still ends up with one frozen pre-kickoff snapshot per week.
+    # Back to weekly (was briefly daily) — runs Tuesday mornings only, ahead
+    # of that week's Thursday night kickoff. *-current.json still ends up
+    # holding "actuals to date + forecast for what's left to play" — that
+    # comes from the simulation itself (see simulate-season.mjs), not from
+    # how often this cron fires — so a single weekly run is enough to keep
+    # it current for the whole week.
     #
-    # 13:00 UTC ≈ 8-9am Eastern depending on DST — after the previous
-    # night's late games have finished, comfortably before that day's own
-    # games. Adjust if you want tighter same-day freshness around
-    # Sun/Mon night games (e.g. add a second cron entry a few hours later).
-    - cron: '0 13 * * *'
-  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab
+    # 13:00 UTC ≈ 8-9am Eastern depending on DST.
+    - cron: '0 13 * * 2'
+  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab —
+                          # this OVERWRITES the current week's snapshot (both
+                          # *-current.json and, if that week hasn't kicked off
+                          # yet, that week's archive entry) rather than adding
+                          # a second one. See scripts/lib/archive-window.mjs:
+                          # once a week's games have started, re-running this
+                          # still refreshes *-current.json, but leaves the
+                          # archive's pre-kickoff snapshot for that week alone.
 
 permissions:
   contents: write
@@ -37,5 +41,5 @@ jobs:
       - name: Commit and push data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Daily FPI data update"
+          commit_message: "Weekly FPI data update"
           file_pattern: "data/*.json"
