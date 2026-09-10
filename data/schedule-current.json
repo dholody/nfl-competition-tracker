@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-08",
+  "date": "2026-09-10",
   "season": 2026,
   "games": [
     {
@@ -1041,14 +1041,14 @@
       "homeTeamId": "26",
       "awayTeam": "NE",
       "homeTeam": "SEA",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 10,
+      "homeScore": 13,
+      "actualMargin": 3,
       "awayFpi": 1.498,
       "homeFpi": 3.552,
       "predictedMargin": 4.1,
-      "predictionError": null,
+      "predictionError": -1.1,
       "homeWinProbability": 0.642,
       "awayWinProbability": 0.358
     },
