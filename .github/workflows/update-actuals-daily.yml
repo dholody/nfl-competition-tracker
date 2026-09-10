@@ -1,0 +1,46 @@
+name: Update Actual Results (Daily)
+
+# Deliberately a SEPARATE workflow from "Update NFL Schedule Data" (not just
+# a second cron on that same file) — that workflow's completion is what
+# triggers "Update Competition Standings" (the full Monte Carlo simulation)
+# via workflow_run, matched by exact workflow name. Since FPI ratings and
+# the simulation are back to weekly-only (see update-fpi.yml), running this
+# under a different name keeps this daily job from accidentally cascading
+# into a daily re-simulation — it only ever touches schedule-current.json /
+# schedule-archive.json (actual scores, game status), nothing else.
+#
+# This is what keeps the Weekly Results tab (and anything else driven by
+# actual completed-game data, like the Cumulative Points chart's solid/
+# dotted boundary) current throughout the week, even though FPI ratings and
+# the forecast for games not yet played only update once, on Tuesdays.
+
+on:
+  schedule:
+    # Daily, after the previous night's games have wrapped and before that
+    # day's own games — 13:00 UTC ≈ 8-9am Eastern depending on DST.
+    - cron: '0 13 * * *'
+  workflow_dispatch: {}  # manual trigger, overwrites the current snapshot
+
+permissions:
+  contents: write
+
+jobs:
+  update-actuals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run schedule update script
+        run: node scripts/update-schedule.mjs
+
+      - name: Commit and push data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Daily actual results update"
+          file_pattern: "data/schedule-current.json data/schedule-archive.json"
