@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "season": 2026,
   "games": [
     {
@@ -1062,14 +1062,14 @@
       "homeTeamId": "14",
       "awayTeam": "SF",
       "homeTeam": "LAR",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 27,
+      "homeScore": 7,
+      "actualMargin": -20,
       "awayFpi": 2.961,
       "homeFpi": 5.854,
       "predictedMargin": 4.9,
-      "predictionError": null,
+      "predictionError": -24.9,
       "homeWinProbability": 0.668,
       "awayWinProbability": 0.332
     },
