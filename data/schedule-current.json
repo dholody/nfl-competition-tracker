@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "season": 2026,
   "games": [
     {
@@ -1356,14 +1356,14 @@
       "homeTeamId": "12",
       "awayTeam": "DEN",
       "homeTeam": "KC",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 10,
+      "homeScore": 31,
+      "actualMargin": 21,
       "awayFpi": 1.46,
       "homeFpi": 2.548,
       "predictedMargin": 3.1,
-      "predictionError": null,
+      "predictionError": 17.9,
       "homeWinProbability": 0.609,
       "awayWinProbability": 0.391
     },
