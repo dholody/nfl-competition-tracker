@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-17",
+  "date": "2026-09-18",
   "season": 2026,
   "games": [
     {
@@ -1377,14 +1377,14 @@
       "homeTeamId": "2",
       "awayTeam": "DET",
       "homeTeam": "BUF",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 31,
+      "homeScore": 41,
+      "actualMargin": 10,
       "awayFpi": 1.525,
       "homeFpi": 4.835,
       "predictedMargin": 5.3,
-      "predictionError": null,
+      "predictionError": 4.7,
       "homeWinProbability": 0.681,
       "awayWinProbability": 0.319
     },
