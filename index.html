@@ -1618,12 +1618,12 @@ function vegasScore(total, teamSpread){
   return total/2 - teamSpread/2;
 }
 
-/** Latest (highest-numbered) week that still has at least one game not yet
-    Final. */
+/** Soonest (lowest-numbered) week that still has at least one game not yet
+    Final — the week you'd naturally want to look ahead to for projections. */
 function currentUpcomingWeek(){
   const weeks = allWeeks();
-  const upcomingWeeks = weeks.filter(w => weekGames(w).some(g => g.status !== 'Final'));
-  return upcomingWeeks.length ? upcomingWeeks[upcomingWeeks.length-1] : weeks[weeks.length-1];
+  const w = weeks.find(w => weekGames(w).some(g => g.status !== 'Final'));
+  return w !== undefined ? w : weeks[weeks.length-1];
 }
 /** Most recent (highest-numbered) week that has at least one completed
     game — the latest results actually worth showing by default, rather
