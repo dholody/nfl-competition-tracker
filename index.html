@@ -1625,12 +1625,13 @@ function currentUpcomingWeek(){
   const w = weeks.find(w => weekGames(w).some(g => g.status !== 'Final'));
   return w !== undefined ? w : weeks[weeks.length-1];
 }
-/** Earliest week that has at least one completed game — the first week with any
-    actual results to show. */
-function earliestCompletedWeek(){
+/** Most recent (highest-numbered) week that has at least one completed
+    game — the latest results actually worth showing by default, rather
+    than getting stuck on Week 1 forever once the season has moved past it. */
+function mostRecentCompletedWeek(){
   const weeks = allWeeks();
-  const w = weeks.find(w => weekGames(w).some(g => g.status === 'Final'));
-  return w !== undefined ? w : weeks[0];
+  const completedWeeks = weeks.filter(w => weekGames(w).some(g => g.status === 'Final'));
+  return completedWeeks.length ? completedWeeks[completedWeeks.length-1] : weeks[0];
 }
 
 function populateWeekSelect(){
@@ -1853,7 +1854,7 @@ function populateResultsWeekSelect(){
   const sel = document.getElementById('resultsWeekSelect');
   const weeks = allWeeks();
   sel.innerHTML = weeks.map(w=>`<option value="${w}">Week ${w}</option>`).join('');
-  if(!selectedResultsWeek || !weeks.includes(selectedResultsWeek)) selectedResultsWeek = earliestCompletedWeek();
+  if(!selectedResultsWeek || !weeks.includes(selectedResultsWeek)) selectedResultsWeek = mostRecentCompletedWeek();
   sel.value = selectedResultsWeek;
   sel.onchange = ()=>{ selectedResultsWeek = Number(sel.value); renderWeeklyResultsTab(); };
 }
