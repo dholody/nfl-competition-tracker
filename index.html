@@ -842,10 +842,24 @@ function fullSeasonLabels(){
 /** Aligns an archive array to fullSeasonLabels(): for each fixed-axis
     label, finds the archive entry (if any) whose snapshot falls in that
     week and applies `valueFn` to it; weeks with no snapshot yet get null
-    (Chart.js just leaves a gap rather than plotting a false value). */
+    (Chart.js just leaves a gap rather than plotting a false value).
+
+    Labels an entry by its .weekKey when present — that field is already
+    the authoritative "which NFL week is this" answer, set once when the
+    entry was written and never meant to be re-derived. Only falls back to
+    recomputing from .date for entries that predate the weekKey field
+    (the very first archive entry from before that system existed). Re-
+    deriving from .date for every entry is what let a manually-patched
+    entry (weekKey set correctly, .date left stale from its source data)
+    silently collide with a different real entry and make Week 1 vanish
+    from every trend chart — trusting weekKey avoids that class of bug
+    entirely, since it can't drift out of sync with itself. */
 function alignArchiveToFullSeason(archive, valueFn){
   const byLabel = {};
-  archive.forEach(e=>{ byLabel[seasonWeekLabel(e.date)] = e; });
+  archive.forEach(e=>{
+    const label = e.weekKey ? seasonWeekLabel(e.weekKey) : seasonWeekLabel(e.date);
+    byLabel[label] = e;
+  });
   return fullSeasonLabels().map(lbl=> byLabel[lbl] !== undefined ? valueFn(byLabel[lbl]) : null);
 }
 
