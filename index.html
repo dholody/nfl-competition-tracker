@@ -430,13 +430,6 @@ select{
     </div>
 
     <div class="section-title">Division &amp; Playoff Outlook</div>
-    <div class="card">
-      <div class="card-head">Division Projection <span class="hint">Live division-title odds per team</span></div>
-      <div class="card-body">
-        <div class="grid grid-2" id="divisionProjection"></div>
-      </div>
-    </div>
-
     <div class="grid grid-2">
       <div class="card">
         <div class="card-head">Expected Playoff Teams by Week <span class="hint">Owner totals, snapshot each Tuesday</span></div>
@@ -451,6 +444,11 @@ select{
     <div class="card">
       <div class="card-head">Playoff Odds <span class="hint">All 32 teams, sorted by playoff odds</span></div>
       <div class="card-body"><div class="chart-wrap" id="playoffOddsChartWrap"><canvas id="chartPlayoffOdds"></canvas></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Expected Points Movement <span class="hint">Week 0 &rarr; current, split into wins vs. playoff-odds movement</span></div>
+      <div class="card-body"><div class="chart-wrap" id="pointsMovementChartWrap"><canvas id="chartPointsMovement"></canvas></div></div>
     </div>
   </section>
 
@@ -1367,30 +1365,6 @@ function renderFpiRankChart(){
   });
 }
 
-function renderDivisionProjection(){
-  const confs = ['AFC','NFC'];
-  const divNames = ['East','North','South','West'];
-  const html = confs.map(conf=>{
-    const blocks = divNames.map(div=>{
-      const abbrs = Object.keys(TEAM_INFO).filter(a=>teamConf(a)===conf && teamDiv(a)===div);
-      const rows = abbrs.map(a=>({a, odds: (projTeam(a)||{divisionOdds:0}).divisionOdds}))
-        .sort((x,y)=>y.odds-x.odds);
-      const rowsHtml = rows.map(r=>`
-        <div class="div-team-row">
-          <img src="${teamLogo(r.a)}" onerror="this.style.visibility='hidden'">
-          <span class="bar-track"><span class="bar-fill" style="width:${Math.max(2,r.odds)}%;background:${ownerColor(ownerOf(r.a))}"></span></span>
-          <span class="pct">${pct1(r.odds)}</span>
-        </div>`).join('');
-      return `<div class="division-block">
-        <div class="dtitle"><span>${conf} ${div}</span></div>
-        <div class="teams">${rowsHtml}</div>
-      </div>`;
-    }).join('');
-    return `<div>${blocks}</div>`;
-  }).join('');
-  document.getElementById('divisionProjection').innerHTML = html;
-}
-
 function renderOwnerOddsTrend(canvasId, chartKey, oddsField, yLabel){
   const ctx = document.getElementById(canvasId);
   const archive = DATA.projectionsArchive;
@@ -1467,6 +1441,116 @@ function renderPlayoffOddsChart(){
   });
 }
 
+/** Finds the archive entry matching a specific fixed-axis label (e.g. '0'
+    for the last pre-season snapshot), trusting .weekKey the same way
+    alignArchiveToFullSeason does. */
+function findArchiveEntryForLabel(archive, targetLabel){
+  return archive.find(e=>{
+    const label = e.weekKey ? seasonWeekLabel(e.weekKey) : seasonWeekLabel(e.date);
+    return label === targetLabel;
+  }) || null;
+}
+
+function renderPointsMovementChart(){
+  const wrap = document.getElementById('pointsMovementChartWrap');
+  const week0Entry = findArchiveEntryForLabel(DATA.standingsArchive, '0');
+
+  if(!week0Entry){
+    wrap.innerHTML = '<div class="small muted" style="padding:20px;">Week 0 snapshot not yet archived — this chart appears once it is.</div>';
+    return;
+  }
+  if(!document.getElementById('chartPointsMovement')){
+    wrap.innerHTML = '<canvas id="chartPointsMovement"></canvas>';
+  }
+
+  // expectedPoints splits cleanly into (expectedFinalWins * 1pt/win) +
+  // everything else (playoff berth/division/round bonuses — verified
+  // earlier that these two pieces sum to exactly expectedPoints), so the
+  // same split applies to the MOVEMENT in each: winsDelta + playoffDelta
+  // telescopes to exactly the team's total points movement.
+  const rows = DATA.standings.teams.map(t=>{
+    const w0 = week0Entry.teams.find(x=>x.team===t.team);
+    if(!w0) return null;
+    const winsDelta = Math.round((t.expectedFinalWins - w0.expectedFinalWins)*100)/100;
+    const totalDelta = Math.round((t.expectedPoints - w0.expectedPoints)*100)/100;
+    const playoffDelta = Math.round((totalDelta - winsDelta)*100)/100;
+    return { team: t.team, winsDelta, playoffDelta, totalDelta, current: t.expectedPoints, week0: w0.expectedPoints };
+  }).filter(Boolean).sort((a,b)=> b.totalDelta - a.totalDelta);
+
+  wrap.style.height = (rows.length * 22 + 20) + 'px';
+  const ctx = document.getElementById('chartPointsMovement');
+  const labels = rows.map(r=>r.team);
+
+  const winsData = rows.map(r=>r.winsDelta);
+  const playoffData = rows.map(r=>r.playoffDelta);
+  const winsColors = rows.map(r=>{
+    const [rr,gg,bb] = hexToRgb(ownerColor(ownerOf(r.team)));
+    return `rgba(${rr},${gg},${bb},1)`;
+  });
+  const playoffColors = rows.map(r=>{
+    const [rr,gg,bb] = hexToRgb(ownerColor(ownerOf(r.team)));
+    return `rgba(${rr},${gg},${bb},0.45)`;
+  });
+
+  // Dedicated to this chart (not the shared barLogos plugin, which only
+  // supports a single dataset) — places each team's logo at the tip of
+  // the STACKED total, on the correct side of zero.
+  const movementLogoPlugin = {
+    id: 'movementLogo',
+    afterDatasetsDraw(chart){
+      const { ctx: c, data, scales } = chart;
+      const xScale = scales.x, yScale = scales.y;
+      const size = 16;
+      data.labels.forEach((abbr, i)=>{
+        let total = 0;
+        data.datasets.forEach(ds=>{ const v = ds.data[i]; if(v!=null) total += v; });
+        const img = logoImages[abbr];
+        if(!img || !img.complete || !img.naturalWidth) return;
+        const xPos = xScale.getPixelForValue(total);
+        const yPos = yScale.getPixelForValue(i);
+        const offsetX = total < 0 ? -(size+5) : 5;
+        c.save();
+        c.drawImage(img, xPos+offsetX, yPos-size/2, size, size);
+        c.restore();
+      });
+    }
+  };
+
+  if(charts.pointsMovement) charts.pointsMovement.destroy();
+  charts.pointsMovement = new Chart(ctx, {
+    type:'bar',
+    data:{ labels, datasets:[
+      { label:'Wins Δ', data: winsData, backgroundColor: winsColors, borderRadius:3, barPercentage:.72, categoryPercentage:.9 },
+      { label:'Playoff Δ', data: playoffData, backgroundColor: playoffColors, borderRadius:3, barPercentage:.72, categoryPercentage:.9 },
+    ] },
+    plugins:[movementLogoPlugin],
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      layout:{ padding:{ left:26, right:26 } },
+      plugins:{
+        legend:{ position:'bottom', labels:{boxWidth:10, font:{size:10.5}} },
+        tooltip:{ callbacks:{
+          title:(items)=>{ const r = rows[items[0].dataIndex]; return teamName(r.team); },
+          label:(item)=>{
+            const r = rows[item.dataIndex];
+            if(item.datasetIndex===0) return `Wins Δ: ${r.winsDelta>=0?'+':''}${fmt1(r.winsDelta)}`;
+            return `Playoff Δ: ${r.playoffDelta>=0?'+':''}${fmt1(r.playoffDelta)}`;
+          },
+          footer:(items)=>{
+            const r = rows[items[0].dataIndex];
+            return [`Owner: ${ownerOf(r.team)}`, `Total: ${r.totalDelta>=0?'+':''}${fmt1(r.totalDelta)} (Week 0: ${fmt1(r.week0)} → Current: ${fmt1(r.current)})`];
+          }
+        } }
+      },
+      scales:{
+        x:{ stacked:true, title:{display:true, text:'Net change in expected points'}, grid:{color:'#eef1f5'} },
+        y:{ stacked:true, ticks:{ font:{family:'Space Mono', size:10.5} }, grid:{display:false} }
+      }
+    }
+  });
+}
+
 function renderProjectionsTab(){
   const agg = ownerProjAggregates();
   safeRender('ownerWinsBars', ()=>renderOwnerStatBars('ownerWinsBars', agg, 'wins'));
@@ -1474,10 +1558,10 @@ function renderProjectionsTab(){
   safeRender('ownerSbBars', ()=>renderOwnerStatBars('ownerSbBars', agg, 'sbWins'));
   safeRender('projWinsChart', renderProjWinsChart);
   safeRender('fpiRankChart', renderFpiRankChart);
-  safeRender('divisionProjection', renderDivisionProjection);
   safeRender('playoffTrend', ()=>renderOwnerOddsTrend('chartPlayoffTrend','playoffTrend','playoffOdds','Expected playoff teams'));
   safeRender('sbTrend', ()=>renderOwnerOddsTrend('chartSbTrend','sbTrend','superBowlOdds','Expected Super Bowl wins'));
   safeRender('playoffOddsChart', renderPlayoffOddsChart);
+  safeRender('pointsMovementChart', renderPointsMovementChart);
 }
 
 /* ---------------- TAB 3: DIVISION ODDS — STACKED BAR (current) ---------------- */
