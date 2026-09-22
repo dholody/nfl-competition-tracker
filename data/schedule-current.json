@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-21",
+  "date": "2026-09-22",
   "season": 2026,
   "games": [
     {
@@ -1692,14 +1692,14 @@
       "homeTeamId": "14",
       "awayTeam": "NYG",
       "homeTeam": "LAR",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 6,
+      "homeScore": 28,
+      "actualMargin": 22,
       "awayFpi": -0.021,
       "homeFpi": 3.027,
       "predictedMargin": 5,
-      "predictionError": null,
+      "predictionError": 17,
       "homeWinProbability": 0.671,
       "awayWinProbability": 0.329
     },
