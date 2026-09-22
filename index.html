@@ -640,6 +640,10 @@ select{
         <div class="card-head">FPI Rating Breakdown <span class="hint">Offense + Defense + Special Teams = FPI, by week</span></div>
         <div class="card-body"><div class="chart-wrap" style="height:230px;"><canvas id="chartFpiBreakdown"></canvas></div></div>
       </div>
+      <div class="card">
+        <div class="card-head">Weekly Points Breakdown <span class="hint">Wins (base) + playoff-odds points (lighter, stacked above)</span></div>
+        <div class="card-body"><div class="chart-wrap" style="height:230px;"><canvas id="chartTeamPointsTrend"></canvas></div></div>
+      </div>
     </div>
 
     <div class="section-title">Win Projection <small>Poisson-binomial model from 17 game win probabilities</small></div>
@@ -2699,6 +2703,79 @@ function renderFpiBreakdownChart(abbr){
     : `${archive.length} weekly snapshots archived.`;
 }
 
+/** Weekly Points Breakdown: same wins-vs-playoff split used in the FPI
+    Projections tab's Expected Points Movement chart, but trended by week
+    for a single team rather than shown as one movement bar per team.
+    Wins (expectedFinalWins, worth 1pt/win) forms the base of each bar;
+    the playoff-bonus contribution (expectedPoints - expectedFinalWins)
+    stacks lighter-shaded on top — the two sum to that week's total
+    expected points, same telescoping relationship verified elsewhere. */
+function renderTeamPointsTrendChart(abbr){
+  const ctx = document.getElementById('chartTeamPointsTrend');
+  const archive = DATA.standingsArchive;
+  const labels = fullSeasonLabels();
+
+  const getTeam = (e)=> e.teams.find(x=>x.team===abbr);
+  const winsData = alignArchiveToFullSeason(archive, e=>{ const t = getTeam(e); return t ? t.expectedFinalWins : null; });
+  const playoffData = alignArchiveToFullSeason(archive, e=>{ const t = getTeam(e); return t ? (t.expectedPoints - t.expectedFinalWins) : null; });
+
+  const baseColor = teamColor(abbr);
+  const [br,bg,bb] = hexToRgb(baseColor);
+  const datasets = [
+    { label:"Wins (pts)", data: winsData, backgroundColor: `rgba(${br},${bg},${bb},1)`, borderColor:"#fff", borderWidth:1 },
+    { label:"Playoff pts", data: playoffData, backgroundColor: `rgba(${br},${bg},${bb},0.4)`, borderColor:"#fff", borderWidth:1 },
+  ];
+
+  const stackTotalLabelPlugin = {
+    id: "teamPointsTotalLabel",
+    afterDatasetsDraw(chart){
+      const { ctx: c, data, scales } = chart;
+      const xScale = scales.x, yScale = scales.y;
+      data.labels.forEach((_, i)=>{
+        let total = 0, hasData = false;
+        data.datasets.forEach(ds=>{ const v = ds.data[i]; if(v!=null){ total += v; hasData = true; } });
+        if(!hasData) return;
+        const xPos = xScale.getPixelForValue(i);
+        const yPos = yScale.getPixelForValue(total);
+        c.save();
+        c.font = "700 10px 'Space Mono', monospace";
+        c.fillStyle = "#152232";
+        c.textAlign = "center";
+        c.textBaseline = "bottom";
+        c.fillText(total.toFixed(1), xPos, yPos - 3);
+        c.restore();
+      });
+    }
+  };
+
+  if(charts.teamPointsTrend) charts.teamPointsTrend.destroy();
+  charts.teamPointsTrend = new Chart(ctx, {
+    type:"bar",
+    data:{ labels, datasets },
+    plugins:[stackTotalLabelPlugin],
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      layout:{ padding:{ top:18 } },
+      plugins:{
+        legend:{ position:"bottom", labels:{boxWidth:10, font:{size:10.5}} },
+        tooltip:{ callbacks:{
+          footer:(items)=> "Total expected points: " + items.reduce((s,i)=>s+i.parsed.y,0).toFixed(1)
+        } }
+      },
+      scales:{
+        y:{ stacked:true, min:0, title:{display:true, text:"Expected points"} },
+        x:{ stacked:true, title:{display:true, text:"NFL Week"}, grid:{display:false} }
+      }
+    }
+  });
+  const wrap = ctx.closest(".card-body");
+  let note = wrap.querySelector(".trend-note");
+  if(!note){ note = document.createElement("div"); note.className="small muted trend-note"; note.style.marginTop="8px"; wrap.appendChild(note); }
+  note.textContent = archive.length<2
+    ? "One snapshot archived so far — trend builds out weekly."
+    : `${archive.length} weekly snapshots archived.`;
+}
+
 function renderTeamScheduleTable(abbr){
   const games = teamSchedule(abbr);
   const thead = `<thead><tr>
@@ -2799,6 +2876,7 @@ function renderTeamTab(){
   safeRender('teamProjTable', ()=>renderTeamProjTable(abbr));
   safeRender('teamTrendChart', ()=>renderTeamTrendChart(abbr));
   safeRender('fpiBreakdownChart', ()=>renderFpiBreakdownChart(abbr));
+  safeRender('teamPointsTrendChart', ()=>renderTeamPointsTrendChart(abbr));
   safeRender('teamScheduleTable', ()=>renderTeamScheduleTable(abbr));
   let dist = null;
   try{ dist = renderWinDistribution(abbr); }
