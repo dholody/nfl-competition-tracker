@@ -627,7 +627,7 @@ select{
 
     <div class="grid grid-2">
       <div class="card">
-        <div class="card-head">Latest Projection</div>
+        <div class="card-head">Latest Projection <span class="hint">ESPN's FPI projection — Season Trend below uses this dashboard's own simulation instead</span></div>
         <div class="card-body pad-0">
           <table id="teamProjTable"><tbody></tbody></table>
         </div>
@@ -2518,6 +2518,27 @@ function renderTeamHeader(abbr){
     `${teamConf(abbr)} ${teamDiv(abbr)} &middot; FPI Rank #${rank} &middot; Draft Pick #${pick} &middot; Owner: ${ownerBadgeHtml(owner)}`;
 }
 
+/** Pulls from the simulation's own probabilities (standings-current.json),
+    the same source Season Trend / Weekly Points Breakdown / Points
+    Movement / Playoff Leverage all use — deliberately NOT ESPN's separate
+    projections-current.json figures, which are a different model and can
+    disagree by double digits (verified: e.g. Chicago showed 37.4% by
+    ESPN's model vs 14.6% by this simulation on the same day). Keeping
+    every playoff-odds figure on this tab sourced from one model means
+    "stacked segments sum to playoff odds" is actually checkable against
+    this table, instead of two numbers that merely look like they should
+    match. "Win Conference" maps to superBowlAppearance — reaching the
+    Super Bowl is what winning the conference championship game means. */
+/** Pulls directly from ESPN's own FPI projections (projections-current.json)
+    — the dashboard's default source for playoff/division/conference/Super
+    Bowl odds throughout. ESPN's FPI rating appears to incorporate current
+    real-time factors (e.g. active injuries) while their forward-looking
+    projections account for expected player returns — a real, plausible
+    modeling difference from this project's own simulation, which only
+    ever sees the single current FPI number and can't distinguish "hurt
+    all season" from "expected back in three weeks." Rather than have this
+    project's simulation quietly disagree with ESPN for reasons a user
+    can't diagnose, ESPN's own published numbers are the default here. */
 function renderTeamProjTable(abbr){
   const p = projTeam(abbr) || {};
   const rows = [
