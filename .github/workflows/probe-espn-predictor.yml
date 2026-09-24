@@ -1,0 +1,24 @@
+name: Probe ESPN Predictor Endpoint (One-Off)
+
+# Diagnostic only — not part of the regular pipeline. Manually triggered,
+# no commit step, since the whole point is just to read the printed
+# output in this run's log. Safe to delete this workflow file once you've
+# gotten what you need from it.
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run probe script
+        run: node scripts/probe-espn-predictor.mjs
