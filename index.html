@@ -2967,8 +2967,13 @@ async function tryLiveRefresh(){
       }))
       .sort((a,b)=> a.week-b.week || String(a.date).localeCompare(String(b.date)));
     const schedule = trimGames(scheduleFull.games);
-    const scheduleArchive = scheduleArchiveFull.map(entry => ({ date: entry.date, games: trimGames(entry.games) }));
+  const scheduleArchive = scheduleArchiveFull.map(entry => ({ date: entry.date, games: trimGames(entry.games) }));
     DATA = { ratings, projections, standings, schedule, ownerColors, rosters, standingsArchive, projectionsArchive, scheduleArchive, ratingsArchive, playoffLeverage: DATA.playoffLeverage ?? null };
+    
+    // Reset the tab defaults so they recalculate using the live data
+    selectedWeek = null;
+    selectedResultsWeek = null;
+
     setStatus(true, standings.date, scheduleFull.date);
     renderAll();
   }catch(e){
