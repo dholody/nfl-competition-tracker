@@ -1,38 +1,34 @@
 // Shared logic for the "weekly, pre-kickoff" archive freeze used by
 // update-fpi.mjs, update-schedule.mjs, and simulate-season.mjs.
 //
-// Now that those scripts run DAILY (to keep *-current.json fresh with
-// actual results as games complete), a plain "one archive entry per
-// calendar date" guard would turn the archive into a daily log instead of
-// a weekly one — and worse, it would happily record a snapshot on, say,
-// Friday morning, after Thursday Night Football has already shifted FPI
-// ratings, corrupting the "what did we know before any of this week's
-// games were played" record.
+// Archive behavior: "one entry per NFL week, frozen at the last update
+// before that week's first kickoff". 
 //
-// The fix: key each archive entry by NFL "week" (Tuesday-through-Monday,
-// since Tuesday is the day after the last Monday Night game and before the
-// next Thursday Night game — a reliable no-games gap every week), and only
-// let a run write to that week's slot while none of that week's games have
-// kicked off yet. Once the week's first kickoff passes, the slot is frozen:
-// later daily runs that same week update *-current.json as normal, but
-// leave the archive alone.
+// The NFL week is defined as Tuesday 6:00 AM ET to the following Tuesday
+// 6:00 AM ET (10:00 UTC). This guarantees that Monday Night Football games
+// (which technically kick off on Tuesday in UTC) remain correctly assigned
+// to the previous week's window.
 
-/** Most recent Tuesday on/before `now` (UTC), as YYYY-MM-DD. Stable key for
-    "which NFL week is this run happening during". */
+/** Most recent Tuesday on/before `now` (adjusted for 10:00 AM UTC / 6:00 AM EDT boundary),
+    as YYYY-MM-DD. Stable key for "which NFL week is this run happening during". */
 export function currentWeekKey(now = new Date()) {
-  const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  // Shift time back by 10 hours so that anything before Tuesday 10:00 UTC 
+  // (6:00 AM EDT) is still considered part of the previous week.
+  const adjustedNow = new Date(now.getTime() - 10 * 60 * 60 * 1000);
+  const d = new Date(Date.UTC(adjustedNow.getUTCFullYear(), adjustedNow.getUTCMonth(), adjustedNow.getUTCDate()));
   const day = d.getUTCDay(); // 0=Sun .. 6=Sat
   const diffToTuesday = (day - 2 + 7) % 7; // days since the most recent Tuesday
   d.setUTCDate(d.getUTCDate() - diffToTuesday);
   return d.toISOString().slice(0, 10);
 }
 
-/** True if any game with a kickoff inside the [weekKey, weekKey+7d) window
+/** True if any game with a kickoff inside the [weekStart, weekStart+7d) window
     has already kicked off as of `now`. `games` should have a `date` field
     (ISO kickoff timestamp) — works with schedule-current.json's `games`
     array or schedule-archive.json entries' `games` array. */
 export function hasWeekStarted(games, weekKey, now = new Date()) {
-  const weekStart = new Date(`${weekKey}T00:00:00Z`);
+  // Shift week start to 10:00:00Z (6:00 AM EDT) to avoid Monday Night Football bleeding over
+  const weekStart = new Date(`${weekKey}T10:00:00Z`);
   const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
   return (games ?? []).some((g) => {
     if (!g?.date) return false;
