@@ -2733,7 +2733,7 @@ function renderFpiBreakdownChart(abbr){
     expected points, same telescoping relationship verified elsewhere. */
 function renderTeamPointsTrendChart(abbr){
   const ctx = document.getElementById('chartTeamPointsTrend');
-  const archive = DATA.standingsArchive;
+  const archive = DATA.projectionsArchive;
   const labels = fullSeasonLabels();
 
   const getTeam = (e)=> e.teams.find(x=>x.team===abbr);
