@@ -6,16 +6,35 @@
 // manually with: node scripts/update-schedule.mjs) so schedule-current.json
 // picks up actual scores/status promptly as games are played.
 //
-// predictedMargin = (homeFpi - awayFpi) + HOME_FIELD_ADV, positive = home
-// favored. actualMargin uses the same sign convention (homeScore -
-// awayScore) so predictionError = actualMargin - predictedMargin is
-// directly comparable.
+// WIN PROBABILITY SOURCE (changed): for every game that hasn't been played
+// yet, this now fetches ESPN's own per-game "predictor" endpoint and uses
+// THEIR win probability/predicted margin directly, instead of computing one
+// from FPI ratings via this project's own normal-distribution model.
+// Verified (see scripts/probe-espn-predictor.mjs and its real output) that
+// ESPN's own model implies a narrower spread than this project's assumed
+// σ=13.5 — their numbers consistently back-solve to roughly σ≈10.5, which
+// alone explains a meaningful chunk of why this project's simulation used
+// to disagree with ESPN's own playoff odds. Rather than try to reverse-
+// engineer ESPN's exact model, this just uses their number directly.
 //
-// Archive behavior changed from "one entry per calendar day" to "one entry
-// per NFL week, frozen at the last update before that week's first
-// kickoff" — see lib/archive-window.mjs. Since this script fetches the
-// live schedule itself, it determines "has this week started" directly
-// from the data it just pulled, rather than a locally-cached copy.
+// This is a real change in request volume: one HTTP call per upcoming
+// game (up to ~270 early in the season) instead of ~22 bulk per-week
+// scoreboard calls. Two things keep this safe: (1) only NOT-YET-PLAYED
+// games are fetched this way — completed games keep using the FPI-based
+// calculation for predictedMargin/predictionError, since there's no
+// upcoming-game prediction left to fetch for those, and the request count
+// naturally shrinks as the season progresses; (2) requests are concurrency-
+// limited (not fired all at once) and every per-game failure falls back to
+// this project's own FPI-based calculation rather than leaving the game
+// unpredicted or failing the whole run — see fetchEspnPredictions_ below.
+//
+// predictedMargin = (homeFpi - awayFpi) + HOME_FIELD_ADV as a fallback, OR
+// ESPN's own predicted margin when available. actualMargin uses the same
+// sign convention (homeScore - awayScore) so predictionError = actualMargin
+// - predictedMargin is directly comparable either way.
+//
+// Archive behavior: "one entry per NFL week, frozen at the last update
+// before that week's first kickoff" — see lib/archive-window.mjs.
 
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -32,14 +51,24 @@ const WEEKS_TO_FETCH = [
   ...Array.from({ length: 18 }, (_, i) => ({ type: 2, week: i + 1 })),
 ];
 
+// How many predictor requests to run concurrently. Not "as fast as
+// possible" on purpose — 272 simultaneous requests to an API that's
+// already shown bot-detection behavior elsewhere in this project is asking
+// for trouble. This many at a time, plus a small per-request stagger
+// inside each worker, keeps this well clear of that.
+const PREDICTOR_CONCURRENCY = 6;
+const PREDICTOR_STAGGER_MS = 75;
+
+const FETCH_HEADERS = { 'User-Agent': 'Mozilla/5.0 (compatible; nfl-competition-tracker/1.0)' };
+
 function detectSeason(date = new Date()) {
   const month = date.getUTCMonth() + 1; // 1-12
   const year = date.getUTCFullYear();
   return month >= 8 ? year : year - 1;
 }
 
-async function fetchJson(url) {
-  const res = await fetch(url);
+async function fetchJson(url, headers = {}) {
+  const res = await fetch(url, { headers });
   if (!res.ok) {
     throw new Error(`Fetch failed (${res.status}) for ${url}`);
   }
@@ -50,6 +79,13 @@ function scoreboardUrl(seasonType, week, year) {
   return (
     'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard' +
     `?seasontype=${seasonType}&week=${week}&dates=${year}`
+  );
+}
+
+function predictorUrl(gameId) {
+  return (
+    `https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/${gameId}` +
+    `/competitions/${gameId}/predictor`
   );
 }
 
@@ -102,6 +138,81 @@ async function fetchAllGames(year) {
   return Array.from(byId.values());
 }
 
+/** Pulls { name, value } out of a predictor response's statistics array
+    for one side (home or away). */
+function getStatValue_(statisticsArray, name) {
+  const stat = statisticsArray?.find((s) => s.name === name);
+  return stat ? stat.value : null;
+}
+
+/** Parses one game's predictor response into the fields this script cares
+    about, or null if the response is missing what we need (triggers the
+    FPI fallback for that game). Verified against a real captured response
+    — see scripts/probe-espn-predictor.mjs's saved output. */
+function parsePredictorResponse_(json) {
+  const homeWinProbRaw = getStatValue_(json?.homeTeam?.statistics, 'gameProjection');
+  const awayWinProbRaw = getStatValue_(json?.awayTeam?.statistics, 'gameProjection');
+  const homeMarginRaw = getStatValue_(json?.homeTeam?.statistics, 'teamPredPtDiff');
+  if (homeWinProbRaw == null || awayWinProbRaw == null) return null;
+
+  return {
+    homeWinProbability: Math.round((homeWinProbRaw / 100) * 1000) / 1000,
+    awayWinProbability: Math.round((awayWinProbRaw / 100) * 1000) / 1000,
+    predictedMargin: homeMarginRaw != null ? Math.round(homeMarginRaw * 10) / 10 : null,
+  };
+}
+
+/** Runs `fn` over `items` with at most `concurrency` in flight at once,
+    each worker pausing `staggerMs` between its own requests. Simple pool,
+    not a library — this project doesn't need anything fancier than "don't
+    fire 270 requests at the same instant". */
+async function mapWithConcurrencyLimit_(items, concurrency, staggerMs, fn) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  async function worker() {
+    while (nextIndex < items.length) {
+      const i = nextIndex++;
+      results[i] = await fn(items[i], i);
+      if (staggerMs > 0) await new Promise((r) => setTimeout(r, staggerMs));
+    }
+  }
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, () => worker());
+  await Promise.all(workers);
+  return results;
+}
+
+/** Fetches ESPN's own predictor for every NOT-YET-PLAYED game. Returns a
+    Map(gameId -> parsed prediction). A game simply absent from the map
+    means it fell back to the FPI-based calculation — logged, not thrown,
+    since a fallback exists and one bad game shouldn't fail the whole run. */
+async function fetchEspnPredictions_(upcomingGames) {
+  if (!upcomingGames.length) return new Map();
+
+  console.log(`Fetching ESPN's own predictor for ${upcomingGames.length} upcoming games (concurrency ${PREDICTOR_CONCURRENCY})...`);
+  let failures = 0;
+  const results = await mapWithConcurrencyLimit_(upcomingGames, PREDICTOR_CONCURRENCY, PREDICTOR_STAGGER_MS, async (game) => {
+    try {
+      const json = await fetchJson(predictorUrl(game.id), FETCH_HEADERS);
+      const parsed = parsePredictorResponse_(json);
+      if (!parsed) {
+        failures++;
+        return null;
+      }
+      return { gameId: game.id, ...parsed };
+    } catch (err) {
+      failures++;
+      console.error(`  predictor fetch failed for game ${game.id} (${game.awayTeam}@${game.homeTeam}): ${err.message}`);
+      return null;
+    }
+  });
+
+  const map = new Map();
+  for (const r of results) { if (r) map.set(r.gameId, r); }
+
+  console.log(`ESPN predictor: ${map.size}/${upcomingGames.length} succeeded, ${failures} fell back to FPI-based calculation.`);
+  return map;
+}
+
 async function readJsonIfExists(filePath, fallback) {
   try {
     const text = await fs.readFile(filePath, 'utf8');
@@ -128,7 +239,9 @@ async function loadFpiMap() {
   // near-empty ratings file, so this shouldn't normally trigger — but if
   // it somehow does (a manually edited file, a future bug elsewhere),
   // better to fail loudly here too than silently predict every game as a
-  // 50/50 coin flip.
+  // 50/50 coin flip. Also still needed here even with the ESPN predictor
+  // change: it's the fallback for whichever games ESPN's endpoint fails
+  // for, and it's still what's used for completed games' predictionError.
   if (map.size < 28) {
     throw new Error(
       `ratings-current.json only has usable FPI for ${map.size}/32 teams — refusing to proceed. ` +
@@ -139,13 +252,36 @@ async function loadFpiMap() {
   return map;
 }
 
-function buildRecord(game, fpiMap) {
+function buildRecord(game, fpiMap, espnPrediction) {
   const homeFpi = fpiMap.get(String(game.homeTeamId));
   const awayFpi = fpiMap.get(String(game.awayTeamId));
-  const predictedMargin =
+  const fpiPredictedMargin =
     homeFpi !== undefined && awayFpi !== undefined
       ? Math.round((homeFpi - awayFpi + HOME_FIELD_ADV) * 10) / 10
       : null;
+
+  // Prefer ESPN's own prediction for games that aren't decided yet; fall
+  // back to this project's FPI-based calculation if ESPN's fetch didn't
+  // succeed for this game, or for completed games (no upcoming prediction
+  // to fetch for those — predictionError below still wants a predicted
+  // value to compare the actual result against).
+  let predictedMargin, homeWinProbability, awayWinProbability, predictionSource;
+  if (!game.completed && espnPrediction) {
+    predictedMargin = espnPrediction.predictedMargin ?? fpiPredictedMargin;
+    homeWinProbability = espnPrediction.homeWinProbability;
+    awayWinProbability = espnPrediction.awayWinProbability;
+    predictionSource = 'espn';
+  } else if (fpiPredictedMargin !== null) {
+    predictedMargin = fpiPredictedMargin;
+    homeWinProbability = Math.round(marginToHomeWinProbability(fpiPredictedMargin) * 1000) / 1000;
+    awayWinProbability = Math.round((1 - homeWinProbability) * 1000) / 1000;
+    predictionSource = game.completed ? 'fpi-retrospective' : 'fpi-fallback';
+  } else {
+    predictedMargin = null;
+    homeWinProbability = null;
+    awayWinProbability = null;
+    predictionSource = 'none';
+  }
 
   let actualMargin = null;
   let predictionError = null;
@@ -154,13 +290,6 @@ function buildRecord(game, fpiMap) {
     if (predictedMargin !== null) {
       predictionError = Math.round((actualMargin - predictedMargin) * 10) / 10;
     }
-  }
-
-  let homeWinProbability = null;
-  let awayWinProbability = null;
-  if (predictedMargin !== null) {
-    homeWinProbability = Math.round(marginToHomeWinProbability(predictedMargin) * 1000) / 1000;
-    awayWinProbability = Math.round((1 - homeWinProbability) * 1000) / 1000;
   }
 
   return {
@@ -183,6 +312,7 @@ function buildRecord(game, fpiMap) {
     predictionError,
     homeWinProbability,
     awayWinProbability,
+    predictionSource, // 'espn' | 'fpi-fallback' | 'fpi-retrospective' | 'none' — transparency for debugging
   };
 }
 
@@ -202,8 +332,11 @@ async function main() {
   const [games, fpiMap] = await Promise.all([fetchAllGames(season), loadFpiMap()]);
   console.log(`Fetched ${games.length} games. FPI ratings loaded for ${fpiMap.size} teams.`);
 
+  const upcomingGames = games.filter((g) => !g.completed);
+  const espnPredictions = await fetchEspnPredictions_(upcomingGames);
+
   const records = games
-    .map((g) => buildRecord(g, fpiMap))
+    .map((g) => buildRecord(g, fpiMap, espnPredictions.get(g.id)))
     .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const date = todayIso();
