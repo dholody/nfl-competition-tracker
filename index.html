@@ -3000,11 +3000,12 @@ function renderPointsDistChart(){
   }
   const neutral = DATA.rosters.neutralLabel || 'Unpicked';
   const owners = DATA.ownerOutcomes.owners.filter(o=> o.owner !== neutral);
+  const totalSims = DATA.ownerOutcomes.simulations || 10000;
   const datasets = owners.map(o=>{
     const hist = o.pointsDistribution.histogram;
     const points = hist.counts.map((count, i)=>({
       x: Math.round((hist.binStart + (i+0.5)*hist.binWidth)*10)/10,
-      y: count,
+      y: Math.round((count/totalSims)*1000)/10,
     }));
     const [r,g,b] = hexToRgb(ownerColor(o.owner));
     return {
@@ -3025,11 +3026,14 @@ function renderPointsDistChart(){
       responsive:true, maintainAspectRatio:false,
       plugins:{
         legend:{ position:'bottom', labels:{boxWidth:10, font:{size:10.5}} },
-        tooltip:{ callbacks:{ title:(items)=> `${items[0].dataset.label}: ~${items[0].parsed.x} pts` } }
+        tooltip:{ callbacks:{
+          title:(items)=> `${items[0].dataset.label}: ~${items[0].parsed.x} pts`,
+          label:(item)=> `${item.parsed.y}% of simulations`
+        } }
       },
       scales:{
         x:{ type:'linear', title:{display:true, text:'Total points across 10,000 simulations'} },
-        y:{ title:{display:true, text:'Simulations'} }
+        y:{ title:{display:true, text:'% of simulations'} }
       }
     }
   });
