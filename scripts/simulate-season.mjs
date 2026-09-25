@@ -45,6 +45,8 @@ const STANDINGS_CURRENT_PATH = path.join(DATA_DIR, 'standings-current.json');
 const STANDINGS_ARCHIVE_PATH = path.join(DATA_DIR, 'standings-archive.json');
 const LEVERAGE_CURRENT_PATH = path.join(DATA_DIR, 'playoff-leverage-current.json');
 const LEVERAGE_ARCHIVE_PATH = path.join(DATA_DIR, 'playoff-leverage-archive.json');
+const OWNER_OUTCOMES_CURRENT_PATH = path.join(DATA_DIR, 'owner-outcomes-current.json');
+const OWNER_OUTCOMES_ARCHIVE_PATH = path.join(DATA_DIR, 'owner-outcomes-archive.json');
 
 const SIMULATIONS = 10000;
 
@@ -96,6 +98,44 @@ function rankByRecord_(abbrs, winPct) {
 
 function pickDivisionWinner_(divisionAbbrs, winPct) {
   return rankByRecord_(divisionAbbrs, winPct)[0];
+}
+
+// NEW: per-trial owner standings (1st/2nd/3rd/... place odds + points
+// distribution). Ranks owners by THIS trial's combined team points — ties
+// share the best rank and the next distinct value skips accordingly
+// (standard "competition ranking": e.g. two owners tied for 1st means the
+// next owner is 3rd, not 2nd), rather than an arbitrary coin-flip tiebreak.
+function rankOwnersThisTrial_(ownerPointsThisTrial, owners) {
+  const sorted = owners.slice().sort((a, b) => ownerPointsThisTrial[b] - ownerPointsThisTrial[a]);
+  const ranks = {};
+  let rank = 1;
+  for (let idx = 0; idx < sorted.length; idx++) {
+    if (idx > 0 && ownerPointsThisTrial[sorted[idx]] < ownerPointsThisTrial[sorted[idx - 1]]) {
+      rank = idx + 1;
+    }
+    ranks[sorted[idx]] = rank;
+  }
+  return ranks;
+}
+
+function percentile_(sortedArr, p) {
+  const idx = Math.min(sortedArr.length - 1, Math.max(0, Math.floor(p * (sortedArr.length - 1))));
+  return sortedArr[idx];
+}
+
+// Fixed-bin-count histogram (not fixed-width) so the same shape (20 bars)
+// works whether an owner's plausible point range spans 10 points or 100.
+function buildHistogram_(sortedArr, binCount = 20) {
+  const min = sortedArr[0], max = sortedArr[sortedArr.length - 1];
+  if (min === max) return { binWidth: 1, binStart: min, counts: [sortedArr.length] };
+  const binWidth = (max - min) / binCount;
+  const counts = new Array(binCount).fill(0);
+  for (const v of sortedArr) {
+    let bin = Math.floor((v - min) / binWidth);
+    if (bin >= binCount) bin = binCount - 1; // the max value itself would otherwise overflow into a phantom extra bin
+    counts[bin]++;
+  }
+  return { binWidth: Math.round(binWidth * 100) / 100, binStart: Math.round(min * 100) / 100, counts };
 }
 
 // One coin-flip game between two teams' FPI ratings. homeAbbr may be null
@@ -243,6 +283,16 @@ async function main() {
     ])
   );
 
+  // NEW: per-trial owner outcomes. Every owner in rosters.owners plus the
+  // neutral-teams bucket (rosters.neutralLabel, e.g. "Unpicked") — same set
+  // the dashboard already treats as a 4th "competitor" row everywhere else,
+  // so this stays consistent with that rather than special-casing it out.
+  const ownerList = [...new Set([...(rosters.owners ?? []), rosters.neutralLabel].filter(Boolean))];
+  const ownerFinishCounts = Object.fromEntries(
+    ownerList.map((o) => [o, Object.fromEntries(ownerList.map((_, i) => [i + 1, 0]))])
+  );
+  const ownerPointsSamples = Object.fromEntries(ownerList.map((o) => [o, []]));
+
   for (let i = 0; i < SIMULATIONS; i++) {
     const wins = { ...actualWins };
     const losses = { ...actualLosses };
@@ -286,6 +336,11 @@ async function main() {
     const playoffTeamsThisRun = new Set([...afcSeeds, ...nfcSeeds]);
     const achievements = { ...afcResult.achievements, ...nfcResult.achievements };
 
+    // NEW: this trial's combined points per owner, built up alongside the
+    // existing per-team point computation below (same numbers, just also
+    // summed by owner before the team loop ends).
+    const ownerPointsThisTrial = Object.fromEntries(ownerList.map((o) => [o, 0]));
+
     for (const abbr of allTeams) {
       simWinsSum[abbr] += wins[abbr];
 
@@ -313,6 +368,20 @@ async function main() {
         (wonSuperBowl ? POINTS.superBowlWin : 0);
 
       pointSum[abbr] += points;
+
+      const owner = rosters.teams[abbr]?.owner ?? rosters.neutralLabel;
+      ownerPointsThisTrial[owner] = (ownerPointsThisTrial[owner] ?? 0) + points;
+    }
+
+    // NEW: rank owners for THIS trial and record it — this is what makes
+    // "P(owner finishes 1st)" a real Monte Carlo estimate rather than
+    // something inferred from each owner's mean points, which can't
+    // capture how often they actually come out on top given the same
+    // correlated season across all their teams.
+    const ownerRanksThisTrial = rankOwnersThisTrial_(ownerPointsThisTrial, ownerList);
+    for (const owner of ownerList) {
+      ownerFinishCounts[owner][ownerRanksThisTrial[owner]] += 1;
+      ownerPointsSamples[owner].push(ownerPointsThisTrial[owner]);
     }
 
     // NEW: now that this trial's playoff outcomes are known, correlate
@@ -369,6 +438,35 @@ async function main() {
     .map(([owner, expectedPoints]) => ({ owner, expectedPoints: Math.round(expectedPoints * 100) / 100 }))
     .sort((a, b) => b.expectedPoints - a.expectedPoints);
 
+  // NEW: finish-place odds and points distribution per owner, from the
+  // per-trial tracking above. expectedPoints here is computed independently
+  // (mean of each trial's owner point total) from ownerResults above (sum
+  // of each team's own mean) — they should match exactly, since summation
+  // and averaging commute; sanity-checked in testing, not just assumed.
+  const ownerOutcomes = ownerList.map((owner) => {
+    const samples = ownerPointsSamples[owner].slice().sort((a, b) => a - b);
+    const sampleSum = samples.reduce((s, v) => s + v, 0);
+    const finishOdds = {};
+    for (let rank = 1; rank <= ownerList.length; rank++) {
+      finishOdds[rank] = Math.round((ownerFinishCounts[owner][rank] / SIMULATIONS) * 1000) / 1000;
+    }
+    return {
+      owner,
+      expectedPoints: Math.round((sampleSum / SIMULATIONS) * 100) / 100,
+      finishOdds,
+      pointsDistribution: {
+        min: Math.round(samples[0] * 100) / 100,
+        p10: Math.round(percentile_(samples, 0.10) * 100) / 100,
+        p25: Math.round(percentile_(samples, 0.25) * 100) / 100,
+        median: Math.round(percentile_(samples, 0.50) * 100) / 100,
+        p75: Math.round(percentile_(samples, 0.75) * 100) / 100,
+        p90: Math.round(percentile_(samples, 0.90) * 100) / 100,
+        max: Math.round(samples[samples.length - 1] * 100) / 100,
+        histogram: buildHistogram_(samples, 20),
+      },
+    };
+  }).sort((a, b) => b.expectedPoints - a.expectedPoints);
+
   const date = todayIso();
   const output = {
     date,
@@ -415,6 +513,20 @@ async function main() {
   await fs.writeFile(LEVERAGE_CURRENT_PATH, JSON.stringify(leverageOutput, null, 2) + '\n', 'utf8');
   console.log(`Wrote ${LEVERAGE_CURRENT_PATH} (${leverageGames.length} games)`);
 
+  // NEW: owner-level championship odds and points distribution — its own
+  // file for the same reason leverage got its own: a distinct kind of
+  // output (per-owner finish-place odds + a distribution, not per-team
+  // season stats), so it doesn't bloat/complicate standings-current.json's
+  // existing consumers.
+  const ownerOutcomesOutput = {
+    date,
+    season: rosters.season,
+    simulations: SIMULATIONS,
+    owners: ownerOutcomes,
+  };
+  await fs.writeFile(OWNER_OUTCOMES_CURRENT_PATH, JSON.stringify(ownerOutcomesOutput, null, 2) + '\n', 'utf8');
+  console.log(`Wrote ${OWNER_OUTCOMES_CURRENT_PATH}`);
+
   // Weekly-frozen archive: this script consumes the same schedule data it
   // loaded above, so "has this week started" is checked against that same
   // snapshot rather than re-fetching anything. Both standings and the new
@@ -436,7 +548,27 @@ async function main() {
     await fs.writeFile(LEVERAGE_ARCHIVE_PATH, JSON.stringify(leverageResult.archive, null, 2) + '\n', 'utf8');
   }
 
+  // NEW: weekly-frozen archive of owner outcomes, SUMMARY ONLY — drops the
+  // full histogram (the bulky part) and keeps just expectedPoints +
+  // finishOdds, so a full season's worth of weekly snapshots stays a
+  // reasonable file size. The current file above keeps the full
+  // distribution (including histogram) for the live dashboard; this is
+  // purely for the weekly trend, not a replacement for it.
+  const ownerOutcomesArchiveEntry = {
+    date,
+    season: rosters.season,
+    simulations: SIMULATIONS,
+    owners: ownerOutcomes.map(({ owner, expectedPoints, finishOdds }) => ({ owner, expectedPoints, finishOdds })),
+  };
+  const ownerOutcomesArchive = await readJsonIfExists(OWNER_OUTCOMES_ARCHIVE_PATH, []);
+  const ownerOutcomesResult = upsertWeeklyArchive(ownerOutcomesArchive, weekKey, ownerOutcomesArchiveEntry, weekStarted);
+  console.log(`[owner-outcomes-archive] ${ownerOutcomesResult.reason}`);
+  if (ownerOutcomesResult.changed) {
+    await fs.writeFile(OWNER_OUTCOMES_ARCHIVE_PATH, JSON.stringify(ownerOutcomesResult.archive, null, 2) + '\n', 'utf8');
+  }
+
   console.log('Owner standings:', ownerResults);
+  console.log('Owner championship odds (1st place):', ownerOutcomes.map(o => `${o.owner}: ${(o.finishOdds[1]*100).toFixed(1)}%`).join(', '));
 }
 
 main().catch((err) => {
