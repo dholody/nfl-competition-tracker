@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "season": 2026,
   "games": [
     {
@@ -1794,17 +1794,17 @@
       "homeTeamId": "9",
       "awayTeam": "ATL",
       "homeTeam": "GB",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 35,
+      "homeScore": 14,
+      "actualMargin": -21,
       "awayFpi": -5.202,
       "homeFpi": 0.512,
-      "predictedMargin": 6.9,
-      "predictionError": null,
-      "homeWinProbability": 0.745,
-      "awayWinProbability": 0.253,
-      "predictionSource": "espn"
+      "predictedMargin": 7.7,
+      "predictionError": -28.7,
+      "homeWinProbability": 0.75,
+      "awayWinProbability": 0.25,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401872953",
