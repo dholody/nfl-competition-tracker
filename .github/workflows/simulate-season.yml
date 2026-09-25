@@ -39,4 +39,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Weekly competition standings update"
-          file_pattern: "data/standings-current.json data/standings-archive.json data/playoff-leverage-current.json data/playoff-leverage-archive.json"
+          file_pattern: "data/standings-current.json data/standings-archive.json data/playoff-leverage-current.json data/playoff-leverage-archive.json data/owner-outcomes-current.json data/owner-outcomes-archive.json"
