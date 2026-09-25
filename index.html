@@ -2945,23 +2945,23 @@ function renderFinishOddsChart(){
   if(!document.getElementById('chartFinishOdds')){
     wrap.innerHTML = '<canvas id="chartFinishOdds"></canvas>';
   }
-  const owners = DATA.ownerOutcomes.owners.slice().sort((a,b)=> (b.finishOdds['1']||0) - (a.finishOdds['1']||0));
-  const numRanks = owners.length;
-  const rankLabel = (r)=> r===1?'1st':r===2?'2nd':r===3?'3rd':`${r}th`;
-  const opacities = [1, 0.7, 0.45, 0.25, 0.15, 0.1];
+  const neutral = DATA.rosters.neutralLabel || 'Unpicked';
+  const owners = DATA.ownerOutcomes.owners
+    .filter(o=> o.owner !== neutral)
+    .slice().sort((a,b)=> (b.finishOdds['1']||0) - (a.finishOdds['1']||0));
+  const shownRanks = [1, 2]; // 1st/2nd only, per request
+  const rankLabel = (r)=> r===1?'1st':'2nd';
+  const opacities = [1, 0.7];
 
-  const datasets = [];
-  for(let rank=1; rank<=numRanks; rank++){
-    datasets.push({
-      label: rankLabel(rank),
-      data: owners.map(o=> Math.round((o.finishOdds[String(rank)]||0)*1000)/10),
-      backgroundColor: owners.map(o=>{
-        const [r,g,b] = hexToRgb(ownerColor(o.owner));
-        return `rgba(${r},${g},${b},${opacities[rank-1] ?? 0.1})`;
-      }),
-      borderColor:'#fff', borderWidth:1,
-    });
-  }
+  const datasets = shownRanks.map((rank, i)=>({
+    label: rankLabel(rank),
+    data: owners.map(o=> Math.round((o.finishOdds[String(rank)]||0)*1000)/10),
+    backgroundColor: owners.map(o=>{
+      const [r,g,b] = hexToRgb(ownerColor(o.owner));
+      return `rgba(${r},${g},${b},${opacities[i]})`;
+    }),
+    borderColor:'#fff', borderWidth:1,
+  }));
 
   const ctx = document.getElementById('chartFinishOdds');
   if(charts.finishOdds) charts.finishOdds.destroy();
@@ -2998,7 +2998,8 @@ function renderPointsDistChart(){
   if(!document.getElementById('chartPointsDist')){
     wrap.innerHTML = '<canvas id="chartPointsDist"></canvas>';
   }
-  const owners = DATA.ownerOutcomes.owners;
+  const neutral = DATA.rosters.neutralLabel || 'Unpicked';
+  const owners = DATA.ownerOutcomes.owners.filter(o=> o.owner !== neutral);
   const datasets = owners.map(o=>{
     const hist = o.pointsDistribution.histogram;
     const points = hist.counts.map((count, i)=>({
@@ -3048,7 +3049,9 @@ function renderChampTrendChart(){
   if(!document.getElementById('chartChampTrend')){
     wrap.innerHTML = '<canvas id="chartChampTrend"></canvas>';
   }
-  const owners = DATA.ownerOutcomes ? DATA.ownerOutcomes.owners.map(o=>o.owner) : [...new Set(archive.flatMap(e=>e.owners.map(o=>o.owner)))];
+  const neutral = DATA.rosters.neutralLabel || 'Unpicked';
+  const owners = (DATA.ownerOutcomes ? DATA.ownerOutcomes.owners.map(o=>o.owner) : [...new Set(archive.flatMap(e=>e.owners.map(o=>o.owner)))])
+    .filter(o=> o !== neutral);
   const labels = fullSeasonLabels();
 
   const datasets = owners.map(owner=>{
