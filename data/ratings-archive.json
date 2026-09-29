@@ -1634,5 +1634,332 @@
     ],
     "weekKey": "2026-09-22",
     "lateSnapshot": true
+  },
+  {
+    "date": "2026-09-29",
+    "season": 2026,
+    "teams": [
+      {
+        "teamId": "22",
+        "team": "ARI",
+        "fpi": -4.69,
+        "rank": 27,
+        "offense": -1.581,
+        "defense": -3.036,
+        "specialTeams": -0.073,
+        "trend": 2
+      },
+      {
+        "teamId": "1",
+        "team": "ATL",
+        "fpi": -3.472,
+        "rank": 26,
+        "offense": -3.03,
+        "defense": -0.469,
+        "specialTeams": 0.026,
+        "trend": 2
+      },
+      {
+        "teamId": "33",
+        "team": "BAL",
+        "fpi": 3.742,
+        "rank": 7,
+        "offense": 3.261,
+        "defense": 0.688,
+        "specialTeams": -0.207,
+        "trend": -2
+      },
+      {
+        "teamId": "2",
+        "team": "BUF",
+        "fpi": 4.509,
+        "rank": 5,
+        "offense": 4.992,
+        "defense": -0.709,
+        "specialTeams": 0.227,
+        "trend": -3
+      },
+      {
+        "teamId": "29",
+        "team": "CAR",
+        "fpi": -2.01,
+        "rank": 21,
+        "offense": -1.493,
+        "defense": -0.632,
+        "specialTeams": 0.115,
+        "trend": 0
+      },
+      {
+        "teamId": "3",
+        "team": "CHI",
+        "fpi": -1.165,
+        "rank": 20,
+        "offense": -2.418,
+        "defense": 0.897,
+        "specialTeams": 0.356,
+        "trend": 2
+      },
+      {
+        "teamId": "4",
+        "team": "CIN",
+        "fpi": 1.937,
+        "rank": 10,
+        "offense": 2.622,
+        "defense": -0.583,
+        "specialTeams": -0.102,
+        "trend": 1
+      },
+      {
+        "teamId": "5",
+        "team": "CLE",
+        "fpi": -5.216,
+        "rank": 28,
+        "offense": -5.134,
+        "defense": -0.147,
+        "specialTeams": 0.065,
+        "trend": 2
+      },
+      {
+        "teamId": "6",
+        "team": "DAL",
+        "fpi": 3.444,
+        "rank": 8,
+        "offense": 4.31,
+        "defense": -1.232,
+        "specialTeams": 0.366,
+        "trend": -2
+      },
+      {
+        "teamId": "7",
+        "team": "DEN",
+        "fpi": 0.843,
+        "rank": 11,
+        "offense": -0.845,
+        "defense": 1.574,
+        "specialTeams": 0.114,
+        "trend": 5
+      },
+      {
+        "teamId": "8",
+        "team": "DET",
+        "fpi": 2.359,
+        "rank": 9,
+        "offense": 3.769,
+        "defense": -1.572,
+        "specialTeams": 0.161,
+        "trend": 0
+      },
+      {
+        "teamId": "9",
+        "team": "GB",
+        "fpi": -0.903,
+        "rank": 17,
+        "offense": 0.338,
+        "defense": -1.423,
+        "specialTeams": 0.182,
+        "trend": -2
+      },
+      {
+        "teamId": "34",
+        "team": "HOU",
+        "fpi": 0.564,
+        "rank": 13,
+        "offense": -1.305,
+        "defense": 1.946,
+        "specialTeams": -0.076,
+        "trend": 1
+      },
+      {
+        "teamId": "11",
+        "team": "IND",
+        "fpi": -1.054,
+        "rank": 18,
+        "offense": 0.036,
+        "defense": -1.336,
+        "specialTeams": 0.246,
+        "trend": 0
+      },
+      {
+        "teamId": "30",
+        "team": "JAX",
+        "fpi": 4.603,
+        "rank": 4,
+        "offense": 2.726,
+        "defense": 1.607,
+        "specialTeams": 0.271,
+        "trend": 4
+      },
+      {
+        "teamId": "12",
+        "team": "KC",
+        "fpi": 4.79,
+        "rank": 2,
+        "offense": 3.041,
+        "defense": 1.772,
+        "specialTeams": -0.023,
+        "trend": 2
+      },
+      {
+        "teamId": "13",
+        "team": "LV",
+        "fpi": -2.083,
+        "rank": 22,
+        "offense": -2.247,
+        "defense": 0.154,
+        "specialTeams": 0.011,
+        "trend": 2
+      },
+      {
+        "teamId": "24",
+        "team": "LAC",
+        "fpi": -0.742,
+        "rank": 15,
+        "offense": -2.23,
+        "defense": 1.511,
+        "specialTeams": -0.023,
+        "trend": 4
+      },
+      {
+        "teamId": "14",
+        "team": "LAR",
+        "fpi": 4.106,
+        "rank": 6,
+        "offense": 2.698,
+        "defense": 1.859,
+        "specialTeams": -0.45,
+        "trend": -3
+      },
+      {
+        "teamId": "15",
+        "team": "MIA",
+        "fpi": -8.246,
+        "rank": 32,
+        "offense": -4.431,
+        "defense": -3.288,
+        "specialTeams": -0.527,
+        "trend": 0
+      },
+      {
+        "teamId": "16",
+        "team": "MIN",
+        "fpi": 0.737,
+        "rank": 12,
+        "offense": -2.724,
+        "defense": 3.112,
+        "specialTeams": 0.35,
+        "trend": 0
+      },
+      {
+        "teamId": "17",
+        "team": "NE",
+        "fpi": 0.16,
+        "rank": 14,
+        "offense": -0.767,
+        "defense": 1.091,
+        "specialTeams": -0.164,
+        "trend": -4
+      },
+      {
+        "teamId": "18",
+        "team": "NO",
+        "fpi": -1.132,
+        "rank": 19,
+        "offense": -0.52,
+        "defense": -0.687,
+        "specialTeams": 0.075,
+        "trend": -2
+      },
+      {
+        "teamId": "19",
+        "team": "NYG",
+        "fpi": -7.059,
+        "rank": 31,
+        "offense": -6.007,
+        "defense": -1.533,
+        "specialTeams": 0.481,
+        "trend": 0
+      },
+      {
+        "teamId": "20",
+        "team": "NYJ",
+        "fpi": -3.322,
+        "rank": 25,
+        "offense": -2.291,
+        "defense": -1.094,
+        "specialTeams": 0.062,
+        "trend": 0
+      },
+      {
+        "teamId": "21",
+        "team": "PHI",
+        "fpi": -0.753,
+        "rank": 16,
+        "offense": -1.014,
+        "defense": 0.372,
+        "specialTeams": -0.111,
+        "trend": -3
+      },
+      {
+        "teamId": "23",
+        "team": "PIT",
+        "fpi": -2.362,
+        "rank": 24,
+        "offense": -3.02,
+        "defense": 0.348,
+        "specialTeams": 0.31,
+        "trend": -1
+      },
+      {
+        "teamId": "25",
+        "team": "SF",
+        "fpi": 7.332,
+        "rank": 1,
+        "offense": 6.642,
+        "defense": 0.312,
+        "specialTeams": 0.377,
+        "trend": 0
+      },
+      {
+        "teamId": "26",
+        "team": "SEA",
+        "fpi": 4.776,
+        "rank": 3,
+        "offense": 1.692,
+        "defense": 2.917,
+        "specialTeams": 0.167,
+        "trend": 4
+      },
+      {
+        "teamId": "27",
+        "team": "TB",
+        "fpi": -6.855,
+        "rank": 30,
+        "offense": -7.376,
+        "defense": 0.144,
+        "specialTeams": 0.377,
+        "trend": -10
+      },
+      {
+        "teamId": "10",
+        "team": "TEN",
+        "fpi": -5.541,
+        "rank": 29,
+        "offense": -3.78,
+        "defense": -0.932,
+        "specialTeams": -0.829,
+        "trend": -2
+      },
+      {
+        "teamId": "28",
+        "team": "WSH",
+        "fpi": -2.341,
+        "rank": 23,
+        "offense": -0.749,
+        "defense": -1.63,
+        "specialTeams": 0.038,
+        "trend": 3
+      }
+    ],
+    "weekKey": "2026-09-29"
   }
 ]
