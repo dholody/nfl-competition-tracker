@@ -1961,5 +1961,332 @@
       }
     ],
     "weekKey": "2026-09-29"
+  },
+  {
+    "date": "2026-10-06",
+    "season": 2026,
+    "teams": [
+      {
+        "teamId": "22",
+        "team": "ARI",
+        "projectedWins": 4.757,
+        "projectedLosses": 12.209,
+        "playoffOdds": 0.3,
+        "divisionOdds": 0,
+        "conferenceOdds": 0,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "1",
+        "team": "ATL",
+        "projectedWins": 7.812,
+        "projectedLosses": 9.138,
+        "playoffOdds": 35.699999999999996,
+        "divisionOdds": 31.2,
+        "conferenceOdds": 4.1000000000000005,
+        "superBowlOdds": 0.4
+      },
+      {
+        "teamId": "33",
+        "team": "BAL",
+        "projectedWins": 10.799,
+        "projectedLosses": 6.159,
+        "playoffOdds": 83.7,
+        "divisionOdds": 54.400000000000006,
+        "conferenceOdds": 26.5,
+        "superBowlOdds": 5.8999999999999995
+      },
+      {
+        "teamId": "2",
+        "team": "BUF",
+        "projectedWins": 11.289,
+        "projectedLosses": 5.67,
+        "playoffOdds": 91.5,
+        "divisionOdds": 72.2,
+        "conferenceOdds": 35.3,
+        "superBowlOdds": 8.200000000000001
+      },
+      {
+        "teamId": "29",
+        "team": "CAR",
+        "projectedWins": 8.298,
+        "projectedLosses": 8.649,
+        "playoffOdds": 50.8,
+        "divisionOdds": 47.5,
+        "conferenceOdds": 6.1,
+        "superBowlOdds": 0.7000000000000001
+      },
+      {
+        "teamId": "3",
+        "team": "CHI",
+        "projectedWins": 11.557,
+        "projectedLosses": 5.406,
+        "playoffOdds": 87.7,
+        "divisionOdds": 51.800000000000004,
+        "conferenceOdds": 37.4,
+        "superBowlOdds": 11.3
+      },
+      {
+        "teamId": "4",
+        "team": "CIN",
+        "projectedWins": 10.272,
+        "projectedLosses": 6.687,
+        "playoffOdds": 73.3,
+        "divisionOdds": 35.4,
+        "conferenceOdds": 17.7,
+        "superBowlOdds": 3.3000000000000003
+      },
+      {
+        "teamId": "5",
+        "team": "CLE",
+        "projectedWins": 7.69,
+        "projectedLosses": 9.268,
+        "playoffOdds": 17.5,
+        "divisionOdds": 4.2,
+        "conferenceOdds": 1,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "6",
+        "team": "DAL",
+        "projectedWins": 10.347,
+        "projectedLosses": 6.616,
+        "playoffOdds": 82.1,
+        "divisionOdds": 77.4,
+        "conferenceOdds": 24,
+        "superBowlOdds": 4.9
+      },
+      {
+        "teamId": "7",
+        "team": "DEN",
+        "projectedWins": 9.331,
+        "projectedLosses": 7.623,
+        "playoffOdds": 56.00000000000001,
+        "divisionOdds": 11.4,
+        "conferenceOdds": 9.8,
+        "superBowlOdds": 1.5
+      },
+      {
+        "teamId": "8",
+        "team": "DET",
+        "projectedWins": 9.613,
+        "projectedLosses": 7.345,
+        "playoffOdds": 52.400000000000006,
+        "divisionOdds": 15.1,
+        "conferenceOdds": 8.9,
+        "superBowlOdds": 1.5
+      },
+      {
+        "teamId": "9",
+        "team": "GB",
+        "projectedWins": 7.549,
+        "projectedLosses": 9.408,
+        "playoffOdds": 13.4,
+        "divisionOdds": 1.9,
+        "conferenceOdds": 1.0999999999999999,
+        "superBowlOdds": 0.1
+      },
+      {
+        "teamId": "34",
+        "team": "HOU",
+        "projectedWins": 7.477,
+        "projectedLosses": 9.481,
+        "playoffOdds": 16.3,
+        "divisionOdds": 4.1000000000000005,
+        "conferenceOdds": 2.5,
+        "superBowlOdds": 0.4
+      },
+      {
+        "teamId": "11",
+        "team": "IND",
+        "projectedWins": 8.728,
+        "projectedLosses": 8.227,
+        "playoffOdds": 38.9,
+        "divisionOdds": 12.4,
+        "conferenceOdds": 4.8,
+        "superBowlOdds": 0.6
+      },
+      {
+        "teamId": "30",
+        "team": "JAX",
+        "projectedWins": 11.684,
+        "projectedLosses": 5.277,
+        "playoffOdds": 94.1,
+        "divisionOdds": 83.3,
+        "conferenceOdds": 40.5,
+        "superBowlOdds": 11.200000000000001
+      },
+      {
+        "teamId": "12",
+        "team": "KC",
+        "projectedWins": 11.982,
+        "projectedLosses": 4.977,
+        "playoffOdds": 96.3,
+        "divisionOdds": 83.1,
+        "conferenceOdds": 44.3,
+        "superBowlOdds": 12.1
+      },
+      {
+        "teamId": "13",
+        "team": "LV",
+        "projectedWins": 8.462,
+        "projectedLosses": 8.497,
+        "playoffOdds": 34.699999999999996,
+        "divisionOdds": 4.8,
+        "conferenceOdds": 3.3000000000000003,
+        "superBowlOdds": 0.3
+      },
+      {
+        "teamId": "24",
+        "team": "LAC",
+        "projectedWins": 5.879,
+        "projectedLosses": 11.078,
+        "playoffOdds": 5.2,
+        "divisionOdds": 0.7000000000000001,
+        "conferenceOdds": 0.7000000000000001,
+        "superBowlOdds": 0.1
+      },
+      {
+        "teamId": "14",
+        "team": "LAR",
+        "projectedWins": 10.37,
+        "projectedLosses": 6.59,
+        "playoffOdds": 73.5,
+        "divisionOdds": 8.799999999999999,
+        "conferenceOdds": 21.6,
+        "superBowlOdds": 5.8999999999999995
+      },
+      {
+        "teamId": "15",
+        "team": "MIA",
+        "projectedWins": 2.834,
+        "projectedLosses": 14.141,
+        "playoffOdds": 0,
+        "divisionOdds": 0,
+        "conferenceOdds": 0,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "16",
+        "team": "MIN",
+        "projectedWins": 10.582,
+        "projectedLosses": 6.37,
+        "playoffOdds": 75.1,
+        "divisionOdds": 31.1,
+        "conferenceOdds": 14.000000000000002,
+        "superBowlOdds": 1.9
+      },
+      {
+        "teamId": "17",
+        "team": "NE",
+        "projectedWins": 9.395,
+        "projectedLosses": 7.56,
+        "playoffOdds": 63.5,
+        "divisionOdds": 26.8,
+        "conferenceOdds": 11,
+        "superBowlOdds": 1.5
+      },
+      {
+        "teamId": "18",
+        "team": "NO",
+        "projectedWins": 7.064,
+        "projectedLosses": 9.887,
+        "playoffOdds": 19.1,
+        "divisionOdds": 16.8,
+        "conferenceOdds": 1.7000000000000002,
+        "superBowlOdds": 0.1
+      },
+      {
+        "teamId": "19",
+        "team": "NYG",
+        "projectedWins": 6.304,
+        "projectedLosses": 10.665,
+        "playoffOdds": 4.3999999999999995,
+        "divisionOdds": 2.8000000000000003,
+        "conferenceOdds": 0.2,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "20",
+        "team": "NYJ",
+        "projectedWins": 5.895,
+        "projectedLosses": 11.066,
+        "playoffOdds": 4.7,
+        "divisionOdds": 0.8999999999999999,
+        "conferenceOdds": 0.2,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "21",
+        "team": "PHI",
+        "projectedWins": 7.859,
+        "projectedLosses": 9.099,
+        "playoffOdds": 22.8,
+        "divisionOdds": 16.8,
+        "conferenceOdds": 2.4,
+        "superBowlOdds": 0.2
+      },
+      {
+        "teamId": "23",
+        "team": "PIT",
+        "projectedWins": 7.923,
+        "projectedLosses": 9.031,
+        "playoffOdds": 23.7,
+        "divisionOdds": 6.1,
+        "conferenceOdds": 2.3,
+        "superBowlOdds": 0.2
+      },
+      {
+        "teamId": "25",
+        "team": "SF",
+        "projectedWins": 13.292,
+        "projectedLosses": 3.674,
+        "playoffOdds": 98.6,
+        "divisionOdds": 78.60000000000001,
+        "conferenceOdds": 57.9,
+        "superBowlOdds": 23.1
+      },
+      {
+        "teamId": "26",
+        "team": "SEA",
+        "projectedWins": 10.532,
+        "projectedLosses": 6.428,
+        "playoffOdds": 72.8,
+        "divisionOdds": 12.6,
+        "conferenceOdds": 19.8,
+        "superBowlOdds": 4.7
+      },
+      {
+        "teamId": "27",
+        "team": "TB",
+        "projectedWins": 5.122,
+        "projectedLosses": 11.834,
+        "playoffOdds": 4.9,
+        "divisionOdds": 4.6,
+        "conferenceOdds": 0.5,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "10",
+        "team": "TEN",
+        "projectedWins": 4.245,
+        "projectedLosses": 12.721,
+        "playoffOdds": 0.7000000000000001,
+        "divisionOdds": 0.2,
+        "conferenceOdds": 0,
+        "superBowlOdds": 0
+      },
+      {
+        "teamId": "28",
+        "team": "WSH",
+        "projectedWins": 6.399,
+        "projectedLosses": 10.56,
+        "playoffOdds": 6.2,
+        "divisionOdds": 3,
+        "conferenceOdds": 0.4,
+        "superBowlOdds": 0.1
+      }
+    ],
+    "weekKey": "2026-10-06"
   }
 ]
