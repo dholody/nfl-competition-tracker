@@ -40488,7 +40488,7 @@
     "weekKey": "2026-09-29"
   },
   {
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "season": 2026,
     "games": [
       {
@@ -43191,10 +43191,10 @@
         "actualMargin": null,
         "awayFpi": -7.186,
         "homeFpi": -5.263,
-        "predictedMargin": 3.5,
+        "predictedMargin": 5.9,
         "predictionError": null,
-        "homeWinProbability": 0.629,
-        "awayWinProbability": 0.368,
+        "homeWinProbability": 0.718,
+        "awayWinProbability": 0.28,
         "predictionSource": "espn"
       },
       {
@@ -43609,10 +43609,10 @@
         "actualMargin": null,
         "awayFpi": -5.263,
         "homeFpi": 6.871,
-        "predictedMargin": 11.1,
+        "predictedMargin": 10.9,
         "predictionError": null,
-        "homeWinProbability": 0.855,
-        "awayWinProbability": 0.143,
+        "homeWinProbability": 0.849,
+        "awayWinProbability": 0.15,
         "predictionSource": "espn"
       },
       {
