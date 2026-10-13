@@ -4051,5 +4051,584 @@
       }
     ],
     "weekKey": "2026-10-06"
+  },
+  {
+    "date": "2026-10-13",
+    "season": 2026,
+    "simulations": 10000,
+    "pointsSchema": {
+      "win": 1,
+      "playoffs": 1,
+      "divisionTitle": 1,
+      "divisionalRound": 4,
+      "conferenceChampionship": 6,
+      "superBowlAppearance": 8,
+      "superBowlWin": 10
+    },
+    "owners": [
+      {
+        "owner": "Guy",
+        "expectedPoints": 142.49
+      },
+      {
+        "owner": "Gin",
+        "expectedPoints": 131.92
+      },
+      {
+        "owner": "Man",
+        "expectedPoints": 94.57
+      },
+      {
+        "owner": "Unpicked",
+        "expectedPoints": 7.05
+      }
+    ],
+    "teams": [
+      {
+        "team": "SF",
+        "owner": "Gin",
+        "pick": 15,
+        "actualWins": 5,
+        "actualLosses": 0,
+        "expectedFinalWins": 13.85,
+        "expectedPoints": 29.97,
+        "probabilities": {
+          "playoffs": 0.995,
+          "divisionTitle": 0.909,
+          "divisionalRound": 0.925,
+          "conferenceChampionship": 0.654,
+          "superBowlAppearance": 0.466,
+          "superBowlWin": 0.286
+        }
+      },
+      {
+        "team": "BUF",
+        "owner": "Guy",
+        "pick": 2,
+        "actualWins": 4,
+        "actualLosses": 1,
+        "expectedFinalWins": 12.12,
+        "expectedPoints": 22.33,
+        "probabilities": {
+          "playoffs": 0.954,
+          "divisionTitle": 0.764,
+          "divisionalRound": 0.7,
+          "conferenceChampionship": 0.42,
+          "superBowlAppearance": 0.242,
+          "superBowlWin": 0.124
+        }
+      },
+      {
+        "team": "JAX",
+        "owner": "Guy",
+        "pick": 17,
+        "actualWins": 4,
+        "actualLosses": 1,
+        "expectedFinalWins": 11.97,
+        "expectedPoints": 21.75,
+        "probabilities": {
+          "playoffs": 0.95,
+          "divisionTitle": 0.897,
+          "divisionalRound": 0.701,
+          "conferenceChampionship": 0.402,
+          "superBowlAppearance": 0.211,
+          "superBowlWin": 0.104
+        }
+      },
+      {
+        "team": "KC",
+        "owner": "Gin",
+        "pick": 4,
+        "actualWins": 4,
+        "actualLosses": 0,
+        "expectedFinalWins": 12.02,
+        "expectedPoints": 21.7,
+        "probabilities": {
+          "playoffs": 0.935,
+          "divisionTitle": 0.768,
+          "divisionalRound": 0.676,
+          "conferenceChampionship": 0.393,
+          "superBowlAppearance": 0.222,
+          "superBowlWin": 0.115
+        }
+      },
+      {
+        "team": "MIN",
+        "owner": "Gin",
+        "pick": 21,
+        "actualWins": 5,
+        "actualLosses": 0,
+        "expectedFinalWins": 11.47,
+        "expectedPoints": 17.79,
+        "probabilities": {
+          "playoffs": 0.887,
+          "divisionTitle": 0.535,
+          "divisionalRound": 0.525,
+          "conferenceChampionship": 0.261,
+          "superBowlAppearance": 0.1,
+          "superBowlWin": 0.042
+        }
+      },
+      {
+        "team": "BAL",
+        "owner": "Gin",
+        "pick": 3,
+        "actualWins": 4,
+        "actualLosses": 1,
+        "expectedFinalWins": 11.37,
+        "expectedPoints": 16.91,
+        "probabilities": {
+          "playoffs": 0.877,
+          "divisionTitle": 0.564,
+          "divisionalRound": 0.483,
+          "conferenceChampionship": 0.203,
+          "superBowlAppearance": 0.082,
+          "superBowlWin": 0.03
+        }
+      },
+      {
+        "team": "CIN",
+        "owner": "Guy",
+        "pick": 8,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 10.63,
+        "expectedPoints": 15.47,
+        "probabilities": {
+          "playoffs": 0.781,
+          "divisionTitle": 0.343,
+          "divisionalRound": 0.413,
+          "conferenceChampionship": 0.183,
+          "superBowlAppearance": 0.078,
+          "superBowlWin": 0.033
+        }
+      },
+      {
+        "team": "NE",
+        "owner": "Guy",
+        "pick": 11,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 10.39,
+        "expectedPoints": 14.77,
+        "probabilities": {
+          "playoffs": 0.747,
+          "divisionTitle": 0.233,
+          "divisionalRound": 0.369,
+          "conferenceChampionship": 0.165,
+          "superBowlAppearance": 0.076,
+          "superBowlWin": 0.033
+        }
+      },
+      {
+        "team": "LAR",
+        "owner": "Man",
+        "pick": 1,
+        "actualWins": 2,
+        "actualLosses": 3,
+        "expectedFinalWins": 9.97,
+        "expectedPoints": 14.58,
+        "probabilities": {
+          "playoffs": 0.645,
+          "divisionTitle": 0.033,
+          "divisionalRound": 0.386,
+          "conferenceChampionship": 0.188,
+          "superBowlAppearance": 0.093,
+          "superBowlWin": 0.052
+        }
+      },
+      {
+        "team": "DET",
+        "owner": "Man",
+        "pick": 7,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 10.12,
+        "expectedPoints": 14.27,
+        "probabilities": {
+          "playoffs": 0.678,
+          "divisionTitle": 0.219,
+          "divisionalRound": 0.362,
+          "conferenceChampionship": 0.165,
+          "superBowlAppearance": 0.065,
+          "superBowlWin": 0.029
+        }
+      },
+      {
+        "team": "SEA",
+        "owner": "Guy",
+        "pick": 5,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 10.02,
+        "expectedPoints": 14.22,
+        "probabilities": {
+          "playoffs": 0.649,
+          "divisionTitle": 0.059,
+          "divisionalRound": 0.371,
+          "conferenceChampionship": 0.168,
+          "superBowlAppearance": 0.077,
+          "superBowlWin": 0.038
+        }
+      },
+      {
+        "team": "DAL",
+        "owner": "Guy",
+        "pick": 14,
+        "actualWins": 2,
+        "actualLosses": 3,
+        "expectedFinalWins": 9.14,
+        "expectedPoints": 14.02,
+        "probabilities": {
+          "playoffs": 0.672,
+          "divisionTitle": 0.642,
+          "divisionalRound": 0.381,
+          "conferenceChampionship": 0.188,
+          "superBowlAppearance": 0.074,
+          "superBowlWin": 0.032
+        }
+      },
+      {
+        "team": "CHI",
+        "owner": "Guy",
+        "pick": 20,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 9.98,
+        "expectedPoints": 13.75,
+        "probabilities": {
+          "playoffs": 0.645,
+          "divisionTitle": 0.183,
+          "divisionalRound": 0.335,
+          "conferenceChampionship": 0.147,
+          "superBowlAppearance": 0.058,
+          "superBowlWin": 0.025
+        }
+      },
+      {
+        "team": "DEN",
+        "owner": "Gin",
+        "pick": 16,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 10.02,
+        "expectedPoints": 13.32,
+        "probabilities": {
+          "playoffs": 0.647,
+          "divisionTitle": 0.204,
+          "divisionalRound": 0.288,
+          "conferenceChampionship": 0.117,
+          "superBowlAppearance": 0.05,
+          "superBowlWin": 0.02
+        }
+      },
+      {
+        "team": "CAR",
+        "owner": "Guy",
+        "pick": 26,
+        "actualWins": 2,
+        "actualLosses": 2,
+        "expectedFinalWins": 8.07,
+        "expectedPoints": 10.62,
+        "probabilities": {
+          "playoffs": 0.49,
+          "divisionTitle": 0.471,
+          "divisionalRound": 0.211,
+          "conferenceChampionship": 0.077,
+          "superBowlAppearance": 0.024,
+          "superBowlWin": 0.009
+        }
+      },
+      {
+        "team": "GB",
+        "owner": "Man",
+        "pick": 13,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 8.8,
+        "expectedPoints": 10.47,
+        "probabilities": {
+          "playoffs": 0.353,
+          "divisionTitle": 0.064,
+          "divisionalRound": 0.163,
+          "conferenceChampionship": 0.06,
+          "superBowlAppearance": 0.02,
+          "superBowlWin": 0.008
+        }
+      },
+      {
+        "team": "PIT",
+        "owner": "Man",
+        "pick": 19,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 8.77,
+        "expectedPoints": 10.03,
+        "probabilities": {
+          "playoffs": 0.345,
+          "divisionTitle": 0.073,
+          "divisionalRound": 0.119,
+          "conferenceChampionship": 0.038,
+          "superBowlAppearance": 0.012,
+          "superBowlWin": 0.004
+        }
+      },
+      {
+        "team": "HOU",
+        "owner": "Gin",
+        "pick": 10,
+        "actualWins": 1,
+        "actualLosses": 4,
+        "expectedFinalWins": 8.25,
+        "expectedPoints": 9.41,
+        "probabilities": {
+          "playoffs": 0.25,
+          "divisionTitle": 0.063,
+          "divisionalRound": 0.107,
+          "conferenceChampionship": 0.04,
+          "superBowlAppearance": 0.015,
+          "superBowlWin": 0.006
+        }
+      },
+      {
+        "team": "IND",
+        "owner": "Man",
+        "pick": 18,
+        "actualWins": 2,
+        "actualLosses": 3,
+        "expectedFinalWins": 8.05,
+        "expectedPoints": 8.79,
+        "probabilities": {
+          "playoffs": 0.206,
+          "divisionTitle": 0.041,
+          "divisionalRound": 0.069,
+          "conferenceChampionship": 0.021,
+          "superBowlAppearance": 0.008,
+          "superBowlWin": 0.003
+        }
+      },
+      {
+        "team": "PHI",
+        "owner": "Man",
+        "pick": 6,
+        "actualWins": 2,
+        "actualLosses": 3,
+        "expectedFinalWins": 7.45,
+        "expectedPoints": 8.48,
+        "probabilities": {
+          "playoffs": 0.229,
+          "divisionTitle": 0.197,
+          "divisionalRound": 0.087,
+          "conferenceChampionship": 0.029,
+          "superBowlAppearance": 0.008,
+          "superBowlWin": 0.002
+        }
+      },
+      {
+        "team": "LV",
+        "owner": "Gin",
+        "pick": 28,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 7.73,
+        "expectedPoints": 8.17,
+        "probabilities": {
+          "playoffs": 0.155,
+          "divisionTitle": 0.027,
+          "divisionalRound": 0.042,
+          "conferenceChampionship": 0.011,
+          "superBowlAppearance": 0.003,
+          "superBowlWin": 0.001
+        }
+      },
+      {
+        "team": "ATL",
+        "owner": "Guy",
+        "pick": 23,
+        "actualWins": 2,
+        "actualLosses": 3,
+        "expectedFinalWins": 6.92,
+        "expectedPoints": 7.89,
+        "probabilities": {
+          "playoffs": 0.219,
+          "divisionTitle": 0.204,
+          "divisionalRound": 0.082,
+          "conferenceChampionship": 0.024,
+          "superBowlAppearance": 0.006,
+          "superBowlWin": 0.002
+        }
+      },
+      {
+        "team": "TB",
+        "owner": "Man",
+        "pick": 12,
+        "actualWins": 1,
+        "actualLosses": 4,
+        "expectedFinalWins": 6.87,
+        "expectedPoints": 7.74,
+        "probabilities": {
+          "playoffs": 0.229,
+          "divisionTitle": 0.217,
+          "divisionalRound": 0.074,
+          "conferenceChampionship": 0.016,
+          "superBowlAppearance": 0.003,
+          "superBowlWin": 0.001
+        }
+      },
+      {
+        "team": "CLE",
+        "owner": "Guy",
+        "pick": 29,
+        "actualWins": 3,
+        "actualLosses": 2,
+        "expectedFinalWins": 7.38,
+        "expectedPoints": 7.67,
+        "probabilities": {
+          "playoffs": 0.115,
+          "divisionTitle": 0.02,
+          "divisionalRound": 0.027,
+          "conferenceChampionship": 0.005,
+          "superBowlAppearance": 0.001,
+          "superBowlWin": 0.001
+        }
+      },
+      {
+        "team": "NYG",
+        "owner": "Man",
+        "pick": 24,
+        "actualWins": 3.5,
+        "actualLosses": 1,
+        "expectedFinalWins": 7.02,
+        "expectedPoints": 7.49,
+        "probabilities": {
+          "playoffs": 0.137,
+          "divisionTitle": 0.114,
+          "divisionalRound": 0.038,
+          "conferenceChampionship": 0.008,
+          "superBowlAppearance": 0.002,
+          "superBowlWin": 0.001
+        }
+      },
+      {
+        "team": "NO",
+        "owner": "Man",
+        "pick": 25,
+        "actualWins": 1,
+        "actualLosses": 4,
+        "expectedFinalWins": 6,
+        "expectedPoints": 6.47,
+        "probabilities": {
+          "playoffs": 0.114,
+          "divisionTitle": 0.107,
+          "divisionalRound": 0.04,
+          "conferenceChampionship": 0.01,
+          "superBowlAppearance": 0.002,
+          "superBowlWin": 0
+        }
+      },
+      {
+        "team": "WSH",
+        "owner": "Gin",
+        "pick": 22,
+        "actualWins": 1.5,
+        "actualLosses": 3,
+        "expectedFinalWins": 6.06,
+        "expectedPoints": 6.29,
+        "probabilities": {
+          "playoffs": 0.057,
+          "divisionTitle": 0.047,
+          "divisionalRound": 0.02,
+          "conferenceChampionship": 0.005,
+          "superBowlAppearance": 0.001,
+          "superBowlWin": 0
+        }
+      },
+      {
+        "team": "NYJ",
+        "owner": "Man",
+        "pick": 30,
+        "actualWins": 2,
+        "actualLosses": 3,
+        "expectedFinalWins": 6.18,
+        "expectedPoints": 6.25,
+        "probabilities": {
+          "playoffs": 0.03,
+          "divisionTitle": 0.003,
+          "divisionalRound": 0.006,
+          "conferenceChampionship": 0.001,
+          "superBowlAppearance": 0,
+          "superBowlWin": 0
+        }
+      },
+      {
+        "team": "LAC",
+        "owner": "Gin",
+        "pick": 9,
+        "actualWins": 0,
+        "actualLosses": 5,
+        "expectedFinalWins": 4.85,
+        "expectedPoints": 4.87,
+        "probabilities": {
+          "playoffs": 0.005,
+          "divisionTitle": 0.001,
+          "divisionalRound": 0.002,
+          "conferenceChampionship": 0.001,
+          "superBowlAppearance": 0,
+          "superBowlWin": 0
+        }
+      },
+      {
+        "team": "ARI",
+        "owner": "Unpicked",
+        "pick": 31,
+        "actualWins": 1,
+        "actualLosses": 4,
+        "expectedFinalWins": 4.38,
+        "expectedPoints": 4.38,
+        "probabilities": {
+          "playoffs": 0.002,
+          "divisionTitle": 0,
+          "divisionalRound": 0,
+          "conferenceChampionship": 0,
+          "superBowlAppearance": 0,
+          "superBowlWin": 0
+        }
+      },
+      {
+        "team": "TEN",
+        "owner": "Gin",
+        "pick": 27,
+        "actualWins": 0,
+        "actualLosses": 5,
+        "expectedFinalWins": 3.49,
+        "expectedPoints": 3.49,
+        "probabilities": {
+          "playoffs": 0.001,
+          "divisionTitle": 0,
+          "divisionalRound": 0,
+          "conferenceChampionship": 0,
+          "superBowlAppearance": 0,
+          "superBowlWin": 0
+        }
+      },
+      {
+        "team": "MIA",
+        "owner": "Unpicked",
+        "pick": 32,
+        "actualWins": 0,
+        "actualLosses": 5,
+        "expectedFinalWins": 2.67,
+        "expectedPoints": 2.67,
+        "probabilities": {
+          "playoffs": 0,
+          "divisionTitle": 0,
+          "divisionalRound": 0,
+          "conferenceChampionship": 0,
+          "superBowlAppearance": 0,
+          "superBowlWin": 0
+        }
+      }
+    ],
+    "weekKey": "2026-10-13"
   }
 ]
