@@ -151,37 +151,37 @@
     "owners": [
       {
         "owner": "Guy",
-        "expectedPoints": 142.48,
+        "expectedPoints": 142.63,
         "finishOdds": {
-          "1": 0.603,
-          "2": 0.368,
+          "1": 0.613,
+          "2": 0.358,
           "3": 0.029,
           "4": 0
         }
       },
       {
         "owner": "Gin",
-        "expectedPoints": 131.92,
+        "expectedPoints": 131.81,
         "finishOdds": {
-          "1": 0.383,
-          "2": 0.544,
+          "1": 0.373,
+          "2": 0.553,
           "3": 0.074,
           "4": 0
         }
       },
       {
         "owner": "Man",
-        "expectedPoints": 94.56,
+        "expectedPoints": 94.5,
         "finishOdds": {
           "1": 0.014,
-          "2": 0.094,
-          "3": 0.892,
+          "2": 0.093,
+          "3": 0.893,
           "4": 0
         }
       },
       {
         "owner": "Unpicked",
-        "expectedPoints": 7.05,
+        "expectedPoints": 7.06,
         "finishOdds": {
           "1": 0,
           "2": 0,
