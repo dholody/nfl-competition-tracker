@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "season": 2026,
   "games": [
     {
@@ -2900,10 +2900,10 @@
       "actualMargin": null,
       "awayFpi": 0.868,
       "homeFpi": -4.71,
-      "predictedMargin": -4.4,
+      "predictedMargin": -1.4,
       "predictionError": null,
-      "homeWinProbability": 0.339,
-      "awayWinProbability": 0.658,
+      "homeWinProbability": 0.443,
+      "awayWinProbability": 0.554,
       "predictionSource": "espn"
     },
     {
@@ -3296,10 +3296,10 @@
       "actualMargin": null,
       "awayFpi": 2.426,
       "homeFpi": 0.868,
-      "predictedMargin": 2.3,
+      "predictedMargin": 0.8,
       "predictionError": null,
-      "homeWinProbability": 0.585,
-      "awayWinProbability": 0.412,
+      "homeWinProbability": 0.53,
+      "awayWinProbability": 0.466,
       "predictionSource": "espn"
     },
     {
