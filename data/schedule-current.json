@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "season": 2026,
   "games": [
     {
@@ -2850,9 +2850,9 @@
       "homeTeamId": "30",
       "awayTeam": "HOU",
       "homeTeam": "JAX",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
+      "status": "In Progress",
+      "awayScore": 31,
+      "homeScore": 28,
       "actualMargin": null,
       "awayFpi": 1.855,
       "homeFpi": 4.29,
@@ -2878,10 +2878,10 @@
       "actualMargin": null,
       "awayFpi": 1.726,
       "homeFpi": -2.717,
-      "predictedMargin": -2.9,
+      "predictedMargin": -4.2,
       "predictionError": null,
-      "homeWinProbability": 0.387,
-      "awayWinProbability": 0.61,
+      "homeWinProbability": 0.337,
+      "awayWinProbability": 0.661,
       "predictionSource": "espn"
     },
     {
@@ -3142,10 +3142,10 @@
       "actualMargin": null,
       "awayFpi": 2.6,
       "homeFpi": 1.726,
-      "predictedMargin": 0.3,
+      "predictedMargin": 1.7,
       "predictionError": null,
-      "homeWinProbability": 0.507,
-      "awayWinProbability": 0.489,
+      "homeWinProbability": 0.564,
+      "awayWinProbability": 0.433,
       "predictionSource": "espn"
     },
     {
@@ -3428,10 +3428,10 @@
       "actualMargin": null,
       "awayFpi": 2.426,
       "homeFpi": -1.945,
-      "predictedMargin": -4,
+      "predictedMargin": -4.9,
       "predictionError": null,
-      "homeWinProbability": 0.343,
-      "awayWinProbability": 0.654,
+      "homeWinProbability": 0.311,
+      "awayWinProbability": 0.687,
       "predictionSource": "espn"
     },
     {
@@ -3714,10 +3714,10 @@
       "actualMargin": null,
       "awayFpi": -1.945,
       "homeFpi": -3.536,
-      "predictedMargin": 0.2,
+      "predictedMargin": 1.9,
       "predictionError": null,
-      "homeWinProbability": 0.507,
-      "awayWinProbability": 0.489,
+      "homeWinProbability": 0.575,
+      "awayWinProbability": 0.421,
       "predictionSource": "espn"
     },
     {
@@ -3890,10 +3890,10 @@
       "actualMargin": null,
       "awayFpi": -5.531,
       "homeFpi": -1.945,
-      "predictedMargin": 4.8,
+      "predictedMargin": 3,
       "predictionError": null,
-      "homeWinProbability": 0.68,
-      "awayWinProbability": 0.318,
+      "homeWinProbability": 0.616,
+      "awayWinProbability": 0.38,
       "predictionSource": "espn"
     },
     {
@@ -4616,10 +4616,10 @@
       "actualMargin": null,
       "awayFpi": -1.079,
       "homeFpi": -1.945,
-      "predictedMargin": 0.3,
+      "predictedMargin": -0.5,
       "predictionError": null,
-      "homeWinProbability": 0.511,
-      "awayWinProbability": 0.485,
+      "homeWinProbability": 0.48,
+      "awayWinProbability": 0.516,
       "predictionSource": "espn"
     },
     {
