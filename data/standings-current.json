@@ -14,7 +14,7 @@
   "owners": [
     {
       "owner": "Guy",
-      "expectedPoints": 142.71
+      "expectedPoints": 142.95
     },
     {
       "owner": "Gin",
@@ -22,11 +22,11 @@
     },
     {
       "owner": "Man",
-      "expectedPoints": 89.19
+      "expectedPoints": 88.88
     },
     {
       "owner": "Unpicked",
-      "expectedPoints": 8.39
+      "expectedPoints": 8.41
     }
   ],
   "teams": [
@@ -36,15 +36,15 @@
       "pick": 15,
       "actualWins": 6,
       "actualLosses": 0,
-      "expectedFinalWins": 14.07,
-      "expectedPoints": 30.32,
+      "expectedFinalWins": 14.05,
+      "expectedPoints": 30.24,
       "probabilities": {
         "playoffs": 0.998,
-        "divisionTitle": 0.965,
-        "divisionalRound": 0.941,
-        "conferenceChampionship": 0.67,
-        "superBowlAppearance": 0.468,
-        "superBowlWin": 0.277
+        "divisionTitle": 0.968,
+        "divisionalRound": 0.932,
+        "conferenceChampionship": 0.662,
+        "superBowlAppearance": 0.467,
+        "superBowlWin": 0.279
       }
     },
     {
@@ -53,15 +53,15 @@
       "pick": 4,
       "actualWins": 5,
       "actualLosses": 0,
-      "expectedFinalWins": 12.8,
-      "expectedPoints": 24.88,
+      "expectedFinalWins": 12.79,
+      "expectedPoints": 24.79,
       "probabilities": {
         "playoffs": 0.972,
-        "divisionTitle": 0.829,
-        "divisionalRound": 0.785,
-        "conferenceChampionship": 0.506,
-        "superBowlAppearance": 0.303,
-        "superBowlWin": 0.169
+        "divisionTitle": 0.833,
+        "divisionalRound": 0.787,
+        "conferenceChampionship": 0.503,
+        "superBowlAppearance": 0.301,
+        "superBowlWin": 0.162
       }
     },
     {
@@ -70,15 +70,15 @@
       "pick": 2,
       "actualWins": 5,
       "actualLosses": 1,
-      "expectedFinalWins": 12.25,
-      "expectedPoints": 22.54,
+      "expectedFinalWins": 12.23,
+      "expectedPoints": 22.36,
       "probabilities": {
-        "playoffs": 0.961,
-        "divisionTitle": 0.776,
-        "divisionalRound": 0.716,
-        "conferenceChampionship": 0.427,
-        "superBowlAppearance": 0.238,
-        "superBowlWin": 0.123
+        "playoffs": 0.958,
+        "divisionTitle": 0.779,
+        "divisionalRound": 0.705,
+        "conferenceChampionship": 0.418,
+        "superBowlAppearance": 0.233,
+        "superBowlWin": 0.12
       }
     },
     {
@@ -87,14 +87,14 @@
       "pick": 17,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 11.28,
-      "expectedPoints": 19.2,
+      "expectedFinalWins": 11.25,
+      "expectedPoints": 19.15,
       "probabilities": {
-        "playoffs": 0.894,
-        "divisionTitle": 0.786,
+        "playoffs": 0.891,
+        "divisionTitle": 0.783,
         "divisionalRound": 0.591,
-        "conferenceChampionship": 0.313,
-        "superBowlAppearance": 0.155,
+        "conferenceChampionship": 0.312,
+        "superBowlAppearance": 0.154,
         "superBowlWin": 0.076
       }
     },
@@ -104,15 +104,15 @@
       "pick": 21,
       "actualWins": 5,
       "actualLosses": 0,
-      "expectedFinalWins": 11.43,
-      "expectedPoints": 17.69,
+      "expectedFinalWins": 11.46,
+      "expectedPoints": 17.66,
       "probabilities": {
-        "playoffs": 0.901,
-        "divisionTitle": 0.462,
-        "divisionalRound": 0.524,
-        "conferenceChampionship": 0.256,
-        "superBowlAppearance": 0.101,
-        "superBowlWin": 0.045
+        "playoffs": 0.903,
+        "divisionTitle": 0.467,
+        "divisionalRound": 0.514,
+        "conferenceChampionship": 0.255,
+        "superBowlAppearance": 0.103,
+        "superBowlWin": 0.043
       }
     },
     {
@@ -121,15 +121,15 @@
       "pick": 20,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 10.62,
-      "expectedPoints": 16.58,
+      "expectedFinalWins": 10.63,
+      "expectedPoints": 16.64,
       "probabilities": {
-        "playoffs": 0.806,
-        "divisionTitle": 0.253,
-        "divisionalRound": 0.486,
-        "conferenceChampionship": 0.253,
-        "superBowlAppearance": 0.114,
-        "superBowlWin": 0.053
+        "playoffs": 0.808,
+        "divisionTitle": 0.254,
+        "divisionalRound": 0.484,
+        "conferenceChampionship": 0.255,
+        "superBowlAppearance": 0.117,
+        "superBowlWin": 0.056
       }
     },
     {
@@ -138,15 +138,15 @@
       "pick": 8,
       "actualWins": 3,
       "actualLosses": 2,
-      "expectedFinalWins": 10.7,
-      "expectedPoints": 15.73,
+      "expectedFinalWins": 10.72,
+      "expectedPoints": 15.83,
       "probabilities": {
-        "playoffs": 0.758,
-        "divisionTitle": 0.442,
-        "divisionalRound": 0.425,
-        "conferenceChampionship": 0.189,
-        "superBowlAppearance": 0.08,
-        "superBowlWin": 0.036
+        "playoffs": 0.763,
+        "divisionTitle": 0.44,
+        "divisionalRound": 0.427,
+        "conferenceChampionship": 0.192,
+        "superBowlAppearance": 0.086,
+        "superBowlWin": 0.037
       }
     },
     {
@@ -155,31 +155,14 @@
       "pick": 11,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 10.41,
-      "expectedPoints": 14.47,
+      "expectedFinalWins": 10.42,
+      "expectedPoints": 14.57,
       "probabilities": {
-        "playoffs": 0.717,
-        "divisionTitle": 0.222,
-        "divisionalRound": 0.351,
-        "conferenceChampionship": 0.151,
-        "superBowlAppearance": 0.066,
-        "superBowlWin": 0.028
-      }
-    },
-    {
-      "team": "DET",
-      "owner": "Man",
-      "pick": 7,
-      "actualWins": 3,
-      "actualLosses": 2,
-      "expectedFinalWins": 10.15,
-      "expectedPoints": 14.42,
-      "probabilities": {
-        "playoffs": 0.717,
-        "divisionTitle": 0.184,
-        "divisionalRound": 0.375,
-        "conferenceChampionship": 0.168,
-        "superBowlAppearance": 0.07,
+        "playoffs": 0.72,
+        "divisionTitle": 0.219,
+        "divisionalRound": 0.353,
+        "conferenceChampionship": 0.157,
+        "superBowlAppearance": 0.067,
         "superBowlWin": 0.031
       }
     },
@@ -189,15 +172,32 @@
       "pick": 3,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 10.44,
-      "expectedPoints": 14.12,
+      "expectedFinalWins": 10.47,
+      "expectedPoints": 14.28,
       "probabilities": {
-        "playoffs": 0.711,
-        "divisionTitle": 0.374,
-        "divisionalRound": 0.327,
-        "conferenceChampionship": 0.122,
-        "superBowlAppearance": 0.048,
-        "superBowlWin": 0.017
+        "playoffs": 0.723,
+        "divisionTitle": 0.377,
+        "divisionalRound": 0.336,
+        "conferenceChampionship": 0.131,
+        "superBowlAppearance": 0.049,
+        "superBowlWin": 0.018
+      }
+    },
+    {
+      "team": "DET",
+      "owner": "Man",
+      "pick": 7,
+      "actualWins": 3,
+      "actualLosses": 2,
+      "expectedFinalWins": 10.08,
+      "expectedPoints": 14.19,
+      "probabilities": {
+        "playoffs": 0.694,
+        "divisionTitle": 0.179,
+        "divisionalRound": 0.363,
+        "conferenceChampionship": 0.162,
+        "superBowlAppearance": 0.065,
+        "superBowlWin": 0.029
       }
     },
     {
@@ -206,32 +206,15 @@
       "pick": 16,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 10.44,
+      "expectedFinalWins": 10.43,
       "expectedPoints": 13.82,
       "probabilities": {
-        "playoffs": 0.702,
-        "divisionTitle": 0.162,
-        "divisionalRound": 0.312,
-        "conferenceChampionship": 0.12,
-        "superBowlAppearance": 0.047,
-        "superBowlWin": 0.018
-      }
-    },
-    {
-      "team": "SEA",
-      "owner": "Guy",
-      "pick": 5,
-      "actualWins": 3,
-      "actualLosses": 3,
-      "expectedFinalWins": 9.57,
-      "expectedPoints": 13.06,
-      "probabilities": {
-        "playoffs": 0.582,
-        "divisionTitle": 0.031,
-        "divisionalRound": 0.315,
-        "conferenceChampionship": 0.135,
-        "superBowlAppearance": 0.062,
-        "superBowlWin": 0.031
+        "playoffs": 0.705,
+        "divisionTitle": 0.157,
+        "divisionalRound": 0.308,
+        "conferenceChampionship": 0.118,
+        "superBowlAppearance": 0.048,
+        "superBowlWin": 0.02
       }
     },
     {
@@ -241,14 +224,31 @@
       "actualWins": 2,
       "actualLosses": 4,
       "expectedFinalWins": 8.56,
-      "expectedPoints": 13.05,
+      "expectedPoints": 13.21,
       "probabilities": {
-        "playoffs": 0.684,
-        "divisionTitle": 0.675,
-        "divisionalRound": 0.363,
-        "conferenceChampionship": 0.162,
-        "superBowlAppearance": 0.059,
-        "superBowlWin": 0.023
+        "playoffs": 0.685,
+        "divisionTitle": 0.672,
+        "divisionalRound": 0.372,
+        "conferenceChampionship": 0.166,
+        "superBowlAppearance": 0.065,
+        "superBowlWin": 0.029
+      }
+    },
+    {
+      "team": "SEA",
+      "owner": "Guy",
+      "pick": 5,
+      "actualWins": 3,
+      "actualLosses": 3,
+      "expectedFinalWins": 9.57,
+      "expectedPoints": 13.17,
+      "probabilities": {
+        "playoffs": 0.591,
+        "divisionTitle": 0.027,
+        "divisionalRound": 0.328,
+        "conferenceChampionship": 0.143,
+        "superBowlAppearance": 0.064,
+        "superBowlWin": 0.03
       }
     },
     {
@@ -257,15 +257,15 @@
       "pick": 26,
       "actualWins": 3,
       "actualLosses": 2,
-      "expectedFinalWins": 8.96,
-      "expectedPoints": 12.94,
+      "expectedFinalWins": 8.94,
+      "expectedPoints": 12.92,
       "probabilities": {
-        "playoffs": 0.701,
-        "divisionTitle": 0.685,
-        "divisionalRound": 0.338,
-        "conferenceChampionship": 0.125,
-        "superBowlAppearance": 0.042,
-        "superBowlWin": 0.016
+        "playoffs": 0.699,
+        "divisionTitle": 0.681,
+        "divisionalRound": 0.339,
+        "conferenceChampionship": 0.129,
+        "superBowlAppearance": 0.04,
+        "superBowlWin": 0.014
       }
     },
     {
@@ -274,15 +274,15 @@
       "pick": 13,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 9.55,
-      "expectedPoints": 12.48,
+      "expectedFinalWins": 9.56,
+      "expectedPoints": 12.46,
       "probabilities": {
-        "playoffs": 0.574,
+        "playoffs": 0.584,
         "divisionTitle": 0.1,
-        "divisionalRound": 0.273,
-        "conferenceChampionship": 0.111,
-        "superBowlAppearance": 0.043,
-        "superBowlWin": 0.016
+        "divisionalRound": 0.275,
+        "conferenceChampionship": 0.107,
+        "superBowlAppearance": 0.037,
+        "superBowlWin": 0.018
       }
     },
     {
@@ -291,14 +291,14 @@
       "pick": 10,
       "actualWins": 2,
       "actualLosses": 4,
-      "expectedFinalWins": 9.28,
-      "expectedPoints": 11.88,
+      "expectedFinalWins": 9.26,
+      "expectedPoints": 11.9,
       "probabilities": {
-        "playoffs": 0.458,
-        "divisionTitle": 0.186,
-        "divisionalRound": 0.221,
-        "conferenceChampionship": 0.095,
-        "superBowlAppearance": 0.039,
+        "playoffs": 0.45,
+        "divisionTitle": 0.188,
+        "divisionalRound": 0.225,
+        "conferenceChampionship": 0.097,
+        "superBowlAppearance": 0.042,
         "superBowlWin": 0.018
       }
     },
@@ -308,15 +308,15 @@
       "pick": 19,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 9.31,
-      "expectedPoints": 11.02,
+      "expectedFinalWins": 9.3,
+      "expectedPoints": 10.91,
       "probabilities": {
-        "playoffs": 0.431,
-        "divisionTitle": 0.141,
-        "divisionalRound": 0.164,
-        "conferenceChampionship": 0.05,
-        "superBowlAppearance": 0.017,
-        "superBowlWin": 0.005
+        "playoffs": 0.426,
+        "divisionTitle": 0.14,
+        "divisionalRound": 0.156,
+        "conferenceChampionship": 0.045,
+        "superBowlAppearance": 0.015,
+        "superBowlWin": 0.003
       }
     },
     {
@@ -326,14 +326,14 @@
       "actualWins": 2,
       "actualLosses": 4,
       "expectedFinalWins": 8.53,
-      "expectedPoints": 10.25,
+      "expectedPoints": 10.2,
       "probabilities": {
-        "playoffs": 0.321,
-        "divisionTitle": 0.005,
-        "divisionalRound": 0.159,
-        "conferenceChampionship": 0.064,
-        "superBowlAppearance": 0.029,
-        "superBowlWin": 0.015
+        "playoffs": 0.318,
+        "divisionTitle": 0.004,
+        "divisionalRound": 0.157,
+        "conferenceChampionship": 0.063,
+        "superBowlAppearance": 0.028,
+        "superBowlWin": 0.013
       }
     },
     {
@@ -342,12 +342,12 @@
       "pick": 29,
       "actualWins": 4,
       "actualLosses": 2,
-      "expectedFinalWins": 8.07,
-      "expectedPoints": 8.52,
+      "expectedFinalWins": 8.06,
+      "expectedPoints": 8.51,
       "probabilities": {
         "playoffs": 0.172,
-        "divisionTitle": 0.043,
-        "divisionalRound": 0.039,
+        "divisionTitle": 0.044,
+        "divisionalRound": 0.042,
         "conferenceChampionship": 0.009,
         "superBowlAppearance": 0.002,
         "superBowlWin": 0
@@ -359,15 +359,15 @@
       "pick": 28,
       "actualWins": 3,
       "actualLosses": 3,
-      "expectedFinalWins": 7.57,
-      "expectedPoints": 7.88,
+      "expectedFinalWins": 7.59,
+      "expectedPoints": 7.89,
       "probabilities": {
-        "playoffs": 0.11,
-        "divisionTitle": 0.009,
+        "playoffs": 0.108,
+        "divisionTitle": 0.011,
         "divisionalRound": 0.031,
-        "conferenceChampionship": 0.007,
+        "conferenceChampionship": 0.008,
         "superBowlAppearance": 0.002,
-        "superBowlWin": 0.001
+        "superBowlWin": 0
       }
     },
     {
@@ -377,12 +377,12 @@
       "actualWins": 2,
       "actualLosses": 4,
       "expectedFinalWins": 7.43,
-      "expectedPoints": 7.79,
+      "expectedPoints": 7.78,
       "probabilities": {
-        "playoffs": 0.096,
-        "divisionTitle": 0.027,
+        "playoffs": 0.094,
+        "divisionTitle": 0.029,
         "divisionalRound": 0.034,
-        "conferenceChampionship": 0.01,
+        "conferenceChampionship": 0.009,
         "superBowlAppearance": 0.003,
         "superBowlWin": 0.001
       }
@@ -393,14 +393,14 @@
       "pick": 24,
       "actualWins": 3.5,
       "actualLosses": 2,
-      "expectedFinalWins": 6.69,
-      "expectedPoints": 7.21,
+      "expectedFinalWins": 6.71,
+      "expectedPoints": 7.25,
       "probabilities": {
         "playoffs": 0.158,
-        "divisionTitle": 0.146,
-        "divisionalRound": 0.039,
-        "conferenceChampionship": 0.008,
-        "superBowlAppearance": 0.001,
+        "divisionTitle": 0.145,
+        "divisionalRound": 0.043,
+        "conferenceChampionship": 0.009,
+        "superBowlAppearance": 0.002,
         "superBowlWin": 0
       }
     },
@@ -410,15 +410,15 @@
       "pick": 25,
       "actualWins": 2,
       "actualLosses": 4,
-      "expectedFinalWins": 6.35,
-      "expectedPoints": 6.86,
+      "expectedFinalWins": 6.37,
+      "expectedPoints": 6.93,
       "probabilities": {
-        "playoffs": 0.124,
-        "divisionTitle": 0.114,
-        "divisionalRound": 0.044,
-        "conferenceChampionship": 0.013,
-        "superBowlAppearance": 0.003,
-        "superBowlWin": 0
+        "playoffs": 0.135,
+        "divisionTitle": 0.122,
+        "divisionalRound": 0.049,
+        "conferenceChampionship": 0.012,
+        "superBowlAppearance": 0.002,
+        "superBowlWin": 0.001
       }
     },
     {
@@ -427,30 +427,13 @@
       "pick": 12,
       "actualWins": 1,
       "actualLosses": 5,
-      "expectedFinalWins": 6.35,
-      "expectedPoints": 6.83,
+      "expectedFinalWins": 6.34,
+      "expectedPoints": 6.84,
       "probabilities": {
-        "playoffs": 0.13,
-        "divisionTitle": 0.115,
-        "divisionalRound": 0.04,
-        "conferenceChampionship": 0.008,
-        "superBowlAppearance": 0.002,
-        "superBowlWin": 0.001
-      }
-    },
-    {
-      "team": "WSH",
-      "owner": "Gin",
-      "pick": 22,
-      "actualWins": 1.5,
-      "actualLosses": 4,
-      "expectedFinalWins": 6.17,
-      "expectedPoints": 6.62,
-      "probabilities": {
-        "playoffs": 0.104,
-        "divisionTitle": 0.098,
-        "divisionalRound": 0.039,
-        "conferenceChampionship": 0.011,
+        "playoffs": 0.126,
+        "divisionTitle": 0.114,
+        "divisionalRound": 0.043,
+        "conferenceChampionship": 0.01,
         "superBowlAppearance": 0.003,
         "superBowlWin": 0.001
       }
@@ -461,15 +444,32 @@
       "pick": 23,
       "actualWins": 2,
       "actualLosses": 4,
-      "expectedFinalWins": 6.21,
-      "expectedPoints": 6.62,
+      "expectedFinalWins": 6.2,
+      "expectedPoints": 6.59,
       "probabilities": {
-        "playoffs": 0.1,
-        "divisionTitle": 0.086,
+        "playoffs": 0.093,
+        "divisionTitle": 0.082,
         "divisionalRound": 0.034,
-        "conferenceChampionship": 0.009,
-        "superBowlAppearance": 0.003,
+        "conferenceChampionship": 0.01,
+        "superBowlAppearance": 0.002,
         "superBowlWin": 0.001
+      }
+    },
+    {
+      "team": "WSH",
+      "owner": "Gin",
+      "pick": 22,
+      "actualWins": 1.5,
+      "actualLosses": 4,
+      "expectedFinalWins": 6.14,
+      "expectedPoints": 6.57,
+      "probabilities": {
+        "playoffs": 0.105,
+        "divisionTitle": 0.098,
+        "divisionalRound": 0.037,
+        "conferenceChampionship": 0.01,
+        "superBowlAppearance": 0.003,
+        "superBowlWin": 0
       }
     },
     {
@@ -478,15 +478,15 @@
       "pick": 6,
       "actualWins": 2,
       "actualLosses": 4,
-      "expectedFinalWins": 5.87,
-      "expectedPoints": 6.21,
+      "expectedFinalWins": 5.89,
+      "expectedPoints": 6.24,
       "probabilities": {
-        "playoffs": 0.086,
-        "divisionTitle": 0.081,
-        "divisionalRound": 0.027,
+        "playoffs": 0.091,
+        "divisionTitle": 0.086,
+        "divisionalRound": 0.028,
         "conferenceChampionship": 0.007,
         "superBowlAppearance": 0.002,
-        "superBowlWin": 0
+        "superBowlWin": 0.001
       }
     },
     {
@@ -495,12 +495,12 @@
       "pick": 30,
       "actualWins": 2,
       "actualLosses": 4,
-      "expectedFinalWins": 6.07,
-      "expectedPoints": 6.12,
+      "expectedFinalWins": 6.05,
+      "expectedPoints": 6.08,
       "probabilities": {
         "playoffs": 0.016,
         "divisionTitle": 0.002,
-        "divisionalRound": 0.004,
+        "divisionalRound": 0.003,
         "conferenceChampionship": 0.001,
         "superBowlAppearance": 0,
         "superBowlWin": 0
@@ -512,8 +512,8 @@
       "pick": 31,
       "actualWins": 2,
       "actualLosses": 4,
-      "expectedFinalWins": 5.71,
-      "expectedPoints": 5.73,
+      "expectedFinalWins": 5.74,
+      "expectedPoints": 5.77,
       "probabilities": {
         "playoffs": 0.012,
         "divisionTitle": 0,
@@ -529,8 +529,8 @@
       "pick": 9,
       "actualWins": 0,
       "actualLosses": 6,
-      "expectedFinalWins": 4.3,
-      "expectedPoints": 4.3,
+      "expectedFinalWins": 4.32,
+      "expectedPoints": 4.33,
       "probabilities": {
         "playoffs": 0.001,
         "divisionTitle": 0,
@@ -546,8 +546,8 @@
       "pick": 27,
       "actualWins": 1,
       "actualLosses": 5,
-      "expectedFinalWins": 4.22,
-      "expectedPoints": 4.22,
+      "expectedFinalWins": 4.25,
+      "expectedPoints": 4.25,
       "probabilities": {
         "playoffs": 0.001,
         "divisionTitle": 0,
@@ -563,8 +563,8 @@
       "pick": 32,
       "actualWins": 0,
       "actualLosses": 5,
-      "expectedFinalWins": 2.65,
-      "expectedPoints": 2.66,
+      "expectedFinalWins": 2.64,
+      "expectedPoints": 2.64,
       "probabilities": {
         "playoffs": 0,
         "divisionTitle": 0,

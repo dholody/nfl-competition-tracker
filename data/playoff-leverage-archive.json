@@ -15383,9 +15383,9 @@
         "home": "CHI",
         "away": "NE",
         "homePlayoffOddsIfWin": 86.5,
-        "homePlayoffOddsIfLoss": 72,
-        "awayPlayoffOddsIfWin": 83.5,
-        "awayPlayoffOddsIfLoss": 63.7
+        "homePlayoffOddsIfLoss": 72.4,
+        "awayPlayoffOddsIfWin": 82.5,
+        "awayPlayoffOddsIfLoss": 64.8
       },
       {
         "gameId": "401873011",
@@ -15393,10 +15393,10 @@
         "date": "2026-10-25T13:30Z",
         "home": "NO",
         "away": "PIT",
-        "homePlayoffOddsIfWin": 18.6,
-        "homePlayoffOddsIfLoss": 8.1,
-        "awayPlayoffOddsIfWin": 51.9,
-        "awayPlayoffOddsIfLoss": 30.4
+        "homePlayoffOddsIfWin": 20.3,
+        "homePlayoffOddsIfLoss": 9.1,
+        "awayPlayoffOddsIfWin": 51.1,
+        "awayPlayoffOddsIfLoss": 29.6
       },
       {
         "gameId": "401873017",
@@ -15404,10 +15404,10 @@
         "date": "2026-10-25T17:00Z",
         "home": "ATL",
         "away": "SF",
-        "homePlayoffOddsIfWin": 19.1,
-        "homePlayoffOddsIfLoss": 7.6,
+        "homePlayoffOddsIfWin": 17,
+        "homePlayoffOddsIfLoss": 7.4,
         "awayPlayoffOddsIfWin": 99.9,
-        "awayPlayoffOddsIfLoss": 99.5
+        "awayPlayoffOddsIfLoss": 99.4
       },
       {
         "gameId": "401873013",
@@ -15417,8 +15417,8 @@
         "away": "CLE",
         "homePlayoffOddsIfWin": 0.2,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 23.5,
-        "awayPlayoffOddsIfLoss": 10.8
+        "awayPlayoffOddsIfWin": 23.6,
+        "awayPlayoffOddsIfLoss": 11
       },
       {
         "gameId": "401873014",
@@ -15426,10 +15426,10 @@
         "date": "2026-10-25T17:00Z",
         "home": "MIN",
         "away": "IND",
-        "homePlayoffOddsIfWin": 93.3,
-        "homePlayoffOddsIfLoss": 83.9,
-        "awayPlayoffOddsIfWin": 16.3,
-        "awayPlayoffOddsIfLoss": 6
+        "homePlayoffOddsIfWin": 93.6,
+        "homePlayoffOddsIfLoss": 84.1,
+        "awayPlayoffOddsIfWin": 16.5,
+        "awayPlayoffOddsIfLoss": 5.7
       },
       {
         "gameId": "401873015",
@@ -15438,8 +15438,8 @@
         "home": "NYJ",
         "away": "MIA",
         "homePlayoffOddsIfWin": 2.1,
-        "homePlayoffOddsIfLoss": 0.6,
-        "awayPlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfLoss": 0.5,
+        "awayPlayoffOddsIfWin": 0,
         "awayPlayoffOddsIfLoss": 0
       },
       {
@@ -15448,10 +15448,10 @@
         "date": "2026-10-25T17:00Z",
         "home": "CAR",
         "away": "TB",
-        "homePlayoffOddsIfWin": 77.5,
-        "homePlayoffOddsIfLoss": 54,
-        "awayPlayoffOddsIfWin": 24.7,
-        "awayPlayoffOddsIfLoss": 7.6
+        "homePlayoffOddsIfWin": 76.8,
+        "homePlayoffOddsIfLoss": 54.5,
+        "awayPlayoffOddsIfWin": 24.2,
+        "awayPlayoffOddsIfLoss": 7.4
       },
       {
         "gameId": "401873012",
@@ -15459,10 +15459,10 @@
         "date": "2026-10-25T17:00Z",
         "home": "BAL",
         "away": "CIN",
-        "homePlayoffOddsIfWin": 82.7,
-        "homePlayoffOddsIfLoss": 61.4,
-        "awayPlayoffOddsIfWin": 84.5,
-        "awayPlayoffOddsIfLoss": 65.4
+        "homePlayoffOddsIfWin": 82.9,
+        "homePlayoffOddsIfLoss": 63.4,
+        "awayPlayoffOddsIfWin": 84.9,
+        "awayPlayoffOddsIfLoss": 66
       },
       {
         "gameId": "401873016",
@@ -15470,10 +15470,10 @@
         "date": "2026-10-25T17:00Z",
         "home": "HOU",
         "away": "NYG",
-        "homePlayoffOddsIfWin": 49.4,
-        "homePlayoffOddsIfLoss": 26.6,
-        "awayPlayoffOddsIfWin": 25.7,
-        "awayPlayoffOddsIfLoss": 14
+        "homePlayoffOddsIfWin": 48.3,
+        "homePlayoffOddsIfLoss": 28,
+        "awayPlayoffOddsIfWin": 27.5,
+        "awayPlayoffOddsIfLoss": 13.6
       },
       {
         "gameId": "401873019",
@@ -15481,10 +15481,10 @@
         "date": "2026-10-25T20:05Z",
         "home": "ARI",
         "away": "DEN",
-        "homePlayoffOddsIfWin": 2.8,
-        "homePlayoffOddsIfLoss": 0.5,
-        "awayPlayoffOddsIfWin": 76,
-        "awayPlayoffOddsIfLoss": 57.2
+        "homePlayoffOddsIfWin": 2.5,
+        "homePlayoffOddsIfLoss": 0.6,
+        "awayPlayoffOddsIfWin": 76.9,
+        "awayPlayoffOddsIfLoss": 56.3
       },
       {
         "gameId": "401873020",
@@ -15492,10 +15492,10 @@
         "date": "2026-10-25T20:25Z",
         "home": "DET",
         "away": "GB",
-        "homePlayoffOddsIfWin": 81.1,
-        "homePlayoffOddsIfLoss": 58.2,
-        "awayPlayoffOddsIfWin": 72.1,
-        "awayPlayoffOddsIfLoss": 47.3
+        "homePlayoffOddsIfWin": 79,
+        "homePlayoffOddsIfLoss": 55.8,
+        "awayPlayoffOddsIfWin": 71.4,
+        "awayPlayoffOddsIfLoss": 49.1
       },
       {
         "gameId": "401873021",
@@ -15503,10 +15503,10 @@
         "date": "2026-10-25T20:25Z",
         "home": "LV",
         "away": "LAR",
-        "homePlayoffOddsIfWin": 19.2,
-        "homePlayoffOddsIfLoss": 7,
-        "awayPlayoffOddsIfWin": 38.6,
-        "awayPlayoffOddsIfLoss": 18.7
+        "homePlayoffOddsIfWin": 18,
+        "homePlayoffOddsIfLoss": 7.2,
+        "awayPlayoffOddsIfWin": 38,
+        "awayPlayoffOddsIfLoss": 19.3
       },
       {
         "gameId": "401873022",
@@ -15514,9 +15514,9 @@
         "date": "2026-10-26T00:20Z",
         "home": "SEA",
         "away": "KC",
-        "homePlayoffOddsIfWin": 70.5,
-        "homePlayoffOddsIfLoss": 47.6,
-        "awayPlayoffOddsIfWin": 98.6,
+        "homePlayoffOddsIfWin": 70.4,
+        "homePlayoffOddsIfLoss": 49,
+        "awayPlayoffOddsIfWin": 98.5,
         "awayPlayoffOddsIfLoss": 95.6
       },
       {
@@ -15525,10 +15525,10 @@
         "date": "2026-10-27T00:15Z",
         "home": "PHI",
         "away": "DAL",
-        "homePlayoffOddsIfWin": 17.5,
-        "homePlayoffOddsIfLoss": 4.6,
-        "awayPlayoffOddsIfWin": 76,
-        "awayPlayoffOddsIfLoss": 51.5
+        "homePlayoffOddsIfWin": 18.9,
+        "homePlayoffOddsIfLoss": 4.7,
+        "awayPlayoffOddsIfWin": 75.6,
+        "awayPlayoffOddsIfLoss": 52.2
       },
       {
         "gameId": "401873023",
@@ -15536,10 +15536,10 @@
         "date": "2026-10-30T00:15Z",
         "home": "GB",
         "away": "CAR",
-        "homePlayoffOddsIfWin": 66.1,
-        "homePlayoffOddsIfLoss": 44.4,
-        "awayPlayoffOddsIfWin": 78.9,
-        "awayPlayoffOddsIfLoss": 64.3
+        "homePlayoffOddsIfWin": 67.2,
+        "homePlayoffOddsIfLoss": 44.6,
+        "awayPlayoffOddsIfWin": 79.7,
+        "awayPlayoffOddsIfLoss": 63.7
       },
       {
         "gameId": "401873026",
@@ -15547,10 +15547,10 @@
         "date": "2026-11-01T18:00Z",
         "home": "BUF",
         "away": "BAL",
-        "homePlayoffOddsIfWin": 98.1,
-        "homePlayoffOddsIfLoss": 93,
-        "awayPlayoffOddsIfWin": 81.2,
-        "awayPlayoffOddsIfLoss": 64.2
+        "homePlayoffOddsIfWin": 98.3,
+        "homePlayoffOddsIfLoss": 92.2,
+        "awayPlayoffOddsIfWin": 82.4,
+        "awayPlayoffOddsIfLoss": 65.4
       },
       {
         "gameId": "401873031",
@@ -15558,8 +15558,8 @@
         "date": "2026-11-01T18:00Z",
         "home": "CIN",
         "away": "TEN",
-        "homePlayoffOddsIfWin": 78.9,
-        "homePlayoffOddsIfLoss": 62.3,
+        "homePlayoffOddsIfWin": 79.6,
+        "homePlayoffOddsIfLoss": 61.6,
         "awayPlayoffOddsIfWin": 0.5,
         "awayPlayoffOddsIfLoss": 0
       },
@@ -15569,9 +15569,9 @@
         "date": "2026-11-01T18:00Z",
         "home": "DAL",
         "away": "ARI",
-        "homePlayoffOddsIfWin": 73.1,
-        "homePlayoffOddsIfLoss": 52.8,
-        "awayPlayoffOddsIfWin": 3,
+        "homePlayoffOddsIfWin": 73,
+        "homePlayoffOddsIfLoss": 54.2,
+        "awayPlayoffOddsIfWin": 2.7,
         "awayPlayoffOddsIfLoss": 0.7
       },
       {
@@ -15580,10 +15580,10 @@
         "date": "2026-11-01T18:00Z",
         "home": "DET",
         "away": "MIN",
-        "homePlayoffOddsIfWin": 80.1,
-        "homePlayoffOddsIfLoss": 60.2,
+        "homePlayoffOddsIfWin": 77.5,
+        "homePlayoffOddsIfLoss": 58.6,
         "awayPlayoffOddsIfWin": 95.5,
-        "awayPlayoffOddsIfLoss": 86.1
+        "awayPlayoffOddsIfLoss": 86.4
       },
       {
         "gameId": "401873029",
@@ -15591,10 +15591,10 @@
         "date": "2026-11-01T18:00Z",
         "home": "NYJ",
         "away": "LV",
-        "homePlayoffOddsIfWin": 2.7,
+        "homePlayoffOddsIfWin": 2.6,
         "homePlayoffOddsIfLoss": 0.7,
-        "awayPlayoffOddsIfWin": 15.7,
-        "awayPlayoffOddsIfLoss": 5.6
+        "awayPlayoffOddsIfWin": 15.9,
+        "awayPlayoffOddsIfLoss": 4.9
       },
       {
         "gameId": "401873027",
@@ -15603,9 +15603,9 @@
         "home": "PIT",
         "away": "CLE",
         "homePlayoffOddsIfWin": 50.1,
-        "homePlayoffOddsIfLoss": 28.2,
-        "awayPlayoffOddsIfWin": 29.5,
-        "awayPlayoffOddsIfLoss": 11.4
+        "homePlayoffOddsIfLoss": 25.9,
+        "awayPlayoffOddsIfWin": 29.2,
+        "awayPlayoffOddsIfLoss": 11.8
       },
       {
         "gameId": "401873025",
@@ -15614,9 +15614,9 @@
         "home": "TB",
         "away": "ATL",
         "homePlayoffOddsIfWin": 17.7,
-        "homePlayoffOddsIfLoss": 7.2,
-        "awayPlayoffOddsIfWin": 15.3,
-        "awayPlayoffOddsIfLoss": 5.7
+        "homePlayoffOddsIfLoss": 6.2,
+        "awayPlayoffOddsIfWin": 14.9,
+        "awayPlayoffOddsIfLoss": 4.9
       },
       {
         "gameId": "401873028",
@@ -15624,9 +15624,9 @@
         "date": "2026-11-01T18:00Z",
         "home": "JAX",
         "away": "IND",
-        "homePlayoffOddsIfWin": 92.7,
-        "homePlayoffOddsIfLoss": 79.8,
-        "awayPlayoffOddsIfWin": 18.8,
+        "homePlayoffOddsIfWin": 92.1,
+        "homePlayoffOddsIfLoss": 80.2,
+        "awayPlayoffOddsIfWin": 18.5,
         "awayPlayoffOddsIfLoss": 6.4
       },
       {
@@ -15635,10 +15635,10 @@
         "date": "2026-11-01T21:05Z",
         "home": "LAR",
         "away": "LAC",
-        "homePlayoffOddsIfWin": 36.7,
-        "homePlayoffOddsIfLoss": 20.1,
+        "homePlayoffOddsIfWin": 36.9,
+        "homePlayoffOddsIfLoss": 18.5,
         "awayPlayoffOddsIfWin": 0.3,
-        "awayPlayoffOddsIfLoss": 0.1
+        "awayPlayoffOddsIfLoss": 0
       },
       {
         "gameId": "401873033",
@@ -15647,9 +15647,9 @@
         "home": "DEN",
         "away": "KC",
         "homePlayoffOddsIfWin": 82,
-        "homePlayoffOddsIfLoss": 62.6,
-        "awayPlayoffOddsIfWin": 98.9,
-        "awayPlayoffOddsIfLoss": 94.6
+        "homePlayoffOddsIfLoss": 62.8,
+        "awayPlayoffOddsIfWin": 99.1,
+        "awayPlayoffOddsIfLoss": 94.2
       },
       {
         "gameId": "401873034",
@@ -15657,10 +15657,10 @@
         "date": "2026-11-01T21:25Z",
         "home": "MIA",
         "away": "NE",
-        "homePlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 0,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 75.6,
-        "awayPlayoffOddsIfLoss": 56.1
+        "awayPlayoffOddsIfWin": 75.9,
+        "awayPlayoffOddsIfLoss": 56
       },
       {
         "gameId": "401873035",
@@ -15669,9 +15669,9 @@
         "home": "WSH",
         "away": "PHI",
         "homePlayoffOddsIfWin": 13.9,
-        "homePlayoffOddsIfLoss": 4.7,
-        "awayPlayoffOddsIfWin": 14.7,
-        "awayPlayoffOddsIfLoss": 4.9
+        "homePlayoffOddsIfLoss": 5,
+        "awayPlayoffOddsIfWin": 14.8,
+        "awayPlayoffOddsIfLoss": 5.6
       },
       {
         "gameId": "401873036",
@@ -15679,10 +15679,10 @@
         "date": "2026-11-03T01:15Z",
         "home": "SEA",
         "away": "CHI",
-        "homePlayoffOddsIfWin": 69.6,
-        "homePlayoffOddsIfLoss": 45.4,
-        "awayPlayoffOddsIfWin": 90.2,
-        "awayPlayoffOddsIfLoss": 72.1
+        "homePlayoffOddsIfWin": 70.1,
+        "homePlayoffOddsIfLoss": 46.8,
+        "awayPlayoffOddsIfWin": 89.8,
+        "awayPlayoffOddsIfLoss": 72.6
       },
       {
         "gameId": "401873037",
@@ -15690,10 +15690,10 @@
         "date": "2026-11-06T01:15Z",
         "home": "BAL",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 80.6,
-        "homePlayoffOddsIfLoss": 61,
-        "awayPlayoffOddsIfWin": 94.7,
-        "awayPlayoffOddsIfLoss": 84.4
+        "homePlayoffOddsIfWin": 81.2,
+        "homePlayoffOddsIfLoss": 62,
+        "awayPlayoffOddsIfWin": 94.5,
+        "awayPlayoffOddsIfLoss": 84.5
       },
       {
         "gameId": "401873038",
@@ -15701,10 +15701,10 @@
         "date": "2026-11-08T14:30Z",
         "home": "ATL",
         "away": "CIN",
-        "homePlayoffOddsIfWin": 16.4,
-        "homePlayoffOddsIfLoss": 7.4,
-        "awayPlayoffOddsIfWin": 80.8,
-        "awayPlayoffOddsIfLoss": 63.6
+        "homePlayoffOddsIfWin": 15.6,
+        "homePlayoffOddsIfLoss": 6.8,
+        "awayPlayoffOddsIfWin": 81.3,
+        "awayPlayoffOddsIfLoss": 63.9
       },
       {
         "gameId": "401873040",
@@ -15712,10 +15712,10 @@
         "date": "2026-11-08T18:00Z",
         "home": "IND",
         "away": "DAL",
-        "homePlayoffOddsIfWin": 15.3,
-        "homePlayoffOddsIfLoss": 5.1,
-        "awayPlayoffOddsIfWin": 76.6,
-        "awayPlayoffOddsIfLoss": 57.9
+        "homePlayoffOddsIfWin": 14.5,
+        "homePlayoffOddsIfLoss": 5.4,
+        "awayPlayoffOddsIfWin": 77.3,
+        "awayPlayoffOddsIfLoss": 57.1
       },
       {
         "gameId": "401873045",
@@ -15723,10 +15723,10 @@
         "date": "2026-11-08T18:00Z",
         "home": "KC",
         "away": "NYJ",
-        "homePlayoffOddsIfWin": 98,
-        "homePlayoffOddsIfLoss": 93.1,
-        "awayPlayoffOddsIfWin": 4,
-        "awayPlayoffOddsIfLoss": 1.2
+        "homePlayoffOddsIfWin": 97.8,
+        "homePlayoffOddsIfLoss": 93.3,
+        "awayPlayoffOddsIfWin": 4.3,
+        "awayPlayoffOddsIfLoss": 1.1
       },
       {
         "gameId": "401873042",
@@ -15736,8 +15736,8 @@
         "away": "DET",
         "homePlayoffOddsIfWin": 0,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 75.1,
-        "awayPlayoffOddsIfLoss": 58.9
+        "awayPlayoffOddsIfWin": 73.3,
+        "awayPlayoffOddsIfLoss": 54.1
       },
       {
         "gameId": "401873039",
@@ -15745,10 +15745,10 @@
         "date": "2026-11-08T18:00Z",
         "home": "NO",
         "away": "CLE",
-        "homePlayoffOddsIfWin": 16,
-        "homePlayoffOddsIfLoss": 6.9,
-        "awayPlayoffOddsIfWin": 25.5,
-        "awayPlayoffOddsIfLoss": 11.5
+        "homePlayoffOddsIfWin": 17.3,
+        "homePlayoffOddsIfLoss": 7.9,
+        "awayPlayoffOddsIfWin": 26.4,
+        "awayPlayoffOddsIfLoss": 11
       },
       {
         "gameId": "401873044",
@@ -15756,10 +15756,10 @@
         "date": "2026-11-08T18:00Z",
         "home": "PHI",
         "away": "NYG",
-        "homePlayoffOddsIfWin": 12.4,
-        "homePlayoffOddsIfLoss": 3.3,
-        "awayPlayoffOddsIfWin": 24.3,
-        "awayPlayoffOddsIfLoss": 9.8
+        "homePlayoffOddsIfWin": 13,
+        "homePlayoffOddsIfLoss": 3.6,
+        "awayPlayoffOddsIfWin": 23.7,
+        "awayPlayoffOddsIfLoss": 10.1
       },
       {
         "gameId": "401873043",
@@ -15767,10 +15767,10 @@
         "date": "2026-11-08T18:00Z",
         "home": "WSH",
         "away": "LAR",
-        "homePlayoffOddsIfWin": 17.1,
-        "homePlayoffOddsIfLoss": 7.6,
-        "awayPlayoffOddsIfWin": 37.6,
-        "awayPlayoffOddsIfLoss": 18.8
+        "homePlayoffOddsIfWin": 16.8,
+        "homePlayoffOddsIfLoss": 7.9,
+        "awayPlayoffOddsIfWin": 37.3,
+        "awayPlayoffOddsIfLoss": 18.6
       },
       {
         "gameId": "401873041",
@@ -15778,10 +15778,10 @@
         "date": "2026-11-08T18:00Z",
         "home": "CAR",
         "away": "DEN",
-        "homePlayoffOddsIfWin": 79.4,
-        "homePlayoffOddsIfLoss": 61.7,
+        "homePlayoffOddsIfWin": 77.4,
+        "homePlayoffOddsIfLoss": 63.1,
         "awayPlayoffOddsIfWin": 79.4,
-        "awayPlayoffOddsIfLoss": 60.1
+        "awayPlayoffOddsIfLoss": 60.8
       },
       {
         "gameId": "401873046",
@@ -15791,8 +15791,8 @@
         "away": "HOU",
         "homePlayoffOddsIfWin": 0.3,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 53.8,
-        "awayPlayoffOddsIfLoss": 31
+        "awayPlayoffOddsIfWin": 53.5,
+        "awayPlayoffOddsIfLoss": 29.6
       },
       {
         "gameId": "401873047",
@@ -15801,9 +15801,9 @@
         "home": "SF",
         "away": "LV",
         "homePlayoffOddsIfWin": 99.9,
-        "homePlayoffOddsIfLoss": 99.6,
-        "awayPlayoffOddsIfWin": 22.7,
-        "awayPlayoffOddsIfLoss": 8.7
+        "homePlayoffOddsIfLoss": 99.3,
+        "awayPlayoffOddsIfWin": 20.3,
+        "awayPlayoffOddsIfLoss": 8.9
       },
       {
         "gameId": "401873049",
@@ -15811,10 +15811,10 @@
         "date": "2026-11-08T21:25Z",
         "home": "NE",
         "away": "GB",
-        "homePlayoffOddsIfWin": 79.5,
-        "homePlayoffOddsIfLoss": 60.8,
-        "awayPlayoffOddsIfWin": 68.7,
-        "awayPlayoffOddsIfLoss": 49.4
+        "homePlayoffOddsIfWin": 80.2,
+        "homePlayoffOddsIfLoss": 60.6,
+        "awayPlayoffOddsIfWin": 70.7,
+        "awayPlayoffOddsIfLoss": 49.6
       },
       {
         "gameId": "401873048",
@@ -15822,10 +15822,10 @@
         "date": "2026-11-08T21:25Z",
         "home": "SEA",
         "away": "ARI",
-        "homePlayoffOddsIfWin": 61.9,
-        "homePlayoffOddsIfLoss": 42.3,
-        "awayPlayoffOddsIfWin": 3.5,
-        "awayPlayoffOddsIfLoss": 0.7
+        "homePlayoffOddsIfWin": 63.2,
+        "homePlayoffOddsIfLoss": 41.3,
+        "awayPlayoffOddsIfWin": 3.7,
+        "awayPlayoffOddsIfLoss": 0.6
       },
       {
         "gameId": "401873050",
@@ -15834,9 +15834,9 @@
         "home": "CHI",
         "away": "TB",
         "homePlayoffOddsIfWin": 85.8,
-        "homePlayoffOddsIfLoss": 70,
-        "awayPlayoffOddsIfWin": 20.4,
-        "awayPlayoffOddsIfLoss": 9.4
+        "homePlayoffOddsIfLoss": 70.5,
+        "awayPlayoffOddsIfWin": 20.6,
+        "awayPlayoffOddsIfLoss": 8.7
       },
       {
         "gameId": "401873051",
@@ -15844,10 +15844,10 @@
         "date": "2026-11-10T01:15Z",
         "home": "MIN",
         "away": "BUF",
-        "homePlayoffOddsIfWin": 94.7,
-        "homePlayoffOddsIfLoss": 86.6,
-        "awayPlayoffOddsIfWin": 98,
-        "awayPlayoffOddsIfLoss": 93.5
+        "homePlayoffOddsIfWin": 95.4,
+        "homePlayoffOddsIfLoss": 86.5,
+        "awayPlayoffOddsIfWin": 98.1,
+        "awayPlayoffOddsIfLoss": 92.7
       },
       {
         "gameId": "401873052",
@@ -15855,10 +15855,10 @@
         "date": "2026-11-13T01:15Z",
         "home": "NYG",
         "away": "WSH",
-        "homePlayoffOddsIfWin": 25,
-        "homePlayoffOddsIfLoss": 9,
-        "awayPlayoffOddsIfWin": 14.7,
-        "awayPlayoffOddsIfLoss": 4.7
+        "homePlayoffOddsIfWin": 23.7,
+        "homePlayoffOddsIfLoss": 9.6,
+        "awayPlayoffOddsIfWin": 15.3,
+        "awayPlayoffOddsIfLoss": 4.6
       },
       {
         "gameId": "401873053",
@@ -15866,10 +15866,10 @@
         "date": "2026-11-15T14:30Z",
         "home": "DET",
         "away": "NE",
-        "homePlayoffOddsIfWin": 80.8,
-        "homePlayoffOddsIfLoss": 62.8,
-        "awayPlayoffOddsIfWin": 80.9,
-        "awayPlayoffOddsIfLoss": 62.2
+        "homePlayoffOddsIfWin": 78.3,
+        "homePlayoffOddsIfLoss": 60.7,
+        "awayPlayoffOddsIfWin": 81.7,
+        "awayPlayoffOddsIfLoss": 62
       },
       {
         "gameId": "401873058",
@@ -15877,10 +15877,10 @@
         "date": "2026-11-15T18:00Z",
         "home": "ATL",
         "away": "KC",
-        "homePlayoffOddsIfWin": 17.8,
-        "homePlayoffOddsIfLoss": 7.5,
-        "awayPlayoffOddsIfWin": 98.3,
-        "awayPlayoffOddsIfLoss": 94.1
+        "homePlayoffOddsIfWin": 16.4,
+        "homePlayoffOddsIfLoss": 7,
+        "awayPlayoffOddsIfWin": 98.1,
+        "awayPlayoffOddsIfLoss": 94.3
       },
       {
         "gameId": "401873056",
@@ -15888,10 +15888,10 @@
         "date": "2026-11-15T18:00Z",
         "home": "CLE",
         "away": "HOU",
-        "homePlayoffOddsIfWin": 29.8,
-        "homePlayoffOddsIfLoss": 12.6,
-        "awayPlayoffOddsIfWin": 52.7,
-        "awayPlayoffOddsIfLoss": 26.8
+        "homePlayoffOddsIfWin": 29,
+        "homePlayoffOddsIfLoss": 12.7,
+        "awayPlayoffOddsIfWin": 51.9,
+        "awayPlayoffOddsIfLoss": 27.1
       },
       {
         "gameId": "401873060",
@@ -15899,10 +15899,10 @@
         "date": "2026-11-15T18:00Z",
         "home": "GB",
         "away": "MIN",
-        "homePlayoffOddsIfWin": 68.2,
-        "homePlayoffOddsIfLoss": 45.5,
-        "awayPlayoffOddsIfWin": 95.9,
-        "awayPlayoffOddsIfLoss": 84.9
+        "homePlayoffOddsIfWin": 70,
+        "homePlayoffOddsIfLoss": 45.4,
+        "awayPlayoffOddsIfWin": 95.8,
+        "awayPlayoffOddsIfLoss": 85.5
       },
       {
         "gameId": "401873057",
@@ -15910,10 +15910,10 @@
         "date": "2026-11-15T18:00Z",
         "home": "TEN",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 0.3,
-        "homePlayoffOddsIfLoss": 0.1,
-        "awayPlayoffOddsIfWin": 92,
-        "awayPlayoffOddsIfLoss": 79.8
+        "homePlayoffOddsIfWin": 0.6,
+        "homePlayoffOddsIfLoss": 0,
+        "awayPlayoffOddsIfWin": 91.4,
+        "awayPlayoffOddsIfLoss": 80.6
       },
       {
         "gameId": "401873059",
@@ -15921,8 +15921,8 @@
         "date": "2026-11-15T18:00Z",
         "home": "IND",
         "away": "MIA",
-        "homePlayoffOddsIfWin": 11.1,
-        "homePlayoffOddsIfLoss": 4.3,
+        "homePlayoffOddsIfWin": 10.8,
+        "homePlayoffOddsIfLoss": 4.5,
         "awayPlayoffOddsIfWin": 0,
         "awayPlayoffOddsIfLoss": 0
       },
@@ -15932,10 +15932,10 @@
         "date": "2026-11-15T18:00Z",
         "home": "NO",
         "away": "CAR",
-        "homePlayoffOddsIfWin": 20.3,
-        "homePlayoffOddsIfLoss": 6.6,
-        "awayPlayoffOddsIfWin": 79.1,
-        "awayPlayoffOddsIfLoss": 57.8
+        "homePlayoffOddsIfWin": 22.6,
+        "homePlayoffOddsIfLoss": 6.7,
+        "awayPlayoffOddsIfWin": 79.3,
+        "awayPlayoffOddsIfLoss": 57.4
       },
       {
         "gameId": "401873054",
@@ -15943,10 +15943,10 @@
         "date": "2026-11-15T18:00Z",
         "home": "NYJ",
         "away": "BUF",
-        "homePlayoffOddsIfWin": 4.3,
-        "homePlayoffOddsIfLoss": 0.8,
-        "awayPlayoffOddsIfWin": 97.3,
-        "awayPlayoffOddsIfLoss": 91.7
+        "homePlayoffOddsIfWin": 3.7,
+        "homePlayoffOddsIfLoss": 0.9,
+        "awayPlayoffOddsIfWin": 97.4,
+        "awayPlayoffOddsIfLoss": 90.6
       },
       {
         "gameId": "401873062",
@@ -15954,10 +15954,10 @@
         "date": "2026-11-15T21:05Z",
         "home": "LV",
         "away": "SEA",
-        "homePlayoffOddsIfWin": 17.6,
-        "homePlayoffOddsIfLoss": 7.6,
-        "awayPlayoffOddsIfWin": 65.7,
-        "awayPlayoffOddsIfLoss": 43.8
+        "homePlayoffOddsIfWin": 17.8,
+        "homePlayoffOddsIfLoss": 7,
+        "awayPlayoffOddsIfWin": 66.2,
+        "awayPlayoffOddsIfLoss": 45.6
       },
       {
         "gameId": "401873061",
@@ -15965,10 +15965,10 @@
         "date": "2026-11-15T21:05Z",
         "home": "ARI",
         "away": "LAR",
-        "homePlayoffOddsIfWin": 3.3,
-        "homePlayoffOddsIfLoss": 0.5,
-        "awayPlayoffOddsIfWin": 36.4,
-        "awayPlayoffOddsIfLoss": 18.6
+        "homePlayoffOddsIfWin": 3.2,
+        "homePlayoffOddsIfLoss": 0.6,
+        "awayPlayoffOddsIfWin": 36.8,
+        "awayPlayoffOddsIfLoss": 16.7
       },
       {
         "gameId": "401873063",
@@ -15976,9 +15976,9 @@
         "date": "2026-11-15T21:25Z",
         "home": "DAL",
         "away": "SF",
-        "homePlayoffOddsIfWin": 79.2,
-        "homePlayoffOddsIfLoss": 62.4,
-        "awayPlayoffOddsIfWin": 100,
+        "homePlayoffOddsIfWin": 79.7,
+        "homePlayoffOddsIfLoss": 62.2,
+        "awayPlayoffOddsIfWin": 99.9,
         "awayPlayoffOddsIfLoss": 99.6
       },
       {
@@ -15987,9 +15987,9 @@
         "date": "2026-11-16T01:20Z",
         "home": "CIN",
         "away": "PIT",
-        "homePlayoffOddsIfWin": 83.2,
-        "homePlayoffOddsIfLoss": 61.9,
-        "awayPlayoffOddsIfWin": 59,
+        "homePlayoffOddsIfWin": 82.7,
+        "homePlayoffOddsIfLoss": 64,
+        "awayPlayoffOddsIfWin": 57.7,
         "awayPlayoffOddsIfLoss": 34.7
       },
       {
@@ -15998,10 +15998,10 @@
         "date": "2026-11-17T01:15Z",
         "home": "BAL",
         "away": "LAC",
-        "homePlayoffOddsIfWin": 76,
-        "homePlayoffOddsIfLoss": 57.2,
-        "awayPlayoffOddsIfWin": 0.4,
-        "awayPlayoffOddsIfLoss": 0
+        "homePlayoffOddsIfWin": 77.5,
+        "homePlayoffOddsIfLoss": 57.6,
+        "awayPlayoffOddsIfWin": 0.3,
+        "awayPlayoffOddsIfLoss": 0.1
       },
       {
         "gameId": "401873066",
@@ -16009,10 +16009,10 @@
         "date": "2026-11-20T01:15Z",
         "home": "HOU",
         "away": "IND",
-        "homePlayoffOddsIfWin": 52.9,
-        "homePlayoffOddsIfLoss": 29.7,
-        "awayPlayoffOddsIfWin": 18.5,
-        "awayPlayoffOddsIfLoss": 5.6
+        "homePlayoffOddsIfWin": 52.3,
+        "homePlayoffOddsIfLoss": 28.7,
+        "awayPlayoffOddsIfWin": 17.8,
+        "awayPlayoffOddsIfLoss": 5.7
       },
       {
         "gameId": "401873070",
@@ -16020,9 +16020,9 @@
         "date": "2026-11-22T18:00Z",
         "home": "BUF",
         "away": "MIA",
-        "homePlayoffOddsIfWin": 96.8,
-        "homePlayoffOddsIfLoss": 89.9,
-        "awayPlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 96.5,
+        "homePlayoffOddsIfLoss": 90.1,
+        "awayPlayoffOddsIfWin": 0,
         "awayPlayoffOddsIfLoss": 0
       },
       {
@@ -16031,10 +16031,10 @@
         "date": "2026-11-22T18:00Z",
         "home": "CHI",
         "away": "NO",
-        "homePlayoffOddsIfWin": 84,
-        "homePlayoffOddsIfLoss": 67,
-        "awayPlayoffOddsIfWin": 22.1,
-        "awayPlayoffOddsIfLoss": 9.9
+        "homePlayoffOddsIfWin": 83.9,
+        "homePlayoffOddsIfLoss": 68.8,
+        "awayPlayoffOddsIfWin": 22.9,
+        "awayPlayoffOddsIfLoss": 11.1
       },
       {
         "gameId": "401873073",
@@ -16042,9 +16042,9 @@
         "date": "2026-11-22T18:00Z",
         "home": "DAL",
         "away": "TEN",
-        "homePlayoffOddsIfWin": 72.1,
-        "homePlayoffOddsIfLoss": 55,
-        "awayPlayoffOddsIfWin": 0.3,
+        "homePlayoffOddsIfWin": 72.9,
+        "homePlayoffOddsIfLoss": 52.5,
+        "awayPlayoffOddsIfWin": 0.4,
         "awayPlayoffOddsIfLoss": 0.1
       },
       {
@@ -16053,10 +16053,10 @@
         "date": "2026-11-22T18:00Z",
         "home": "DET",
         "away": "TB",
-        "homePlayoffOddsIfWin": 78.2,
-        "homePlayoffOddsIfLoss": 62,
-        "awayPlayoffOddsIfWin": 19.1,
-        "awayPlayoffOddsIfLoss": 8.9
+        "homePlayoffOddsIfWin": 77,
+        "homePlayoffOddsIfLoss": 58.1,
+        "awayPlayoffOddsIfWin": 18.6,
+        "awayPlayoffOddsIfLoss": 8.6
       },
       {
         "gameId": "401873067",
@@ -16064,10 +16064,10 @@
         "date": "2026-11-22T18:00Z",
         "home": "KC",
         "away": "ARI",
-        "homePlayoffOddsIfWin": 98.1,
-        "homePlayoffOddsIfLoss": 92.3,
-        "awayPlayoffOddsIfWin": 3.6,
-        "awayPlayoffOddsIfLoss": 0.8
+        "homePlayoffOddsIfWin": 97.9,
+        "homePlayoffOddsIfLoss": 92.5,
+        "awayPlayoffOddsIfWin": 2.9,
+        "awayPlayoffOddsIfLoss": 0.9
       },
       {
         "gameId": "401873069",
@@ -16075,10 +16075,10 @@
         "date": "2026-11-22T18:00Z",
         "home": "NYG",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 27,
-        "homePlayoffOddsIfLoss": 13.1,
-        "awayPlayoffOddsIfWin": 91.8,
-        "awayPlayoffOddsIfLoss": 79.6
+        "homePlayoffOddsIfWin": 27.2,
+        "homePlayoffOddsIfLoss": 12.9,
+        "awayPlayoffOddsIfWin": 91.7,
+        "awayPlayoffOddsIfLoss": 79.3
       },
       {
         "gameId": "401873068",
@@ -16086,10 +16086,10 @@
         "date": "2026-11-22T18:00Z",
         "home": "CAR",
         "away": "BAL",
-        "homePlayoffOddsIfWin": 79.3,
-        "homePlayoffOddsIfLoss": 64,
-        "awayPlayoffOddsIfWin": 77.9,
-        "awayPlayoffOddsIfLoss": 60.7
+        "homePlayoffOddsIfWin": 79.5,
+        "homePlayoffOddsIfLoss": 63.9,
+        "awayPlayoffOddsIfWin": 80.1,
+        "awayPlayoffOddsIfLoss": 59.9
       },
       {
         "gameId": "401873074",
@@ -16099,8 +16099,8 @@
         "away": "NYJ",
         "homePlayoffOddsIfWin": 0.2,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 3.2,
-        "awayPlayoffOddsIfLoss": 0.7
+        "awayPlayoffOddsIfWin": 3.3,
+        "awayPlayoffOddsIfLoss": 0.5
       },
       {
         "gameId": "401873075",
@@ -16108,10 +16108,10 @@
         "date": "2026-11-22T21:25Z",
         "home": "DEN",
         "away": "LV",
-        "homePlayoffOddsIfWin": 76.8,
-        "homePlayoffOddsIfLoss": 55.5,
-        "awayPlayoffOddsIfWin": 20.7,
-        "awayPlayoffOddsIfLoss": 6.7
+        "homePlayoffOddsIfWin": 77,
+        "homePlayoffOddsIfLoss": 56.4,
+        "awayPlayoffOddsIfWin": 20,
+        "awayPlayoffOddsIfLoss": 6.5
       },
       {
         "gameId": "401873076",
@@ -16119,10 +16119,10 @@
         "date": "2026-11-22T21:25Z",
         "home": "PHI",
         "away": "PIT",
-        "homePlayoffOddsIfWin": 13.5,
-        "homePlayoffOddsIfLoss": 5.5,
-        "awayPlayoffOddsIfWin": 51.3,
-        "awayPlayoffOddsIfLoss": 30.2
+        "homePlayoffOddsIfWin": 13.8,
+        "homePlayoffOddsIfLoss": 5.8,
+        "awayPlayoffOddsIfWin": 51.1,
+        "awayPlayoffOddsIfLoss": 30.1
       },
       {
         "gameId": "401873077",
@@ -16131,9 +16131,9 @@
         "home": "SF",
         "away": "MIN",
         "homePlayoffOddsIfWin": 100,
-        "homePlayoffOddsIfLoss": 99.6,
-        "awayPlayoffOddsIfWin": 95.4,
-        "awayPlayoffOddsIfLoss": 87.6
+        "homePlayoffOddsIfLoss": 99.5,
+        "awayPlayoffOddsIfWin": 95.5,
+        "awayPlayoffOddsIfLoss": 87.9
       },
       {
         "gameId": "401873078",
@@ -16141,10 +16141,10 @@
         "date": "2026-11-24T01:15Z",
         "home": "WSH",
         "away": "CIN",
-        "homePlayoffOddsIfWin": 16.8,
-        "homePlayoffOddsIfLoss": 7.1,
-        "awayPlayoffOddsIfWin": 80.8,
-        "awayPlayoffOddsIfLoss": 66.4
+        "homePlayoffOddsIfWin": 16.9,
+        "homePlayoffOddsIfLoss": 7.2,
+        "awayPlayoffOddsIfWin": 82,
+        "awayPlayoffOddsIfLoss": 65.1
       },
       {
         "gameId": "401873079",
@@ -16152,10 +16152,10 @@
         "date": "2026-11-26T01:00Z",
         "home": "LAR",
         "away": "GB",
-        "homePlayoffOddsIfWin": 39.9,
-        "homePlayoffOddsIfLoss": 18.6,
-        "awayPlayoffOddsIfWin": 72.8,
-        "awayPlayoffOddsIfLoss": 48.5
+        "homePlayoffOddsIfWin": 40.3,
+        "homePlayoffOddsIfLoss": 17.1,
+        "awayPlayoffOddsIfWin": 74.2,
+        "awayPlayoffOddsIfLoss": 49.2
       },
       {
         "gameId": "401873081",
@@ -16163,10 +16163,10 @@
         "date": "2026-11-26T18:00Z",
         "home": "DET",
         "away": "CHI",
-        "homePlayoffOddsIfWin": 81.9,
-        "homePlayoffOddsIfLoss": 61.9,
-        "awayPlayoffOddsIfWin": 88.4,
-        "awayPlayoffOddsIfLoss": 72.5
+        "homePlayoffOddsIfWin": 80.6,
+        "homePlayoffOddsIfLoss": 58.8,
+        "awayPlayoffOddsIfWin": 89.8,
+        "awayPlayoffOddsIfLoss": 71
       },
       {
         "gameId": "401873080",
@@ -16174,10 +16174,10 @@
         "date": "2026-11-26T21:30Z",
         "home": "DAL",
         "away": "PHI",
-        "homePlayoffOddsIfWin": 73.8,
-        "homePlayoffOddsIfLoss": 50.3,
-        "awayPlayoffOddsIfWin": 18.4,
-        "awayPlayoffOddsIfLoss": 5.7
+        "homePlayoffOddsIfWin": 74.5,
+        "homePlayoffOddsIfLoss": 49.8,
+        "awayPlayoffOddsIfWin": 20.7,
+        "awayPlayoffOddsIfLoss": 5.3
       },
       {
         "gameId": "401873082",
@@ -16186,9 +16186,9 @@
         "home": "BUF",
         "away": "KC",
         "homePlayoffOddsIfWin": 98.5,
-        "homePlayoffOddsIfLoss": 93.5,
-        "awayPlayoffOddsIfWin": 99,
-        "awayPlayoffOddsIfLoss": 95.6
+        "homePlayoffOddsIfLoss": 92.9,
+        "awayPlayoffOddsIfWin": 98.7,
+        "awayPlayoffOddsIfLoss": 95.7
       },
       {
         "gameId": "401873083",
@@ -16196,9 +16196,9 @@
         "date": "2026-11-27T20:00Z",
         "home": "PIT",
         "away": "DEN",
-        "homePlayoffOddsIfWin": 55.7,
-        "homePlayoffOddsIfLoss": 31.9,
-        "awayPlayoffOddsIfWin": 80.6,
+        "homePlayoffOddsIfWin": 54.7,
+        "homePlayoffOddsIfLoss": 31.8,
+        "awayPlayoffOddsIfWin": 81.1,
         "awayPlayoffOddsIfLoss": 58.7
       },
       {
@@ -16207,10 +16207,10 @@
         "date": "2026-11-29T18:00Z",
         "home": "CIN",
         "away": "NO",
-        "homePlayoffOddsIfWin": 80.6,
-        "homePlayoffOddsIfLoss": 61.8,
-        "awayPlayoffOddsIfWin": 21,
-        "awayPlayoffOddsIfLoss": 9.4
+        "homePlayoffOddsIfWin": 81.1,
+        "homePlayoffOddsIfLoss": 62.1,
+        "awayPlayoffOddsIfWin": 22.2,
+        "awayPlayoffOddsIfLoss": 10.6
       },
       {
         "gameId": "401873086",
@@ -16218,9 +16218,9 @@
         "date": "2026-11-29T18:00Z",
         "home": "CLE",
         "away": "LV",
-        "homePlayoffOddsIfWin": 25.2,
-        "homePlayoffOddsIfLoss": 10.3,
-        "awayPlayoffOddsIfWin": 16.1,
+        "homePlayoffOddsIfWin": 25.3,
+        "homePlayoffOddsIfLoss": 10.2,
+        "awayPlayoffOddsIfWin": 15.7,
         "awayPlayoffOddsIfLoss": 5
       },
       {
@@ -16229,10 +16229,10 @@
         "date": "2026-11-29T18:00Z",
         "home": "IND",
         "away": "NYG",
-        "homePlayoffOddsIfWin": 11.7,
-        "homePlayoffOddsIfLoss": 3.9,
-        "awayPlayoffOddsIfWin": 25.2,
-        "awayPlayoffOddsIfLoss": 12.3
+        "homePlayoffOddsIfWin": 11.6,
+        "homePlayoffOddsIfLoss": 3.2,
+        "awayPlayoffOddsIfWin": 26.1,
+        "awayPlayoffOddsIfLoss": 12.1
       },
       {
         "gameId": "401873089",
@@ -16242,8 +16242,8 @@
         "away": "NYJ",
         "homePlayoffOddsIfWin": 0,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 2.5,
-        "awayPlayoffOddsIfLoss": 0.3
+        "awayPlayoffOddsIfWin": 2.4,
+        "awayPlayoffOddsIfLoss": 0.4
       },
       {
         "gameId": "401873084",
@@ -16251,10 +16251,10 @@
         "date": "2026-11-29T18:00Z",
         "home": "MIN",
         "away": "ATL",
-        "homePlayoffOddsIfWin": 93.8,
-        "homePlayoffOddsIfLoss": 81.7,
-        "awayPlayoffOddsIfWin": 16.6,
-        "awayPlayoffOddsIfLoss": 7.2
+        "homePlayoffOddsIfWin": 93.3,
+        "homePlayoffOddsIfLoss": 83.3,
+        "awayPlayoffOddsIfWin": 15.6,
+        "awayPlayoffOddsIfLoss": 6.6
       },
       {
         "gameId": "401873085",
@@ -16262,10 +16262,10 @@
         "date": "2026-11-29T18:00Z",
         "home": "HOU",
         "away": "BAL",
-        "homePlayoffOddsIfWin": 58.6,
-        "homePlayoffOddsIfLoss": 31.2,
-        "awayPlayoffOddsIfWin": 82.3,
-        "awayPlayoffOddsIfLoss": 61.2
+        "homePlayoffOddsIfWin": 57.1,
+        "homePlayoffOddsIfLoss": 31,
+        "awayPlayoffOddsIfWin": 83.7,
+        "awayPlayoffOddsIfLoss": 62.4
       },
       {
         "gameId": "401873090",
@@ -16273,9 +16273,9 @@
         "date": "2026-11-29T21:05Z",
         "home": "JAX",
         "away": "TEN",
-        "homePlayoffOddsIfWin": 91.2,
-        "homePlayoffOddsIfLoss": 79.2,
-        "awayPlayoffOddsIfWin": 0.4,
+        "homePlayoffOddsIfWin": 91.3,
+        "homePlayoffOddsIfLoss": 77.2,
+        "awayPlayoffOddsIfWin": 0.5,
         "awayPlayoffOddsIfLoss": 0.1
       },
       {
@@ -16284,10 +16284,10 @@
         "date": "2026-11-29T21:25Z",
         "home": "ARI",
         "away": "WSH",
-        "homePlayoffOddsIfWin": 2,
-        "homePlayoffOddsIfLoss": 0.5,
-        "awayPlayoffOddsIfWin": 14.3,
-        "awayPlayoffOddsIfLoss": 6.1
+        "homePlayoffOddsIfWin": 2.1,
+        "homePlayoffOddsIfLoss": 0.3,
+        "awayPlayoffOddsIfWin": 14.7,
+        "awayPlayoffOddsIfLoss": 6
       },
       {
         "gameId": "401873091",
@@ -16297,8 +16297,8 @@
         "away": "SEA",
         "homePlayoffOddsIfWin": 99.9,
         "homePlayoffOddsIfLoss": 99.6,
-        "awayPlayoffOddsIfWin": 71.1,
-        "awayPlayoffOddsIfLoss": 51.7
+        "awayPlayoffOddsIfWin": 72.1,
+        "awayPlayoffOddsIfLoss": 52.1
       },
       {
         "gameId": "401873093",
@@ -16306,10 +16306,10 @@
         "date": "2026-11-30T01:20Z",
         "home": "LAC",
         "away": "NE",
-        "homePlayoffOddsIfWin": 0.3,
+        "homePlayoffOddsIfWin": 0.2,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 79.7,
-        "awayPlayoffOddsIfLoss": 58.4
+        "awayPlayoffOddsIfWin": 79.8,
+        "awayPlayoffOddsIfLoss": 59.4
       },
       {
         "gameId": "401873094",
@@ -16317,10 +16317,10 @@
         "date": "2026-12-01T01:15Z",
         "home": "TB",
         "away": "CAR",
-        "homePlayoffOddsIfWin": 19,
-        "homePlayoffOddsIfLoss": 5.3,
-        "awayPlayoffOddsIfWin": 80.8,
-        "awayPlayoffOddsIfLoss": 61.8
+        "homePlayoffOddsIfWin": 18,
+        "homePlayoffOddsIfLoss": 5.7,
+        "awayPlayoffOddsIfWin": 80.7,
+        "awayPlayoffOddsIfLoss": 61.5
       },
       {
         "gameId": "401873096",
@@ -16328,10 +16328,10 @@
         "date": "2026-12-04T01:15Z",
         "home": "LAR",
         "away": "KC",
-        "homePlayoffOddsIfWin": 42.2,
-        "homePlayoffOddsIfLoss": 22.6,
-        "awayPlayoffOddsIfWin": 98.8,
-        "awayPlayoffOddsIfLoss": 95.6
+        "homePlayoffOddsIfWin": 41.5,
+        "homePlayoffOddsIfLoss": 22.9,
+        "awayPlayoffOddsIfWin": 98.9,
+        "awayPlayoffOddsIfLoss": 95.3
       },
       {
         "gameId": "401873098",
@@ -16339,10 +16339,10 @@
         "date": "2026-12-06T18:00Z",
         "home": "ATL",
         "away": "DET",
-        "homePlayoffOddsIfWin": 15.8,
-        "homePlayoffOddsIfLoss": 6.8,
-        "awayPlayoffOddsIfWin": 78.6,
-        "awayPlayoffOddsIfLoss": 59.4
+        "homePlayoffOddsIfWin": 14.9,
+        "homePlayoffOddsIfLoss": 6.1,
+        "awayPlayoffOddsIfWin": 75.7,
+        "awayPlayoffOddsIfLoss": 58.3
       },
       {
         "gameId": "401873100",
@@ -16350,10 +16350,10 @@
         "date": "2026-12-06T18:00Z",
         "home": "CHI",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 87.2,
-        "homePlayoffOddsIfLoss": 72.7,
-        "awayPlayoffOddsIfWin": 94.4,
-        "awayPlayoffOddsIfLoss": 85.3
+        "homePlayoffOddsIfWin": 87.5,
+        "homePlayoffOddsIfLoss": 72.8,
+        "awayPlayoffOddsIfWin": 94,
+        "awayPlayoffOddsIfLoss": 84.9
       },
       {
         "gameId": "401873097",
@@ -16361,10 +16361,10 @@
         "date": "2026-12-06T18:00Z",
         "home": "CLE",
         "away": "CIN",
-        "homePlayoffOddsIfWin": 30.3,
-        "homePlayoffOddsIfLoss": 11.9,
-        "awayPlayoffOddsIfWin": 81.7,
-        "awayPlayoffOddsIfLoss": 61.2
+        "homePlayoffOddsIfWin": 29.9,
+        "homePlayoffOddsIfLoss": 12.1,
+        "awayPlayoffOddsIfWin": 82,
+        "awayPlayoffOddsIfLoss": 62.1
       },
       {
         "gameId": "401873102",
@@ -16372,10 +16372,10 @@
         "date": "2026-12-06T18:00Z",
         "home": "TEN",
         "away": "WSH",
-        "homePlayoffOddsIfWin": 0.3,
+        "homePlayoffOddsIfWin": 0.2,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 14.5,
-        "awayPlayoffOddsIfLoss": 5.7
+        "awayPlayoffOddsIfWin": 14.3,
+        "awayPlayoffOddsIfLoss": 5.9
       },
       {
         "gameId": "401873099",
@@ -16383,10 +16383,10 @@
         "date": "2026-12-06T18:00Z",
         "home": "NO",
         "away": "GB",
-        "homePlayoffOddsIfWin": 18.9,
-        "homePlayoffOddsIfLoss": 8.5,
-        "awayPlayoffOddsIfWin": 65,
-        "awayPlayoffOddsIfLoss": 44.5
+        "homePlayoffOddsIfWin": 20.6,
+        "homePlayoffOddsIfLoss": 9.3,
+        "awayPlayoffOddsIfWin": 66.2,
+        "awayPlayoffOddsIfLoss": 45.2
       },
       {
         "gameId": "401873095",
@@ -16394,10 +16394,10 @@
         "date": "2026-12-06T18:00Z",
         "home": "NYG",
         "away": "SF",
-        "homePlayoffOddsIfWin": 27.7,
-        "homePlayoffOddsIfLoss": 13.8,
+        "homePlayoffOddsIfWin": 29.2,
+        "homePlayoffOddsIfLoss": 13.6,
         "awayPlayoffOddsIfWin": 99.9,
-        "awayPlayoffOddsIfLoss": 99.3
+        "awayPlayoffOddsIfLoss": 99.5
       },
       {
         "gameId": "401873101",
@@ -16405,8 +16405,8 @@
         "date": "2026-12-06T18:00Z",
         "home": "TB",
         "away": "LAC",
-        "homePlayoffOddsIfWin": 16.8,
-        "homePlayoffOddsIfLoss": 7,
+        "homePlayoffOddsIfWin": 16.2,
+        "homePlayoffOddsIfLoss": 6.9,
         "awayPlayoffOddsIfWin": 0.3,
         "awayPlayoffOddsIfLoss": 0
       },
@@ -16416,9 +16416,9 @@
         "date": "2026-12-06T21:05Z",
         "home": "DEN",
         "away": "MIA",
-        "homePlayoffOddsIfWin": 74,
-        "homePlayoffOddsIfLoss": 51.6,
-        "awayPlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 73.8,
+        "homePlayoffOddsIfLoss": 54.3,
+        "awayPlayoffOddsIfWin": 0,
         "awayPlayoffOddsIfLoss": 0
       },
       {
@@ -16428,9 +16428,9 @@
         "home": "ARI",
         "away": "PHI",
         "homePlayoffOddsIfWin": 1.9,
-        "homePlayoffOddsIfLoss": 0.5,
-        "awayPlayoffOddsIfWin": 12.1,
-        "awayPlayoffOddsIfLoss": 5.6
+        "homePlayoffOddsIfLoss": 0.4,
+        "awayPlayoffOddsIfWin": 13,
+        "awayPlayoffOddsIfLoss": 5.9
       },
       {
         "gameId": "401873106",
@@ -16438,10 +16438,10 @@
         "date": "2026-12-06T21:25Z",
         "home": "MIN",
         "away": "CAR",
-        "homePlayoffOddsIfWin": 93.5,
-        "homePlayoffOddsIfLoss": 84.7,
-        "awayPlayoffOddsIfWin": 80.9,
-        "awayPlayoffOddsIfLoss": 63.2
+        "homePlayoffOddsIfWin": 93.9,
+        "homePlayoffOddsIfLoss": 84.6,
+        "awayPlayoffOddsIfWin": 79.7,
+        "awayPlayoffOddsIfLoss": 64
       },
       {
         "gameId": "401873105",
@@ -16449,10 +16449,10 @@
         "date": "2026-12-06T21:25Z",
         "home": "NE",
         "away": "BUF",
-        "homePlayoffOddsIfWin": 83.2,
-        "homePlayoffOddsIfLoss": 61.4,
-        "awayPlayoffOddsIfWin": 98.5,
-        "awayPlayoffOddsIfLoss": 93.3
+        "homePlayoffOddsIfWin": 82.8,
+        "homePlayoffOddsIfLoss": 62.6,
+        "awayPlayoffOddsIfWin": 98.3,
+        "awayPlayoffOddsIfLoss": 93
       },
       {
         "gameId": "401873107",
@@ -16460,10 +16460,10 @@
         "date": "2026-12-07T01:20Z",
         "home": "PIT",
         "away": "HOU",
-        "homePlayoffOddsIfWin": 57.6,
-        "homePlayoffOddsIfLoss": 33.1,
-        "awayPlayoffOddsIfWin": 55.9,
-        "awayPlayoffOddsIfLoss": 31.2
+        "homePlayoffOddsIfWin": 57.9,
+        "homePlayoffOddsIfLoss": 31.6,
+        "awayPlayoffOddsIfWin": 55.6,
+        "awayPlayoffOddsIfLoss": 30.4
       },
       {
         "gameId": "401873108",
@@ -16471,10 +16471,10 @@
         "date": "2026-12-08T01:15Z",
         "home": "SEA",
         "away": "DAL",
-        "homePlayoffOddsIfWin": 66.9,
-        "homePlayoffOddsIfLoss": 44.8,
-        "awayPlayoffOddsIfWin": 79.7,
-        "awayPlayoffOddsIfLoss": 61
+        "homePlayoffOddsIfWin": 67.8,
+        "homePlayoffOddsIfLoss": 45.3,
+        "awayPlayoffOddsIfWin": 79.3,
+        "awayPlayoffOddsIfLoss": 61.6
       },
       {
         "gameId": "401873109",
@@ -16482,10 +16482,10 @@
         "date": "2026-12-11T01:15Z",
         "home": "NE",
         "away": "MIN",
-        "homePlayoffOddsIfWin": 80.5,
-        "homePlayoffOddsIfLoss": 59.7,
+        "homePlayoffOddsIfWin": 81.4,
+        "homePlayoffOddsIfLoss": 59.8,
         "awayPlayoffOddsIfWin": 94.9,
-        "awayPlayoffOddsIfLoss": 86.5
+        "awayPlayoffOddsIfLoss": 86.8
       },
       {
         "gameId": "401873110",
@@ -16493,10 +16493,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "CLE",
         "away": "ATL",
-        "homePlayoffOddsIfWin": 24.2,
-        "homePlayoffOddsIfLoss": 10.6,
-        "awayPlayoffOddsIfWin": 14.2,
-        "awayPlayoffOddsIfLoss": 5.6
+        "homePlayoffOddsIfWin": 24.4,
+        "homePlayoffOddsIfLoss": 10.3,
+        "awayPlayoffOddsIfWin": 13.4,
+        "awayPlayoffOddsIfLoss": 5.1
       },
       {
         "gameId": "401873117",
@@ -16504,9 +16504,9 @@
         "date": "2026-12-13T18:00Z",
         "home": "DET",
         "away": "TEN",
-        "homePlayoffOddsIfWin": 75.5,
-        "homePlayoffOddsIfLoss": 56.5,
-        "awayPlayoffOddsIfWin": 0.4,
+        "homePlayoffOddsIfWin": 73.3,
+        "homePlayoffOddsIfLoss": 55,
+        "awayPlayoffOddsIfWin": 0.3,
         "awayPlayoffOddsIfLoss": 0.1
       },
       {
@@ -16515,10 +16515,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "MIA",
         "away": "CHI",
-        "homePlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 0,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 83.3,
-        "awayPlayoffOddsIfLoss": 67.6
+        "awayPlayoffOddsIfWin": 83.6,
+        "awayPlayoffOddsIfLoss": 66.4
       },
       {
         "gameId": "401873112",
@@ -16526,10 +16526,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "NYJ",
         "away": "DEN",
-        "homePlayoffOddsIfWin": 3.8,
-        "homePlayoffOddsIfLoss": 0.4,
+        "homePlayoffOddsIfWin": 3.1,
+        "homePlayoffOddsIfLoss": 0.7,
         "awayPlayoffOddsIfWin": 77.3,
-        "awayPlayoffOddsIfLoss": 56.9
+        "awayPlayoffOddsIfLoss": 57.6
       },
       {
         "gameId": "401873114",
@@ -16537,10 +16537,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "PHI",
         "away": "IND",
-        "homePlayoffOddsIfWin": 13.3,
-        "homePlayoffOddsIfLoss": 5.6,
-        "awayPlayoffOddsIfWin": 12.5,
-        "awayPlayoffOddsIfLoss": 4.9
+        "homePlayoffOddsIfWin": 14,
+        "homePlayoffOddsIfLoss": 5.8,
+        "awayPlayoffOddsIfWin": 12.9,
+        "awayPlayoffOddsIfLoss": 4.1
       },
       {
         "gameId": "401873113",
@@ -16548,10 +16548,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "WSH",
         "away": "HOU",
-        "homePlayoffOddsIfWin": 16.8,
-        "homePlayoffOddsIfLoss": 7.3,
-        "awayPlayoffOddsIfWin": 53.3,
-        "awayPlayoffOddsIfLoss": 30.4
+        "homePlayoffOddsIfWin": 17.8,
+        "homePlayoffOddsIfLoss": 7,
+        "awayPlayoffOddsIfWin": 52.2,
+        "awayPlayoffOddsIfLoss": 30.1
       },
       {
         "gameId": "401873115",
@@ -16559,10 +16559,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "CAR",
         "away": "NO",
-        "homePlayoffOddsIfWin": 77.8,
-        "homePlayoffOddsIfLoss": 55.4,
-        "awayPlayoffOddsIfWin": 22.4,
-        "awayPlayoffOddsIfLoss": 7.1
+        "homePlayoffOddsIfWin": 78.1,
+        "homePlayoffOddsIfLoss": 54.1,
+        "awayPlayoffOddsIfWin": 25.6,
+        "awayPlayoffOddsIfLoss": 7.3
       },
       {
         "gameId": "401873116",
@@ -16570,10 +16570,10 @@
         "date": "2026-12-13T18:00Z",
         "home": "BAL",
         "away": "TB",
-        "homePlayoffOddsIfWin": 77.4,
-        "homePlayoffOddsIfLoss": 58.1,
-        "awayPlayoffOddsIfWin": 20.8,
-        "awayPlayoffOddsIfLoss": 9.2
+        "homePlayoffOddsIfWin": 79.1,
+        "homePlayoffOddsIfLoss": 57.9,
+        "awayPlayoffOddsIfWin": 19.5,
+        "awayPlayoffOddsIfLoss": 9.4
       },
       {
         "gameId": "401873118",
@@ -16581,9 +16581,9 @@
         "date": "2026-12-13T21:05Z",
         "home": "LV",
         "away": "LAC",
-        "homePlayoffOddsIfWin": 15.7,
-        "homePlayoffOddsIfLoss": 5.3,
-        "awayPlayoffOddsIfWin": 0.2,
+        "homePlayoffOddsIfWin": 14.9,
+        "homePlayoffOddsIfLoss": 6,
+        "awayPlayoffOddsIfWin": 0.3,
         "awayPlayoffOddsIfLoss": 0
       },
       {
@@ -16592,10 +16592,10 @@
         "date": "2026-12-13T21:25Z",
         "home": "CIN",
         "away": "KC",
-        "homePlayoffOddsIfWin": 85,
-        "homePlayoffOddsIfLoss": 68.8,
-        "awayPlayoffOddsIfWin": 98.8,
-        "awayPlayoffOddsIfLoss": 95.1
+        "homePlayoffOddsIfWin": 85.6,
+        "homePlayoffOddsIfLoss": 69.1,
+        "awayPlayoffOddsIfWin": 98.7,
+        "awayPlayoffOddsIfLoss": 95.2
       },
       {
         "gameId": "401873120",
@@ -16604,9 +16604,9 @@
         "home": "SF",
         "away": "LAR",
         "homePlayoffOddsIfWin": 99.9,
-        "homePlayoffOddsIfLoss": 99.7,
-        "awayPlayoffOddsIfWin": 43.8,
-        "awayPlayoffOddsIfLoss": 25.7
+        "homePlayoffOddsIfLoss": 99.6,
+        "awayPlayoffOddsIfWin": 44.5,
+        "awayPlayoffOddsIfLoss": 24.8
       },
       {
         "gameId": "401873121",
@@ -16614,10 +16614,10 @@
         "date": "2026-12-13T21:25Z",
         "home": "SEA",
         "away": "NYG",
-        "homePlayoffOddsIfWin": 61.9,
-        "homePlayoffOddsIfLoss": 39.3,
-        "awayPlayoffOddsIfWin": 27.9,
-        "awayPlayoffOddsIfLoss": 13.5
+        "homePlayoffOddsIfWin": 62.6,
+        "homePlayoffOddsIfLoss": 41.4,
+        "awayPlayoffOddsIfWin": 28.7,
+        "awayPlayoffOddsIfLoss": 13.3
       },
       {
         "gameId": "401873122",
@@ -16625,10 +16625,10 @@
         "date": "2026-12-14T01:20Z",
         "home": "GB",
         "away": "BUF",
-        "homePlayoffOddsIfWin": 69.1,
-        "homePlayoffOddsIfLoss": 48.6,
-        "awayPlayoffOddsIfWin": 98.1,
-        "awayPlayoffOddsIfLoss": 93.4
+        "homePlayoffOddsIfWin": 70.1,
+        "homePlayoffOddsIfLoss": 49.7,
+        "awayPlayoffOddsIfWin": 97.8,
+        "awayPlayoffOddsIfLoss": 93.1
       },
       {
         "gameId": "401873123",
@@ -16636,10 +16636,10 @@
         "date": "2026-12-15T01:15Z",
         "home": "JAX",
         "away": "PIT",
-        "homePlayoffOddsIfWin": 93,
-        "homePlayoffOddsIfLoss": 80.7,
-        "awayPlayoffOddsIfWin": 59.1,
-        "awayPlayoffOddsIfLoss": 36.4
+        "homePlayoffOddsIfWin": 92.7,
+        "homePlayoffOddsIfLoss": 80.6,
+        "awayPlayoffOddsIfWin": 59.8,
+        "awayPlayoffOddsIfLoss": 35.4
       },
       {
         "gameId": "401873124",
@@ -16647,10 +16647,10 @@
         "date": "2026-12-18T01:15Z",
         "home": "LAC",
         "away": "SF",
-        "homePlayoffOddsIfWin": 0.4,
-        "homePlayoffOddsIfLoss": 0,
+        "homePlayoffOddsIfWin": 0.2,
+        "homePlayoffOddsIfLoss": 0.1,
         "awayPlayoffOddsIfWin": 99.9,
-        "awayPlayoffOddsIfLoss": 99.6
+        "awayPlayoffOddsIfLoss": 99.4
       },
       {
         "gameId": "401873125",
@@ -16658,10 +16658,10 @@
         "date": "2026-12-19T22:00Z",
         "home": "PHI",
         "away": "SEA",
-        "homePlayoffOddsIfWin": 15.2,
-        "homePlayoffOddsIfLoss": 6.4,
-        "awayPlayoffOddsIfWin": 63.7,
-        "awayPlayoffOddsIfLoss": 42.1
+        "homePlayoffOddsIfWin": 15.3,
+        "homePlayoffOddsIfLoss": 6.9,
+        "awayPlayoffOddsIfWin": 64.9,
+        "awayPlayoffOddsIfLoss": 42
       },
       {
         "gameId": "401873126",
@@ -16669,10 +16669,10 @@
         "date": "2026-12-20T01:20Z",
         "home": "BUF",
         "away": "CHI",
-        "homePlayoffOddsIfWin": 98.1,
-        "homePlayoffOddsIfLoss": 93.3,
-        "awayPlayoffOddsIfWin": 89.1,
-        "awayPlayoffOddsIfLoss": 74.5
+        "homePlayoffOddsIfWin": 98,
+        "homePlayoffOddsIfLoss": 92.8,
+        "awayPlayoffOddsIfWin": 88.9,
+        "awayPlayoffOddsIfLoss": 74.6
       },
       {
         "gameId": "401873133",
@@ -16680,9 +16680,9 @@
         "date": "2026-12-20T18:00Z",
         "home": "GB",
         "away": "MIA",
-        "homePlayoffOddsIfWin": 61.3,
-        "homePlayoffOddsIfLoss": 39.2,
-        "awayPlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 61.9,
+        "homePlayoffOddsIfLoss": 41.7,
+        "awayPlayoffOddsIfWin": 0,
         "awayPlayoffOddsIfLoss": 0
       },
       {
@@ -16691,10 +16691,10 @@
         "date": "2026-12-20T18:00Z",
         "home": "TEN",
         "away": "IND",
-        "homePlayoffOddsIfWin": 0.2,
-        "homePlayoffOddsIfLoss": 0.1,
-        "awayPlayoffOddsIfWin": 12.8,
-        "awayPlayoffOddsIfLoss": 4.4
+        "homePlayoffOddsIfWin": 0.3,
+        "homePlayoffOddsIfLoss": 0,
+        "awayPlayoffOddsIfWin": 12.9,
+        "awayPlayoffOddsIfLoss": 4
       },
       {
         "gameId": "401873130",
@@ -16702,10 +16702,10 @@
         "date": "2026-12-20T18:00Z",
         "home": "NYG",
         "away": "CLE",
-        "homePlayoffOddsIfWin": 21.6,
-        "homePlayoffOddsIfLoss": 10.4,
-        "awayPlayoffOddsIfWin": 23.8,
-        "awayPlayoffOddsIfLoss": 10.2
+        "homePlayoffOddsIfWin": 22.2,
+        "homePlayoffOddsIfLoss": 9.8,
+        "awayPlayoffOddsIfWin": 23.3,
+        "awayPlayoffOddsIfLoss": 10.8
       },
       {
         "gameId": "401873128",
@@ -16713,10 +16713,10 @@
         "date": "2026-12-20T18:00Z",
         "home": "PIT",
         "away": "BAL",
-        "homePlayoffOddsIfWin": 57.6,
-        "homePlayoffOddsIfLoss": 33.7,
-        "awayPlayoffOddsIfWin": 80.1,
-        "awayPlayoffOddsIfLoss": 57.3
+        "homePlayoffOddsIfWin": 57.9,
+        "homePlayoffOddsIfLoss": 32.7,
+        "awayPlayoffOddsIfWin": 81.1,
+        "awayPlayoffOddsIfLoss": 58.6
       },
       {
         "gameId": "401873134",
@@ -16724,10 +16724,10 @@
         "date": "2026-12-20T18:00Z",
         "home": "TB",
         "away": "NO",
-        "homePlayoffOddsIfWin": 16.6,
-        "homePlayoffOddsIfLoss": 5.4,
-        "awayPlayoffOddsIfWin": 20.8,
-        "awayPlayoffOddsIfLoss": 8.3
+        "homePlayoffOddsIfWin": 15.9,
+        "homePlayoffOddsIfLoss": 5.7,
+        "awayPlayoffOddsIfWin": 22.2,
+        "awayPlayoffOddsIfLoss": 9.4
       },
       {
         "gameId": "401873127",
@@ -16735,10 +16735,10 @@
         "date": "2026-12-20T18:00Z",
         "home": "WSH",
         "away": "ATL",
-        "homePlayoffOddsIfWin": 14.5,
-        "homePlayoffOddsIfLoss": 5.6,
-        "awayPlayoffOddsIfWin": 14.5,
-        "awayPlayoffOddsIfLoss": 6.3
+        "homePlayoffOddsIfWin": 15.2,
+        "homePlayoffOddsIfLoss": 5.2,
+        "awayPlayoffOddsIfWin": 13.7,
+        "awayPlayoffOddsIfLoss": 5.5
       },
       {
         "gameId": "401873129",
@@ -16746,10 +16746,10 @@
         "date": "2026-12-20T18:00Z",
         "home": "CAR",
         "away": "CIN",
-        "homePlayoffOddsIfWin": 78.3,
-        "homePlayoffOddsIfLoss": 63.7,
-        "awayPlayoffOddsIfWin": 82.9,
-        "awayPlayoffOddsIfLoss": 66.7
+        "homePlayoffOddsIfWin": 79.3,
+        "homePlayoffOddsIfLoss": 62.5,
+        "awayPlayoffOddsIfWin": 84.6,
+        "awayPlayoffOddsIfLoss": 65.9
       },
       {
         "gameId": "401873132",
@@ -16757,9 +16757,9 @@
         "date": "2026-12-20T18:00Z",
         "home": "HOU",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 59.7,
-        "homePlayoffOddsIfLoss": 31.6,
-        "awayPlayoffOddsIfWin": 96,
+        "homePlayoffOddsIfWin": 57.7,
+        "homePlayoffOddsIfLoss": 32,
+        "awayPlayoffOddsIfWin": 95.5,
         "awayPlayoffOddsIfLoss": 83
       },
       {
@@ -16768,9 +16768,9 @@
         "date": "2026-12-20T21:05Z",
         "home": "ARI",
         "away": "NYJ",
-        "homePlayoffOddsIfWin": 1.8,
-        "homePlayoffOddsIfLoss": 0.6,
-        "awayPlayoffOddsIfWin": 2.8,
+        "homePlayoffOddsIfWin": 1.9,
+        "homePlayoffOddsIfLoss": 0.4,
+        "awayPlayoffOddsIfWin": 2.7,
         "awayPlayoffOddsIfLoss": 0.6
       },
       {
@@ -16779,10 +16779,10 @@
         "date": "2026-12-20T21:25Z",
         "home": "LV",
         "away": "DEN",
-        "homePlayoffOddsIfWin": 17.7,
-        "homePlayoffOddsIfLoss": 6.3,
-        "awayPlayoffOddsIfWin": 78.5,
-        "awayPlayoffOddsIfLoss": 58.4
+        "homePlayoffOddsIfWin": 18.5,
+        "homePlayoffOddsIfLoss": 5.4,
+        "awayPlayoffOddsIfWin": 79.2,
+        "awayPlayoffOddsIfLoss": 58
       },
       {
         "gameId": "401873136",
@@ -16790,10 +16790,10 @@
         "date": "2026-12-20T21:25Z",
         "home": "LAR",
         "away": "DAL",
-        "homePlayoffOddsIfWin": 39.1,
-        "homePlayoffOddsIfLoss": 20.9,
-        "awayPlayoffOddsIfWin": 79.3,
-        "awayPlayoffOddsIfLoss": 61.5
+        "homePlayoffOddsIfWin": 38.6,
+        "homePlayoffOddsIfLoss": 21.5,
+        "awayPlayoffOddsIfWin": 79.6,
+        "awayPlayoffOddsIfLoss": 61.2
       },
       {
         "gameId": "401873138",
@@ -16801,10 +16801,10 @@
         "date": "2026-12-21T01:20Z",
         "home": "MIN",
         "away": "DET",
-        "homePlayoffOddsIfWin": 95,
-        "homePlayoffOddsIfLoss": 84.5,
-        "awayPlayoffOddsIfWin": 81.4,
-        "awayPlayoffOddsIfLoss": 63.3
+        "homePlayoffOddsIfWin": 94.9,
+        "homePlayoffOddsIfLoss": 85.2,
+        "awayPlayoffOddsIfWin": 80.3,
+        "awayPlayoffOddsIfLoss": 59.7
       },
       {
         "gameId": "401873139",
@@ -16812,10 +16812,10 @@
         "date": "2026-12-22T01:15Z",
         "home": "KC",
         "away": "NE",
-        "homePlayoffOddsIfWin": 98.7,
+        "homePlayoffOddsIfWin": 98.5,
         "homePlayoffOddsIfLoss": 94.6,
-        "awayPlayoffOddsIfWin": 84.3,
-        "awayPlayoffOddsIfLoss": 64.7
+        "awayPlayoffOddsIfWin": 84.5,
+        "awayPlayoffOddsIfLoss": 65.5
       },
       {
         "gameId": "401873140",
@@ -16823,10 +16823,10 @@
         "date": "2026-12-25T01:15Z",
         "home": "PHI",
         "away": "HOU",
-        "homePlayoffOddsIfWin": 14.6,
-        "homePlayoffOddsIfLoss": 6.5,
-        "awayPlayoffOddsIfWin": 51.4,
-        "awayPlayoffOddsIfLoss": 30.2
+        "homePlayoffOddsIfWin": 15.7,
+        "homePlayoffOddsIfLoss": 6.6,
+        "awayPlayoffOddsIfWin": 50.8,
+        "awayPlayoffOddsIfLoss": 29.2
       },
       {
         "gameId": "401873141",
@@ -16834,10 +16834,10 @@
         "date": "2026-12-25T18:00Z",
         "home": "CHI",
         "away": "GB",
-        "homePlayoffOddsIfWin": 88,
-        "homePlayoffOddsIfLoss": 67.8,
-        "awayPlayoffOddsIfWin": 72.9,
-        "awayPlayoffOddsIfLoss": 48.6
+        "homePlayoffOddsIfWin": 87.3,
+        "homePlayoffOddsIfLoss": 69.5,
+        "awayPlayoffOddsIfWin": 74,
+        "awayPlayoffOddsIfLoss": 49.2
       },
       {
         "gameId": "401873142",
@@ -16845,10 +16845,10 @@
         "date": "2026-12-25T21:30Z",
         "home": "DEN",
         "away": "BUF",
-        "homePlayoffOddsIfWin": 81.4,
-        "homePlayoffOddsIfLoss": 61.7,
-        "awayPlayoffOddsIfWin": 98.5,
-        "awayPlayoffOddsIfLoss": 92.9
+        "homePlayoffOddsIfWin": 80.7,
+        "homePlayoffOddsIfLoss": 62.5,
+        "awayPlayoffOddsIfWin": 98.3,
+        "awayPlayoffOddsIfLoss": 92.6
       },
       {
         "gameId": "401873143",
@@ -16856,10 +16856,10 @@
         "date": "2026-12-26T01:15Z",
         "home": "SEA",
         "away": "LAR",
-        "homePlayoffOddsIfWin": 70.6,
-        "homePlayoffOddsIfLoss": 43.6,
-        "awayPlayoffOddsIfWin": 44.8,
-        "awayPlayoffOddsIfLoss": 21.2
+        "homePlayoffOddsIfWin": 70.3,
+        "homePlayoffOddsIfLoss": 45.9,
+        "awayPlayoffOddsIfWin": 45.1,
+        "awayPlayoffOddsIfLoss": 20.6
       },
       {
         "gameId": "401873146",
@@ -16867,10 +16867,10 @@
         "date": "2026-12-27T05:00Z",
         "home": "ATL",
         "away": "TB",
-        "homePlayoffOddsIfWin": 15.3,
-        "homePlayoffOddsIfLoss": 6,
-        "awayPlayoffOddsIfWin": 18,
-        "awayPlayoffOddsIfLoss": 6.5
+        "homePlayoffOddsIfWin": 14.8,
+        "homePlayoffOddsIfLoss": 5.1,
+        "awayPlayoffOddsIfWin": 17.1,
+        "awayPlayoffOddsIfLoss": 6.8
       },
       {
         "gameId": "401873145",
@@ -16878,10 +16878,10 @@
         "date": "2026-12-27T05:00Z",
         "home": "IND",
         "away": "CIN",
-        "homePlayoffOddsIfWin": 15.7,
+        "homePlayoffOddsIfWin": 15.4,
         "homePlayoffOddsIfLoss": 5.1,
-        "awayPlayoffOddsIfWin": 84.1,
-        "awayPlayoffOddsIfLoss": 64.4
+        "awayPlayoffOddsIfWin": 83.9,
+        "awayPlayoffOddsIfLoss": 65.8
       },
       {
         "gameId": "401873147",
@@ -16889,10 +16889,10 @@
         "date": "2026-12-27T05:00Z",
         "home": "MIN",
         "away": "WSH",
-        "homePlayoffOddsIfWin": 93,
-        "homePlayoffOddsIfLoss": 83.1,
-        "awayPlayoffOddsIfWin": 18.2,
-        "awayPlayoffOddsIfLoss": 7.2
+        "homePlayoffOddsIfWin": 93.3,
+        "homePlayoffOddsIfLoss": 82.9,
+        "awayPlayoffOddsIfWin": 17.2,
+        "awayPlayoffOddsIfLoss": 7.8
       },
       {
         "gameId": "401873144",
@@ -16900,10 +16900,10 @@
         "date": "2026-12-27T05:00Z",
         "home": "PIT",
         "away": "CAR",
-        "homePlayoffOddsIfWin": 52.3,
-        "homePlayoffOddsIfLoss": 32.3,
-        "awayPlayoffOddsIfWin": 78.6,
-        "awayPlayoffOddsIfLoss": 62.9
+        "homePlayoffOddsIfWin": 52.2,
+        "homePlayoffOddsIfLoss": 31.4,
+        "awayPlayoffOddsIfWin": 78.7,
+        "awayPlayoffOddsIfLoss": 62.4
       },
       {
         "gameId": "401873150",
@@ -16911,7 +16911,7 @@
         "date": "2026-12-27T18:00Z",
         "home": "MIA",
         "away": "LAC",
-        "homePlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 0,
         "homePlayoffOddsIfLoss": 0,
         "awayPlayoffOddsIfWin": 0.2,
         "awayPlayoffOddsIfLoss": 0
@@ -16922,10 +16922,10 @@
         "date": "2026-12-27T18:00Z",
         "home": "NO",
         "away": "ARI",
-        "homePlayoffOddsIfWin": 15.8,
-        "homePlayoffOddsIfLoss": 7.3,
+        "homePlayoffOddsIfWin": 17.3,
+        "homePlayoffOddsIfLoss": 7.8,
         "awayPlayoffOddsIfWin": 2.2,
-        "awayPlayoffOddsIfLoss": 0.6
+        "awayPlayoffOddsIfLoss": 0.5
       },
       {
         "gameId": "401873151",
@@ -16934,9 +16934,9 @@
         "home": "NYJ",
         "away": "NE",
         "homePlayoffOddsIfWin": 3.5,
-        "homePlayoffOddsIfLoss": 0.7,
-        "awayPlayoffOddsIfWin": 78.3,
-        "awayPlayoffOddsIfLoss": 57.2
+        "homePlayoffOddsIfLoss": 0.6,
+        "awayPlayoffOddsIfWin": 78.8,
+        "awayPlayoffOddsIfLoss": 57.3
       },
       {
         "gameId": "401873149",
@@ -16944,10 +16944,10 @@
         "date": "2026-12-27T18:00Z",
         "home": "BAL",
         "away": "CLE",
-        "homePlayoffOddsIfWin": 75.4,
-        "homePlayoffOddsIfLoss": 53.1,
-        "awayPlayoffOddsIfWin": 33,
-        "awayPlayoffOddsIfLoss": 13.4
+        "homePlayoffOddsIfWin": 76.6,
+        "homePlayoffOddsIfLoss": 54.7,
+        "awayPlayoffOddsIfWin": 33.1,
+        "awayPlayoffOddsIfLoss": 13.3
       },
       {
         "gameId": "401873152",
@@ -16955,8 +16955,8 @@
         "date": "2026-12-27T21:05Z",
         "home": "LV",
         "away": "TEN",
-        "homePlayoffOddsIfWin": 13.8,
-        "homePlayoffOddsIfLoss": 5.7,
+        "homePlayoffOddsIfWin": 13.9,
+        "homePlayoffOddsIfLoss": 5,
         "awayPlayoffOddsIfWin": 0.3,
         "awayPlayoffOddsIfLoss": 0
       },
@@ -16966,10 +16966,10 @@
         "date": "2026-12-27T21:25Z",
         "home": "KC",
         "away": "SF",
-        "homePlayoffOddsIfWin": 98.8,
-        "homePlayoffOddsIfLoss": 95.7,
+        "homePlayoffOddsIfWin": 98.7,
+        "homePlayoffOddsIfLoss": 95.6,
         "awayPlayoffOddsIfWin": 99.9,
-        "awayPlayoffOddsIfLoss": 99.8
+        "awayPlayoffOddsIfLoss": 99.7
       },
       {
         "gameId": "401873154",
@@ -16977,10 +16977,10 @@
         "date": "2026-12-28T01:20Z",
         "home": "DAL",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 78.1,
-        "homePlayoffOddsIfLoss": 60.5,
-        "awayPlayoffOddsIfWin": 94,
-        "awayPlayoffOddsIfLoss": 83.8
+        "homePlayoffOddsIfWin": 78.6,
+        "homePlayoffOddsIfLoss": 59.9,
+        "awayPlayoffOddsIfWin": 93.4,
+        "awayPlayoffOddsIfLoss": 84.1
       },
       {
         "gameId": "401873155",
@@ -16988,9 +16988,9 @@
         "date": "2026-12-29T01:15Z",
         "home": "DET",
         "away": "NYG",
-        "homePlayoffOddsIfWin": 75.6,
-        "homePlayoffOddsIfLoss": 55.8,
-        "awayPlayoffOddsIfWin": 27.4,
+        "homePlayoffOddsIfWin": 73.6,
+        "homePlayoffOddsIfLoss": 52.5,
+        "awayPlayoffOddsIfWin": 27.3,
         "awayPlayoffOddsIfLoss": 12.9
       },
       {
@@ -16999,10 +16999,10 @@
         "date": "2027-01-01T01:15Z",
         "home": "CIN",
         "away": "BAL",
-        "homePlayoffOddsIfWin": 85.8,
-        "homePlayoffOddsIfLoss": 65.5,
-        "awayPlayoffOddsIfWin": 81.4,
-        "awayPlayoffOddsIfLoss": 61.1
+        "homePlayoffOddsIfWin": 84.8,
+        "homePlayoffOddsIfLoss": 67.5,
+        "awayPlayoffOddsIfWin": 82,
+        "awayPlayoffOddsIfLoss": 62.9
       },
       {
         "gameId": "401873157",
@@ -17010,9 +17010,9 @@
         "date": "2027-01-03T05:00Z",
         "home": "NE",
         "away": "DEN",
-        "homePlayoffOddsIfWin": 81.2,
-        "homePlayoffOddsIfLoss": 58.9,
-        "awayPlayoffOddsIfWin": 82.5,
+        "homePlayoffOddsIfWin": 81.5,
+        "homePlayoffOddsIfLoss": 59.5,
+        "awayPlayoffOddsIfWin": 83.1,
         "awayPlayoffOddsIfLoss": 61.1
       },
       {
@@ -17022,9 +17022,9 @@
         "home": "LAC",
         "away": "KC",
         "homePlayoffOddsIfWin": 0.3,
-        "homePlayoffOddsIfLoss": 0.1,
-        "awayPlayoffOddsIfWin": 98.3,
-        "awayPlayoffOddsIfLoss": 94.7
+        "homePlayoffOddsIfLoss": 0,
+        "awayPlayoffOddsIfWin": 98.4,
+        "awayPlayoffOddsIfLoss": 94.2
       },
       {
         "gameId": "401873159",
@@ -17032,10 +17032,10 @@
         "date": "2027-01-03T05:00Z",
         "home": "TB",
         "away": "LAR",
-        "homePlayoffOddsIfWin": 19.5,
-        "homePlayoffOddsIfLoss": 8.3,
-        "awayPlayoffOddsIfWin": 40.7,
-        "awayPlayoffOddsIfLoss": 20.1
+        "homePlayoffOddsIfWin": 19.1,
+        "homePlayoffOddsIfLoss": 8.1,
+        "awayPlayoffOddsIfWin": 39.9,
+        "awayPlayoffOddsIfLoss": 20.5
       },
       {
         "gameId": "401873160",
@@ -17043,9 +17043,9 @@
         "date": "2027-01-03T05:00Z",
         "home": "JAX",
         "away": "WSH",
-        "homePlayoffOddsIfWin": 92.2,
-        "homePlayoffOddsIfLoss": 79.7,
-        "awayPlayoffOddsIfWin": 18.7,
+        "homePlayoffOddsIfWin": 91.8,
+        "homePlayoffOddsIfLoss": 80,
+        "awayPlayoffOddsIfWin": 19.2,
         "awayPlayoffOddsIfLoss": 8.1
       },
       {
@@ -17054,10 +17054,10 @@
         "date": "2027-01-03T18:00Z",
         "home": "ATL",
         "away": "NO",
-        "homePlayoffOddsIfWin": 14.3,
-        "homePlayoffOddsIfLoss": 4.2,
-        "awayPlayoffOddsIfWin": 19.1,
-        "awayPlayoffOddsIfLoss": 7.4
+        "homePlayoffOddsIfWin": 13.1,
+        "homePlayoffOddsIfLoss": 4.5,
+        "awayPlayoffOddsIfWin": 20.5,
+        "awayPlayoffOddsIfLoss": 8.1
       },
       {
         "gameId": "401873162",
@@ -17065,10 +17065,10 @@
         "date": "2027-01-03T18:00Z",
         "home": "CLE",
         "away": "IND",
-        "homePlayoffOddsIfWin": 25.1,
-        "homePlayoffOddsIfLoss": 11.6,
-        "awayPlayoffOddsIfWin": 13.4,
-        "awayPlayoffOddsIfLoss": 4.2
+        "homePlayoffOddsIfWin": 25.8,
+        "homePlayoffOddsIfLoss": 11.1,
+        "awayPlayoffOddsIfWin": 13.3,
+        "awayPlayoffOddsIfLoss": 3.8
       },
       {
         "gameId": "401873165",
@@ -17076,10 +17076,10 @@
         "date": "2027-01-03T18:00Z",
         "home": "DAL",
         "away": "NYG",
-        "homePlayoffOddsIfWin": 74.9,
-        "homePlayoffOddsIfLoss": 44.6,
-        "awayPlayoffOddsIfWin": 35.3,
-        "awayPlayoffOddsIfLoss": 10.5
+        "homePlayoffOddsIfWin": 74.4,
+        "homePlayoffOddsIfLoss": 46.1,
+        "awayPlayoffOddsIfWin": 33.9,
+        "awayPlayoffOddsIfLoss": 11
       },
       {
         "gameId": "401873166",
@@ -17089,8 +17089,8 @@
         "away": "PIT",
         "homePlayoffOddsIfWin": 0.3,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 50.2,
-        "awayPlayoffOddsIfLoss": 30.7
+        "awayPlayoffOddsIfWin": 49.7,
+        "awayPlayoffOddsIfLoss": 30.2
       },
       {
         "gameId": "401873161",
@@ -17098,10 +17098,10 @@
         "date": "2027-01-03T18:00Z",
         "home": "MIA",
         "away": "BUF",
-        "homePlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 0,
         "homePlayoffOddsIfLoss": 0,
-        "awayPlayoffOddsIfWin": 97,
-        "awayPlayoffOddsIfLoss": 90.8
+        "awayPlayoffOddsIfWin": 96.9,
+        "awayPlayoffOddsIfLoss": 89.9
       },
       {
         "gameId": "401873163",
@@ -17110,9 +17110,9 @@
         "home": "NYJ",
         "away": "MIN",
         "homePlayoffOddsIfWin": 3.3,
-        "homePlayoffOddsIfLoss": 0.8,
-        "awayPlayoffOddsIfWin": 93,
-        "awayPlayoffOddsIfLoss": 83.9
+        "homePlayoffOddsIfLoss": 0.7,
+        "awayPlayoffOddsIfWin": 93.2,
+        "awayPlayoffOddsIfLoss": 84.2
       },
       {
         "gameId": "401873167",
@@ -17120,10 +17120,10 @@
         "date": "2027-01-03T18:00Z",
         "home": "CAR",
         "away": "SEA",
-        "homePlayoffOddsIfWin": 79.6,
-        "homePlayoffOddsIfLoss": 63.6,
-        "awayPlayoffOddsIfWin": 66.9,
-        "awayPlayoffOddsIfLoss": 45.6
+        "homePlayoffOddsIfWin": 79.1,
+        "homePlayoffOddsIfLoss": 63.4,
+        "awayPlayoffOddsIfWin": 68.7,
+        "awayPlayoffOddsIfLoss": 45.5
       },
       {
         "gameId": "401873168",
@@ -17131,10 +17131,10 @@
         "date": "2027-01-03T21:05Z",
         "home": "ARI",
         "away": "LV",
-        "homePlayoffOddsIfWin": 2.2,
-        "homePlayoffOddsIfLoss": 0.4,
-        "awayPlayoffOddsIfWin": 15.8,
-        "awayPlayoffOddsIfLoss": 5.1
+        "homePlayoffOddsIfWin": 2,
+        "homePlayoffOddsIfLoss": 0.6,
+        "awayPlayoffOddsIfWin": 14.7,
+        "awayPlayoffOddsIfLoss": 5.8
       },
       {
         "gameId": "401873169",
@@ -17142,10 +17142,10 @@
         "date": "2027-01-03T21:25Z",
         "home": "CHI",
         "away": "DET",
-        "homePlayoffOddsIfWin": 87.3,
-        "homePlayoffOddsIfLoss": 70.5,
-        "awayPlayoffOddsIfWin": 82.9,
-        "awayPlayoffOddsIfLoss": 64.3
+        "homePlayoffOddsIfWin": 87.8,
+        "homePlayoffOddsIfLoss": 69.6,
+        "awayPlayoffOddsIfWin": 81.6,
+        "awayPlayoffOddsIfLoss": 61.6
       },
       {
         "gameId": "401873170",
@@ -17154,9 +17154,9 @@
         "home": "SF",
         "away": "PHI",
         "homePlayoffOddsIfWin": 99.9,
-        "homePlayoffOddsIfLoss": 99.3,
-        "awayPlayoffOddsIfWin": 15.5,
-        "awayPlayoffOddsIfLoss": 7.6
+        "homePlayoffOddsIfLoss": 99.4,
+        "awayPlayoffOddsIfWin": 15.9,
+        "awayPlayoffOddsIfLoss": 8.1
       },
       {
         "gameId": "401873171",
@@ -17164,10 +17164,10 @@
         "date": "2027-01-05T01:15Z",
         "home": "GB",
         "away": "HOU",
-        "homePlayoffOddsIfWin": 68.1,
-        "homePlayoffOddsIfLoss": 47.8,
-        "awayPlayoffOddsIfWin": 55.6,
-        "awayPlayoffOddsIfLoss": 35.1
+        "homePlayoffOddsIfWin": 69,
+        "homePlayoffOddsIfLoss": 49,
+        "awayPlayoffOddsIfWin": 55.5,
+        "awayPlayoffOddsIfLoss": 33.1
       },
       {
         "gameId": "401873181",
@@ -17175,9 +17175,9 @@
         "date": "2027-01-10T05:00Z",
         "home": "BUF",
         "away": "NYJ",
-        "homePlayoffOddsIfWin": 97.3,
-        "homePlayoffOddsIfLoss": 90.3,
-        "awayPlayoffOddsIfWin": 4.8,
+        "homePlayoffOddsIfWin": 97,
+        "homePlayoffOddsIfLoss": 90.2,
+        "awayPlayoffOddsIfWin": 4.4,
         "awayPlayoffOddsIfLoss": 0.9
       },
       {
@@ -17186,10 +17186,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "CIN",
         "away": "CLE",
-        "homePlayoffOddsIfWin": 80.6,
-        "homePlayoffOddsIfLoss": 59.3,
-        "awayPlayoffOddsIfWin": 30.1,
-        "awayPlayoffOddsIfLoss": 13.5
+        "homePlayoffOddsIfWin": 80.9,
+        "homePlayoffOddsIfLoss": 59.4,
+        "awayPlayoffOddsIfWin": 31.2,
+        "awayPlayoffOddsIfLoss": 13.3
       },
       {
         "gameId": "401873179",
@@ -17197,8 +17197,8 @@
         "date": "2027-01-10T05:00Z",
         "home": "DEN",
         "away": "LAC",
-        "homePlayoffOddsIfWin": 76.7,
-        "homePlayoffOddsIfLoss": 57.2,
+        "homePlayoffOddsIfWin": 76.5,
+        "homePlayoffOddsIfLoss": 59.3,
         "awayPlayoffOddsIfWin": 0.3,
         "awayPlayoffOddsIfLoss": 0
       },
@@ -17208,10 +17208,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "GB",
         "away": "DET",
-        "homePlayoffOddsIfWin": 70,
-        "homePlayoffOddsIfLoss": 45,
-        "awayPlayoffOddsIfWin": 82.3,
-        "awayPlayoffOddsIfLoss": 61
+        "homePlayoffOddsIfWin": 70.7,
+        "homePlayoffOddsIfLoss": 45.6,
+        "awayPlayoffOddsIfWin": 81,
+        "awayPlayoffOddsIfLoss": 58.1
       },
       {
         "gameId": "401873177",
@@ -17219,10 +17219,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "IND",
         "away": "JAX",
-        "homePlayoffOddsIfWin": 16.5,
-        "homePlayoffOddsIfLoss": 5.6,
-        "awayPlayoffOddsIfWin": 93.6,
-        "awayPlayoffOddsIfLoss": 82
+        "homePlayoffOddsIfWin": 16.4,
+        "homePlayoffOddsIfLoss": 5.4,
+        "awayPlayoffOddsIfWin": 94,
+        "awayPlayoffOddsIfLoss": 80.5
       },
       {
         "gameId": "401873178",
@@ -17230,10 +17230,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "KC",
         "away": "LV",
-        "homePlayoffOddsIfWin": 98.2,
-        "homePlayoffOddsIfLoss": 93.5,
-        "awayPlayoffOddsIfWin": 22.7,
-        "awayPlayoffOddsIfLoss": 7.9
+        "homePlayoffOddsIfWin": 98.4,
+        "homePlayoffOddsIfLoss": 92.5,
+        "awayPlayoffOddsIfWin": 20.4,
+        "awayPlayoffOddsIfLoss": 8.2
       },
       {
         "gameId": "401873185",
@@ -17241,10 +17241,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "LAR",
         "away": "SEA",
-        "homePlayoffOddsIfWin": 42.6,
-        "homePlayoffOddsIfLoss": 19.1,
-        "awayPlayoffOddsIfWin": 72.2,
-        "awayPlayoffOddsIfLoss": 46.9
+        "homePlayoffOddsIfWin": 42.8,
+        "homePlayoffOddsIfLoss": 18.5,
+        "awayPlayoffOddsIfWin": 73,
+        "awayPlayoffOddsIfLoss": 47.7
       },
       {
         "gameId": "401873173",
@@ -17252,10 +17252,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "MIN",
         "away": "CHI",
-        "homePlayoffOddsIfWin": 95.4,
-        "homePlayoffOddsIfLoss": 85.3,
-        "awayPlayoffOddsIfWin": 88,
-        "awayPlayoffOddsIfLoss": 72.5
+        "homePlayoffOddsIfWin": 95.7,
+        "homePlayoffOddsIfLoss": 85.7,
+        "awayPlayoffOddsIfWin": 88.2,
+        "awayPlayoffOddsIfLoss": 72.3
       },
       {
         "gameId": "401873180",
@@ -17263,9 +17263,9 @@
         "date": "2027-01-10T05:00Z",
         "home": "NE",
         "away": "MIA",
-        "homePlayoffOddsIfWin": 75,
-        "homePlayoffOddsIfLoss": 52.6,
-        "awayPlayoffOddsIfWin": 0.1,
+        "homePlayoffOddsIfWin": 75.2,
+        "homePlayoffOddsIfLoss": 53,
+        "awayPlayoffOddsIfWin": 0,
         "awayPlayoffOddsIfLoss": 0
       },
       {
@@ -17274,10 +17274,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "NO",
         "away": "TB",
-        "homePlayoffOddsIfWin": 19.1,
-        "homePlayoffOddsIfLoss": 7.6,
-        "awayPlayoffOddsIfWin": 17.5,
-        "awayPlayoffOddsIfLoss": 6.6
+        "homePlayoffOddsIfWin": 21,
+        "homePlayoffOddsIfLoss": 8.2,
+        "awayPlayoffOddsIfWin": 17.3,
+        "awayPlayoffOddsIfLoss": 6.2
       },
       {
         "gameId": "401873182",
@@ -17287,8 +17287,8 @@
         "away": "PHI",
         "homePlayoffOddsIfWin": 22.5,
         "homePlayoffOddsIfLoss": 8.9,
-        "awayPlayoffOddsIfWin": 13.1,
-        "awayPlayoffOddsIfLoss": 4.3
+        "awayPlayoffOddsIfWin": 13.9,
+        "awayPlayoffOddsIfLoss": 4.4
       },
       {
         "gameId": "401873184",
@@ -17296,10 +17296,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "ARI",
         "away": "SF",
-        "homePlayoffOddsIfWin": 3.1,
-        "homePlayoffOddsIfLoss": 0.8,
+        "homePlayoffOddsIfWin": 3.5,
+        "homePlayoffOddsIfLoss": 0.7,
         "awayPlayoffOddsIfWin": 99.9,
-        "awayPlayoffOddsIfLoss": 99.6
+        "awayPlayoffOddsIfLoss": 99.3
       },
       {
         "gameId": "401873175",
@@ -17307,10 +17307,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "WSH",
         "away": "DAL",
-        "homePlayoffOddsIfWin": 19.8,
-        "homePlayoffOddsIfLoss": 4.5,
-        "awayPlayoffOddsIfWin": 78.5,
-        "awayPlayoffOddsIfLoss": 52.4
+        "homePlayoffOddsIfWin": 19.9,
+        "homePlayoffOddsIfLoss": 4.7,
+        "awayPlayoffOddsIfWin": 77.3,
+        "awayPlayoffOddsIfLoss": 54.1
       },
       {
         "gameId": "401873172",
@@ -17318,10 +17318,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "CAR",
         "away": "ATL",
-        "homePlayoffOddsIfWin": 77.7,
-        "homePlayoffOddsIfLoss": 56.4,
-        "awayPlayoffOddsIfWin": 19,
-        "awayPlayoffOddsIfLoss": 5
+        "homePlayoffOddsIfWin": 77.4,
+        "homePlayoffOddsIfLoss": 57.5,
+        "awayPlayoffOddsIfWin": 17.6,
+        "awayPlayoffOddsIfLoss": 4.4
       },
       {
         "gameId": "401873183",
@@ -17329,10 +17329,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "BAL",
         "away": "PIT",
-        "homePlayoffOddsIfWin": 78.6,
-        "homePlayoffOddsIfLoss": 55.4,
-        "awayPlayoffOddsIfWin": 59.4,
-        "awayPlayoffOddsIfLoss": 35.3
+        "homePlayoffOddsIfWin": 78.9,
+        "homePlayoffOddsIfLoss": 58,
+        "awayPlayoffOddsIfWin": 58.9,
+        "awayPlayoffOddsIfLoss": 35.1
       },
       {
         "gameId": "401873187",
@@ -17340,10 +17340,10 @@
         "date": "2027-01-10T05:00Z",
         "home": "HOU",
         "away": "TEN",
-        "homePlayoffOddsIfWin": 49.7,
-        "homePlayoffOddsIfLoss": 30.1,
-        "awayPlayoffOddsIfWin": 0.5,
-        "awayPlayoffOddsIfLoss": 0
+        "homePlayoffOddsIfWin": 49.2,
+        "homePlayoffOddsIfLoss": 28.8,
+        "awayPlayoffOddsIfWin": 0.2,
+        "awayPlayoffOddsIfLoss": 0.1
       }
     ],
     "weekKey": "2026-10-20"
