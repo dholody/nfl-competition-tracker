@@ -1909,8 +1909,8 @@ function renderWeeklyMatchupsTable(){
   const games = weekGames(selectedWeek);
 
   const thead = `<thead><tr>
-    <th>Date</th><th>Time</th><th></th><th>Home</th><th></th><th>Away</th>
-    <th>Win % (FPI)</th><th>Home Playoff &plusmn;</th><th>Away Playoff &plusmn;</th><th>Total Leverage</th>
+    <th>Date</th><th>Time</th><th></th><th>Away</th><th></th><th>Home</th>
+    <th>Win % (FPI)</th><th>Away Playoff &plusmn;</th><th>Home Playoff &plusmn;</th><th>Total Leverage</th>
   </tr></thead>`;
 
   const scored = games.map(g=>{
@@ -1931,25 +1931,25 @@ function renderWeeklyMatchupsTable(){
     return `<tr>
       <td class="small muted">${fmtDate(g.date)}</td>
       <td class="small muted">${fmtTime(g.date)}</td>
-      <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
-      <td style="text-align:left; color:${resultTextColor(g, g.home) || 'inherit'};">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
       <td style="width:22px;"><img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
       <td style="text-align:left; color:${resultTextColor(g, g.away) || 'inherit'};">${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
+      <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
+      <td style="text-align:left; color:${resultTextColor(g, g.home) || 'inherit'};">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
       <td>
         <div class="fpi-bar-cell">
-          <span class="fpi-bar-track" style="width:170px;" title="${g.home} ${pct0(g.hwp*100)} — ${g.away} ${pct0(g.awp*100)}">
-            <span class="fpi-bar-fill" style="width:${g.hwp*100}%;background:${teamColor(g.home)}">
-              ${g.hwp*100>=13 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(teamColor(g.home))}">${pct0(g.hwp*100)}</span>` : ''}
-            </span>
+          <span class="fpi-bar-track" style="width:170px;" title="${g.away} ${pct0(g.awp*100)} — ${g.home} ${pct0(g.hwp*100)}">
             <span class="fpi-bar-fill" style="width:${g.awp*100}%;background:${distinctTeamColor(g.away, g.home)}">
               ${g.awp*100>=13 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(distinctTeamColor(g.away, g.home))}">${pct0(g.awp*100)}</span>` : ''}
+            </span>
+            <span class="fpi-bar-fill" style="width:${g.hwp*100}%;background:${teamColor(g.home)}">
+              ${g.hwp*100>=13 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(teamColor(g.home))}">${pct0(g.hwp*100)}</span>` : ''}
             </span>
             <span class="fpi-bar-mid"></span>
           </span>
         </div>
       </td>
-      <td>${playoffOddsRangeHtml(g, g.home)}</td>
       <td>${playoffOddsRangeHtml(g, g.away)}</td>
+      <td>${playoffOddsRangeHtml(g, g.home)}</td>
       <td style="font-weight:700; text-align:center; color:${textColor};" title="${pct0(intensity*100)} of this week's highest-leverage game">${Math.round(totalLeverage)}pp</td>
     </tr>`;
   }).join('');
@@ -2095,11 +2095,11 @@ function finalScoreCellHtml(g){
   const hPct = (g.hs/total)*100, aPct = (g.as/total)*100;
   return `<div class="fpi-bar-cell">
     <span class="fpi-bar-track">
-      <span class="fpi-bar-fill" style="width:${hPct}%;background:${teamColor(g.home)}"></span>
       <span class="fpi-bar-fill" style="width:${aPct}%;background:${distinctTeamColor(g.away, g.home)}"></span>
+      <span class="fpi-bar-fill" style="width:${hPct}%;background:${teamColor(g.home)}"></span>
       <span class="fpi-bar-mid"></span>
     </span>
-    <span class="fpi-bar-pct">${g.hs}-${g.as}</span>
+    <span class="fpi-bar-pct">${g.as}-${g.hs}</span>
   </div>`;
 }
 
@@ -2107,7 +2107,7 @@ function renderResultsMatchupsTable(){
   const games = weekGames(selectedResultsWeek);
 
   const thead = `<thead><tr>
-    <th>Date</th><th>Time</th><th></th><th>Home</th><th></th><th>Away</th>
+    <th>Date</th><th>Time</th><th></th><th>Away</th><th></th><th>Home</th>
     <th>Final Score</th>
   </tr></thead>`;
 
@@ -2116,10 +2116,10 @@ function renderResultsMatchupsTable(){
     return `<tr>
       <td class="small muted">${fmtDate(g.date)}</td>
       <td class="small muted">${fmtTime(g.date)}</td>
-      <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
-      <td style="text-align:left; color:${resultTextColor(g, g.home) || 'inherit'};">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
       <td style="width:22px;"><img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
       <td style="text-align:left; color:${resultTextColor(g, g.away) || 'inherit'};">${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
+      <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
+      <td style="text-align:left; color:${resultTextColor(g, g.home) || 'inherit'};">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
       <td>${finalScoreCellHtml(g)}</td>
     </tr>`;
   }).join('');
