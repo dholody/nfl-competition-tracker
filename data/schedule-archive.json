@@ -54626,7 +54626,7 @@
     "weekKey": "2026-10-13"
   },
   {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "season": 2026,
     "games": [
       {
@@ -57901,10 +57901,10 @@
         "actualMargin": null,
         "awayFpi": -4.204,
         "homeFpi": -0.271,
-        "predictedMargin": 5.1,
+        "predictedMargin": 1.8,
         "predictionError": null,
-        "homeWinProbability": 0.685,
-        "awayWinProbability": 0.312,
+        "homeWinProbability": 0.566,
+        "awayWinProbability": 0.43,
         "predictionSource": "espn"
       },
       {
@@ -57945,10 +57945,10 @@
         "actualMargin": null,
         "awayFpi": -6.038,
         "homeFpi": 2.718,
-        "predictedMargin": 10.4,
+        "predictedMargin": 10.5,
         "predictionError": null,
-        "homeWinProbability": 0.841,
-        "awayWinProbability": 0.158,
+        "homeWinProbability": 0.845,
+        "awayWinProbability": 0.154,
         "predictionSource": "espn"
       },
       {
@@ -58231,10 +58231,10 @@
         "actualMargin": null,
         "awayFpi": -3.301,
         "homeFpi": -4.204,
-        "predictedMargin": 1.6,
+        "predictedMargin": 4.5,
         "predictionError": null,
-        "homeWinProbability": 0.556,
-        "awayWinProbability": 0.44,
+        "homeWinProbability": 0.665,
+        "awayWinProbability": 0.332,
         "predictionSource": "espn"
       },
       {
@@ -58517,10 +58517,10 @@
         "actualMargin": null,
         "awayFpi": -6.038,
         "homeFpi": -4.672,
-        "predictedMargin": 2.1,
+        "predictedMargin": 2.4,
         "predictionError": null,
-        "homeWinProbability": 0.58,
-        "awayWinProbability": 0.417,
+        "homeWinProbability": 0.591,
+        "awayWinProbability": 0.405,
         "predictionSource": "espn"
       },
       {
