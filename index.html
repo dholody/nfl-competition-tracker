@@ -580,17 +580,11 @@ select{
       <div class="card-body" id="divisionDiveOddsTrendWrap"><div class="chart-wrap" style="height:280px;"><canvas id="chartDivisionDiveOddsTrend"></canvas></div></div>
     </div>
 
-    <div class="section-title">Highest-Leverage Games <small>Top 5 remaining games ranked by how much they could swing the division race</small></div>
+    <div class="section-title">Upcoming Games <small id="divisionDiveUpcomingSub">Next two weeks of games involving this division's teams</small></div>
     <div class="card">
-      <div class="card-head">Top 5 Division Games <span class="hint">Playoff-odds swing summed across both teams</span></div>
+      <div class="card-head">Division Schedule <span class="hint">Playoff &plusmn; shown for this division's teams only</span></div>
       <div class="card-body pad-0" style="overflow-x:auto;">
-        <table id="divisionDiveLeverageTableDivision"><thead></thead><tbody></tbody></table>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head">Top 5 Non-Division Games <span class="hint">Playoff-odds swing for THIS division's team only</span></div>
-      <div class="card-body pad-0" style="overflow-x:auto;">
-        <table id="divisionDiveLeverageTableNonDivision"><thead></thead><tbody></tbody></table>
+        <table id="divisionDiveUpcomingTable"><thead></thead><tbody></tbody></table>
       </div>
     </div>
 
@@ -2383,21 +2377,57 @@ function leverageTableRowHtml(g, teamSet, maxLev, showType){
   </tr>`;
 }
 
-function renderDivisionDiveLeverageTable(conf, div){
-  const { divisionGames, nonDivisionGames } = computeDivisionLeverageGames(conf, div);
-  const teamSet = new Set(divisionTeams(conf, div));
-  const maxLev = Math.max(1, ...divisionGames.map(g=>g.leverage), ...nonDivisionGames.map(g=>g.leverage));
+function renderDivisionDiveUpcomingGames(conf, div){
+  const teams = divisionTeams(conf, div);
+  const teamSet = new Set(teams);
+  const weeks = allWeeks();
+  const startIdx = Math.max(0, weeks.indexOf(currentUpcomingWeek()));
+  const windowWeeks = weeks.slice(startIdx, startIdx+2);
 
-  const colHead = `<th>Wk</th><th>Date</th><th></th><th>Matchup</th><th>Win %</th><th>Home Playoff &plusmn;</th><th>Away Playoff &plusmn;</th><th>Total Leverage</th>`;
+  const games = DATA.schedule
+    .filter(g => windowWeeks.includes(g.week) && g.status !== 'Final' && (teamSet.has(g.home) || teamSet.has(g.away)))
+    .sort((a,b)=> new Date(a.date) - new Date(b.date));
 
-  const divRows = divisionGames.map(g=>leverageTableRowHtml(g, teamSet, maxLev, false)).join('');
-  const crossRows = nonDivisionGames.map(g=>leverageTableRowHtml(g, teamSet, maxLev, false)).join('');
-  const emptyRow = `<tr><td colspan="8" class="muted small" style="padding:14px;">No games remaining.</td></tr>`;
+  const sub = document.getElementById('divisionDiveUpcomingSub');
+  if(sub) sub.textContent = windowWeeks.length
+    ? `Unplayed games in Week ${windowWeeks.join(' & ')} involving ${div} teams`
+    : '';
 
-  document.getElementById('divisionDiveLeverageTableDivision').innerHTML =
-    `<thead><tr>${colHead}</tr></thead><tbody>${divRows || emptyRow}</tbody>`;
-  document.getElementById('divisionDiveLeverageTableNonDivision').innerHTML =
-    `<thead><tr>${colHead}</tr></thead><tbody>${crossRows || emptyRow}</tbody>`;
+  const mutedTip = 'Not in this division — doesn\'t count toward the division race';
+  const rows = games.map(g=>{
+    const homeIn = teamSet.has(g.home), awayIn = teamSet.has(g.away);
+    const intra = homeIn && awayIn;
+    const awayOwner = ownerOf(g.away), homeOwner = ownerOf(g.home);
+    const hwp = g.hwp, awp = g.awp;
+    const bar = (hwp==null || awp==null) ? '<span class="small muted">—</span>' : `<div class="fpi-bar-cell">
+        <span class="fpi-bar-track" style="width:130px;" title="${g.away} ${pct0(awp*100)} — ${g.home} ${pct0(hwp*100)}">
+          <span class="fpi-bar-fill" style="width:${awp*100}%;background:${distinctTeamColor(g.away,g.home)}">
+            ${awp*100>=15 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(distinctTeamColor(g.away,g.home))}">${pct0(awp*100)}</span>` : ''}
+          </span>
+          <span class="fpi-bar-fill" style="width:${hwp*100}%;background:${teamColor(g.home)}">
+            ${hwp*100>=15 ? `<span class="fpi-bar-fill-label" style="color:${readableTextColor(teamColor(g.home))}">${pct0(hwp*100)}</span>` : ''}
+          </span>
+          <span class="fpi-bar-mid"></span>
+        </span>
+      </div>`;
+    return `<tr>
+      <td>${g.week}</td>
+      <td class="small muted">${fmtDate(g.date)}</td>
+      <td class="small muted">${fmtTime(g.date)}</td>
+      <td style="width:22px;"><img src="${teamLogo(g.away)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
+      <td style="text-align:left;${awayIn?' font-weight:600;':''}">${teamName(g.away)} ${ownerBadgeHtml(awayOwner)}</td>
+      <td style="width:22px;"><img src="${teamLogo(g.home)}" onerror="this.style.visibility='hidden'" style="width:20px;height:20px;object-fit:contain;display:block;"></td>
+      <td style="text-align:left;${homeIn?' font-weight:600;':''}">${teamName(g.home)} ${ownerBadgeHtml(homeOwner)}</td>
+      <td><span class="leverage-pill ${intra?'intra':'cross'}">${intra?'Division':'Cross-Div'}</span></td>
+      <td>${bar}</td>
+      <td${awayIn?'':` style="opacity:.35;" title="${mutedTip}"`}>${playoffOddsRangeHtml(g, g.away)}</td>
+      <td${homeIn?'':` style="opacity:.35;" title="${mutedTip}"`}>${playoffOddsRangeHtml(g, g.home)}</td>
+    </tr>`;
+  }).join('');
+
+  const thead = `<thead><tr><th>Wk</th><th>Date</th><th>Time</th><th></th><th>Away</th><th></th><th>Home</th><th>Type</th><th>Win % (FPI)</th><th>Away Playoff &plusmn;</th><th>Home Playoff &plusmn;</th></tr></thead>`;
+  const emptyRow = `<tr><td colspan="11" class="muted small" style="padding:14px;">No upcoming games in the next two weeks.</td></tr>`;
+  document.getElementById('divisionDiveUpcomingTable').innerHTML = thead + `<tbody>${rows || emptyRow}</tbody>`;
 }
 
 function renderDivisionDiveScheduleAdvantage(conf, div){
@@ -2458,7 +2488,7 @@ function renderDivisionDiveTab(){
   safeRender('divisionDiveRankTable', ()=>renderDivisionDiveRankTable(conf, div));
   safeRender('divisionDiveWinDistribution', ()=>renderDivisionDiveWinDistribution(conf, div));
   safeRender('divisionDiveOddsTrend', ()=>renderDivisionDiveOddsTrend(conf, div));
-  safeRender('divisionDiveLeverageTable', ()=>renderDivisionDiveLeverageTable(conf, div));
+  safeRender('divisionDiveUpcomingGames', ()=>renderDivisionDiveUpcomingGames(conf, div));
   safeRender('divisionDiveScheduleAdvantage', ()=>renderDivisionDiveScheduleAdvantage(conf, div));
   safeRender('divisionDiveUniqueOpponents', ()=>renderDivisionDiveUniqueOpponents(conf, div));
 }
