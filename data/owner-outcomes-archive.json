@@ -287,5 +287,53 @@
       }
     ],
     "weekKey": "2026-10-27"
+  },
+  {
+    "date": "2026-11-03",
+    "season": 2026,
+    "simulations": 10000,
+    "owners": [
+      {
+        "owner": "Guy",
+        "expectedPoints": 149.84,
+        "finishOdds": {
+          "1": 0.831,
+          "2": 0.153,
+          "3": 0.015,
+          "4": 0
+        }
+      },
+      {
+        "owner": "Gin",
+        "expectedPoints": 117.59,
+        "finishOdds": {
+          "1": 0.144,
+          "2": 0.643,
+          "3": 0.212,
+          "4": 0
+        }
+      },
+      {
+        "owner": "Man",
+        "expectedPoints": 98.89,
+        "finishOdds": {
+          "1": 0.025,
+          "2": 0.212,
+          "3": 0.763,
+          "4": 0
+        }
+      },
+      {
+        "owner": "Unpicked",
+        "expectedPoints": 9.68,
+        "finishOdds": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 1
+        }
+      }
+    ],
+    "weekKey": "2026-11-03"
   }
 ]
