@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "season": 2026,
   "games": [
     {
@@ -3868,10 +3868,10 @@
       "actualMargin": null,
       "awayFpi": -5.152,
       "homeFpi": -3.18,
-      "predictedMargin": 3.9,
+      "predictedMargin": 4.7,
       "predictionError": null,
-      "homeWinProbability": 0.654,
-      "awayWinProbability": 0.344,
+      "homeWinProbability": 0.68,
+      "awayWinProbability": 0.317,
       "predictionSource": "espn"
     },
     {
@@ -4066,10 +4066,10 @@
       "actualMargin": null,
       "awayFpi": 5.102,
       "homeFpi": 0.272,
-      "predictedMargin": -3.6,
+      "predictedMargin": -4.5,
       "predictionError": null,
-      "homeWinProbability": 0.357,
-      "awayWinProbability": 0.641,
+      "homeWinProbability": 0.321,
+      "awayWinProbability": 0.676,
       "predictionSource": "espn"
     },
     {
@@ -4154,10 +4154,10 @@
       "actualMargin": null,
       "awayFpi": 1.464,
       "homeFpi": -5.152,
-      "predictedMargin": -5.5,
+      "predictedMargin": -6.3,
       "predictionError": null,
-      "homeWinProbability": 0.294,
-      "awayWinProbability": 0.704,
+      "homeWinProbability": 0.268,
+      "awayWinProbability": 0.73,
       "predictionSource": "espn"
     },
     {
@@ -4176,10 +4176,10 @@
       "actualMargin": null,
       "awayFpi": 0.272,
       "homeFpi": 1.604,
-      "predictedMargin": 1.7,
+      "predictedMargin": 2.6,
       "predictionError": null,
-      "homeWinProbability": 0.565,
-      "awayWinProbability": 0.432,
+      "homeWinProbability": 0.6,
+      "awayWinProbability": 0.396,
       "predictionSource": "espn"
     },
     {
@@ -4638,10 +4638,10 @@
       "actualMargin": null,
       "awayFpi": 0.272,
       "homeFpi": 5.909,
-      "predictedMargin": 4.8,
+      "predictedMargin": 5.7,
       "predictionError": null,
-      "homeWinProbability": 0.679,
-      "awayWinProbability": 0.318,
+      "homeWinProbability": 0.71,
+      "awayWinProbability": 0.287,
       "predictionSource": "espn"
     },
     {
