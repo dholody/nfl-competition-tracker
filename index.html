@@ -20,6 +20,19 @@
 </script>
 <style>
 
+#loadGate{position:fixed; inset:0; z-index:9999; background:var(--paper); display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;}
+#loadGate.hidden{display:none;}
+#loadGate .lg-box{max-width:420px; color:var(--ink); font-family:inherit;}
+#loadGate .lg-spin{width:28px; height:28px; margin:0 auto 14px; border:3px solid var(--line); border-top-color:var(--navy3); border-radius:50%; animation:lgspin .8s linear infinite;}
+@keyframes lgspin{to{transform:rotate(360deg);}}
+#loadGate .lg-msg{font-size:15px; color:var(--muted);}
+#loadGate .lg-err{display:none;}
+#loadGate.failed .lg-spin, #loadGate.failed .lg-msg{display:none;}
+#loadGate.failed .lg-err{display:block;}
+#loadGate .lg-err h3{margin:0 0 6px; font-size:17px;}
+#loadGate .lg-err p{margin:0 0 14px; color:var(--muted); font-size:14px;}
+#loadGate button{font:inherit; font-size:14px; padding:8px 14px; margin:0 4px; border-radius:6px; border:1px solid var(--navy3); background:var(--navy3); color:#fff; cursor:pointer;}
+#loadGate button.secondary{background:transparent; color:var(--navy3);}
 :root{
   --navy:#0d2436;
   --navy2:#123350;
@@ -346,6 +359,12 @@ select{
 </style>
 </head>
 <body>
+<div id="loadGate"><div class="lg-box">
+  <div class="lg-spin"></div><div class="lg-msg">Loading latest data&hellip;</div>
+  <div class="lg-err"><h3>Couldn&rsquo;t load live data</h3>
+    <p>GitHub didn&rsquo;t respond. You can retry, or view the bundled snapshot, which may be weeks out of date.</p>
+    <button id="lgRetry">Retry</button><button id="lgBundled" class="secondary">View old snapshot</button></div>
+</div></div>
 
 <header class="app-header">
   <div class="app-header-top">
@@ -3128,7 +3147,9 @@ function renderChampionshipTab(){
   safeRender('champTrendChart', renderChampTrendChart);
 }
 
+let dataReady = false;
 function renderAll(){
+  if(!dataReady) return; // never paint the bundled snapshot unless the user explicitly chooses it
   safeRender('header', renderHeader);
   safeRender('ownerLegend', renderOwnerLegend);
   safeRender('resultsTab', renderResultsTab);
@@ -3194,9 +3215,11 @@ async function tryLiveRefresh(){
 
     setStatus(true, standings.date, scheduleFull.date);
     renderAll();
+    return true;
   }catch(e){
     setStatus(false);
-    console.warn('Live refresh from GitHub failed — showing bundled snapshot instead.', e);
+    console.warn('Live refresh from GitHub failed.', e);
+    return false;
   }
 }
 
@@ -3240,12 +3263,30 @@ async function tryLoadOwnerOutcomes(){
 }
 
 initTabs();
-renderAll();
-setStatus(false);
-tryLiveRefresh();
-tryLoadOdds();
-tryLoadPlayoffLeverage();
-tryLoadOwnerOutcomes();
+
+/** Startup: stay blank (loading gate) until every live file has arrived, then
+    paint once. The embedded snapshot is only shown if the user explicitly
+    chooses it after a failed load. */
+async function startDashboard(){
+  const gate = document.getElementById('loadGate');
+  gate.classList.remove('failed'); gate.classList.remove('hidden');
+  const [liveOk] = await Promise.all([
+    tryLiveRefresh(), tryLoadOdds(), tryLoadPlayoffLeverage(), tryLoadOwnerOutcomes()
+  ]);
+  if(liveOk){
+    dataReady = true;
+    renderAll();
+    gate.classList.add('hidden');
+  } else {
+    gate.classList.add('failed');
+  }
+}
+document.getElementById('lgRetry').onclick = ()=>{ selectedWeek = null; selectedResultsWeek = null; startDashboard(); };
+document.getElementById('lgBundled').onclick = ()=>{
+  dataReady = true; renderAll(); setStatus(false);
+  document.getElementById('loadGate').classList.add('hidden');
+};
+startDashboard();
 
 </script>
 </body>
