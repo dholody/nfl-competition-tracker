@@ -48,6 +48,7 @@ const LEVERAGE_ARCHIVE_PATH = path.join(DATA_DIR, 'playoff-leverage-archive.json
 const OWNER_OUTCOMES_CURRENT_PATH = path.join(DATA_DIR, 'owner-outcomes-current.json');
 const OWNER_OUTCOMES_ARCHIVE_PATH = path.join(DATA_DIR, 'owner-outcomes-archive.json');
 
+const USE_TIEBREAKERS = process.env.TIEBREAKERS !== 'random';
 const SIMULATIONS = 10000;
 
 const POINTS = {
@@ -146,7 +147,93 @@ function simulateGame_(homeAbbr, awayAbbr, fpiMap, neutralSite = false) {
   return Math.random() < homeWinProb ? homeAbbr : awayAbbr;
 }
 
-function seedConference_(confAbbrs, winPct) {
+/* ---------------- Phase 1 tiebreaker cascade ---------------- */
+
+/** True if `a` beat `b` at least once in `games` (their trial's full log). */
+function beatInH2H(a, b, games) {
+  return games.some(g => g.winner === a && ((g.home===a&&g.away===b)||(g.away===a&&g.home===b)));
+}
+
+/** Head-to-head criterion. 2 teams: straightforward W-L between them, null
+    (inapplicable) if they never played or split evenly. 3+ teams: only
+    applicable if one team swept every other candidate (beat all, or lost
+    to all) — a partial head-to-head record does NOT count, per the real
+    rule. Returns a Map(team -> comparable score) or null. */
+function headToHeadCriterion(candidates, games) {
+  if (candidates.length === 2) {
+    const [a, b] = candidates;
+    const matchups = games.filter(g => (g.home===a&&g.away===b)||(g.home===b&&g.away===a));
+    if (!matchups.length) return null;
+    let aWins = 0, bWins = 0;
+    matchups.forEach(g => { if (g.winner===a) aWins++; else if (g.winner===b) bWins++; });
+    if (aWins === bWins) return null;
+    return new Map([[a, aWins], [b, bWins]]);
+  }
+  const sweptBy = candidates.find(t => candidates.every(o => o===t || beatInH2H(t, o, games)));
+  if (sweptBy) return new Map(candidates.map(c => [c, c===sweptBy ? 1 : 0]));
+  return null;
+}
+
+/** Win% within a filtered subset of games (division-only or conference-only). */
+function recordCriterion(candidates, games, filterFn) {
+  const map = new Map();
+  for (const team of candidates) {
+    const relevant = games.filter(g => (g.home===team||g.away===team) && filterFn(g, team));
+    const wins = relevant.filter(g => g.winner===team).length;
+    map.set(team, relevant.length ? wins/relevant.length : 0);
+  }
+  return map;
+}
+
+/** Resolves the single BEST team among a tied group, applying the real
+    reset rule: each time a criterion narrows the group, restart from
+    criterion 1 for the smaller group, rather than continuing down the list
+    for the original group. Falls back to a random pick only once every
+    Phase 1 criterion is exhausted (matches how the real procedure ends in
+    a coin toss, just without the later real-world steps this phase
+    doesn't implement yet). */
+function resolveTopTeam(teams, games, divisionOf, conferenceOf, isDivisionTie) {
+  let candidates = [...teams];
+  const criteria = [
+    (c, g) => headToHeadCriterion(c, g),
+    ...(isDivisionTie ? [(c, g) => recordCriterion(c, g, (game, team) => divisionOf(team) === divisionOf(game.home===team?game.away:game.home))] : []),
+    (c, g) => recordCriterion(c, g, (game, team) => conferenceOf(team) === conferenceOf(game.home===team?game.away:game.home)),
+  ];
+  let progressed = true;
+  while (candidates.length > 1 && progressed) {
+    progressed = false;
+    for (const crit of criteria) {
+      const scores = crit(candidates, games);
+      if (!scores) continue;
+      const maxVal = Math.max(...candidates.map(c => scores.get(c)));
+      const survivors = candidates.filter(c => scores.get(c) === maxVal);
+      if (survivors.length < candidates.length) {
+        candidates = survivors;
+        progressed = true;
+        break; // reset rule: restart criteria from the top for the smaller group
+      }
+    }
+  }
+  return candidates.length === 1 ? candidates[0] : candidates[Math.floor(Math.random()*candidates.length)];
+}
+
+/** Full ordering (best to worst) of a tied group, by repeatedly resolving
+    the best remaining team. `isDivisionTie` controls whether division
+    record is included in the cascade (division ties use it, cross-
+    division wild-card ties skip straight to conference record). */
+function orderByTiebreak(teams, games, divisionOf, conferenceOf, isDivisionTie) {
+  let remaining = [...teams];
+  const ordered = [];
+  while (remaining.length > 1) {
+    const winner = resolveTopTeam(remaining, games, divisionOf, conferenceOf, isDivisionTie);
+    ordered.push(winner);
+    remaining = remaining.filter(t => t !== winner);
+  }
+  if (remaining.length === 1) ordered.push(remaining[0]);
+  return ordered;
+}
+
+function seedConferenceRandom_(confAbbrs, winPct) {
   const divisions = {};
   for (const abbr of confAbbrs) {
     const div = NFL_STRUCTURE[abbr].div;
@@ -164,6 +251,60 @@ function seedConference_(confAbbrs, winPct) {
 
 // Simulates one conference's bracket. Returns { champion, achievements },
 // where achievements[abbr] holds booleans for every round that abbr reached.
+/** Seeds one conference using the real tiebreaker cascade instead of
+    win% + random jitter. `games` is this trial's FULL game log (every
+    regular-season game, completed or simulated, for every team). */
+function seedConferenceTiebreak_(confAbbrs, winPct, games, divisionOf, conferenceOf) {
+  const divisions = {};
+  for (const abbr of confAbbrs) {
+    const div = NFL_STRUCTURE[abbr].div;
+    (divisions[div] ??= []).push(abbr);
+  }
+
+  const divisionWinners = Object.values(divisions).map((teams) => {
+    const best = Math.max(...teams.map(t => winPct[t]));
+    const tied = teams.filter(t => winPct[t] === best);
+    return tied.length === 1 ? tied[0] : orderByTiebreak(tied, games, divisionOf, conferenceOf, true)[0];
+  });
+
+  const seeds1to4 = seedGroupByRecord_(divisionWinners, winPct, games, divisionOf, conferenceOf, false);
+
+  const wildcardPool = confAbbrs.filter((a) => !divisionWinners.includes(a));
+  const seeds5to7 = seedGroupByRecord_(wildcardPool, winPct, games, divisionOf, conferenceOf, false).slice(0, 3);
+
+  return [...seeds1to4, ...seeds5to7];
+}
+
+/** Orders an arbitrary group of teams by win%, breaking ties with the real
+    cascade instead of random jitter. Groups teams by exact win% first
+    (only teams tied on record need any tiebreaker at all), then within
+    each win% group, applies orderByTiebreak. */
+function seedGroupByRecord_(teams, winPct, games, divisionOf, conferenceOf, isDivisionTie) {
+  const byPct = new Map();
+  for (const t of teams) {
+    const p = winPct[t];
+    if (!byPct.has(p)) byPct.set(p, []);
+    byPct.get(p).push(t);
+  }
+  const sortedPcts = [...byPct.keys()].sort((a,b) => b-a);
+  const ordered = [];
+  for (const p of sortedPcts) {
+    const group = byPct.get(p);
+    if (group.length === 1) ordered.push(group[0]);
+    else ordered.push(...orderByTiebreak(group, games, divisionOf, conferenceOf, isDivisionTie));
+  }
+  return ordered;
+}
+
+/** Single entry point used by the trial loop. Real NFL tiebreakers by default;
+    set env TIEBREAKERS=random to fall back to the old win%-plus-coin-flip
+    seeding (handy for A/B comparisons without changing code). */
+function seedConference_(confAbbrs, winPct, games, divisionOf, conferenceOf) {
+  return USE_TIEBREAKERS
+    ? seedConferenceTiebreak_(confAbbrs, winPct, games, divisionOf, conferenceOf)
+    : seedConferenceRandom_(confAbbrs, winPct);
+}
+
 function simulateConferenceBracket_(seeds, fpiMap) {
   const achievements = {};
   seeds.forEach((abbr) => {
@@ -257,6 +398,15 @@ async function main() {
     }
   }
 
+  // Fixed outcome of every completed game (identical in every trial) — the
+  // base of each trial's full game log, which the tiebreaker cascade reads.
+  const divisionOf = (abbr) => `${NFL_STRUCTURE[abbr].conf}-${NFL_STRUCTURE[abbr].div}`;
+  const conferenceOf = (abbr) => NFL_STRUCTURE[abbr].conf;
+  const fixedResults = completedGames.map((g) => {
+    const tie = g.homeScore === g.awayScore;
+    return { home: g.homeTeam, away: g.awayTeam, winner: tie ? null : (g.homeScore > g.awayScore ? g.homeTeam : g.awayTeam), tie };
+  });
+
   console.log(`Actual completed regular-season games: ${completedGames.length}. Remaining: ${remainingGames.length}.`);
   console.log(`Running ${SIMULATIONS} simulations...`);
 
@@ -301,11 +451,13 @@ async function main() {
     // alongside the existing win/loss tallying so it can be correlated
     // against this trial's playoff outcome further down.
     const homeWonThisTrial = {}; // gameId -> boolean
+    const trialGames = [...fixedResults]; // full per-game log for THIS trial (tiebreakers)
 
     for (const g of remainingGames) {
       const homeProb = g.homeWinProbability ?? 0.5;
       const homeWon = Math.random() < homeProb;
       homeWonThisTrial[g.gameId] = homeWon;
+      trialGames.push({ home: g.homeTeam, away: g.awayTeam, winner: homeWon ? g.homeTeam : g.awayTeam, tie: false });
       if (homeWon) {
         wins[g.homeTeam] += 1;
         losses[g.awayTeam] += 1;
@@ -324,8 +476,8 @@ async function main() {
     const afcAbbrs = allTeams.filter((a) => NFL_STRUCTURE[a].conf === 'AFC');
     const nfcAbbrs = allTeams.filter((a) => NFL_STRUCTURE[a].conf === 'NFC');
 
-    const afcSeeds = seedConference_(afcAbbrs, winPct);
-    const nfcSeeds = seedConference_(nfcAbbrs, winPct);
+    const afcSeeds = seedConference_(afcAbbrs, winPct, trialGames, divisionOf, conferenceOf);
+    const nfcSeeds = seedConference_(nfcAbbrs, winPct, trialGames, divisionOf, conferenceOf);
 
     const afcResult = simulateConferenceBracket_(afcSeeds, fpiMap);
     const nfcResult = simulateConferenceBracket_(nfcSeeds, fpiMap);
