@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-22",
+  "date": "2026-11-24",
   "season": 2026,
   "games": [
     {
@@ -4412,17 +4412,17 @@
       "homeTeamId": "2",
       "awayTeam": "MIA",
       "homeTeam": "BUF",
-      "status": "In Progress",
+      "status": "Final",
       "awayScore": 9,
-      "homeScore": 20,
-      "actualMargin": null,
+      "homeScore": 26,
+      "actualMargin": 17,
       "awayFpi": -10.178,
       "homeFpi": 6.081,
-      "predictedMargin": 16.5,
-      "predictionError": null,
-      "homeWinProbability": 0.948,
-      "awayWinProbability": 0.052,
-      "predictionSource": "espn"
+      "predictedMargin": 18.3,
+      "predictionError": -1.3,
+      "homeWinProbability": 0.932,
+      "awayWinProbability": 0.068,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873071",
@@ -4434,17 +4434,17 @@
       "homeTeamId": "3",
       "awayTeam": "NO",
       "homeTeam": "CHI",
-      "status": "In Progress",
-      "awayScore": 10,
-      "homeScore": 19,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 13,
+      "homeScore": 21,
+      "actualMargin": 8,
       "awayFpi": -3.091,
       "homeFpi": 3.932,
-      "predictedMargin": 8,
-      "predictionError": null,
-      "homeWinProbability": 0.786,
-      "awayWinProbability": 0.212,
-      "predictionSource": "espn"
+      "predictedMargin": 9,
+      "predictionError": -1,
+      "homeWinProbability": 0.783,
+      "awayWinProbability": 0.217,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873073",
@@ -4456,17 +4456,17 @@
       "homeTeamId": "6",
       "awayTeam": "TEN",
       "homeTeam": "DAL",
-      "status": "In Progress",
-      "awayScore": 23,
-      "homeScore": 34,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 30,
+      "homeScore": 51,
+      "actualMargin": 21,
       "awayFpi": -6.304,
       "homeFpi": 1.651,
-      "predictedMargin": 8.5,
-      "predictionError": null,
-      "homeWinProbability": 0.805,
-      "awayWinProbability": 0.194,
-      "predictionSource": "espn"
+      "predictedMargin": 10,
+      "predictionError": 11,
+      "homeWinProbability": 0.807,
+      "awayWinProbability": 0.193,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873072",
@@ -4478,17 +4478,17 @@
       "homeTeamId": "8",
       "awayTeam": "TB",
       "homeTeam": "DET",
-      "status": "In Progress",
-      "awayScore": 13,
-      "homeScore": 17,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 21,
+      "homeScore": 31,
+      "actualMargin": 10,
       "awayFpi": 0.786,
       "homeFpi": 3.167,
-      "predictedMargin": 2.9,
-      "predictionError": null,
-      "homeWinProbability": 0.611,
-      "awayWinProbability": 0.386,
-      "predictionSource": "espn"
+      "predictedMargin": 4.4,
+      "predictionError": 5.6,
+      "homeWinProbability": 0.652,
+      "awayWinProbability": 0.348,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873067",
@@ -4500,17 +4500,17 @@
       "homeTeamId": "12",
       "awayTeam": "ARI",
       "homeTeam": "KC",
-      "status": "In Progress",
+      "status": "Final",
       "awayScore": 7,
-      "homeScore": 27,
-      "actualMargin": null,
+      "homeScore": 34,
+      "actualMargin": 27,
       "awayFpi": -5.946,
       "homeFpi": 5.027,
-      "predictedMargin": 12.2,
-      "predictionError": null,
-      "homeWinProbability": 0.885,
-      "awayWinProbability": 0.114,
-      "predictionSource": "espn"
+      "predictedMargin": 13,
+      "predictionError": 14,
+      "homeWinProbability": 0.865,
+      "awayWinProbability": 0.135,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873076",
@@ -4522,17 +4522,17 @@
       "homeTeamId": "21",
       "awayTeam": "PIT",
       "homeTeam": "PHI",
-      "status": "In Progress",
-      "awayScore": 6,
-      "homeScore": 16,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 16,
+      "homeScore": 19,
+      "actualMargin": 3,
       "awayFpi": -0.925,
       "homeFpi": -5.677,
-      "predictedMargin": -3.5,
-      "predictionError": null,
-      "homeWinProbability": 0.362,
-      "awayWinProbability": 0.635,
-      "predictionSource": "espn"
+      "predictedMargin": -2.8,
+      "predictionError": 5.8,
+      "homeWinProbability": 0.401,
+      "awayWinProbability": 0.599,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873068",
@@ -4544,17 +4544,17 @@
       "homeTeamId": "29",
       "awayTeam": "BAL",
       "homeTeam": "CAR",
-      "status": "In Progress",
-      "awayScore": 26,
-      "homeScore": 29,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 33,
+      "homeScore": 35,
+      "actualMargin": 2,
       "awayFpi": -5.899,
       "homeFpi": -1.726,
-      "predictedMargin": 5,
-      "predictionError": null,
-      "homeWinProbability": 0.69,
-      "awayWinProbability": 0.308,
-      "predictionSource": "espn"
+      "predictedMargin": 6.2,
+      "predictionError": -4.2,
+      "homeWinProbability": 0.708,
+      "awayWinProbability": 0.292,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873074",
@@ -4566,17 +4566,17 @@
       "homeTeamId": "24",
       "awayTeam": "NYJ",
       "homeTeam": "LAC",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 27,
+      "homeScore": 24,
+      "actualMargin": -3,
       "awayFpi": -7.131,
       "homeFpi": -2.734,
-      "predictedMargin": 3.4,
-      "predictionError": null,
-      "homeWinProbability": 0.634,
-      "awayWinProbability": 0.363,
-      "predictionSource": "espn"
+      "predictedMargin": 6.4,
+      "predictionError": -9.4,
+      "homeWinProbability": 0.714,
+      "awayWinProbability": 0.286,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873075",
@@ -4588,17 +4588,17 @@
       "homeTeamId": "7",
       "awayTeam": "LV",
       "homeTeam": "DEN",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 24,
+      "homeScore": 38,
+      "actualMargin": 14,
       "awayFpi": -7.195,
       "homeFpi": 2.464,
-      "predictedMargin": 11.1,
-      "predictionError": null,
-      "homeWinProbability": 0.865,
-      "awayWinProbability": 0.134,
-      "predictionSource": "espn"
+      "predictedMargin": 11.7,
+      "predictionError": 2.3,
+      "homeWinProbability": 0.842,
+      "awayWinProbability": 0.158,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873069",
@@ -4610,17 +4610,17 @@
       "homeTeamId": "19",
       "awayTeam": "JAX",
       "homeTeam": "NYG",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 18,
+      "homeScore": 23,
+      "actualMargin": 5,
       "awayFpi": 6.112,
       "homeFpi": -3.775,
-      "predictedMargin": -9,
-      "predictionError": null,
-      "homeWinProbability": 0.185,
-      "awayWinProbability": 0.814,
-      "predictionSource": "espn"
+      "predictedMargin": -7.9,
+      "predictionError": 12.9,
+      "homeWinProbability": 0.244,
+      "awayWinProbability": 0.756,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873077",
@@ -4632,17 +4632,17 @@
       "homeTeamId": "25",
       "awayTeam": "MIN",
       "homeTeam": "SF",
-      "status": "Scheduled",
-      "awayScore": 0,
-      "homeScore": 0,
-      "actualMargin": null,
+      "status": "Final",
+      "awayScore": 10,
+      "homeScore": 35,
+      "actualMargin": 25,
       "awayFpi": 3.53,
       "homeFpi": 6.608,
-      "predictedMargin": 3.4,
-      "predictionError": null,
-      "homeWinProbability": 0.63,
-      "awayWinProbability": 0.367,
-      "predictionSource": "espn"
+      "predictedMargin": 5.1,
+      "predictionError": 19.9,
+      "homeWinProbability": 0.674,
+      "awayWinProbability": 0.326,
+      "predictionSource": "fpi-retrospective"
     },
     {
       "gameId": "401873078",
@@ -4660,10 +4660,10 @@
       "actualMargin": null,
       "awayFpi": 5.276,
       "homeFpi": -2.911,
-      "predictedMargin": -7.2,
+      "predictedMargin": -6.7,
       "predictionError": null,
-      "homeWinProbability": 0.238,
-      "awayWinProbability": 0.76,
+      "homeWinProbability": 0.253,
+      "awayWinProbability": 0.745,
       "predictionSource": "espn"
     },
     {
@@ -4682,10 +4682,10 @@
       "actualMargin": null,
       "awayFpi": 1.941,
       "homeFpi": 4.681,
-      "predictedMargin": 4.2,
+      "predictedMargin": 4.4,
       "predictionError": null,
-      "homeWinProbability": 0.658,
-      "awayWinProbability": 0.339,
+      "homeWinProbability": 0.668,
+      "awayWinProbability": 0.329,
       "predictionSource": "espn"
     },
     {
@@ -4704,10 +4704,10 @@
       "actualMargin": null,
       "awayFpi": 3.932,
       "homeFpi": 3.167,
-      "predictedMargin": 0.3,
+      "predictedMargin": 1.3,
       "predictionError": null,
-      "homeWinProbability": 0.506,
-      "awayWinProbability": 0.49,
+      "homeWinProbability": 0.545,
+      "awayWinProbability": 0.451,
       "predictionSource": "espn"
     },
     {
@@ -4726,10 +4726,10 @@
       "actualMargin": null,
       "awayFpi": -5.677,
       "homeFpi": 1.651,
-      "predictedMargin": 8,
+      "predictedMargin": 9.3,
       "predictionError": null,
-      "homeWinProbability": 0.786,
-      "awayWinProbability": 0.212,
+      "homeWinProbability": 0.824,
+      "awayWinProbability": 0.174,
       "predictionSource": "espn"
     },
     {
@@ -4748,10 +4748,10 @@
       "actualMargin": null,
       "awayFpi": 5.027,
       "homeFpi": 6.081,
-      "predictedMargin": 1.6,
+      "predictedMargin": 0.7,
       "predictionError": null,
-      "homeWinProbability": 0.562,
-      "awayWinProbability": 0.434,
+      "homeWinProbability": 0.525,
+      "awayWinProbability": 0.471,
       "predictionSource": "espn"
     },
     {
@@ -4770,10 +4770,10 @@
       "actualMargin": null,
       "awayFpi": 2.464,
       "homeFpi": -0.925,
-      "predictedMargin": -2.3,
+      "predictedMargin": -2.9,
       "predictionError": null,
-      "homeWinProbability": 0.406,
-      "awayWinProbability": 0.591,
+      "homeWinProbability": 0.383,
+      "awayWinProbability": 0.613,
       "predictionSource": "espn"
     },
     {
@@ -4792,10 +4792,10 @@
       "actualMargin": null,
       "awayFpi": -3.091,
       "homeFpi": 5.276,
-      "predictedMargin": 9.4,
+      "predictedMargin": 9.3,
       "predictionError": null,
-      "homeWinProbability": 0.824,
-      "awayWinProbability": 0.175,
+      "homeWinProbability": 0.816,
+      "awayWinProbability": 0.183,
       "predictionSource": "espn"
     },
     {
@@ -4814,10 +4814,10 @@
       "actualMargin": null,
       "awayFpi": -3.775,
       "homeFpi": -3.256,
-      "predictedMargin": 2,
+      "predictedMargin": 0.8,
       "predictionError": null,
-      "homeWinProbability": 0.58,
-      "awayWinProbability": 0.417,
+      "homeWinProbability": 0.53,
+      "awayWinProbability": 0.467,
       "predictionSource": "espn"
     },
     {
@@ -4836,10 +4836,10 @@
       "actualMargin": null,
       "awayFpi": -7.131,
       "homeFpi": -10.178,
-      "predictedMargin": -3.5,
+      "predictedMargin": -5.2,
       "predictionError": null,
-      "homeWinProbability": 0.362,
-      "awayWinProbability": 0.636,
+      "homeWinProbability": 0.294,
+      "awayWinProbability": 0.703,
       "predictionSource": "espn"
     },
     {
@@ -4858,10 +4858,10 @@
       "actualMargin": null,
       "awayFpi": -5.69,
       "homeFpi": 3.53,
-      "predictedMargin": 9.7,
+      "predictedMargin": 8.6,
       "predictionError": null,
-      "homeWinProbability": 0.83,
-      "awayWinProbability": 0.168,
+      "homeWinProbability": 0.804,
+      "awayWinProbability": 0.195,
       "predictionSource": "espn"
     },
     {
@@ -4880,10 +4880,10 @@
       "actualMargin": null,
       "awayFpi": -6.304,
       "homeFpi": 6.112,
-      "predictedMargin": 13,
+      "predictedMargin": 12.5,
       "predictionError": null,
-      "homeWinProbability": 0.902,
-      "awayWinProbability": 0.098,
+      "homeWinProbability": 0.894,
+      "awayWinProbability": 0.105,
       "predictionSource": "espn"
     },
     {
@@ -4902,10 +4902,10 @@
       "actualMargin": null,
       "awayFpi": -5.899,
       "homeFpi": 2.055,
-      "predictedMargin": 9.8,
+      "predictedMargin": 9.6,
       "predictionError": null,
-      "homeWinProbability": 0.834,
-      "awayWinProbability": 0.165,
+      "homeWinProbability": 0.829,
+      "awayWinProbability": 0.169,
       "predictionSource": "espn"
     },
     {
@@ -4924,10 +4924,10 @@
       "actualMargin": null,
       "awayFpi": -5.703,
       "homeFpi": -2.734,
-      "predictedMargin": 3.8,
+      "predictedMargin": 2.4,
       "predictionError": null,
-      "homeWinProbability": 0.648,
-      "awayWinProbability": 0.349,
+      "homeWinProbability": 0.594,
+      "awayWinProbability": 0.403,
       "predictionSource": "espn"
     },
     {
@@ -4946,10 +4946,10 @@
       "actualMargin": null,
       "awayFpi": -2.911,
       "homeFpi": -5.946,
-      "predictedMargin": -2,
+      "predictedMargin": -2.6,
       "predictionError": null,
-      "homeWinProbability": 0.419,
-      "awayWinProbability": 0.577,
+      "homeWinProbability": 0.398,
+      "awayWinProbability": 0.599,
       "predictionSource": "espn"
     },
     {
@@ -4968,10 +4968,10 @@
       "actualMargin": null,
       "awayFpi": 3.761,
       "homeFpi": 6.608,
-      "predictedMargin": 3.6,
+      "predictedMargin": 4.7,
       "predictionError": null,
-      "homeWinProbability": 0.64,
-      "awayWinProbability": 0.357,
+      "homeWinProbability": 0.683,
+      "awayWinProbability": 0.315,
       "predictionSource": "espn"
     },
     {
@@ -4990,10 +4990,10 @@
       "actualMargin": null,
       "awayFpi": -7.195,
       "homeFpi": -4.884,
-      "predictedMargin": 3.9,
+      "predictedMargin": 4.4,
       "predictionError": null,
-      "homeWinProbability": 0.649,
-      "awayWinProbability": 0.348,
+      "homeWinProbability": 0.671,
+      "awayWinProbability": 0.326,
       "predictionSource": "espn"
     },
     {
@@ -5012,10 +5012,10 @@
       "actualMargin": null,
       "awayFpi": -1.726,
       "homeFpi": 0.786,
-      "predictedMargin": 5,
+      "predictedMargin": 4.5,
       "predictionError": null,
-      "homeWinProbability": 0.69,
-      "awayWinProbability": 0.308,
+      "homeWinProbability": 0.676,
+      "awayWinProbability": 0.321,
       "predictionSource": "espn"
     },
     {
@@ -5034,10 +5034,10 @@
       "actualMargin": null,
       "awayFpi": 5.027,
       "homeFpi": 4.681,
-      "predictedMargin": 1,
+      "predictedMargin": 0.3,
       "predictionError": null,
-      "homeWinProbability": 0.537,
-      "awayWinProbability": 0.459,
+      "homeWinProbability": 0.514,
+      "awayWinProbability": 0.482,
       "predictionSource": "espn"
     },
     {
@@ -5056,10 +5056,10 @@
       "actualMargin": null,
       "awayFpi": 3.167,
       "homeFpi": -5.69,
-      "predictedMargin": -7.8,
+      "predictedMargin": -8.4,
       "predictionError": null,
-      "homeWinProbability": 0.218,
-      "awayWinProbability": 0.781,
+      "homeWinProbability": 0.199,
+      "awayWinProbability": 0.8,
       "predictionSource": "espn"
     },
     {
@@ -5078,10 +5078,10 @@
       "actualMargin": null,
       "awayFpi": 6.112,
       "homeFpi": 3.932,
-      "predictedMargin": -1.3,
+      "predictedMargin": -0.6,
       "predictionError": null,
-      "homeWinProbability": 0.446,
-      "awayWinProbability": 0.55,
+      "homeWinProbability": 0.474,
+      "awayWinProbability": 0.523,
       "predictionSource": "espn"
     },
     {
@@ -5100,10 +5100,10 @@
       "actualMargin": null,
       "awayFpi": 5.276,
       "homeFpi": -4.884,
-      "predictedMargin": -9.2,
+      "predictedMargin": -9.1,
       "predictionError": null,
-      "homeWinProbability": 0.18,
-      "awayWinProbability": 0.819,
+      "homeWinProbability": 0.184,
+      "awayWinProbability": 0.814,
       "predictionSource": "espn"
     },
     {
@@ -5122,10 +5122,10 @@
       "actualMargin": null,
       "awayFpi": -2.911,
       "homeFpi": -6.304,
-      "predictedMargin": -2.3,
+      "predictedMargin": -2.8,
       "predictionError": null,
-      "homeWinProbability": 0.408,
-      "awayWinProbability": 0.589,
+      "homeWinProbability": 0.389,
+      "awayWinProbability": 0.608,
       "predictionSource": "espn"
     },
     {
@@ -5144,10 +5144,10 @@
       "actualMargin": null,
       "awayFpi": 1.941,
       "homeFpi": -3.091,
-      "predictedMargin": -4.4,
+      "predictedMargin": -4.2,
       "predictionError": null,
-      "homeWinProbability": 0.329,
-      "awayWinProbability": 0.668,
+      "homeWinProbability": 0.337,
+      "awayWinProbability": 0.66,
       "predictionSource": "espn"
     },
     {
@@ -5166,10 +5166,10 @@
       "actualMargin": null,
       "awayFpi": 6.608,
       "homeFpi": -3.775,
-      "predictedMargin": -9.7,
+      "predictedMargin": -9.5,
       "predictionError": null,
-      "homeWinProbability": 0.169,
-      "awayWinProbability": 0.83,
+      "homeWinProbability": 0.168,
+      "awayWinProbability": 0.831,
       "predictionSource": "espn"
     },
     {
@@ -5188,10 +5188,10 @@
       "actualMargin": null,
       "awayFpi": -2.734,
       "homeFpi": 0.786,
-      "predictedMargin": 5.8,
+      "predictedMargin": 5.3,
       "predictionError": null,
-      "homeWinProbability": 0.717,
-      "awayWinProbability": 0.281,
+      "homeWinProbability": 0.703,
+      "awayWinProbability": 0.295,
       "predictionSource": "espn"
     },
     {
@@ -5210,10 +5210,10 @@
       "actualMargin": null,
       "awayFpi": -10.178,
       "homeFpi": 2.464,
-      "predictedMargin": 13,
+      "predictedMargin": 14.1,
       "predictionError": null,
-      "homeWinProbability": 0.899,
-      "awayWinProbability": 0.1,
+      "homeWinProbability": 0.916,
+      "awayWinProbability": 0.083,
       "predictionSource": "espn"
     },
     {
@@ -5232,10 +5232,10 @@
       "actualMargin": null,
       "awayFpi": -5.677,
       "homeFpi": -5.946,
-      "predictedMargin": 0.7,
+      "predictedMargin": 0.6,
       "predictionError": null,
-      "homeWinProbability": 0.525,
-      "awayWinProbability": 0.471,
+      "homeWinProbability": 0.523,
+      "awayWinProbability": 0.473,
       "predictionSource": "espn"
     },
     {
@@ -5254,10 +5254,10 @@
       "actualMargin": null,
       "awayFpi": -1.726,
       "homeFpi": 3.53,
-      "predictedMargin": 6.1,
+      "predictedMargin": 5.1,
       "predictionError": null,
-      "homeWinProbability": 0.729,
-      "awayWinProbability": 0.269,
+      "homeWinProbability": 0.697,
+      "awayWinProbability": 0.3,
       "predictionSource": "espn"
     },
     {
@@ -5276,10 +5276,10 @@
       "actualMargin": null,
       "awayFpi": 6.081,
       "homeFpi": -5.703,
-      "predictedMargin": -10.8,
+      "predictedMargin": -10.5,
       "predictionError": null,
-      "homeWinProbability": 0.143,
-      "awayWinProbability": 0.856,
+      "homeWinProbability": 0.147,
+      "awayWinProbability": 0.852,
       "predictionSource": "espn"
     },
     {
@@ -5298,10 +5298,10 @@
       "actualMargin": null,
       "awayFpi": 2.055,
       "homeFpi": -0.925,
-      "predictedMargin": -2.8,
+      "predictedMargin": -3.3,
       "predictionError": null,
-      "homeWinProbability": 0.388,
-      "awayWinProbability": 0.608,
+      "homeWinProbability": 0.367,
+      "awayWinProbability": 0.63,
       "predictionSource": "espn"
     },
     {
@@ -5320,10 +5320,10 @@
       "actualMargin": null,
       "awayFpi": 1.651,
       "homeFpi": 3.761,
-      "predictedMargin": 3.2,
+      "predictedMargin": 2.4,
       "predictionError": null,
-      "homeWinProbability": 0.626,
-      "awayWinProbability": 0.371,
+      "homeWinProbability": 0.592,
+      "awayWinProbability": 0.404,
       "predictionSource": "espn"
     },
     {
@@ -5342,10 +5342,10 @@
       "actualMargin": null,
       "awayFpi": 3.53,
       "homeFpi": -5.703,
-      "predictedMargin": -8.1,
+      "predictedMargin": -6.9,
       "predictionError": null,
-      "homeWinProbability": 0.209,
-      "awayWinProbability": 0.789,
+      "homeWinProbability": 0.24,
+      "awayWinProbability": 0.758,
       "predictionSource": "espn"
     },
     {
@@ -5364,10 +5364,10 @@
       "actualMargin": null,
       "awayFpi": -5.69,
       "homeFpi": -4.884,
-      "predictedMargin": 1.8,
+      "predictedMargin": 1.7,
       "predictionError": null,
-      "homeWinProbability": 0.568,
-      "awayWinProbability": 0.429,
+      "homeWinProbability": 0.566,
+      "awayWinProbability": 0.431,
       "predictionSource": "espn"
     },
     {
@@ -5386,10 +5386,10 @@
       "actualMargin": null,
       "awayFpi": -6.304,
       "homeFpi": 3.167,
-      "predictedMargin": 9.8,
+      "predictedMargin": 10.9,
       "predictionError": null,
-      "homeWinProbability": 0.834,
-      "awayWinProbability": 0.165,
+      "homeWinProbability": 0.858,
+      "awayWinProbability": 0.14,
       "predictionSource": "espn"
     },
     {
@@ -5408,10 +5408,10 @@
       "actualMargin": null,
       "awayFpi": 3.932,
       "homeFpi": -10.178,
-      "predictedMargin": -10.8,
+      "predictedMargin": -10.9,
       "predictionError": null,
-      "homeWinProbability": 0.146,
-      "awayWinProbability": 0.853,
+      "homeWinProbability": 0.145,
+      "awayWinProbability": 0.854,
       "predictionSource": "espn"
     },
     {
@@ -5430,10 +5430,10 @@
       "actualMargin": null,
       "awayFpi": 2.464,
       "homeFpi": -7.131,
-      "predictedMargin": -6.3,
+      "predictedMargin": -5.5,
       "predictionError": null,
-      "homeWinProbability": 0.267,
-      "awayWinProbability": 0.731,
+      "homeWinProbability": 0.288,
+      "awayWinProbability": 0.709,
       "predictionSource": "espn"
     },
     {
@@ -5452,10 +5452,10 @@
       "actualMargin": null,
       "awayFpi": -3.256,
       "homeFpi": -5.677,
-      "predictedMargin": -2,
+      "predictedMargin": -2.2,
       "predictionError": null,
-      "homeWinProbability": 0.42,
-      "awayWinProbability": 0.577,
+      "homeWinProbability": 0.414,
+      "awayWinProbability": 0.583,
       "predictionSource": "espn"
     },
     {
@@ -5474,10 +5474,10 @@
       "actualMargin": null,
       "awayFpi": 2.055,
       "homeFpi": -2.911,
-      "predictedMargin": -4.8,
+      "predictedMargin": -4.4,
       "predictionError": null,
-      "homeWinProbability": 0.316,
-      "awayWinProbability": 0.681,
+      "homeWinProbability": 0.328,
+      "awayWinProbability": 0.669,
       "predictionSource": "espn"
     },
     {
@@ -5498,8 +5498,8 @@
       "homeFpi": -1.726,
       "predictedMargin": 2.3,
       "predictionError": null,
-      "homeWinProbability": 0.594,
-      "awayWinProbability": 0.403,
+      "homeWinProbability": 0.586,
+      "awayWinProbability": 0.411,
       "predictionSource": "espn"
     },
     {
@@ -5518,10 +5518,10 @@
       "actualMargin": null,
       "awayFpi": 0.786,
       "homeFpi": -5.899,
-      "predictedMargin": -5,
+      "predictedMargin": -4.1,
       "predictionError": null,
-      "homeWinProbability": 0.311,
-      "awayWinProbability": 0.686,
+      "homeWinProbability": 0.345,
+      "awayWinProbability": 0.652,
       "predictionSource": "espn"
     },
     {
@@ -5540,10 +5540,10 @@
       "actualMargin": null,
       "awayFpi": -2.734,
       "homeFpi": -7.195,
-      "predictedMargin": -3.5,
+      "predictedMargin": -3.9,
       "predictionError": null,
-      "homeWinProbability": 0.356,
-      "awayWinProbability": 0.641,
+      "homeWinProbability": 0.342,
+      "awayWinProbability": 0.655,
       "predictionSource": "espn"
     },
     {
@@ -5562,10 +5562,10 @@
       "actualMargin": null,
       "awayFpi": 5.027,
       "homeFpi": 5.276,
-      "predictedMargin": 0.9,
+      "predictedMargin": 0,
       "predictionError": null,
-      "homeWinProbability": 0.538,
-      "awayWinProbability": 0.459,
+      "homeWinProbability": 0.503,
+      "awayWinProbability": 0.493,
       "predictionSource": "espn"
     },
     {
@@ -5584,10 +5584,10 @@
       "actualMargin": null,
       "awayFpi": 4.681,
       "homeFpi": 6.608,
-      "predictedMargin": 2.2,
+      "predictedMargin": 3.3,
       "predictionError": null,
-      "homeWinProbability": 0.586,
-      "awayWinProbability": 0.41,
+      "homeWinProbability": 0.625,
+      "awayWinProbability": 0.372,
       "predictionSource": "espn"
     },
     {
@@ -5606,10 +5606,10 @@
       "actualMargin": null,
       "awayFpi": -3.775,
       "homeFpi": 3.761,
-      "predictedMargin": 8.5,
+      "predictedMargin": 7.5,
       "predictionError": null,
-      "homeWinProbability": 0.8,
-      "awayWinProbability": 0.199,
+      "homeWinProbability": 0.769,
+      "awayWinProbability": 0.229,
       "predictionSource": "espn"
     },
     {
@@ -5628,10 +5628,10 @@
       "actualMargin": null,
       "awayFpi": 6.081,
       "homeFpi": 1.941,
-      "predictedMargin": -2.9,
+      "predictedMargin": -2.7,
       "predictionError": null,
-      "homeWinProbability": 0.386,
-      "awayWinProbability": 0.61,
+      "homeWinProbability": 0.388,
+      "awayWinProbability": 0.608,
       "predictionSource": "espn"
     },
     {
@@ -5650,10 +5650,10 @@
       "actualMargin": null,
       "awayFpi": -0.925,
       "homeFpi": 6.112,
-      "predictedMargin": 7.6,
+      "predictedMargin": 7.5,
       "predictionError": null,
-      "homeWinProbability": 0.773,
-      "awayWinProbability": 0.225,
+      "homeWinProbability": 0.771,
+      "awayWinProbability": 0.227,
       "predictionSource": "espn"
     },
     {
@@ -5672,10 +5672,10 @@
       "actualMargin": null,
       "awayFpi": 6.608,
       "homeFpi": -2.734,
-      "predictedMargin": -8.2,
+      "predictedMargin": -9.4,
       "predictionError": null,
-      "homeWinProbability": 0.203,
-      "awayWinProbability": 0.795,
+      "homeWinProbability": 0.173,
+      "awayWinProbability": 0.826,
       "predictionSource": "espn"
     },
     {
@@ -5694,10 +5694,10 @@
       "actualMargin": null,
       "awayFpi": 3.761,
       "homeFpi": -5.677,
-      "predictedMargin": -8.5,
+      "predictedMargin": -8.7,
       "predictionError": null,
-      "homeWinProbability": 0.2,
-      "awayWinProbability": 0.798,
+      "homeWinProbability": 0.189,
+      "awayWinProbability": 0.81,
       "predictionSource": "espn"
     },
     {
@@ -5716,10 +5716,10 @@
       "actualMargin": null,
       "awayFpi": 3.932,
       "homeFpi": 6.081,
-      "predictedMargin": 3.1,
+      "predictedMargin": 3.2,
       "predictionError": null,
-      "homeWinProbability": 0.617,
-      "awayWinProbability": 0.38,
+      "homeWinProbability": 0.622,
+      "awayWinProbability": 0.375,
       "predictionSource": "espn"
     },
     {
@@ -5738,10 +5738,10 @@
       "actualMargin": null,
       "awayFpi": -10.178,
       "homeFpi": 1.941,
-      "predictedMargin": 9.6,
+      "predictedMargin": 9.3,
       "predictionError": null,
-      "homeWinProbability": 0.828,
-      "awayWinProbability": 0.17,
+      "homeWinProbability": 0.82,
+      "awayWinProbability": 0.179,
       "predictionSource": "espn"
     },
     {
@@ -5760,10 +5760,10 @@
       "actualMargin": null,
       "awayFpi": -3.256,
       "homeFpi": -6.304,
-      "predictedMargin": -2,
+      "predictedMargin": -2.2,
       "predictionError": null,
-      "homeWinProbability": 0.418,
-      "awayWinProbability": 0.578,
+      "homeWinProbability": 0.412,
+      "awayWinProbability": 0.584,
       "predictionSource": "espn"
     },
     {
@@ -5782,10 +5782,10 @@
       "actualMargin": null,
       "awayFpi": -4.884,
       "homeFpi": -3.775,
-      "predictedMargin": 1.8,
+      "predictedMargin": 3.1,
       "predictionError": null,
-      "homeWinProbability": 0.569,
-      "awayWinProbability": 0.427,
+      "homeWinProbability": 0.625,
+      "awayWinProbability": 0.372,
       "predictionSource": "espn"
     },
     {
@@ -5804,10 +5804,10 @@
       "actualMargin": null,
       "awayFpi": -5.899,
       "homeFpi": -0.925,
-      "predictedMargin": 4.1,
+      "predictedMargin": 3.3,
       "predictionError": null,
-      "homeWinProbability": 0.649,
-      "awayWinProbability": 0.348,
+      "homeWinProbability": 0.625,
+      "awayWinProbability": 0.372,
       "predictionSource": "espn"
     },
     {
@@ -5826,10 +5826,10 @@
       "actualMargin": null,
       "awayFpi": -3.091,
       "homeFpi": 0.786,
-      "predictedMargin": 6.4,
+      "predictedMargin": 5.8,
       "predictionError": null,
-      "homeWinProbability": 0.736,
-      "awayWinProbability": 0.262,
+      "homeWinProbability": 0.717,
+      "awayWinProbability": 0.281,
       "predictionSource": "espn"
     },
     {
@@ -5848,10 +5848,10 @@
       "actualMargin": null,
       "awayFpi": -5.69,
       "homeFpi": -2.911,
-      "predictedMargin": 3.7,
+      "predictedMargin": 4,
       "predictionError": null,
-      "homeWinProbability": 0.638,
-      "awayWinProbability": 0.359,
+      "homeWinProbability": 0.655,
+      "awayWinProbability": 0.342,
       "predictionSource": "espn"
     },
     {
@@ -5870,10 +5870,10 @@
       "actualMargin": null,
       "awayFpi": 5.276,
       "homeFpi": -1.726,
-      "predictedMargin": -6.1,
+      "predictedMargin": -5.9,
       "predictionError": null,
-      "homeWinProbability": 0.27,
-      "awayWinProbability": 0.728,
+      "homeWinProbability": 0.278,
+      "awayWinProbability": 0.72,
       "predictionSource": "espn"
     },
     {
@@ -5892,10 +5892,10 @@
       "actualMargin": null,
       "awayFpi": 6.112,
       "homeFpi": 2.055,
-      "predictedMargin": -2,
+      "predictedMargin": -1.2,
       "predictionError": null,
-      "homeWinProbability": 0.415,
-      "awayWinProbability": 0.581,
+      "homeWinProbability": 0.452,
+      "awayWinProbability": 0.544,
       "predictionSource": "espn"
     },
     {
@@ -5914,10 +5914,10 @@
       "actualMargin": null,
       "awayFpi": -7.131,
       "homeFpi": -5.946,
-      "predictedMargin": 0.6,
+      "predictedMargin": -0.4,
       "predictionError": null,
-      "homeWinProbability": 0.523,
-      "awayWinProbability": 0.473,
+      "homeWinProbability": 0.483,
+      "awayWinProbability": 0.513,
       "predictionSource": "espn"
     },
     {
@@ -5936,10 +5936,10 @@
       "actualMargin": null,
       "awayFpi": 2.464,
       "homeFpi": -7.195,
-      "predictedMargin": -8.7,
+      "predictedMargin": -9.2,
       "predictionError": null,
-      "homeWinProbability": 0.194,
-      "awayWinProbability": 0.804,
+      "homeWinProbability": 0.178,
+      "awayWinProbability": 0.821,
       "predictionSource": "espn"
     },
     {
@@ -5958,10 +5958,10 @@
       "actualMargin": null,
       "awayFpi": 1.651,
       "homeFpi": 4.681,
-      "predictedMargin": 4.5,
+      "predictedMargin": 3.8,
       "predictionError": null,
-      "homeWinProbability": 0.669,
-      "awayWinProbability": 0.329,
+      "homeWinProbability": 0.65,
+      "awayWinProbability": 0.348,
       "predictionSource": "espn"
     },
     {
@@ -5980,10 +5980,10 @@
       "actualMargin": null,
       "awayFpi": 3.167,
       "homeFpi": 3.53,
-      "predictedMargin": 1.5,
+      "predictedMargin": -0.3,
       "predictionError": null,
-      "homeWinProbability": 0.561,
-      "awayWinProbability": 0.436,
+      "homeWinProbability": 0.487,
+      "awayWinProbability": 0.509,
       "predictionSource": "espn"
     },
     {
@@ -6002,10 +6002,10 @@
       "actualMargin": null,
       "awayFpi": -5.703,
       "homeFpi": 5.027,
-      "predictedMargin": 11.7,
+      "predictedMargin": 12.5,
       "predictionError": null,
-      "homeWinProbability": 0.876,
-      "awayWinProbability": 0.123,
+      "homeWinProbability": 0.889,
+      "awayWinProbability": 0.11,
       "predictionSource": "espn"
     },
     {
@@ -6024,10 +6024,10 @@
       "actualMargin": null,
       "awayFpi": 2.055,
       "homeFpi": -5.677,
-      "predictedMargin": -7.5,
+      "predictedMargin": -7.7,
       "predictionError": null,
-      "homeWinProbability": 0.232,
-      "awayWinProbability": 0.767,
+      "homeWinProbability": 0.222,
+      "awayWinProbability": 0.776,
       "predictionSource": "espn"
     },
     {
@@ -6048,8 +6048,8 @@
       "homeFpi": 3.932,
       "predictedMargin": 2.6,
       "predictionError": null,
-      "homeWinProbability": 0.602,
-      "awayWinProbability": 0.395,
+      "homeWinProbability": 0.596,
+      "awayWinProbability": 0.401,
       "predictionSource": "espn"
     },
     {
@@ -6068,10 +6068,10 @@
       "actualMargin": null,
       "awayFpi": 6.081,
       "homeFpi": 2.464,
-      "predictedMargin": -2.6,
+      "predictedMargin": -2.4,
       "predictionError": null,
-      "homeWinProbability": 0.4,
-      "awayWinProbability": 0.597,
+      "homeWinProbability": 0.406,
+      "awayWinProbability": 0.59,
       "predictionSource": "espn"
     },
     {
@@ -6092,8 +6092,8 @@
       "homeFpi": 3.761,
       "predictedMargin": -0.4,
       "predictionError": null,
-      "homeWinProbability": 0.484,
-      "awayWinProbability": 0.513,
+      "homeWinProbability": 0.483,
+      "awayWinProbability": 0.514,
       "predictionSource": "espn"
     },
     {
@@ -6112,10 +6112,10 @@
       "actualMargin": null,
       "awayFpi": 0.786,
       "homeFpi": -5.69,
-      "predictedMargin": -6.9,
+      "predictedMargin": -6.1,
       "predictionError": null,
-      "homeWinProbability": 0.246,
-      "awayWinProbability": 0.752,
+      "homeWinProbability": 0.267,
+      "awayWinProbability": 0.731,
       "predictionSource": "espn"
     },
     {
@@ -6134,10 +6134,10 @@
       "actualMargin": null,
       "awayFpi": 5.276,
       "homeFpi": -3.256,
-      "predictedMargin": -7.2,
+      "predictedMargin": -7,
       "predictionError": null,
-      "homeWinProbability": 0.234,
-      "awayWinProbability": 0.764,
+      "homeWinProbability": 0.241,
+      "awayWinProbability": 0.758,
       "predictionSource": "espn"
     },
     {
@@ -6156,10 +6156,10 @@
       "actualMargin": null,
       "awayFpi": -2.911,
       "homeFpi": 3.53,
-      "predictedMargin": 7,
+      "predictedMargin": 5.7,
       "predictionError": null,
-      "homeWinProbability": 0.756,
-      "awayWinProbability": 0.242,
+      "homeWinProbability": 0.718,
+      "awayWinProbability": 0.28,
       "predictionSource": "espn"
     },
     {
@@ -6178,10 +6178,10 @@
       "actualMargin": null,
       "awayFpi": -1.726,
       "homeFpi": -0.925,
-      "predictedMargin": 2.1,
+      "predictedMargin": 1.6,
       "predictionError": null,
-      "homeWinProbability": 0.577,
-      "awayWinProbability": 0.42,
+      "homeWinProbability": 0.56,
+      "awayWinProbability": 0.436,
       "predictionSource": "espn"
     },
     {
@@ -6200,10 +6200,10 @@
       "actualMargin": null,
       "awayFpi": -2.734,
       "homeFpi": -10.178,
-      "predictedMargin": -3.3,
+      "predictedMargin": -2.9,
       "predictionError": null,
-      "homeWinProbability": 0.37,
-      "awayWinProbability": 0.627,
+      "homeWinProbability": 0.382,
+      "awayWinProbability": 0.615,
       "predictionSource": "espn"
     },
     {
@@ -6222,10 +6222,10 @@
       "actualMargin": null,
       "awayFpi": -5.946,
       "homeFpi": -3.091,
-      "predictedMargin": 3.6,
+      "predictedMargin": 4.1,
       "predictionError": null,
-      "homeWinProbability": 0.639,
-      "awayWinProbability": 0.358,
+      "homeWinProbability": 0.659,
+      "awayWinProbability": 0.338,
       "predictionSource": "espn"
     },
     {
@@ -6244,10 +6244,10 @@
       "actualMargin": null,
       "awayFpi": -5.703,
       "homeFpi": -7.131,
-      "predictedMargin": -0.1,
+      "predictedMargin": 0.6,
       "predictionError": null,
-      "homeWinProbability": 0.497,
-      "awayWinProbability": 0.499,
+      "homeWinProbability": 0.524,
+      "awayWinProbability": 0.473,
       "predictionSource": "espn"
     },
     {
@@ -6266,10 +6266,10 @@
       "actualMargin": null,
       "awayFpi": -4.884,
       "homeFpi": -5.899,
-      "predictedMargin": 1.8,
+      "predictedMargin": 2.2,
       "predictionError": null,
-      "homeWinProbability": 0.57,
-      "awayWinProbability": 0.427,
+      "homeWinProbability": 0.585,
+      "awayWinProbability": 0.412,
       "predictionSource": "espn"
     },
     {
@@ -6288,10 +6288,10 @@
       "actualMargin": null,
       "awayFpi": -6.304,
       "homeFpi": -7.195,
-      "predictedMargin": -0.5,
+      "predictedMargin": -0.7,
       "predictionError": null,
-      "homeWinProbability": 0.479,
-      "awayWinProbability": 0.517,
+      "homeWinProbability": 0.473,
+      "awayWinProbability": 0.523,
       "predictionSource": "espn"
     },
     {
@@ -6310,10 +6310,10 @@
       "actualMargin": null,
       "awayFpi": 6.608,
       "homeFpi": 5.027,
-      "predictedMargin": -0.7,
+      "predictedMargin": -0.9,
       "predictionError": null,
-      "homeWinProbability": 0.47,
-      "awayWinProbability": 0.526,
+      "homeWinProbability": 0.465,
+      "awayWinProbability": 0.531,
       "predictionSource": "espn"
     },
     {
@@ -6332,10 +6332,10 @@
       "actualMargin": null,
       "awayFpi": 6.112,
       "homeFpi": 1.651,
-      "predictedMargin": -3.6,
+      "predictedMargin": -1.9,
       "predictionError": null,
-      "homeWinProbability": 0.359,
-      "awayWinProbability": 0.638,
+      "homeWinProbability": 0.425,
+      "awayWinProbability": 0.572,
       "predictionSource": "espn"
     },
     {
@@ -6354,10 +6354,10 @@
       "actualMargin": null,
       "awayFpi": -3.775,
       "homeFpi": 3.167,
-      "predictedMargin": 7.6,
+      "predictedMargin": 7.3,
       "predictionError": null,
-      "homeWinProbability": 0.772,
-      "awayWinProbability": 0.226,
+      "homeWinProbability": 0.764,
+      "awayWinProbability": 0.234,
       "predictionSource": "espn"
     },
     {
@@ -6376,10 +6376,10 @@
       "actualMargin": null,
       "awayFpi": -5.899,
       "homeFpi": 5.276,
-      "predictedMargin": 9.9,
+      "predictedMargin": 9.6,
       "predictionError": null,
-      "homeWinProbability": 0.826,
-      "awayWinProbability": 0.173,
+      "homeWinProbability": 0.82,
+      "awayWinProbability": 0.179,
       "predictionSource": "espn"
     },
     {
@@ -6398,10 +6398,10 @@
       "actualMargin": null,
       "awayFpi": 2.464,
       "homeFpi": -5.703,
-      "predictedMargin": -5.6,
+      "predictedMargin": -5.4,
       "predictionError": null,
       "homeWinProbability": 0.295,
-      "awayWinProbability": 0.702,
+      "awayWinProbability": 0.703,
       "predictionSource": "espn"
     },
     {
@@ -6420,10 +6420,10 @@
       "actualMargin": null,
       "awayFpi": 5.027,
       "homeFpi": -2.734,
-      "predictedMargin": -6.7,
+      "predictedMargin": -7.6,
       "predictionError": null,
-      "homeWinProbability": 0.254,
-      "awayWinProbability": 0.744,
+      "homeWinProbability": 0.226,
+      "awayWinProbability": 0.773,
       "predictionSource": "espn"
     },
     {
@@ -6442,10 +6442,10 @@
       "actualMargin": null,
       "awayFpi": 4.681,
       "homeFpi": 0.786,
-      "predictedMargin": -1.9,
+      "predictedMargin": -2.6,
       "predictionError": null,
-      "homeWinProbability": 0.425,
-      "awayWinProbability": 0.572,
+      "homeWinProbability": 0.395,
+      "awayWinProbability": 0.602,
       "predictionSource": "espn"
     },
     {
@@ -6464,10 +6464,10 @@
       "actualMargin": null,
       "awayFpi": -2.911,
       "homeFpi": 6.112,
-      "predictedMargin": 9.4,
+      "predictedMargin": 8.4,
       "predictionError": null,
-      "homeWinProbability": 0.822,
-      "awayWinProbability": 0.176,
+      "homeWinProbability": 0.794,
+      "awayWinProbability": 0.204,
       "predictionSource": "espn"
     },
     {
@@ -6488,8 +6488,8 @@
       "homeFpi": -5.69,
       "predictedMargin": -1.3,
       "predictionError": null,
-      "homeWinProbability": 0.446,
-      "awayWinProbability": 0.551,
+      "homeWinProbability": 0.447,
+      "awayWinProbability": 0.549,
       "predictionSource": "espn"
     },
     {
@@ -6510,8 +6510,8 @@
       "homeFpi": -4.884,
       "predictedMargin": -0.9,
       "predictionError": null,
-      "homeWinProbability": 0.46,
-      "awayWinProbability": 0.536,
+      "homeWinProbability": 0.463,
+      "awayWinProbability": 0.534,
       "predictionSource": "espn"
     },
     {
@@ -6530,10 +6530,10 @@
       "actualMargin": null,
       "awayFpi": -3.775,
       "homeFpi": 1.651,
-      "predictedMargin": 6.1,
+      "predictedMargin": 5.9,
       "predictionError": null,
-      "homeWinProbability": 0.728,
-      "awayWinProbability": 0.269,
+      "homeWinProbability": 0.719,
+      "awayWinProbability": 0.278,
       "predictionSource": "espn"
     },
     {
@@ -6552,10 +6552,10 @@
       "actualMargin": null,
       "awayFpi": -0.925,
       "homeFpi": -6.304,
-      "predictedMargin": -4.3,
+      "predictedMargin": -3.9,
       "predictionError": null,
-      "homeWinProbability": 0.33,
-      "awayWinProbability": 0.667,
+      "homeWinProbability": 0.346,
+      "awayWinProbability": 0.651,
       "predictionSource": "espn"
     },
     {
@@ -6574,10 +6574,10 @@
       "actualMargin": null,
       "awayFpi": 6.081,
       "homeFpi": -10.178,
-      "predictedMargin": -11.6,
+      "predictedMargin": -11.1,
       "predictionError": null,
-      "homeWinProbability": 0.126,
-      "awayWinProbability": 0.873,
+      "homeWinProbability": 0.139,
+      "awayWinProbability": 0.86,
       "predictionSource": "espn"
     },
     {
@@ -6596,10 +6596,10 @@
       "actualMargin": null,
       "awayFpi": 3.53,
       "homeFpi": -7.131,
-      "predictedMargin": -7.7,
+      "predictedMargin": -5.9,
       "predictionError": null,
-      "homeWinProbability": 0.223,
-      "awayWinProbability": 0.775,
+      "homeWinProbability": 0.277,
+      "awayWinProbability": 0.721,
       "predictionSource": "espn"
     },
     {
@@ -6620,7 +6620,7 @@
       "homeFpi": -1.726,
       "predictedMargin": -4.7,
       "predictionError": null,
-      "homeWinProbability": 0.318,
+      "homeWinProbability": 0.319,
       "awayWinProbability": 0.679,
       "predictionSource": "espn"
     },
@@ -6640,10 +6640,10 @@
       "actualMargin": null,
       "awayFpi": -7.195,
       "homeFpi": -5.946,
-      "predictedMargin": 2.3,
+      "predictedMargin": 2.5,
       "predictionError": null,
-      "homeWinProbability": 0.59,
-      "awayWinProbability": 0.407,
+      "homeWinProbability": 0.598,
+      "awayWinProbability": 0.399,
       "predictionSource": "espn"
     },
     {
@@ -6662,10 +6662,10 @@
       "actualMargin": null,
       "awayFpi": 3.167,
       "homeFpi": 3.932,
-      "predictedMargin": 1.9,
+      "predictedMargin": 1,
       "predictionError": null,
-      "homeWinProbability": 0.571,
-      "awayWinProbability": 0.425,
+      "homeWinProbability": 0.537,
+      "awayWinProbability": 0.46,
       "predictionSource": "espn"
     },
     {
@@ -6684,10 +6684,10 @@
       "actualMargin": null,
       "awayFpi": -5.677,
       "homeFpi": 6.608,
-      "predictedMargin": 12.9,
+      "predictedMargin": 14.3,
       "predictionError": null,
-      "homeWinProbability": 0.895,
-      "awayWinProbability": 0.104,
+      "homeWinProbability": 0.918,
+      "awayWinProbability": 0.081,
       "predictionSource": "espn"
     },
     {
@@ -6706,10 +6706,10 @@
       "actualMargin": null,
       "awayFpi": 2.055,
       "homeFpi": 1.941,
-      "predictedMargin": -0.1,
+      "predictedMargin": 0,
       "predictionError": null,
-      "homeWinProbability": 0.493,
-      "awayWinProbability": 0.503,
+      "homeWinProbability": 0.498,
+      "awayWinProbability": 0.498,
       "predictionSource": "espn"
     },
     {
@@ -6728,10 +6728,10 @@
       "actualMargin": null,
       "awayFpi": -7.131,
       "homeFpi": 6.081,
-      "predictedMargin": 11.9,
+      "predictedMargin": 11.1,
       "predictionError": null,
-      "homeWinProbability": 0.875,
-      "awayWinProbability": 0.124,
+      "homeWinProbability": 0.865,
+      "awayWinProbability": 0.134,
       "predictionSource": "espn"
     },
     {
@@ -6753,7 +6753,7 @@
       "predictedMargin": 10.9,
       "predictionError": null,
       "homeWinProbability": 0.856,
-      "awayWinProbability": 0.142,
+      "awayWinProbability": 0.143,
       "predictionSource": "espn"
     },
     {
@@ -6772,10 +6772,10 @@
       "actualMargin": null,
       "awayFpi": -2.734,
       "homeFpi": 2.464,
-      "predictedMargin": 5.7,
+      "predictedMargin": 5.9,
       "predictionError": null,
-      "homeWinProbability": 0.714,
-      "awayWinProbability": 0.283,
+      "homeWinProbability": 0.724,
+      "awayWinProbability": 0.274,
       "predictionSource": "espn"
     },
     {
@@ -6794,10 +6794,10 @@
       "actualMargin": null,
       "awayFpi": 3.167,
       "homeFpi": 1.941,
-      "predictedMargin": 0,
+      "predictedMargin": -0.8,
       "predictionError": null,
-      "homeWinProbability": 0.497,
-      "awayWinProbability": 0.499,
+      "homeWinProbability": 0.464,
+      "awayWinProbability": 0.532,
       "predictionSource": "espn"
     },
     {
@@ -6816,10 +6816,10 @@
       "actualMargin": null,
       "awayFpi": 6.112,
       "homeFpi": -3.256,
-      "predictedMargin": -7.8,
+      "predictedMargin": -7,
       "predictionError": null,
-      "homeWinProbability": 0.22,
-      "awayWinProbability": 0.778,
+      "homeWinProbability": 0.244,
+      "awayWinProbability": 0.755,
       "predictionSource": "espn"
     },
     {
@@ -6838,10 +6838,10 @@
       "actualMargin": null,
       "awayFpi": -7.195,
       "homeFpi": 5.027,
-      "predictedMargin": 13.2,
+      "predictedMargin": 14.6,
       "predictionError": null,
-      "homeWinProbability": 0.903,
-      "awayWinProbability": 0.096,
+      "homeWinProbability": 0.924,
+      "awayWinProbability": 0.075,
       "predictionSource": "espn"
     },
     {
@@ -6860,10 +6860,10 @@
       "actualMargin": null,
       "awayFpi": 3.761,
       "homeFpi": 4.681,
-      "predictedMargin": 2.2,
+      "predictedMargin": 2.3,
       "predictionError": null,
-      "homeWinProbability": 0.587,
-      "awayWinProbability": 0.409,
+      "homeWinProbability": 0.59,
+      "awayWinProbability": 0.407,
       "predictionSource": "espn"
     },
     {
@@ -6882,10 +6882,10 @@
       "actualMargin": null,
       "awayFpi": 3.932,
       "homeFpi": 3.53,
-      "predictedMargin": 0.7,
+      "predictedMargin": -0.1,
       "predictionError": null,
-      "homeWinProbability": 0.525,
-      "awayWinProbability": 0.471,
+      "homeWinProbability": 0.494,
+      "awayWinProbability": 0.502,
       "predictionSource": "espn"
     },
     {
@@ -6904,10 +6904,10 @@
       "actualMargin": null,
       "awayFpi": -10.178,
       "homeFpi": -5.703,
-      "predictedMargin": 3.6,
+      "predictedMargin": 3.4,
       "predictionError": null,
-      "homeWinProbability": 0.634,
-      "awayWinProbability": 0.364,
+      "homeWinProbability": 0.627,
+      "awayWinProbability": 0.37,
       "predictionSource": "espn"
     },
     {
@@ -6926,10 +6926,10 @@
       "actualMargin": null,
       "awayFpi": 0.786,
       "homeFpi": -3.091,
-      "predictedMargin": -4.5,
+      "predictedMargin": -3.8,
       "predictionError": null,
-      "homeWinProbability": 0.32,
-      "awayWinProbability": 0.677,
+      "homeWinProbability": 0.356,
+      "awayWinProbability": 0.642,
       "predictionSource": "espn"
     },
     {
@@ -6948,10 +6948,10 @@
       "actualMargin": null,
       "awayFpi": -5.677,
       "homeFpi": -3.775,
-      "predictedMargin": 2.7,
+      "predictedMargin": 4.2,
       "predictionError": null,
-      "homeWinProbability": 0.604,
-      "awayWinProbability": 0.393,
+      "homeWinProbability": 0.662,
+      "awayWinProbability": 0.336,
       "predictionSource": "espn"
     },
     {
@@ -6970,10 +6970,10 @@
       "actualMargin": null,
       "awayFpi": 6.608,
       "homeFpi": -5.946,
-      "predictedMargin": -11.4,
+      "predictedMargin": -12.8,
       "predictionError": null,
-      "homeWinProbability": 0.13,
-      "awayWinProbability": 0.869,
+      "homeWinProbability": 0.102,
+      "awayWinProbability": 0.897,
       "predictionSource": "espn"
     },
     {
@@ -6992,10 +6992,10 @@
       "actualMargin": null,
       "awayFpi": 1.651,
       "homeFpi": -2.911,
-      "predictedMargin": -3,
+      "predictedMargin": -3.5,
       "predictionError": null,
-      "homeWinProbability": 0.382,
-      "awayWinProbability": 0.615,
+      "homeWinProbability": 0.36,
+      "awayWinProbability": 0.637,
       "predictionSource": "espn"
     },
     {
@@ -7036,10 +7036,10 @@
       "actualMargin": null,
       "awayFpi": -0.925,
       "homeFpi": -5.899,
-      "predictedMargin": -2.2,
+      "predictedMargin": -1.3,
       "predictionError": null,
-      "homeWinProbability": 0.412,
-      "awayWinProbability": 0.584,
+      "homeWinProbability": 0.448,
+      "awayWinProbability": 0.548,
       "predictionSource": "espn"
     },
     {
@@ -7058,10 +7058,10 @@
       "actualMargin": null,
       "awayFpi": -6.304,
       "homeFpi": 2.055,
-      "predictedMargin": 9.4,
+      "predictedMargin": 9.8,
       "predictionError": null,
-      "homeWinProbability": 0.826,
-      "awayWinProbability": 0.172,
+      "homeWinProbability": 0.833,
+      "awayWinProbability": 0.166,
       "predictionSource": "espn"
     }
   ]
